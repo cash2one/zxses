@@ -1,6 +1,5 @@
 package com.lcweb.struts.action;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,20 +12,13 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
 import com.lcweb.base.util.PageList;
-import com.lcweb.base.util.SysObj;
-import com.lcweb.bean.pojo.BasicPerson;
 import com.lcweb.bean.pojo.FrontMessage;
 import com.lcweb.bean.pojo.FrontUser;
-import com.lcweb.commons.CheckRight;
-import com.lcweb.commons.CipherUtil;
-import com.lcweb.service.front.FrontLoginService;
 import com.lcweb.service.message.MessageService;
-import com.lcweb.struts.form.FrontUserForm;
 import com.lcweb.struts.form.MessageForm;
 
 public class MessageAction extends DispatchAction {
 	private MessageService messageService;
-	private CheckRight checkRight;
 	
 	/**
 	 * 查询留言列表信息（审批后的留言）
@@ -38,10 +30,10 @@ public class MessageAction extends DispatchAction {
 		if (!right) {
 			return mapping.findForward("noright");
 		}*/
-		String sql = "from FrontMessage c where 1=1 and c.approveStatus = 1 ";
+		String sql = "from FrontMessage c where 1=1 and c.approveStatus = 1 order by c.messageDate desc ";
 		String sqlCount = "select count(*) from FrontMessage c where 1=1 and c.approveStatus = 1";
 		
-		String path = request.getContextPath() + "/front/messagemanage.do?method=queryMessage";
+		String path = request.getContextPath() + "/front/message.do?method=queryMessage";
 		String pagesize = request.getParameter("pagesize");
 		String currentPage = request.getParameter("currentPage");
 
@@ -53,32 +45,55 @@ public class MessageAction extends DispatchAction {
 	}
 	
 	/**
+	 * 跳转到留言界面
+	 */
+	public ActionForward toAddMessage(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		return mapping.findForward("toAddMessage");
+	}
+	
+	
+	/**
 	 * 新增留言
 	 */
 	public ActionForward addMessage(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		MessageForm userForm = (MessageForm)form;
+		MessageForm messageForm = (MessageForm)form;
+		
 		FrontMessage message = new FrontMessage();
 		
-		FrontUser user = (FrontUser)messageService.queryObjectById(FrontUser.class, userForm.getFrontUserId());
-		
-		message.setFrontUser(user);
-		message.setMessageContent(userForm.getMessageContent());
-		message.setMessageDate(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
-		message.setFacePic(userForm.getFacePic());
-		message.setHeadPic(userForm.getHeadPic());
-		message.setApproveStatus((short)0);
-		message.setTop((short)0);
-		
+		//只有登录用户才能留言
+		if(messageForm.getFrontUserId() == 0){
+			//页面没有传递，则判断session中是否有用户，可能采用ajax登录然后留言
+			FrontUser frontUser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
+			if(frontUser != null){
+				message.setFrontUser(frontUser);
+				
+				message.setMessageContent(messageForm.getMessageContent());
+				message.setMessageDate(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
+				message.setFacePic(messageForm.getFacePic());
+				message.setHeadPic(messageForm.getHeadPic());
+				message.setApproveStatus((short)0);
+				message.setTop((short)0);
+			}else{
+				return mapping.findForward("fail");
+			}
+		}else{
+			FrontUser user = (FrontUser)messageService.queryObjectById(FrontUser.class, messageForm.getFrontUserId());
+			
+			message.setFrontUser(user);
+			message.setMessageContent(messageForm.getMessageContent());
+			message.setMessageDate(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
+			message.setFacePic(messageForm.getFacePic());
+			message.setHeadPic(messageForm.getHeadPic());
+			message.setApproveStatus((short)0);
+			message.setTop((short)0);
+		}
 		messageService.saveObject(message);
-		return new ActionForward("/");
+		return mapping.findForward("success");
 	}
 
 	public void setMessageService(MessageService messageService) {
 		this.messageService = messageService;
-	}
-
-	public void setCheckRight(CheckRight checkRight) {
-		this.checkRight = checkRight;
 	}
 }

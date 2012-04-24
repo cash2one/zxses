@@ -1,5 +1,8 @@
 package com.lcweb.struts.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,9 +47,17 @@ public class FrontUserAction extends DispatchAction {
 				WebUtil.writeResponse(response, "codeFail");
 				return null;
 			}else {
+				//记录没有逻辑删除
 				if(frontUser.getRecordStatus() == 1){
-					request.getSession().setAttribute("frontUserInfo",frontUser);
-					return new ActionForward("/client/index/content/login_reg/userInfo.jsp");
+					//检查用户是否启用(启用)
+					if(frontUser.getAvailable() == 1){
+						request.getSession().setAttribute("frontUserInfo",frontUser);
+						return new ActionForward("/client/index/content/login_reg/userInfo.jsp");
+					}else{
+						WebUtil.writeResponse(response, "userDisable");
+						return null;
+					}
+					
 				}else{
 					WebUtil.writeResponse(response, "userDisable");
 					return null;
@@ -75,6 +86,13 @@ public class FrontUserAction extends DispatchAction {
 		frontUser.setAddress(userForm.getAddress());
 		frontUser.setPhone(userForm.getPhone());
 		frontUser.setEmail(userForm.getEmail());
+		frontUser.setCreateTime(new SimpleDateFormat("yyyy-MM-dd hh:ss:mm").format(new Date()));
+		//需要审批
+		frontUser.setApproveStatus((short)0);
+		//默认启用
+		frontUser.setAvailable((short)1);
+		//有效记录
+		frontUser.setRecordStatus((short)1);
 		frontLoginService.saveObject(frontUser);
 		
 		request.getSession().setAttribute("frontUserInfo",frontUser);

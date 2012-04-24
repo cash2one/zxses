@@ -29,8 +29,27 @@ public class FrontUser implements java.io.Serializable {
 	private Short available;
 	private Short recordStatus;
 	private Set frontMessages = new HashSet(0);
+	
+	private String approveStatusStr;
+	private String availableStr;
 
 	// Constructors
+
+	public String getApproveStatusStr() {
+		if(approveStatus == 1){
+			return "<font color='green'>已审批</font>";
+		}else{
+			return "<font color='red'>未审批</font>";
+		}
+	}
+
+	public String getAvailableStr() {
+		if(available == 1){
+			return "<font color='green'>启用</font>";
+		}else{
+			return "<font color='red'>禁用</font>";
+		}
+	}
 
 	/** default constructor */
 	public FrontUser() {

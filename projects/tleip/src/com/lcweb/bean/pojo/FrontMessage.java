@@ -21,6 +21,16 @@ public class FrontMessage implements java.io.Serializable {
 	private Short approveStatus;
 	private Short top;
 
+	private String approveStatusStr;
+	
+	public String getApproveStatusStr() {
+		if(approveStatus == 1){
+			return "<font color='green'>已审批</font>";
+		}else{
+			return "<font color='red'>未审批</font>";
+		}
+	}
+	
 	// Constructors
 
 	/** default constructor */

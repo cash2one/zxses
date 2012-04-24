@@ -109,7 +109,7 @@
 					--%>
 				</div>
 				
-				<html:form action="front/messagemanage.do?method=queryMessage"
+				<html:form action="front/message.do?method=queryMessage"
 					method="post">
 				<div id="right" class="fr">
 					<div class="art_title">
@@ -120,9 +120,9 @@
 							<table width="100%" border="0" align="center" >
 								<tr>
 									<td align="center" valign="top">
-										<a href="${basePath }front/messagemanage.do?method=queryMessage"><img
+										<a href="${basePath }front/message.do?method=toAddMessage"><img
 												src="${basePath }res/client/images/message/write.gif" border="0"></img> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<a href="${basePath }front/messagemanage.do?method=queryMessage"><img
+										<a href="${basePath }front/message.do?method=queryMessage"><img
 												src="${basePath }res/client/images/message/read.gif" border="0"></img> </a>
 									</td>
 								</tr>
@@ -141,7 +141,7 @@
 												<td valign='top' width='25%' rowspan='2'
 													align='center' class="userInfo">
 													<div align='center' style='width: 80%'>
-														<img src='${basePath }res/client/images/message/face/pic8.gif' />
+														<img src='${basePath }res/client/images/message/face/${column.headPic}' />
 													</div>
 													<div align='left' style='width: 80%'>
 														姓名：${column.frontUser.userAccount}
@@ -158,7 +158,7 @@
 													</div>
 												</td>
 												<td width='75%' height='20px' class="postdate" align="left">
-													<img border=0 src="${basePath }res/client/images/message/face/face1.gif"/>
+													<img border=0 src="${basePath }res/client/images/message/face/${column.facePic}"/>
 													发表于：${column.messageDate}
 												</td>
 											</tr>

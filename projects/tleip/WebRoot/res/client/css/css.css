@@ -235,6 +235,26 @@ a:hover,a:active {
 	margin-left: 10px;
 }
 
+/*网站前台统一按钮样式*/
+.uniformButton{
+	border: medium none;
+	background: url("img/regit.gif") no-repeat;
+	width: 62px;
+	height: 22px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+/*留言板翻页按钮*/
+.an{
+	border: medium none;
+	background: url("img/regit.gif") no-repeat;
+	width: 62px;
+	height: 22px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
 .for_form li.check {
 	position: absolute;
 	right: 5px;

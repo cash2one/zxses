@@ -251,7 +251,7 @@
 												<td align="right" valign="bottom">
 												</td>
 												<td valign="bottom" align="left" style="padding-left: 10px;">
-													<input type="submit" name="btnReg" value="注 册"
+													<input type="submit" name="btnReg" class="uniformButton" value="注 册"
 													id="btnReg" onclick=""
 													 />
 												</td>

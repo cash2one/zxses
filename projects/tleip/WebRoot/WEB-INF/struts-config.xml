@@ -374,11 +374,23 @@
 		
 		<!-- message start  -->
 		<action attribute="messageForm" name="messageForm" 
-			path="/front/messagemanage" parameter="method" scope="request"
+			path="/front/message" parameter="method" scope="request"
 			type="com.lcweb.struts.action.MessageAction">
 			<forward name="messageIndex" path="/client/index/content/message/messageIndex.jsp"></forward>
+			<forward name="toAddMessage" path="/client/index/content/message/messageAdd.jsp"></forward>
+			<forward name="success" path="/client/index/content/message/success.jsp"></forward>
+			<forward name="fail" path="/client/index/content/message/fail.jsp"></forward>
 		</action>
-		<!-- member(background frontUser) end  -->
+		<!-- message end -->
+		
+		<!-- message(background frontmessage) end  -->
+		<action attribute="messageForm" name="messageForm" 
+			path="/view/messagemanage" parameter="method" scope="request"
+			type="com.lcweb.struts.action.MessageManageAction">
+			<forward name="messageList" path="/view/messagemanage/messageList.jsp"></forward>
+		</action>
+		<!-- message(background frontmessage) end  -->
+		
 		<!-- front login start -->
 		<action path="/front/login" parameter="method" scope="request" 
 			name="frontUserFrom" type="com.lcweb.struts.action.FrontUserAction"
