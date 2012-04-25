@@ -41,7 +41,7 @@
             <column name="create_time" length="20" not-null="true" />
         </property>
         <property name="updateTime" type="java.lang.String">
-            <column name="update_time" length="20" not-null="true" />
+            <column name="update_time" length="20"/>
         </property>
         <property name="approveStatus" type="java.lang.Short">
             <column name="approve_status" not-null="true" />

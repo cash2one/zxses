@@ -35,7 +35,6 @@ function checkSubmit() {
 	var userName = $("#userName");
 	var password = $("#password");
 	var rePassword = $("#rePassword");
-	var address = $("#address");
 	var email = $("#email");
 	
 	if($.trim(userAccount.val()) == ""){

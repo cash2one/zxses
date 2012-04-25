@@ -97,7 +97,9 @@ public class FrontUserAction extends DispatchAction {
 		
 		request.getSession().setAttribute("frontUserInfo",frontUser);
 		
-		return new ActionForward("/");
+		ActionForward forward = new ActionForward("/");
+		forward.setRedirect(true);
+		return forward;
 	}
 	
 	/**
@@ -120,8 +122,45 @@ public class FrontUserAction extends DispatchAction {
 	 */
 	public ActionForward loginOut(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		request.getSession().removeAttribute("logininfo");
+		request.getSession().removeAttribute("frontUserInfo");
 		request.getSession().invalidate();
+		ActionForward forward = new ActionForward("/");
+		forward.setRedirect(true);
+		return forward;
+	}
+	
+
+	/**
+	 * 跳转到修改个人信息
+	 */
+	public ActionForward toChangeInfo(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ActionForward forward = new ActionForward("/client/index/content/login_reg/changeUserInf.jsp");
+		return forward;
+	}
+	
+	/**
+	 * 修改个人信息
+	 */
+	public ActionForward changeInfo(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		FrontUserForm userForm = (FrontUserForm)form;
+		FrontUser frontUser = frontLoginService.findUserByAccount(userForm.getUserAccount());
+		
+		
+		//frontUser.setUserAccount(userForm.getUserAccount());
+		frontUser.setUserName(userForm.getUserName());
+		frontUser.setSex(userForm.getSex());
+		//不应该修改用户类型
+		//frontUser.setUserType(userForm.getUserType());
+		frontUser.setBirthday(userForm.getBirthday());
+		frontUser.setAddress(userForm.getAddress());
+		frontUser.setPhone(userForm.getPhone());
+		frontUser.setEmail(userForm.getEmail());
+		//修改时间
+		frontUser.setUpdateTime(new SimpleDateFormat("yyyy-MM-dd hh:ss:mm").format(new Date()));
+		frontLoginService.updateObject(frontUser);
+		
+		request.getSession().setAttribute("frontUserInfo",frontUser);
+		
 		ActionForward forward = new ActionForward("/");
 		forward.setRedirect(true);
 		return forward;

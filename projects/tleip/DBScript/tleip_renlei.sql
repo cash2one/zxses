@@ -13,7 +13,7 @@ CREATE TABLE `front_user` (
   `phone` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `create_time` varchar(20) NOT NULL,
-  `update_time` varchar(20) NOT NULL,
+  `update_time` varchar(20),
   `approve_status` tinyint(4) NOT NULL,
   `available` tinyint(4) NOT NULL COMMENT '禁用状态',
   `record_status` tinyint(4) NOT NULL COMMENT '状态标识（逻辑删除字段）',

@@ -28,7 +28,7 @@ public class MessageManageAction extends DispatchAction {
 		if (!right) {
 			return mapping.findForward("noright");
 		}
-		String sql = "from FrontMessage c where 1=1 ";
+		String sql = "from FrontMessage c where 1=1 order by c.messageDate desc";
 		String sqlCount = "select count(*) from FrontMessage c where 1=1 ";
 		
 		String path = request.getContextPath() + "/view/messagemanage.do?method=queryMessage";
