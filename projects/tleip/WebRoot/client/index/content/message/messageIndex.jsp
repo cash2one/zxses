@@ -83,8 +83,8 @@
 				</div>
 				<div id="left" class="fl">
 					<!-- 左列 -->
-					<ul>
-					<%--
+					
+					<%--<ul>
 					<li><a href="">教师文萃</a>
 						<ul>
 							<li><a href="">班主任工作的探索</a></li>
@@ -93,8 +93,8 @@
 						</ul>
 					</li>
 					<li><a href="">最新图片</a></li>
-					--%>
-					</ul>
+					</ul>--%>
+					<a href="<%=basePath%>front/vote.do?method=queryVoteList">网络投票</a>
 					<div class="contact">
 						<img src="<%=basePath%>res/client/css/img/contact.gif" />
 					</div>

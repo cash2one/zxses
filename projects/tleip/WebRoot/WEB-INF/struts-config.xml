@@ -34,6 +34,8 @@
 			type="com.lcweb.struts.form.FindPasswordForm" />
 		<form-bean name="messageForm"
 			type="com.lcweb.struts.form.MessageForm" />
+		<form-bean name="voteForm"
+			type="com.lcweb.struts.form.VoteForm" />
 	</form-beans>
 	<global-forwards>
 		<forward name="noright" path="/noright.jsp"></forward>
@@ -390,6 +392,24 @@
 			<forward name="messageList" path="/view/messagemanage/messageList.jsp"></forward>
 		</action>
 		<!-- message(background frontmessage) end  -->
+		
+		<!-- vote(background vote) end  -->
+		<action attribute="voteForm" name="voteForm" 
+			path="/view/votemanage" parameter="method" scope="request"
+			type="com.lcweb.struts.action.VoteManageAction">
+			<forward name="voteList" path="/view/votemanage/voteTitleList.jsp"></forward>
+			<forward name="voteTitleAdd" path="/view/votemanage/voteTitleAdd.jsp"></forward>
+			<forward name="voteTitleDetails" path="/view/votemanage/voteTitleDetails.jsp"></forward>
+		</action>
+		<!-- vote(background vote) end  -->
+		
+		<!-- vote(front vote) start  -->
+		<action attribute="voteForm" name="voteForm" 
+			path="/front/vote" parameter="method" scope="request"
+			type="com.lcweb.struts.action.VoteManageAction">
+			<forward name="voteFrontList" path="/client/index/content/vote/voteIndex.jsp"></forward>
+		</action>
+		<!-- vote(front vote) end  -->
 		
 		<!-- front login start -->
 		<action path="/front/login" parameter="method" scope="request" 

@@ -54,6 +54,10 @@
 		<property name="baseDao" ref="baseDaoProxy"></property>
 	</bean>
 	
+	<bean id="voteService" class="com.lcweb.service.vote.VoteServiceImpl">
+		<property name="baseDao" ref="baseDaoProxy"></property>
+	</bean>
+	
 	<!-- 前台登录 -->
 	<bean id="frontLoginService"
 		class="com.lcweb.service.front.FrontLoginServiceImpl">

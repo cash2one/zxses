@@ -16,18 +16,30 @@ public class VoteTitle implements java.io.Serializable {
 	private Long voteId;
 	private String voteName;
 	private Byte voteType;
+	private String voteDate;
 	private Set voteItemses = new HashSet(0);
+	
+	private String voteTypeStr;
 
 	// Constructors
+
+	public String getVoteTypeStr() {
+		if(voteType == 1){
+			return "<font color='green'>单选</font>";
+		}else{
+			return "<font color='green'>多选</font>";
+		}
+	}
 
 	/** default constructor */
 	public VoteTitle() {
 	}
 
 	/** full constructor */
-	public VoteTitle(String voteName, Byte voteType, Set voteItemses) {
+	public VoteTitle(String voteName, Byte voteType, String voteDate, Set voteItemses) {
 		this.voteName = voteName;
 		this.voteType = voteType;
+		this.voteDate = voteDate;
 		this.voteItemses = voteItemses;
 	}
 
@@ -55,6 +67,14 @@ public class VoteTitle implements java.io.Serializable {
 
 	public void setVoteType(Byte voteType) {
 		this.voteType = voteType;
+	}
+
+	public String getVoteDate() {
+		return this.voteDate;
+	}
+
+	public void setVoteDate(String voteDate) {
+		this.voteDate = voteDate;
 	}
 
 	public Set getVoteItemses() {
