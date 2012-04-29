@@ -111,8 +111,26 @@ public class NewsClientAction extends DispatchAction {
 	@SuppressWarnings("unchecked")
 	public ActionForward queryRollImage(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		return new ActionForward("/client/index/content/rollimage.jsp");
+		String classId = SystemConst.TL_PHOTOLINK;
+		NewsItemBig itemBig = newsClientService.getNewsItemBigByClassId(classId);
+		List<NewsItemSmall> newsItemList = newsClientService.queryNewsItemSmallByClassId(classId,
+				GlobalConst.IS_DISPLAY);
+		if (itemBig != null && newsItemList.size() > 0) {
+			NewsItemSmall itemSmall = newsItemList.get(0);
+			Set configSet = itemSmall.getNewsItemConfigs();
+			NewsItemConfig newsItemConfig = (NewsItemConfig) configSet.toArray()[0];
+			List<NewsContentManage> contentManageList = newsClientService.queryNewsContentManagerByTypeIdForPage(
+					itemSmall.getTypeId(), 0, newsItemConfig.getDisplayRowCount());
+			if(contentManageList.size()>0){
+				request.setAttribute("itemBig", itemBig);
+				request.setAttribute("contentManageList", contentManageList);
+				return new ActionForward("/client/index/content/rollimage.jsp");
+			}
+		}
+		return null;
 	}
+	
+	
 	/**
 	 * 
 	 * @Description: 联系我们

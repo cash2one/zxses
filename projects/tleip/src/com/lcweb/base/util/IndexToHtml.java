@@ -71,6 +71,8 @@ public class IndexToHtml {
 		paraMap.put(GlobalConst.HTML_HEADMASTERS, basePath + "client/newsClient.do?method=queryHeadmasters");
 		// HTML_LIB
 		paraMap.put(GlobalConst.HTML_LIB, basePath + "client/newsClient.do?method=queryLib");
+		// HTML_LIB
+		paraMap.put(GlobalConst.HTML_CONTACT, basePath + "client/newsClient.do?method=queryContact");
 		
 		// 顶部菜单
 		paraMap.put(GlobalConst.HTML_MENU, basePath + "client/newsClient.do?method=queryMenu");

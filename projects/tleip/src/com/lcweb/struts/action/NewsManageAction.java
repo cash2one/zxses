@@ -2236,7 +2236,9 @@ public class NewsManageAction extends DispatchAction {
 		 
 		ncm.setNewsTemplate(newsTemplate);
 		ncm.setIfImgNews(ifImgNews);
-		ncm.setImgNewsAddress(imgNewsAddress);
+		if(imgNewsAddress!=null&&!"".equals(imgNewsAddress)){
+			ncm.setImgNewsAddress(GlobalConst.UPLOAD_PATH+imgNewsAddress);
+		}
 		ncm.setImgNewsTitle(imgNewsTitle);
 		ncm.setIfTitleImg(ifTitleImg);
 		if ("".equals(ifTopRow) || (ifTopRow == null)) {
@@ -2245,7 +2247,9 @@ public class NewsManageAction extends DispatchAction {
 		ncm.setIfTopRow(ifTopRow);
 		ncm.setIfRecommend(ifRecommend);
 		ncm.setHttpUrl(httpUrl);
-		ncm.setAnnexAddress(GlobalConst.UPLOAD_PATH+annexAddress);
+		if(annexAddress!=null&&!"".equals(annexAddress)){
+			ncm.setAnnexAddress(GlobalConst.UPLOAD_PATH+annexAddress);
+		}
 		ncm.setIfVodNews(ifVodNews);
 		ncm.setDisplayOrderId(StringUtil.getNullInt(displayOrderId));
 		ncm.setCheckPerson(checkPerson);
@@ -2502,7 +2506,9 @@ public class NewsManageAction extends DispatchAction {
 		}
 		ncm.setNewsTemplate(newsTemplate);
 		ncm.setIfImgNews(ifImgNews);
-		ncm.setImgNewsAddress(imgNewsAddress);
+		if(imgNewsAddress!=null&&!"".equals(imgNewsAddress)){
+			ncm.setImgNewsAddress(GlobalConst.UPLOAD_PATH+imgNewsAddress);
+		}
 		ncm.setImgNewsTitle(imgNewsTitle);
 		ncm.setIfTitleImg(ifTitleImg);
 		if ("".equals(ifTopRow) || (ifTopRow == null)) {
@@ -2511,7 +2517,9 @@ public class NewsManageAction extends DispatchAction {
 		ncm.setIfTopRow(ifTopRow);
 		ncm.setIfRecommend(ifRecommend);
 		ncm.setHttpUrl(httpUrl);
-		ncm.setAnnexAddress(GlobalConst.UPLOAD_PATH+annexAddress);
+		if(annexAddress!=null&&!"".equals(annexAddress)){
+			ncm.setAnnexAddress(GlobalConst.UPLOAD_PATH+annexAddress);
+		}
 		ncm.setIfVodNews(ifVodNews);
 		ncm.setDisplayOrderId(StringUtil.getNullInt(displayOrderId));
 		ncm.setCheckPerson(checkPerson);
@@ -2603,7 +2611,7 @@ public class NewsManageAction extends DispatchAction {
 		
 		//获取上传文件路径
 		String baseDir = request.getSession().getServletContext().getRealPath("");
-		String realFilePath = baseDir + GlobalConst.UPLOAD_PATH;
+		String realFilePath = baseDir +"/";
 		
 		String newsImgAddress="";
 		int delRecords = 0;

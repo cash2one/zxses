@@ -5,9 +5,6 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-	String workPath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()+ "/images/";	
-	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -527,7 +524,7 @@
 																				<c:if
 																					test="${newsContentManage.imgNewsAddress != '' }">
 																					<img name=faceImg0
-																						src="<%=workPath%>${newsContentManage.imgNewsAddress}"
+																						src="<%=basePath%>${newsContentManage.imgNewsAddress}"
 																						width="120" height="100" />
 																				</c:if>
 																			</div>
@@ -631,7 +628,7 @@
 																				<c:if
 																					test="${newsContentManage.imgNewsAddress != '' }">
 																					<img name="faceImg1"
-																						src="<%=workPath%>${newsContentManage.imgNewsAddress}"
+																						src="<%=basePath%>${newsContentManage.imgNewsAddress}"
 																						width="120" height="100"/>
 																				</c:if>
 																			</div>

@@ -7,9 +7,6 @@ public class GlobalConst {
 	//学校代码
 	public static final String SchoolCode = "10000";
 	public static final String SchoolName = "深圳市南山区塘朗小学";
-//	// 网络学院
-//	public static final String NET_INSTITUTE = "10100";
-//	public static final String INSTRUCTOR_BLOG = "10200";
 
 	public static final String FirstPageMark = "FirstPage";
 	public static final String IS_DISPLAY = "1";
@@ -44,6 +41,7 @@ public class GlobalConst {
 	public static final String HTML_FRIENDLINK = "HTML_FRIENDLINK"; // HTML_FRIENDLINK
 	public static final String HTML_SKYSTARS = "HTML_SKYSTARS"; // HTML_SKYSTARS
 	public static final String HTML_HEADMASTERS = "HTML_HEADMASTERS"; // HTML_HEADMASTERS
+	public static final String HTML_CONTACT = "HTML_CONTACT"; // HTML_CONTACT
 	
 	//公共部分
 	public static final String HTML_MENU = "HTML_MENU"; //顶部菜单

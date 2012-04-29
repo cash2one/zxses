@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="gbk"%>
+<%@ include file="/commons/tags.inc"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -6,99 +7,47 @@
 			+ path + "/";
 %>
 <script type="text/javascript"
-			src="<%=basePath%>res/client/js/jquery.cycle.js"></script>
+	src="<%=basePath%>tools/myFocus/js/myfocus-1.2.4.full.js"></script>
+<!--引入myFocus库-->
+<script type="text/javascript"
+	src="<%=basePath%>tools/myFocus/js/pattern/mF_expo2010.js"></script>
+<!--引入风格应用js-->
+<link rel="stylesheet"
+	href="<%=basePath%>tools/myFocus/js/pattern/mF_expo2010.css" />
+<!--引入风格应用css-->
 <script type="text/javascript">
-	$(function(){
-		$('#banner').cycle({ 
-				fx:'scrollLeft',
-				pager:'#btn'
-		});
-	})
+myFocus.set({
+    id:'boxID',//焦点图盒子ID
+    pattern:'mF_expo2010',//风格应用的名称
+    time:3,//切换时间间隔(秒)
+    trigger:'mouseover',//触发切换模式:'click'(点击)/'mouseover'(悬停)
+    width:980,//设置图片区域宽度(像素)
+    height:405,//设置图片区域高度(像素)
+    txtHeight:'0',//文字层高度设置(像素),'default'为默认高度，0为隐藏
+	autoZoom:'true'
+});
 </script>
-<style type="text/css">
-.l-a {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-right-none.png)
-		no-repeat;
-}
-
-* html .l-a {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-right-none.gif)
-		no-repeat;
-}
-
-.l-h {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-right-next.png)
-		no-repeat;
-}
-
-* html .l-h {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-right-next.gif)
-		no-repeat;
-}
-
-.r-a {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-left-none.png)
-		no-repeat;
-	margin-left: 300px;
-}
-
-* html .r-a {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-left-none.gif)
-		no-repeat;
-	margin-left: 200px;
-}
-
-.r-h {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-left-next.png)
-		no-repeat;
-	margin-left: 300px;
-}
-
-* html .r-h {
-	BACKGROUND: url(<%=basePath%>res/client/css/img/icon-left-next.gif)
-		no-repeat;
-	margin-left: 200px;
-}
-</style>
-<!--图片幻灯-->
-<div class=frame>
-	<div class=frames id=zzjs_net>
-		<a href="<%=basePath%>" target="_blank">
-			<div id=f1
-				style="BACKGROUND: url(<%=basePath%>res/client/images/01_banner.jpg); OVERFLOW: hidden; WIDTH: 1006px; POSITION: absolute; HEIGHT: 416px">
-			</div></a>
-		<a href="<%=basePath%>" target="_blank">
-			<div class=frame-2 id=f2></div> </a>
-		<a href="<%=basePath%>" target="_blank">
-			<div class=frame-3 id=f3></div> </a>
-		<a href="<%=basePath%>" target="_blank">
-			<div class=frame-4 id=f4></div> </a>
-		<a href="<%=basePath%>" target="_blank">
-			<div class=frame-5 id=f5></div> </a>
+<div id="boxID" style="visibility: hidden">
+	<!--焦点图盒子-->
+	<div class="loading">
+		<span>请稍候...</span>
 	</div>
-	<div class=controls>
-		<div class="arrow l-a" onmouseover=highlightA(this); onclick=prevF();
-			onmouseout=dehighlightA(this);></div>
-		<div class=off id=control1 onmouseover=hover(1) onclick=press(1,false)
-			onmouseout=out(1)></div>
-		<div class=off id=control2 onmouseover=hover(2) onclick=press(2,false)
-			onmouseout=out(2)></div>
-		<div class=off id=control3 onmouseover=hover(3) onclick=press(3,false)
-			onmouseout=out(3)></div>
-		<div class=off id=control4 onmouseover=hover(4) onclick=press(4,false)
-			onmouseout=out(4)></div>
-		<div class="arrow r-a" onmouseover=highlightA(this); onclick=nextF();
-			onmouseout=dehighlightA(this);></div>
-	</div>
-	<INPUT id=numFrame type=hidden value=4></INPUT>
-	<a href="<%=basePath%>" target="_blank"><INPUT id=images1 type=hidden
-			value="<%=basePath%>res/client/images/01_banner.jpg"></INPUT> </a>
-	<a href="<%=basePath%>" target="_blank"><INPUT id=images2 type=hidden
-			value="<%=basePath%>res/client/images/02_banner.jpg"></INPUT> </a>
-	<a href="<%=basePath%>" target="_blank"><INPUT id=images3 type=hidden
-			value="<%=basePath%>res/client/images/03_banner.jpg"></INPUT> </a>
-	<a href="<%=basePath%>" target="_blank"><INPUT id=images4 type=hidden
-			value="<%=basePath%>res/client/images/04_banner.jpg"></INPUT> </a>
+	<!--载入画面(可删除)-->
+	<ul class="pic">
+		<!--内容列表-->
+		<logic:iterate id="content" name="contentManageList">
+			<c:choose>
+				<c:when test="${content.imgNewsAddress != null && content.imgNewsAddress != ''}">
+					<li>
+						<img src="<%=basePath%>${content.imgNewsAddress}" />
+					</li>
+				</c:when>
+				<c:otherwise>
+					<li>
+						<img src="<%=basePath%>res/client/images/example.jpg" />
+					</li>
+				</c:otherwise>
+			</c:choose>
+		</logic:iterate>
+	</ul>
 </div>
-<div class="clear"></div>
-<script type="text/javascript" src="<%=basePath%>res/client/js/cycle.js"></script>

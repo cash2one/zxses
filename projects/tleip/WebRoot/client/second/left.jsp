@@ -61,6 +61,6 @@
 </div>
 <div class="message">
 	<a href="mailto:tlx-lsw@nsjy.com" class="textbg">校长信箱</a>
-	<a href="#">留言请进</a>
+	<a href="<%=basePath %>front/message.do?method=queryMessage">留言请进</a>
 </div>
 
