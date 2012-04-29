@@ -28,7 +28,7 @@
 	</logic:iterate>
 </div>
 <div class="ui-tabs-panel ui-tabs-hide">
-	<ul>
+	<ul class="list_li">
 	<logic:iterate id="content_news" name="contentManageList_news">
 	<c:set var="character_news" value="${newsItemConfig_news.titleCharacterCount}" />
 	<c:if test="${content_news.announceType==0}">
@@ -68,7 +68,7 @@
 	</ul>
 </div>
 <div class="ui-tabs-panel  ui-tabs-hide">
-<ul>
+<ul class="list_li">
 	<logic:iterate id="content_notice" name="contentManageList_notice">
 	<c:set var="character_notice" value="${newsItemConfig_notice.titleCharacterCount}" />
 	<c:if test="${content_notice.announceType==0}">

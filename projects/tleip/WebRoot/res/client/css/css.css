@@ -176,7 +176,7 @@ a:hover,a:active {
 
 /*mian*/
 #main {
-	margin: 5px 0px 0px 0px;
+	margin: 10px 0px 10px 0px;
 }
 
 /*左边*/
@@ -236,7 +236,7 @@ a:hover,a:active {
 }
 
 /*网站前台统一按钮样式*/
-.uniformButton{
+.uniformButton {
 	border: medium none;
 	background: url("img/regit.gif") no-repeat;
 	width: 62px;
@@ -246,7 +246,7 @@ a:hover,a:active {
 }
 
 /*留言板翻页按钮*/
-.an{
+.an {
 	border: medium none;
 	background: url("img/regit.gif") no-repeat;
 	width: 62px;
@@ -397,24 +397,23 @@ a:hover,a:active {
 .ui-tabs-panel {
 	display: block;
 	width: 400px;
-	text-indent: 2em;
-	padding: 10px 0px 0px 0px;
-	height: 120px;
-	overflow: hidden;
-}
-
-.ui-tabs-panel p {
-	overflow: hidden;
-}
-
-.ui-tabs-panel ul li {
-	display: block;
-	overflow: hidden;
+	height: 140px;
+	padding: 8px 0px 0px 0px;
 }
 
 .ui-tabs-hide {
 	display: none;
 }
+
+.list_li {
+	padding: 0px 0px 0px 10px;
+}
+
+.list_li li {
+	background: url(img/li-list-icon.gif) no-repeat left;
+	padding-left: 8px;
+}
+
 .education {
 	width: 410;
 	overflow: hidden;
@@ -461,8 +460,9 @@ a:hover,a:active {
 
 .friendlink {
 	background: url(img/friendlin_bg.gif) no-repeat;
+	line-height: 23px;
 	width: 148px;
-	height: 145px;
+	height: 130px;
 }
 
 .friendlink h4 {
@@ -486,7 +486,7 @@ a:hover,a:active {
 	margin-left: 8px;
 	background: url(img/stars.gif) no-repeat center;
 	width: 260px;
-	height: 165px;
+	height: 130px;
 	position: relative;
 }
 
@@ -584,9 +584,10 @@ a:hover,a:active {
 	overflow: hidden;
 	background: #e8e8e8;
 	color: #333;
-	padding-bottom: 15px;
+	padding-top: 15px; padding-bottom : 15px;
 	border-top-right-radius: 3em;
 	border-top-left-radius: 3em;
+	padding-bottom: 15px;
 }
 
 .foot_bot {
@@ -810,6 +811,7 @@ h2 {
 	line-height: 28px;
 	font-weight: bold;
 }
+
 .art_time {
 	background: url(img/art_title_01.gif) no-repeat center top;
 	height: 41px;
@@ -866,51 +868,51 @@ h2 {
 }
 
 /*表格边框*/
-.panelInclude{
+.panelInclude {
 	border-bottom: 1px solid #2095A6;
-    border-left: 1px solid #2095A6;
-    border-right: 1px solid #2095A6;
-    border-top: 1px solid #2095A6;//#2095A6;
-    clear: left;
-    font-size: 12px;
-    margin: 0 auto;
-    padding-bottom: 30px;
-    padding-top: 30px;
+	border-left: 1px solid #2095A6;
+	border-right: 1px solid #2095A6;
+	border-top: 1px solid #2095A6;
+	clear: left;
+	font-size: 12px;
+	margin: 0 auto;
+	padding-bottom: 30px;
+	padding-top: 30px;
 }
 
 /* 必填字段标记* */
-.dot{
+.dot {
 	color: red;
 }
 
 .font-step {
-    color: #CC6600;
-    font-size: 14px;
-    font-weight: bold;
+	color: #CC6600;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .font14 {
-    font-size: 14px;
+	font-size: 14px;
 }
 
 .font14b {
-    font-size: 14px;
-    font-weight: bold;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .font12b {
-    font-size: 12px;
-    font-weight: bold;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 .font9 {
-    color: #000000;
-    font-size: 12px;
-    font-weight: normal;
+	color: #000000;
+	font-size: 12px;
+	font-weight: normal;
 }
 
 .a-your-account:link {
-    color: #003399;
-    font-size: 12px;
-    text-decoration: underline;
+	color: #003399;
+	font-size: 12px;
+	text-decoration: underline;
 }

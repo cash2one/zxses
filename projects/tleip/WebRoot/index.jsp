@@ -75,7 +75,9 @@
 				</div>
 				<div class="contact">
 					<!--contact-->
-					<img src="<%=basePath%>res/client/css/img/contact.gif" />
+					<bean:include id="queryContact"
+						page="/client/newsClient.do?method=queryContact" />
+					<bean:write name="queryContact" filter="false" />
 				</div>
 			</div>
 			<div class="scor_mid fl">

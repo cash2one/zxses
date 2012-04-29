@@ -25,8 +25,8 @@ public class SystemConst {
 	
 	
 	public static final String TL_MORAL = "1000012";//	三味德育 moral
-	public static final String TL_CLASS = "1000013";//	幸福课堂 class
-	public static final String TL_FILED = "1000014";//	生态乐园 filed
+	public static final String TL_CONTACT = "1000013";//	联系我们 contact
+//	public static final String TL_FILED = "1000014";//	生态乐园 filed
 	public static final String TL_LINK = "1000015";//	友情链接 link
 	public static final String TL_PHOTOLINK = "1000016";//	图片链接 photo_link 
 	public static final String TL_LIBRARY = "1000017";//	资源库 library

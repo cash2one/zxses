@@ -342,8 +342,10 @@ public class NewsManageServiceImpl extends BaseServiceImpl implements NewsManage
 	// -----------------------NewsItemBig end ----------------------
 
 	// -----------------------NewsItemSmall start ----------------------
+	@SuppressWarnings("unchecked")
 	public boolean checkUseedForNewsItemSmall(NewsItemSmall nis) {
-		if (nis.getNewsContentManages().size() > 0) {
+		List<NewsContentManage> ncms = queryNewsContentManageByTypeId(nis.getTypeId());
+		if (ncms.size() > 0) {
 			return true;
 		}
 		return false;

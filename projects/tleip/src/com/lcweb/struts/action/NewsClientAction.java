@@ -115,6 +115,21 @@ public class NewsClientAction extends DispatchAction {
 	}
 	/**
 	 * 
+	 * @Description: 联系我们
+	 * @Author: feng
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	public ActionForward queryContact(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		String classId = SystemConst.TL_CONTACT;
+		if (classId != null) {
+			request.setAttribute("classId", classId);
+		}
+		return new ActionForward("/client/index/content/contact.jsp");
+	}
+	/**
+	 * 
 	 * @Description: 首页登陆
 	 * @Author: feng
 	 * 
@@ -199,7 +214,42 @@ public class NewsClientAction extends DispatchAction {
 	@SuppressWarnings("unchecked")
 	public ActionForward queryTabspic(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		return new ActionForward("/client/index/content/tabspic.jsp");
+		
+		String classId = SystemConst.TL_MORAL;
+		NewsItemBig itemBig = newsClientService.getNewsItemBigByClassId(classId);
+		List<NewsItemSmall> newsItemList = newsClientService.queryNewsItemSmallByClassId(classId,
+				GlobalConst.IS_DISPLAY);
+		if (itemBig != null && newsItemList.size() > 0) {
+			request.setAttribute("itemBig", itemBig);
+			request.setAttribute("newsItemList", newsItemList);
+			return new ActionForward("/client/index/content/tabspic.jsp");
+		}
+		return null;
+	}
+	/**
+	 * 
+	 * @Description: 首页tabspic_content
+	 * @Author: feng
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	public ActionForward queryTabspicContent(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		String typeId = request.getParameter("typeId");
+		if (typeId != null && !"".equals(typeId)) {
+			NewsItemSmall itemSmall = newsClientService.getNewsItemSmallByTypeId(Integer.parseInt(typeId));
+			Set configSet = itemSmall.getNewsItemConfigs();
+			NewsItemConfig newsItemConfig = (NewsItemConfig) configSet.toArray()[0];
+			List<NewsContentManage> contentManageList = newsClientService.queryNewsContentManagerByTypeIdForPage(
+					itemSmall.getTypeId(), 0, newsItemConfig.getDisplayRowCount());
+			if(contentManageList.size()>0){
+				request.setAttribute("newsItemConfig", newsItemConfig);
+				request.setAttribute("contentManageList", contentManageList);
+				return new ActionForward("/client/index/content/tabspic_content.jsp");
+			}
+		}
+		return null;
 	}
 	/**
 	 * 

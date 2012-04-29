@@ -15,8 +15,5 @@
 	<li>
 		<a href="">[优秀作品] 海洋世界一天游</a>
 	</li>
-	<li>
-		<a href="">[笑话连篇] 不愿意怎么办？</a>
-	</li>
 </ul>
 <a href="" class="more">more</a>

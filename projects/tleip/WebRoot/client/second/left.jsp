@@ -54,7 +54,10 @@
 	</ul>
 </div>
 <div class="contact">
-	<img src="<%=basePath%>res/client/css/img/contact.gif" />
+	<!--contact-->
+		<bean:include id="queryContact"
+			page="/client/newsClient.do?method=queryContact" />
+		<bean:write name="queryContact" filter="false" />
 </div>
 <div class="message">
 	<a href="mailto:tlx-lsw@nsjy.com" class="textbg">–£≥§–≈œ‰</a>

@@ -1,8 +1,8 @@
 $(document).ready(function(){
 			/*第一种显示方式*/
 			//$("#three").addClass("select").siblings(".slide").animate({width:"show"},300);
-			$("#three").siblings(".slide").animate({width:"show"},300);
-			$("#three").css("display","none");
+			$("#tabspic_1").siblings(".slide").animate({width:"show"},300);
+			$("#tabspic_1").css("display","none");
 			$(".handle").click(function(){
 				if(!$(this).siblings(".slide").is(":visible")){
 					

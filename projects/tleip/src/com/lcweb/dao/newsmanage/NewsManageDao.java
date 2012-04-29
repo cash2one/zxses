@@ -37,7 +37,7 @@ public interface NewsManageDao extends BaseDao {
 	 * get NewsContentManage list
 	 */
 	public List queryNewsContentManage(Map paraMap);
-
+	
 	public int getMaxOrderIdByTableName(Map paraMap);
 
 	public String querySysModule(Map param);
