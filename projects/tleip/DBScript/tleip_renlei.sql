@@ -93,4 +93,40 @@ INSERT INTO `sys_module` VALUES ('0207020200', '审批', null, '0207020000', nul
 INSERT INTO `sys_module` VALUES ('0207020300', '反审批', null, '0207020000', null, 'unApprove', null, null);
 INSERT INTO `sys_module` VALUES ('0207020400', '删除', null, '0207020000', null, 'delete', null, null);
 
+/**投票主题表**/
+DROP TABLE IF EXISTS `vote_title`;
+CREATE TABLE `vote_title` (
+  `vote_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `vote_name` varchar(30) DEFAULT NULL,
+  `vote_type` tinyint(1) DEFAULT NULL,
+  `vote_date` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`vote_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 测试数据
+-- ----------------------------
+INSERT INTO `vote_title` VALUES ('6', '你觉得学校网站怎么样？', '2', '2012-04-30 12:45:52');
+
+/**投票选项表**/
+DROP TABLE IF EXISTS `vote_items`;
+CREATE TABLE `vote_items` (
+  `item_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(200) DEFAULT NULL,
+  `vote_id` bigint(20) NOT NULL,
+  `item_ballot` int(11) DEFAULT '0',
+  PRIMARY KEY (`item_id`),
+  KEY `vote_id` (`vote_id`),
+  CONSTRAINT `vote_items_fk` FOREIGN KEY (`vote_id`) REFERENCES `vote_title` (`vote_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 测试数据
+-- ----------------------------
+INSERT INTO `vote_items` VALUES ('23', '非常好', '6', '1343435');
+INSERT INTO `vote_items` VALUES ('24', '还不错', '6', '0');
+INSERT INTO `vote_items` VALUES ('25', '一般般', '6', '0');
+INSERT INTO `vote_items` VALUES ('26', '不好', '6', '0');
+
+
   
