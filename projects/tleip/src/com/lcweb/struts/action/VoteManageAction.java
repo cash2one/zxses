@@ -25,7 +25,7 @@ public class VoteManageAction extends DispatchAction {
 	private CheckRight checkRight;
 	
 	/**
-	 * 查询留言列表信息(后台管理)
+	 * 查询投票列表信息(后台管理)
 	 */
 	public ActionForward queryVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -142,7 +142,7 @@ public class VoteManageAction extends DispatchAction {
 	 */
 	public ActionForward queryVoteList(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		String sql = "from VoteTitle c where 1=1 order by c.voteDate desc";
+		/*String sql = "from VoteTitle c where 1=1 order by c.voteDate desc";
 		String sqlCount = "select count(*) from VoteTitle c where 1=1 ";
 		
 		String path = request.getContextPath() + "/front/vote.do?method=queryVoteList";
@@ -151,11 +151,29 @@ public class VoteManageAction extends DispatchAction {
 
 		PageList pageList = PageList.page(sqlCount, sql, currentPage, pagesize, path, voteService,
 				"voteForm");
-		request.setAttribute("pageList", pageList);
+		request.setAttribute("pageList", pageList);*/
 		//按照日期查询最新的投票
 		VoteTitle title = voteService.queryNewVoteTitle();
+		Integer totalCount = 1;
+		if(title != null){
+			totalCount = voteService.getItemsBallotCount(title.getVoteId());
+			//如果还没有投票记录 totalCount为0，前台计算百分比(items.itemBallot/0)会出现NaN问题,重新设置为1
+			if(totalCount == 0){
+				totalCount = 1;
+			}
+		}
 		request.setAttribute("voteTitle", title);
+		request.setAttribute("totalCount", totalCount);
 		
+		return mapping.findForward("voteFrontList");
+	}
+	
+	/**
+	 * 投票
+	 */
+	public ActionForward ballotVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		request.setAttribute("showMsg", SysObj.createAddMassageBox(""));
 		return mapping.findForward("voteFrontList");
 	}
 	

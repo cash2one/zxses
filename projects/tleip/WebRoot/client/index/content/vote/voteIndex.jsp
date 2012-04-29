@@ -32,7 +32,7 @@
 			src="<%=basePath%>res/client/js/util.js"></script>
 		<%@ include file="/inc/resources.jsp"%>
 		<script type="text/javascript" src="${basePath}tools/My97DatePicker/WdatePicker.js"></script>
-		<script type="text/javascript" src="${basePath}client/index/content/login_reg/jsfiles/userRegInf.js"></script>
+		<script type="text/javascript" src="${basePath}client/index/content/vote/voteIndex.js/voteindex.js"></script>
 		<style>
 			/*简单修改符合塘朗网站的功能*/
 			.wrap{
@@ -104,7 +104,7 @@
 														<tbody>
 															<tr>
 																<td>&nbsp;</td>
-																<td width="50" id="border"><nobr><b>人气值：</b><span id="hot_value">4,466,168</span></nobr></td>
+																<td width="50" id="border"><nobr><b>人气值：</b><span id="hot_value"><fmt:formatNumber value="${totalCount }" pattern="#,##0" type="number"/></span></nobr></td>
 															</tr>
 														</tbody>
 													</table>
@@ -129,35 +129,14 @@
 																			</td>
 																			<td width="170">
 																				<div id="result_bar_361707_25592" style="display: block; " class="process">
-																				<div style="width: 36.176px;" class="style${colorCount }" id="process_bar_361707_25592"></div></div>
+																				<div style="width: ${items.itemBallot * 170/ totalCount }px;" class="style${colorCount }" id="process_bar_361707_25592"></div></div>
 																			</td>
 																			<td width="110" id="process_txt_361707_25592" style="display: block; " class="black">
-																				<nobr>${items.itemBallot } (22.61%)</nobr>
+																				<nobr><fmt:formatNumber value="${items.itemBallot }" pattern="#,##0" type="number"/> (<fmt:formatNumber value="${items.itemBallot * 100 / totalCount}" pattern="0.##" type="number"/>%)</nobr>
 																			</td>
 																		</tr>
 																		<c:set var="colorCount" value="${colorCount + 1}" scope="page"/>
 																	</c:forEach>
-																	
-																	<%--
-																	<tr>
-																		<td width="430" style="padding-right:20px;">
-																			<label><input type="radio" onclick="AppPlatform.Survey.Option.check(this,361707,'sbj_361707[]',0);" value="25593" id="" name=""/>
-																			<span class="option">不会</span></label>
-																		</td>
-																		<td width="170"><div id="result_bar_361707_25593" style="display: block; " class="process"><div style="width: 104.896px;" class="style3" id="process_bar_361707_25593"></div></div></td>
-																		<td width="110" id="process_txt_361707_25593" style="display: block; " class="black"><nobr>976,023 (65.56%)</nobr>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td width="430" style="padding-right:20px;">
-																			<label><input type="radio" onclick="AppPlatform.Survey.Option.check(this,361707,'sbj_361707[]',0);" value="25594" id="opt_25594" name="sbj_361707[]"/>
-																			<span class="option">不好说</span></label>
-																		</td>
-																		<td width="170"><div id="result_bar_361707_25594" style="display: block; " class="process"><div style="width: 18.928px;" class="style4" id="process_bar_361707_25594"></div></div></td>
-																		<td width="110" id="process_txt_361707_25594" style="display: block; " class="black"><nobr>176,052 (11.83%)</nobr>
-																		</td>
-																	</tr>
-																	--%>
 																</tbody>
 															</table>
 														</div>

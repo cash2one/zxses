@@ -22,4 +22,14 @@ public class VoteServiceImpl extends BaseServiceImpl implements VoteService {
 		}
 		return null;
 	}
+
+	@Override
+	public Integer getItemsBallotCount(Long id) {
+		Object obj = this.queryObjectList("select sum(c.voteItemses.itemBallot) from VoteTitle c where c.voteId = " + id).get(0);
+		int recordCounts = 0 ;
+		if(obj != null){
+			recordCounts = (Integer) obj; 
+		}
+		return recordCounts;
+	}
 }

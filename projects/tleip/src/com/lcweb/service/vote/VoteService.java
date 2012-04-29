@@ -13,4 +13,6 @@ public interface VoteService extends BaseService{
 	 * 查询最新的投票
 	 */
 	public VoteTitle queryNewVoteTitle();
+	
+	public Integer getItemsBallotCount(Long id);
 }
