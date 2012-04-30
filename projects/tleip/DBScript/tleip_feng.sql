@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50132
 File Encoding         : 65001
 
-Date: 2012-04-30 09:36:27
+Date: 2012-04-30 13:02:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -166,7 +166,7 @@ CREATE TABLE `monitor` (
   `type_name` varchar(50) DEFAULT NULL,
   `status` char(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of monitor
@@ -205,6 +205,14 @@ INSERT INTO `monitor` VALUES ('31', '<font color=\"#ff0000\">feng</font>  修改
 INSERT INTO `monitor` VALUES ('32', '<font color=\"#ff0000\">feng</font>  修改：校园网FTP', '2012-04-17 12:27:03', 'feng', '资源库', '资源库', 'update');
 INSERT INTO `monitor` VALUES ('33', '<font color=\"#ff0000\">feng</font>  修改：视频服务器', '2012-04-17 12:27:20', 'feng', '资源库', '资源库', 'update');
 INSERT INTO `monitor` VALUES ('34', '<font color=\"#ff0000\">feng</font>  添加：请上传图片', '2012-04-30 09:26:54', 'feng', '图片链接', '轮播图片', 'add');
+INSERT INTO `monitor` VALUES ('35', '<font color=\"#ff0000\">feng</font>  添加：校长', '2012-04-30 11:51:22', 'feng', '图片链接', '校长', 'add');
+INSERT INTO `monitor` VALUES ('36', '<font color=\"#ff0000\">feng</font>  添加：副校长', '2012-04-30 11:51:33', 'feng', '图片链接', '副校长', 'add');
+INSERT INTO `monitor` VALUES ('37', '<font color=\"#ff0000\">feng</font>  添加：拥抱蓝色的海洋', '2012-04-30 11:54:23', 'feng', '三味德育', '三味德育', 'add');
+INSERT INTO `monitor` VALUES ('38', '<font color=\"#ff0000\">feng</font>  添加：关爱生命  安全出行', '2012-04-30 11:54:59', 'feng', '三味德育', '三味德育', 'add');
+INSERT INTO `monitor` VALUES ('39', '<font color=\"#ff0000\">feng</font>  添加：我校举行“世界防治结核病日”宣传月活动', '2012-04-30 11:55:06', 'feng', '三味德育', '三味德育', 'add');
+INSERT INTO `monitor` VALUES ('40', '<font color=\"#ff0000\">feng</font>  添加：塘朗小学铁路安全法规宣传片', '2012-04-30 11:55:14', 'feng', '三味德育', '三味德育', 'add');
+INSERT INTO `monitor` VALUES ('41', '<font color=\"#ff0000\">feng</font>  添加：塘朗小学第三届英语节活动采撷', '2012-04-30 11:55:27', 'feng', '三味德育', '幸福课堂', 'add');
+INSERT INTO `monitor` VALUES ('42', '<font color=\"#ff0000\">feng</font>  添加：向丛飞叔叔学习，交一元特殊队费活动', '2012-04-30 13:01:36', 'feng', '三味德育', '生态乐园', 'add');
 
 -- ----------------------------
 -- Table structure for `news_ad_manage`
@@ -281,7 +289,7 @@ CREATE TABLE `news_content_manage` (
   `newsFilesPath` text,
   `dept_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`news_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of news_content_manage
@@ -297,7 +305,7 @@ INSERT INTO `news_content_manage` VALUES ('8', '1', '广东省教育厅', '<p>&n
 INSERT INTO `news_content_manage` VALUES ('9', '1', '深圳市教育局', '<p>&nbsp;</p>', '', '', '', '3', '2012-04-15 15:08:12', '1', null, null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-15 15:08:18', '1', '0', 'client/htmlfiles/20120415150812/', '40');
 INSERT INTO `news_content_manage` VALUES ('10', '1', '少年之星', '<p>&nbsp;</p>', '', '', '', '3', '2012-04-15 15:08:18', '1', null, null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-15 15:08:30', '1', '0', 'client/htmlfiles/20120415150818/', '40');
 INSERT INTO `news_content_manage` VALUES ('11', '1', '生命教育', '<p>&nbsp;</p>', '', '', '', '3', '2012-04-15 15:08:30', '1', null, null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-15 15:08:40', '1', '0', 'client/htmlfiles/20120415150830/', '40');
-INSERT INTO `news_content_manage` VALUES ('12', '0', '校长寄语', '<p style=\"padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px\">&nbsp;叶小勇，男，1957年生，大学本科，中共党员，中学高级教师。现任深圳市塘朗小学校长兼党支部书记，南山区棋牌协会副会长，中国西部教育顾问，中国少年先锋队工作学会少年儿童信息研究员。担任六年级品德与社会课。1974年参加教育工作，先后担任大队辅导员、团委书记、副校长、校长兼党支部书记。曾七次被评为深圳市优秀教师、先进教育工作者、先进校长；十多次被评为南山区优秀党务工作者、优秀共产党员、德育先进工作者、法制宣传教育先进工作者、安全管理突出贡献个人等；深圳市第四期小学校长提高班“双优学员”；全国中小学棋类教学实验课题优秀个人。撰写的十多篇论文在国家、省、市、区刊物发表并获奖。其中《浅谈棋类教学促进德育的研究》获全国中小学科研论文特等奖。</p>', '校长寄语', '', '', '3', '2012-04-15 15:49:49', '1', 'client/htmlfiles/20120415154949/20120415154949_1334476296265.html', null, '', '', null, '0', null, '', null, null, '0', null, '2012-04-15 21:13:49', '1', '9', 'client/htmlfiles/20120415154949/', '40');
+INSERT INTO `news_content_manage` VALUES ('12', '0', '校长寄语', '<p style=\"padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px\">&nbsp;叶小勇，男，1957年生，大学本科，中共党员，中学高级教师。现任深圳市塘朗小学校长兼党支部书记，南山区棋牌协会副会长，中国西部教育顾问，中国少年先锋队工作学会少年儿童信息研究员。担任六年级品德与社会课。1974年参加教育工作，先后担任大队辅导员、团委书记、副校长、校长兼党支部书记。曾七次被评为深圳市优秀教师、先进教育工作者、先进校长；十多次被评为南山区优秀党务工作者、优秀共产党员、德育先进工作者、法制宣传教育先进工作者、安全管理突出贡献个人等；深圳市第四期小学校长提高班“双优学员”；全国中小学棋类教学实验课题优秀个人。撰写的十多篇论文在国家、省、市、区刊物发表并获奖。其中《浅谈棋类教学促进德育的研究》获全国中小学科研论文特等奖。</p>', '校长寄语', '', '', '3', '2012-04-15 15:49:49', '1', 'client/htmlfiles/20120415154949/20120415154949_1334476296265.html', null, '', '', null, '0', null, '', null, null, '0', null, '2012-04-15 21:13:49', '1', '11', 'client/htmlfiles/20120415154949/', '40');
 INSERT INTO `news_content_manage` VALUES ('13', '0', '我校开展向甘肃省地震灾区“送温暖、献爱心”活动', '<p>&nbsp;</p>', '我校开展向甘肃省地震灾区“送温暖、献爱心”活动', '', '', '3', '2012-04-15 16:54:53', '1', 'client/htmlfiles/20120415165453/20120415165453_1334480123875.html', null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-15 16:55:23', '1', '0', 'client/htmlfiles/20120415165453/', '40');
 INSERT INTO `news_content_manage` VALUES ('14', '0', '塘朗小学党支部红色之旅', '<p>&nbsp;</p>', '塘朗小学党支部红色之旅', '', '', '3', '2012-04-15 16:55:24', '1', 'client/htmlfiles/20120415165524/20120415165524_1334480135171.html', null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-15 16:55:35', '1', '0', 'client/htmlfiles/20120415165524/', '40');
 INSERT INTO `news_content_manage` VALUES ('15', '0', '“微笑迎大运，欢乐庆六一”艺术节展演', '<p>&nbsp;</p>', '“微笑迎大运，欢乐庆六一”艺术节展演', '', '', '3', '2012-04-15 16:55:35', '1', 'client/htmlfiles/20120415165535/20120415165535_1334480147328.html', null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-15 16:55:47', '1', '0', 'client/htmlfiles/20120415165535/', '40');
@@ -307,6 +315,14 @@ INSERT INTO `news_content_manage` VALUES ('18', '0', '共享三个教学工作�
 INSERT INTO `news_content_manage` VALUES ('19', '0', '共享三个教学工作重要文件。', '<p>&nbsp;</p>', '共享三个教学工作重要文件。', '', '', '3', '2012-04-15 21:04:25', '1', 'client/htmlfiles/20120415210425/20120415210425_1334495075937.html', null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-15 21:04:35', '1', '1', 'client/htmlfiles/20120415210425/', '40');
 INSERT INTO `news_content_manage` VALUES ('20', '0', '我校展开献爱心活动', '<p>&nbsp;&nbsp;&nbsp;&nbsp;塘朗小学坐落在风景秀丽的深圳大学城畔，巍巍塘朗山下，是南山区属完全小学。原名“上塘小学”，1952年由三所私塾合并成立。1958年更名为“塘朗小学”，一直沿用至今。<br />　　学校成立后，历届学校领导都注意端正办学思想，始终坚持德、智、体全面发展的教育方针，始终坚持建设一支素质高，稳定性强，治学严谨的教师队伍，始终坚持在教育教学改革锐意进取，不断创新，把学生培养成为全面发展的社会主义建设人才。这是塘朗小学办学的重要特征。<br />　　党的十一届三中全会后，塘朗小学进入稳定发展的时期。学校进一步贯彻党的教育方针，开展教育教学改革。以按照“三个面向”、“义务教育法”和德、智、体、美、劳全面发展的精神，为提高全民族素质和培养优秀人才作出贡献为办学指导思想。从严管理，依法治校，培育了“敬业”、“创新”、“严谨”、“求实”的教风和“尊师”、“守纪”、“勤学”、“奋进”的学风。<br />　　1986年，由于原有校舍破旧不堪，在上级领导的关怀下，学校易址新建。热心教育事业的郑籍天先生捐资修建了一幢二层的教学楼。1991年,建造了四层的教学大楼一幢。1992年，在塘朗、福光、长源三个村委的支持下顺利征得新运动场用地。1994年，在教育局支持下，建起教工宿舍楼，教工餐厅，200米跑道带足球场运动场。新建了电教室，校医室、宣传栏，升旗台、体育器材室，充实了6800册图书，新建教工俱乐部，安装了卫星天线地面接收系统。学校占地面积达到24788平方米，是当时南山区内占地面积较大的少数几个学校之一。至此，学校初具规模，教学质量也日益提高。<br />　　在改善办学条件的同时，学校始终坚持把德育工作放在一切工作的首位,坚持教书育人、服务育人、管理育人。在德育工作中采用了“三位一体”的教育模式。同时不断加强校外德育网络和德育基地的建设，逐步完善“学校、社会、家庭”三结合教育网络。坚持以教学工作为中心，学校提倡探索教学规律，改进教学方法虚心向外校学习。教学工作狠抓“双基”，注重学生学习能力和学习习惯的培养，还特别重视第二课堂活动的开展，在抓普及面的同时，强调抓特色，逐渐形成了美育特色和体育特色。狠抓教学常规管理，制定了《塘朗小学教学、课堂常规》、《塘朗小学教研常规、科组活动常规》等，建立教师教学工作手册制度。</p><p>&nbsp;</p>', '我校展开献爱心活动', '', '', '3', '2012-04-17 11:59:27', '1', 'client/htmlfiles/20120417115927/20120417115927_1334635190140.html', null, '', null, null, '0', null, '', null, null, '0', null, '2012-04-17 11:59:50', '1', '12', 'client/htmlfiles/20120417115927/', '40');
 INSERT INTO `news_content_manage` VALUES ('21', '0', '请上传图片', '', '请上传图片', '', '', '3', '2012-04-30 09:26:38', '1', 'client/htmlfiles/20120430092638/20120430092638_1335749214656.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 09:26:54', '1', '0', 'client/htmlfiles/20120430092638/', '40');
+INSERT INTO `news_content_manage` VALUES ('22', '0', '校长', '', '校长', '', '', '3', '2012-04-30 11:51:11', '1', 'client/htmlfiles/20120430115111/20120430115111_1335757882203.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 11:51:22', '1', '0', 'client/htmlfiles/20120430115111/', '40');
+INSERT INTO `news_content_manage` VALUES ('23', '0', '副校长', '', '副校长', '', '', '3', '2012-04-30 11:51:25', '1', 'client/htmlfiles/20120430115125/20120430115125_1335757893828.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 11:51:33', '1', '0', 'client/htmlfiles/20120430115125/', '40');
+INSERT INTO `news_content_manage` VALUES ('24', '0', '拥抱蓝色的海洋', '', '拥抱蓝色的海洋', '', '', '3', '2012-04-30 11:52:59', '1', 'client/htmlfiles/20120430115259/20120430115259_1335758062984.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 11:54:22', '1', '0', 'client/htmlfiles/20120430115259/', '40');
+INSERT INTO `news_content_manage` VALUES ('25', '0', '关爱生命  安全出行', '', '关爱生命  安全出行', '', '', '3', '2012-04-30 11:54:23', '1', 'client/htmlfiles/20120430115423/20120430115423_1335758099171.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 11:54:59', '1', '0', 'client/htmlfiles/20120430115423/', '40');
+INSERT INTO `news_content_manage` VALUES ('26', '0', '我校举行“世界防治结核病日”宣传月活动', '', '我校举行“世界防治结核病日”宣传月活动', '', '', '3', '2012-04-30 11:54:59', '1', 'client/htmlfiles/20120430115459/20120430115459_1335758106828.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 11:55:06', '1', '0', 'client/htmlfiles/20120430115459/', '40');
+INSERT INTO `news_content_manage` VALUES ('27', '0', '塘朗小学铁路安全法规宣传片', '', '塘朗小学铁路安全法规宣传片', '', '', '3', '2012-04-30 11:55:07', '1', 'client/htmlfiles/20120430115507/20120430115507_1335758114531.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 11:55:14', '1', '0', 'client/htmlfiles/20120430115507/', '40');
+INSERT INTO `news_content_manage` VALUES ('28', '0', '塘朗小学第三届英语节活动采撷', '', '塘朗小学第三届英语节活动采撷', '', '', '3', '2012-04-30 11:55:25', '1', 'client/htmlfiles/20120430115525/20120430115525_1335758127468.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 11:55:27', '1', '0', 'client/htmlfiles/20120430115525/', '40');
+INSERT INTO `news_content_manage` VALUES ('29', '0', '向丛飞叔叔学习，交一元特殊队费活动', '', '向丛飞叔叔学习，交一元特殊队费活动', '', '', '3', '2012-04-30 13:01:32', '1', 'client/htmlfiles/20120430130132/20120430130132_1335762096921.html', null, null, null, null, '0', null, '', null, null, '0', null, '2012-04-30 13:01:36', '1', '0', 'client/htmlfiles/20120430130132/', '40');
 
 -- ----------------------------
 -- Table structure for `news_content_review`
@@ -360,6 +376,14 @@ INSERT INTO `news_items_contents` VALUES ('41', '4');
 INSERT INTO `news_items_contents` VALUES ('41', '5');
 INSERT INTO `news_items_contents` VALUES ('41', '6');
 INSERT INTO `news_items_contents` VALUES ('40', '21');
+INSERT INTO `news_items_contents` VALUES ('45', '22');
+INSERT INTO `news_items_contents` VALUES ('46', '23');
+INSERT INTO `news_items_contents` VALUES ('36', '24');
+INSERT INTO `news_items_contents` VALUES ('36', '25');
+INSERT INTO `news_items_contents` VALUES ('36', '26');
+INSERT INTO `news_items_contents` VALUES ('36', '27');
+INSERT INTO `news_items_contents` VALUES ('42', '28');
+INSERT INTO `news_items_contents` VALUES ('43', '29');
 
 -- ----------------------------
 -- Table structure for `news_item_big`
@@ -413,13 +437,13 @@ CREATE TABLE `news_item_config` (
   `if_permission_search` char(1) DEFAULT NULL,
   `new_flag_time` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`news_config_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of news_item_config
 -- ----------------------------
 INSERT INTO `news_item_config` VALUES ('1', '1', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
-INSERT INTO `news_item_config` VALUES ('2', '2', '10', '20', null, null, '0', '280', null, null, '0', '1', '0');
+INSERT INTO `news_item_config` VALUES ('2', '2', '10', '20', null, null, '0', '285', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('3', '3', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('4', '4', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('5', '5', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
@@ -451,15 +475,17 @@ INSERT INTO `news_item_config` VALUES ('30', '30', '10', '20', null, null, '0', 
 INSERT INTO `news_item_config` VALUES ('31', '31', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('32', '32', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('33', '33', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
-INSERT INTO `news_item_config` VALUES ('34', '34', '5', '20', null, null, '0', '40', null, null, '0', '1', '0');
-INSERT INTO `news_item_config` VALUES ('35', '35', '5', '20', null, null, '0', '40', null, null, '0', '1', '0');
+INSERT INTO `news_item_config` VALUES ('34', '34', '6', '20', null, null, '0', '40', null, null, '0', '1', '0');
+INSERT INTO `news_item_config` VALUES ('35', '35', '6', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('36', '36', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
-INSERT INTO `news_item_config` VALUES ('39', '39', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
-INSERT INTO `news_item_config` VALUES ('40', '40', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
+INSERT INTO `news_item_config` VALUES ('39', '39', '4', '20', null, null, '0', '40', null, null, '0', '1', '0');
+INSERT INTO `news_item_config` VALUES ('40', '40', '4', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('41', '41', '6', '10', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('42', '42', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('43', '43', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
 INSERT INTO `news_item_config` VALUES ('44', '44', '10', '20', null, null, '0', '40', null, null, '0', '1', '0');
+INSERT INTO `news_item_config` VALUES ('45', '45', '1', '20', null, null, '0', '40', null, null, '0', '1', '0');
+INSERT INTO `news_item_config` VALUES ('46', '46', '1', '20', null, null, '0', '40', null, null, '0', '1', '0');
 
 -- ----------------------------
 -- Table structure for `news_item_navigation`
@@ -492,7 +518,7 @@ CREATE TABLE `news_item_small` (
   `announce_type` varchar(50) DEFAULT NULL,
   `httpUrl` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of news_item_small
@@ -529,7 +555,7 @@ INSERT INTO `news_item_small` VALUES ('29', '随感札记', '1000007', '2', '1',
 INSERT INTO `news_item_small` VALUES ('30', '诗海拾贝', '1000007', '3', '1', '1', '0', null);
 INSERT INTO `news_item_small` VALUES ('31', '彩虹画廊', '1000007', '4', '1', '1', '0', null);
 INSERT INTO `news_item_small` VALUES ('32', '智星七巧板', '1000007', '5', '1', '1', '0', null);
-INSERT INTO `news_item_small` VALUES ('33', '文学大赛', '1000007', '6', '1', '1', '0', null);
+INSERT INTO `news_item_small` VALUES ('33', '文学大赛', '1000007', '6', '0', '1', '0', null);
 INSERT INTO `news_item_small` VALUES ('34', '塘小新闻', '1000010', '1', '1', '1', '0', null);
 INSERT INTO `news_item_small` VALUES ('35', '校园公告', '1000011', '1', '1', '1', '0', null);
 INSERT INTO `news_item_small` VALUES ('36', '三味德育', '1000012', '1', '1', '1', '0', null);
@@ -539,6 +565,8 @@ INSERT INTO `news_item_small` VALUES ('41', '资源库', '1000017', '1', '1', '1
 INSERT INTO `news_item_small` VALUES ('42', '幸福课堂', '1000012', '2', '1', '1', '0', null);
 INSERT INTO `news_item_small` VALUES ('43', '生态乐园', '1000012', '3', '1', '1', '0', null);
 INSERT INTO `news_item_small` VALUES ('44', '联系我们', '1000013', '1', '1', '1', '2', null);
+INSERT INTO `news_item_small` VALUES ('45', '校长', '1000016', '2', '1', '1', '0', null);
+INSERT INTO `news_item_small` VALUES ('46', '副校长', '1000016', '3', '1', '1', '0', null);
 
 -- ----------------------------
 -- Table structure for `sch_college_department`
@@ -685,6 +713,11 @@ INSERT INTO `sys_module` VALUES ('0207020100', '查询', null, '0207020000', nul
 INSERT INTO `sys_module` VALUES ('0207020200', '审批', null, '0207020000', null, 'approve', null, null);
 INSERT INTO `sys_module` VALUES ('0207020300', '反审批', null, '0207020000', null, 'unApprove', null, null);
 INSERT INTO `sys_module` VALUES ('0207020400', '删除', null, '0207020000', null, 'delete', null, null);
+INSERT INTO `sys_module` VALUES ('0207030000', '投票管理', 'view/votemanage.do?method=queryVoteTitle', '0207000000', null, 'vote', null, null);
+INSERT INTO `sys_module` VALUES ('0207030100', '查询', null, '0207030000', null, 'select', null, null);
+INSERT INTO `sys_module` VALUES ('0207030200', '新增', null, '0207030000', null, 'add', null, null);
+INSERT INTO `sys_module` VALUES ('0207030300', '修改', null, '0207030000', null, 'update', null, null);
+INSERT INTO `sys_module` VALUES ('0207030400', '删除', null, '0207030000', null, 'delete', null, null);
 
 -- ----------------------------
 -- Table structure for `sys_role`
@@ -711,7 +744,7 @@ CREATE TABLE `sys_role_module` (
   `role_id` bigint(20) NOT NULL,
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=873 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=935 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role_module
@@ -736,62 +769,68 @@ INSERT INTO `sys_role_module` VALUES ('0204010100', '2', '74');
 INSERT INTO `sys_role_module` VALUES ('0204010200', '2', '75');
 INSERT INTO `sys_role_module` VALUES ('0204010300', '2', '76');
 INSERT INTO `sys_role_module` VALUES ('0204010400', '2', '77');
-INSERT INTO `sys_role_module` VALUES ('0101010000', '1', '817');
-INSERT INTO `sys_role_module` VALUES ('0101020000', '1', '818');
-INSERT INTO `sys_role_module` VALUES ('0101030000', '1', '819');
-INSERT INTO `sys_role_module` VALUES ('0101040000', '1', '820');
-INSERT INTO `sys_role_module` VALUES ('0101050000', '1', '821');
-INSERT INTO `sys_role_module` VALUES ('0101060000', '1', '822');
-INSERT INTO `sys_role_module` VALUES ('0101070000', '1', '823');
-INSERT INTO `sys_role_module` VALUES ('0101080000', '1', '824');
-INSERT INTO `sys_role_module` VALUES ('0201010000', '1', '825');
-INSERT INTO `sys_role_module` VALUES ('0201020000', '1', '826');
-INSERT INTO `sys_role_module` VALUES ('0203010000', '1', '827');
-INSERT INTO `sys_role_module` VALUES ('0203020000', '1', '828');
-INSERT INTO `sys_role_module` VALUES ('0204010000', '1', '829');
-INSERT INTO `sys_role_module` VALUES ('0206010000', '1', '830');
-INSERT INTO `sys_role_module` VALUES ('0207010000', '1', '831');
-INSERT INTO `sys_role_module` VALUES ('0207020000', '1', '832');
-INSERT INTO `sys_role_module` VALUES ('0201010000', '1', '833');
-INSERT INTO `sys_role_module` VALUES ('0201010100', '1', '834');
-INSERT INTO `sys_role_module` VALUES ('0201010200', '1', '835');
-INSERT INTO `sys_role_module` VALUES ('0201010300', '1', '836');
-INSERT INTO `sys_role_module` VALUES ('0201010400', '1', '837');
-INSERT INTO `sys_role_module` VALUES ('0201020000', '1', '838');
-INSERT INTO `sys_role_module` VALUES ('0201020100', '1', '839');
-INSERT INTO `sys_role_module` VALUES ('0201020200', '1', '840');
-INSERT INTO `sys_role_module` VALUES ('0201020300', '1', '841');
-INSERT INTO `sys_role_module` VALUES ('0201020400', '1', '842');
-INSERT INTO `sys_role_module` VALUES ('0203010000', '1', '843');
-INSERT INTO `sys_role_module` VALUES ('0203010100', '1', '844');
-INSERT INTO `sys_role_module` VALUES ('0203010200', '1', '845');
-INSERT INTO `sys_role_module` VALUES ('0203010300', '1', '846');
-INSERT INTO `sys_role_module` VALUES ('0203010400', '1', '847');
-INSERT INTO `sys_role_module` VALUES ('0203020000', '1', '848');
-INSERT INTO `sys_role_module` VALUES ('0203020100', '1', '849');
-INSERT INTO `sys_role_module` VALUES ('0203020200', '1', '850');
-INSERT INTO `sys_role_module` VALUES ('0203020300', '1', '851');
-INSERT INTO `sys_role_module` VALUES ('0203020400', '1', '852');
-INSERT INTO `sys_role_module` VALUES ('0204010000', '1', '853');
-INSERT INTO `sys_role_module` VALUES ('0204010100', '1', '854');
-INSERT INTO `sys_role_module` VALUES ('0204010200', '1', '855');
-INSERT INTO `sys_role_module` VALUES ('0204010300', '1', '856');
-INSERT INTO `sys_role_module` VALUES ('0204010400', '1', '857');
-INSERT INTO `sys_role_module` VALUES ('0206010000', '1', '858');
-INSERT INTO `sys_role_module` VALUES ('0206010100', '1', '859');
-INSERT INTO `sys_role_module` VALUES ('0206010200', '1', '860');
-INSERT INTO `sys_role_module` VALUES ('0207010000', '1', '861');
-INSERT INTO `sys_role_module` VALUES ('0207010100', '1', '862');
-INSERT INTO `sys_role_module` VALUES ('0207010200', '1', '863');
-INSERT INTO `sys_role_module` VALUES ('0207010300', '1', '864');
-INSERT INTO `sys_role_module` VALUES ('0207010400', '1', '865');
-INSERT INTO `sys_role_module` VALUES ('0207010500', '1', '866');
-INSERT INTO `sys_role_module` VALUES ('0207010600', '1', '867');
-INSERT INTO `sys_role_module` VALUES ('0207020000', '1', '868');
-INSERT INTO `sys_role_module` VALUES ('0207020100', '1', '869');
-INSERT INTO `sys_role_module` VALUES ('0207020200', '1', '870');
-INSERT INTO `sys_role_module` VALUES ('0207020300', '1', '871');
-INSERT INTO `sys_role_module` VALUES ('0207020400', '1', '872');
+INSERT INTO `sys_role_module` VALUES ('0101010000', '1', '873');
+INSERT INTO `sys_role_module` VALUES ('0101020000', '1', '874');
+INSERT INTO `sys_role_module` VALUES ('0101030000', '1', '875');
+INSERT INTO `sys_role_module` VALUES ('0101040000', '1', '876');
+INSERT INTO `sys_role_module` VALUES ('0101050000', '1', '877');
+INSERT INTO `sys_role_module` VALUES ('0101060000', '1', '878');
+INSERT INTO `sys_role_module` VALUES ('0101070000', '1', '879');
+INSERT INTO `sys_role_module` VALUES ('0101080000', '1', '880');
+INSERT INTO `sys_role_module` VALUES ('0201010000', '1', '881');
+INSERT INTO `sys_role_module` VALUES ('0201020000', '1', '882');
+INSERT INTO `sys_role_module` VALUES ('0203010000', '1', '883');
+INSERT INTO `sys_role_module` VALUES ('0203020000', '1', '884');
+INSERT INTO `sys_role_module` VALUES ('0204010000', '1', '885');
+INSERT INTO `sys_role_module` VALUES ('0206010000', '1', '886');
+INSERT INTO `sys_role_module` VALUES ('0207010000', '1', '887');
+INSERT INTO `sys_role_module` VALUES ('0207020000', '1', '888');
+INSERT INTO `sys_role_module` VALUES ('0207030000', '1', '889');
+INSERT INTO `sys_role_module` VALUES ('0201010000', '1', '890');
+INSERT INTO `sys_role_module` VALUES ('0201010100', '1', '891');
+INSERT INTO `sys_role_module` VALUES ('0201010200', '1', '892');
+INSERT INTO `sys_role_module` VALUES ('0201010300', '1', '893');
+INSERT INTO `sys_role_module` VALUES ('0201010400', '1', '894');
+INSERT INTO `sys_role_module` VALUES ('0201020000', '1', '895');
+INSERT INTO `sys_role_module` VALUES ('0201020100', '1', '896');
+INSERT INTO `sys_role_module` VALUES ('0201020200', '1', '897');
+INSERT INTO `sys_role_module` VALUES ('0201020300', '1', '898');
+INSERT INTO `sys_role_module` VALUES ('0201020400', '1', '899');
+INSERT INTO `sys_role_module` VALUES ('0203010000', '1', '900');
+INSERT INTO `sys_role_module` VALUES ('0203010100', '1', '901');
+INSERT INTO `sys_role_module` VALUES ('0203010200', '1', '902');
+INSERT INTO `sys_role_module` VALUES ('0203010300', '1', '903');
+INSERT INTO `sys_role_module` VALUES ('0203010400', '1', '904');
+INSERT INTO `sys_role_module` VALUES ('0203020000', '1', '905');
+INSERT INTO `sys_role_module` VALUES ('0203020100', '1', '906');
+INSERT INTO `sys_role_module` VALUES ('0203020200', '1', '907');
+INSERT INTO `sys_role_module` VALUES ('0203020300', '1', '908');
+INSERT INTO `sys_role_module` VALUES ('0203020400', '1', '909');
+INSERT INTO `sys_role_module` VALUES ('0204010000', '1', '910');
+INSERT INTO `sys_role_module` VALUES ('0204010100', '1', '911');
+INSERT INTO `sys_role_module` VALUES ('0204010200', '1', '912');
+INSERT INTO `sys_role_module` VALUES ('0204010300', '1', '913');
+INSERT INTO `sys_role_module` VALUES ('0204010400', '1', '914');
+INSERT INTO `sys_role_module` VALUES ('0206010000', '1', '915');
+INSERT INTO `sys_role_module` VALUES ('0206010100', '1', '916');
+INSERT INTO `sys_role_module` VALUES ('0206010200', '1', '917');
+INSERT INTO `sys_role_module` VALUES ('0207010000', '1', '918');
+INSERT INTO `sys_role_module` VALUES ('0207010100', '1', '919');
+INSERT INTO `sys_role_module` VALUES ('0207010200', '1', '920');
+INSERT INTO `sys_role_module` VALUES ('0207010300', '1', '921');
+INSERT INTO `sys_role_module` VALUES ('0207010400', '1', '922');
+INSERT INTO `sys_role_module` VALUES ('0207010500', '1', '923');
+INSERT INTO `sys_role_module` VALUES ('0207010600', '1', '924');
+INSERT INTO `sys_role_module` VALUES ('0207020000', '1', '925');
+INSERT INTO `sys_role_module` VALUES ('0207020100', '1', '926');
+INSERT INTO `sys_role_module` VALUES ('0207020200', '1', '927');
+INSERT INTO `sys_role_module` VALUES ('0207020300', '1', '928');
+INSERT INTO `sys_role_module` VALUES ('0207020400', '1', '929');
+INSERT INTO `sys_role_module` VALUES ('0207030000', '1', '930');
+INSERT INTO `sys_role_module` VALUES ('0207030100', '1', '931');
+INSERT INTO `sys_role_module` VALUES ('0207030200', '1', '932');
+INSERT INTO `sys_role_module` VALUES ('0207030300', '1', '933');
+INSERT INTO `sys_role_module` VALUES ('0207030400', '1', '934');
 
 -- ----------------------------
 -- Table structure for `sys_role_person`
@@ -824,15 +863,16 @@ CREATE TABLE `vote_items` (
   PRIMARY KEY (`item_id`),
   KEY `vote_id` (`vote_id`),
   CONSTRAINT `vote_items_fk` FOREIGN KEY (`vote_id`) REFERENCES `vote_title` (`vote_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vote_items
 -- ----------------------------
-INSERT INTO `vote_items` VALUES ('23', '非常好', '6', '1343435');
-INSERT INTO `vote_items` VALUES ('24', '还不错', '6', '0');
-INSERT INTO `vote_items` VALUES ('25', '一般般', '6', '0');
-INSERT INTO `vote_items` VALUES ('26', '不好', '6', '0');
+INSERT INTO `vote_items` VALUES ('27', '1', '7', '0');
+INSERT INTO `vote_items` VALUES ('28', '2', '7', '0');
+INSERT INTO `vote_items` VALUES ('29', '3', '7', '0');
+INSERT INTO `vote_items` VALUES ('30', '4', '7', '0');
+INSERT INTO `vote_items` VALUES ('31', '5', '7', '0');
 
 -- ----------------------------
 -- Table structure for `vote_title`
@@ -844,9 +884,9 @@ CREATE TABLE `vote_title` (
   `vote_type` tinyint(1) DEFAULT NULL,
   `vote_date` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`vote_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vote_title
 -- ----------------------------
-INSERT INTO `vote_title` VALUES ('6', '你觉得学校网站怎么样？', '2', '2012-04-30 12:45:52');
+INSERT INTO `vote_title` VALUES ('7', 'test', '1', '2012-04-30 09:41:32');

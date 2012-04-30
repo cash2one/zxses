@@ -72,7 +72,7 @@ public class NewsClientAction extends DispatchAction {
 	public void setNewsClientService(NewsClientService newsClientService) {
 		this.newsClientService = newsClientService;
 	}
-	
+
 	/**
 	 * 
 	 * @Description: 首页底部
@@ -84,6 +84,7 @@ public class NewsClientAction extends DispatchAction {
 			HttpServletResponse response) {
 		return new ActionForward("/client/index/footinfo.jsp");
 	}
+
 	/**
 	 * 
 	 * @Description: 顶部菜单
@@ -101,10 +102,10 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 
-	 * @Description: 首页底部
+	 * @Description: 首页轮播图片
 	 * @Author: feng
 	 * 
 	 */
@@ -113,15 +114,14 @@ public class NewsClientAction extends DispatchAction {
 			HttpServletResponse response) {
 		String classId = SystemConst.TL_PHOTOLINK;
 		NewsItemBig itemBig = newsClientService.getNewsItemBigByClassId(classId);
-		List<NewsItemSmall> newsItemList = newsClientService.queryNewsItemSmallByClassId(classId,
-				GlobalConst.IS_DISPLAY);
-		if (itemBig != null && newsItemList.size() > 0) {
-			NewsItemSmall itemSmall = newsItemList.get(0);
+		String typeId = SystemConst.TL_PHOTOLINK_ROLLPIC;
+		if (typeId != null && itemBig != null) {
+			NewsItemSmall itemSmall = newsClientService.getNewsItemSmallByTypeId(Integer.parseInt(typeId));
 			Set configSet = itemSmall.getNewsItemConfigs();
 			NewsItemConfig newsItemConfig = (NewsItemConfig) configSet.toArray()[0];
 			List<NewsContentManage> contentManageList = newsClientService.queryNewsContentManagerByTypeIdForPage(
 					itemSmall.getTypeId(), 0, newsItemConfig.getDisplayRowCount());
-			if(contentManageList.size()>0){
+			if (contentManageList.size() > 0) {
 				request.setAttribute("itemBig", itemBig);
 				request.setAttribute("contentManageList", contentManageList);
 				return new ActionForward("/client/index/content/rollimage.jsp");
@@ -129,8 +129,7 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
-	
-	
+
 	/**
 	 * 
 	 * @Description: 联系我们
@@ -146,6 +145,7 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return new ActionForward("/client/index/content/contact.jsp");
 	}
+
 	/**
 	 * 
 	 * @Description: 首页登陆
@@ -157,6 +157,7 @@ public class NewsClientAction extends DispatchAction {
 			HttpServletResponse response) {
 		return new ActionForward("/client/index/content/login.jsp");
 	}
+
 	/**
 	 * 
 	 * @Description: 首页tabs
@@ -170,8 +171,7 @@ public class NewsClientAction extends DispatchAction {
 		String words_typeId = SystemConst.TL_ALL_WORDS;
 		String newsId = SystemConst.TL_NEWS;
 		String noticeId = SystemConst.TL_NOTICE;
-		
-		
+
 		NewsItemBig itemBig_words = newsClientService.getNewsItemBigByClassId(wordsId);
 		if (words_typeId != null && itemBig_words != null) {
 			NewsItemSmall itemSmall_words = newsClientService.getNewsItemSmallByTypeId(Integer.parseInt(words_typeId));
@@ -179,14 +179,14 @@ public class NewsClientAction extends DispatchAction {
 			NewsItemConfig newsItemConfig_words = (NewsItemConfig) configSet.toArray()[0];
 			List<NewsContentManage> contentManageList_words = newsClientService.queryNewsContentManagerByTypeIdForPage(
 					itemSmall_words.getTypeId(), 0, newsItemConfig_words.getDisplayRowCount());
-				if(contentManageList_words.size()>0){
-					request.setAttribute("itemBig_words", itemBig_words);
-					request.setAttribute("itemSmall_words", itemSmall_words);
-					request.setAttribute("newsItemConfig_words", newsItemConfig_words);
-					request.setAttribute("contentManageList_words", contentManageList_words);
-				}
+			if (contentManageList_words.size() > 0) {
+				request.setAttribute("itemBig_words", itemBig_words);
+				request.setAttribute("itemSmall_words", itemSmall_words);
+				request.setAttribute("newsItemConfig_words", newsItemConfig_words);
+				request.setAttribute("contentManageList_words", contentManageList_words);
 			}
-		
+		}
+
 		NewsItemBig itemBig_news = newsClientService.getNewsItemBigByClassId(newsId);
 		List<NewsItemSmall> newsItemList_news = newsClientService.queryNewsItemSmallByClassId(newsId,
 				GlobalConst.IS_DISPLAY);
@@ -196,15 +196,15 @@ public class NewsClientAction extends DispatchAction {
 			NewsItemConfig newsItemConfig_news = (NewsItemConfig) configSet.toArray()[0];
 			List<NewsContentManage> contentManageList_news = newsClientService.queryNewsContentManagerByTypeIdForPage(
 					itemSmall_news.getTypeId(), 0, newsItemConfig_news.getDisplayRowCount());
-			if(contentManageList_news.size()>0){
+			if (contentManageList_news.size() > 0) {
 				request.setAttribute("itemBig_news", itemBig_news);
 				request.setAttribute("itemSmall_news", itemSmall_news);
 				request.setAttribute("newsItemConfig_news", newsItemConfig_news);
 				request.setAttribute("contentManageList_news", contentManageList_news);
 			}
-		
+
 		}
-		
+
 		NewsItemBig itemBig_notice = newsClientService.getNewsItemBigByClassId(noticeId);
 		List<NewsItemSmall> newsItemList_notice = newsClientService.queryNewsItemSmallByClassId(noticeId,
 				GlobalConst.IS_DISPLAY);
@@ -212,9 +212,10 @@ public class NewsClientAction extends DispatchAction {
 			NewsItemSmall itemSmall_notice = newsItemList_notice.get(0);
 			Set configSet = itemSmall_notice.getNewsItemConfigs();
 			NewsItemConfig newsItemConfig_notice = (NewsItemConfig) configSet.toArray()[0];
-			List<NewsContentManage> contentManageList_notice = newsClientService.queryNewsContentManagerByTypeIdForPage(
-					itemSmall_notice.getTypeId(), 0, newsItemConfig_notice.getDisplayRowCount());
-			if(contentManageList_notice.size()>0){
+			List<NewsContentManage> contentManageList_notice = newsClientService
+					.queryNewsContentManagerByTypeIdForPage(itemSmall_notice.getTypeId(), 0, newsItemConfig_notice
+							.getDisplayRowCount());
+			if (contentManageList_notice.size() > 0) {
 				request.setAttribute("itemBig_notice", itemBig_notice);
 				request.setAttribute("itemSmall_notice", itemSmall_notice);
 				request.setAttribute("newsItemConfig_notice", newsItemConfig_notice);
@@ -223,6 +224,7 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return new ActionForward("/client/index/content/tabs.jsp");
 	}
+
 	/**
 	 * 
 	 * @Description: 首页tabspic
@@ -232,7 +234,7 @@ public class NewsClientAction extends DispatchAction {
 	@SuppressWarnings("unchecked")
 	public ActionForward queryTabspic(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		
+
 		String classId = SystemConst.TL_MORAL;
 		NewsItemBig itemBig = newsClientService.getNewsItemBigByClassId(classId);
 		List<NewsItemSmall> newsItemList = newsClientService.queryNewsItemSmallByClassId(classId,
@@ -244,6 +246,7 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
+
 	/**
 	 * 
 	 * @Description: 首页tabspic_content
@@ -253,7 +256,7 @@ public class NewsClientAction extends DispatchAction {
 	@SuppressWarnings("unchecked")
 	public ActionForward queryTabspicContent(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		
+
 		String typeId = request.getParameter("typeId");
 		if (typeId != null && !"".equals(typeId)) {
 			NewsItemSmall itemSmall = newsClientService.getNewsItemSmallByTypeId(Integer.parseInt(typeId));
@@ -261,7 +264,7 @@ public class NewsClientAction extends DispatchAction {
 			NewsItemConfig newsItemConfig = (NewsItemConfig) configSet.toArray()[0];
 			List<NewsContentManage> contentManageList = newsClientService.queryNewsContentManagerByTypeIdForPage(
 					itemSmall.getTypeId(), 0, newsItemConfig.getDisplayRowCount());
-			if(contentManageList.size()>0){
+			if (contentManageList.size() > 0) {
 				request.setAttribute("newsItemConfig", newsItemConfig);
 				request.setAttribute("contentManageList", contentManageList);
 				return new ActionForward("/client/index/content/tabspic_content.jsp");
@@ -269,6 +272,7 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
+
 	/**
 	 * 
 	 * @Description: 首页FriendLink
@@ -288,7 +292,7 @@ public class NewsClientAction extends DispatchAction {
 			NewsItemConfig newsItemConfig = (NewsItemConfig) configSet.toArray()[0];
 			List<NewsContentManage> contentManageList = newsClientService.queryNewsContentManagerByTypeIdForPage(
 					itemSmall.getTypeId(), 0, newsItemConfig.getDisplayRowCount());
-			if(contentManageList.size()>0){
+			if (contentManageList.size() > 0) {
 				request.setAttribute("itemBig", itemBig);
 				request.setAttribute("newsItemConfig", newsItemConfig);
 				request.setAttribute("contentManageList", contentManageList);
@@ -297,6 +301,7 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
+
 	/**
 	 * 
 	 * @Description: 首页SkyStars
@@ -308,6 +313,7 @@ public class NewsClientAction extends DispatchAction {
 			HttpServletResponse response) {
 		return new ActionForward("/client/index/content/skystars.jsp");
 	}
+
 	/**
 	 * 
 	 * @Description: 首页headmasters
@@ -317,8 +323,27 @@ public class NewsClientAction extends DispatchAction {
 	@SuppressWarnings("unchecked")
 	public ActionForward queryHeadmasters(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		return new ActionForward("/client/index/content/headmasters.jsp");
+		String classId = SystemConst.TL_PHOTOLINK;
+		NewsItemBig itemBig = newsClientService.getNewsItemBigByClassId(classId);
+		String typeId_xz = SystemConst.TL_PHOTOLINK_XZ;
+		String typeId_fxz = SystemConst.TL_PHOTOLINK_FXZ;
+		if (itemBig != null) {
+			request.setAttribute("itemBig", itemBig);
+			if (typeId_xz != null && typeId_fxz != null) {
+				List<NewsContentManage> content_xz = newsClientService.queryNewsContentManagerByTypeIdForPage(
+						Integer.parseInt(typeId_xz), 0, 1);
+				List<NewsContentManage> content_fxz = newsClientService.queryNewsContentManagerByTypeIdForPage(
+						Integer.parseInt(typeId_fxz), 0, 1);
+				if (content_xz.size() > 0 && content_fxz.size() > 0 ) {
+					request.setAttribute("content_xz", content_xz);
+					request.setAttribute("content_fxz", content_fxz);
+					return new ActionForward("/client/index/content/headmasters.jsp");
+				}
+			}
+		}
+		return null;
 	}
+
 	/**
 	 * 
 	 * @Description: 首页资源库
@@ -328,7 +353,7 @@ public class NewsClientAction extends DispatchAction {
 	@SuppressWarnings("unchecked")
 	public ActionForward queryLib(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		
+
 		String classId = SystemConst.TL_LIBRARY;
 		NewsItemBig itemBig = newsClientService.getNewsItemBigByClassId(classId);
 		List<NewsItemSmall> newsItemList = newsClientService.queryNewsItemSmallByClassId(classId,
@@ -339,7 +364,7 @@ public class NewsClientAction extends DispatchAction {
 			NewsItemConfig newsItemConfig = (NewsItemConfig) configSet.toArray()[0];
 			List<NewsContentManage> contentManageList = newsClientService.queryNewsContentManagerByTypeIdForPage(
 					itemSmall.getTypeId(), 0, newsItemConfig.getDisplayRowCount());
-			if(contentManageList.size()>0){
+			if (contentManageList.size() > 0) {
 				request.setAttribute("itemBig", itemBig);
 				request.setAttribute("newsItemConfig", newsItemConfig);
 				request.setAttribute("contentManageList", contentManageList);
@@ -348,7 +373,8 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
-//---------------------second-----------------------------------		
+
+	// ---------------------second-----------------------------------
 	/**
 	 * 
 	 * @Description: 左列
@@ -367,6 +393,7 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
+
 	/**
 	 * 
 	 * @Description: 新闻浏览次数
@@ -491,21 +518,18 @@ public class NewsClientAction extends DispatchAction {
 				"newsmanagerForm");
 		return pageList;
 	}
-	
+
 	/*
-	 * getNewsContentManageByNewsId
-	 * news.jsp页面未处理。。。。
+	 * getNewsContentManageByNewsId news.jsp页面未处理。。。。
 	 */
-	public ActionForward getNewsContentManageByNewsId(ActionMapping mapping,
-			ActionForm form, HttpServletRequest request,
-			HttpServletResponse response) {
+	public ActionForward getNewsContentManageByNewsId(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
 		long newsId = Long.parseLong(request.getParameter("newsId"));
-		NewsContentManage newsContent = newsClientService
-				.getNewsContentManageByNewsId(newsId);
+		NewsContentManage newsContent = newsClientService.getNewsContentManageByNewsId(newsId);
 		if (null == newsContent.getVisitCount()) {
 			newsContent.setVisitCount(0);
 		}
-		newsContent.setNewsContent(newsContent.getNewsContent().replace("?"," "));
+		newsContent.setNewsContent(newsContent.getNewsContent().replace("?", " "));
 		newsContent.setVisitCount(newsContent.getVisitCount().intValue() + 1);
 		request.setAttribute("newsContents", newsContent);
 		return new ActionForward("/client/index/news.jsp");

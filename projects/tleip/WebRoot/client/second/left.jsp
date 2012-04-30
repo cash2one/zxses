@@ -12,7 +12,7 @@
 	</h2>
 	<ul>
 		<li>
-			<div class="left_title">×¨ÌâÀ¸Ä¿</div>
+			<div class="left_title">${itemBig.className }</div>
 			<ul>
 				<logic:iterate id="itemSmall" name="itemBig"
 					property="newsItemSmalls">
