@@ -128,5 +128,13 @@ INSERT INTO `vote_items` VALUES ('24', '还不错', '6', '0');
 INSERT INTO `vote_items` VALUES ('25', '一般般', '6', '0');
 INSERT INTO `vote_items` VALUES ('26', '不好', '6', '0');
 
+-- ----------------------------
+-- 投票管理(插入系统模块表)
+-- ----------------------------
+INSERT INTO `sys_module` VALUES ('0207030000', '投票管理', 'view/votemanage.do?method=queryVoteTitle', '0207000000', null, 'vote', null, null);
+INSERT INTO `sys_module` VALUES ('0207030100', '查询', null, '0207030000', null, 'select', null, null);
+INSERT INTO `sys_module` VALUES ('0207030200', '新增', null, '0207030000', null, 'add', null, null);
+INSERT INTO `sys_module` VALUES ('0207030300', '修改', null, '0207030000', null, 'update', null, null);
+INSERT INTO `sys_module` VALUES ('0207030400', '删除', null, '0207030000', null, 'delete', null, null);
 
   
