@@ -32,7 +32,7 @@
 			src="<%=basePath%>res/client/js/util.js"></script>
 		<%@ include file="/inc/resources.jsp"%>
 		<script type="text/javascript" src="${basePath}tools/My97DatePicker/WdatePicker.js"></script>
-		<script type="text/javascript" src="${basePath}client/index/content/vote/voteIndex.js/voteindex.js"></script>
+		<script type="text/javascript" src="${basePath}client/index/content/vote/jsfiles/voteIndex.js"></script>
 		<style>
 			/*简单修改符合塘朗网站的功能*/
 			.wrap{
@@ -98,7 +98,7 @@
 										<div id="content" class="panelInclude" style="margin-right: 20px;">
 											<div id="body">
 												<c:if test="${voteTitle != null}">
-													<form method="post" action=""  id="form_survey" name="form_survey">
+													<form method="post" action="${basePath }front/vote.do?method=ballotVoteTitle"  id="form_vote" name="form_vote">
 													<input type="hidden" name="voteId" value="${voteTitle.voteId }"/>
 													<table width="100%" cellspacing="0" cellpadding="0" border="0" style="visibility: visible; " id="hot">
 														<tbody>
@@ -132,7 +132,7 @@
 																				<div style="width: ${items.itemBallot * 170/ totalCount }px;" class="style${colorCount }" id="process_bar_361707_25592"></div></div>
 																			</td>
 																			<td width="110" id="process_txt_361707_25592" style="display: block; " class="black">
-																				<nobr><fmt:formatNumber value="${items.itemBallot }" pattern="#,##0" type="number"/> (<fmt:formatNumber value="${items.itemBallot * 100 / totalCount}" pattern="0.##" type="number"/>%)</nobr>
+																				<nobr><fmt:formatNumber value="${items.itemBallot }" pattern="#,##0" type="number"/> (<fmt:formatNumber value="${items.itemBallot * 100 / totalCount}" pattern="0.00" type="number"/>%)</nobr>
 																			</td>
 																		</tr>
 																		<c:set var="colorCount" value="${colorCount + 1}" scope="page"/>
@@ -142,7 +142,7 @@
 														</div>
 														</div>
 														<div class="submit line" align="center">
-															<input type="button" onclick="" value="提  交" class="uniformButton" id="submit_survey"/>
+															<input type="submit" onclick="return validateSubmit();" value="提  交" class="uniformButton" id="submit_vote"/>
 														</div>
 													</form>
 												</c:if>
