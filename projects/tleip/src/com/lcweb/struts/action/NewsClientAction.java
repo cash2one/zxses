@@ -79,7 +79,6 @@ public class NewsClientAction extends DispatchAction {
 	 * @Author: feng
 	 * 
 	 */
-	@SuppressWarnings("unchecked")
 	public ActionForward queryFootInfo(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
 		return new ActionForward("/client/index/footinfo.jsp");
