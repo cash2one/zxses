@@ -584,7 +584,8 @@ a:hover,a:active {
 	overflow: hidden;
 	background: #e8e8e8;
 	color: #333;
-	padding-top: 15px; padding-bottom : 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	border-top-right-radius: 3em;
 	border-top-left-radius: 3em;
 	padding-bottom: 15px;
@@ -915,4 +916,28 @@ h2 {
 	color: #003399;
 	font-size: 12px;
 	text-decoration: underline;
+}
+
+/*登陆成功样式*/
+.for_form_sec {
+	background: url(img/d_c01.gif) no-repeat center 2px;
+}
+
+.for_form_sec p {
+	background: url(img/d_c02.gif) no-repeat 10px center;
+	padding: 65px 0px 40px 30px;
+	color: #3dbed1;
+}
+
+.for_form_sec p span,.for_form_sec p a {
+	display: block;
+	height: 25px;
+}
+
+.for_form_sec p a {
+	color: #3dbed1;
+}
+
+.for_form_sec p a:hover {
+	color: #854d45;
 }
