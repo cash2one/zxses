@@ -3,6 +3,7 @@ package com.lcweb.service.vote;
 import java.util.List;
 
 import com.lcweb.bean.pojo.FrontMessage;
+import com.lcweb.bean.pojo.VoteItems;
 import com.lcweb.bean.pojo.VoteTitle;
 import com.lcweb.service.base.BaseServiceImpl;
 
@@ -31,5 +32,22 @@ public class VoteServiceImpl extends BaseServiceImpl implements VoteService {
 			recordCounts = (Integer) obj; 
 		}
 		return recordCounts;
+	}
+
+	@Override
+	public void updateItemsBallotCount(String[] ids) {
+		for(int i=0;i<ids.length;i++){
+			 Long  id = Long.parseLong(ids[i]);
+			 VoteItems o = (VoteItems)this.queryObjectById(VoteItems.class, id);
+			 o.setItemBallot(o.getItemBallot() + 1);
+			 this.updateObject(o);
+		 }	
+	}
+	
+	public void updateTitleVoteCount(String id){
+		 Long voteTitleId = Long.parseLong(id);
+		 VoteTitle o = (VoteTitle)this.queryObjectById(VoteTitle.class, voteTitleId);
+		 o.setVoteHot(o.getVoteHot() + 1);
+		 this.updateObject(o);
 	}
 }

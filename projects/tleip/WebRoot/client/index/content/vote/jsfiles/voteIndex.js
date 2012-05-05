@@ -1,18 +1,9 @@
-/*$(function(){
-	$("#submit_vote").click(function(){
-		alert();
-	});
-});*/
-
 function validateSubmit(){
-	//简单验证
-	/*var content = $("#content").val();
-	
-	if($.trim(content) == ""){
-		$.alert("请输入留言内容！");
+	var num = 0;
+	num = $("input[name=itemsIds]:checked").length;
+	if(num == 0){
+		$.alert("请选择投票选项！");
 		return false;
 	}
-	return true;*/
-	$.alert("test");
-	return false;
+	return true;
 }

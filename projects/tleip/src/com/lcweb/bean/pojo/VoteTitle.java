@@ -17,6 +17,7 @@ public class VoteTitle implements java.io.Serializable {
 	private String voteName;
 	private Byte voteType;
 	private String voteDate;
+	private Long voteHot = 0L;
 	private Set voteItemses = new HashSet(0);
 	
 	private String voteTypeStr;
@@ -36,10 +37,11 @@ public class VoteTitle implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public VoteTitle(String voteName, Byte voteType, String voteDate, Set voteItemses) {
+	public VoteTitle(String voteName, Byte voteType, String voteDate, Long voteHot, Set voteItemses) {
 		this.voteName = voteName;
 		this.voteType = voteType;
 		this.voteDate = voteDate;
+		this.voteHot = voteHot;
 		this.voteItemses = voteItemses;
 	}
 
@@ -83,6 +85,14 @@ public class VoteTitle implements java.io.Serializable {
 
 	public void setVoteItemses(Set voteItemses) {
 		this.voteItemses = voteItemses;
+	}
+
+	public Long getVoteHot() {
+		return voteHot;
+	}
+
+	public void setVoteHot(Long voteHot) {
+		this.voteHot = voteHot;
 	}
 
 }
