@@ -20,8 +20,9 @@ function reset(){
 				</span>
 			</li>
 			<%--<li class="check"><img src="${basePath}front/images/yzm.jpg" width="81px" height="25px" /><a href="" class="next">看不清，换一张</a></li>--%>
-			<li>
-				<input id="login" type="button" class="sure" value="登陆" /><input type="reset" class="sure" onclick="reset()" value="清除" />
+			<li style="padding: 5px 0px 10px 0px">
+				<input id="login" type="button" class="sure" value="登 陆" />
+				<input type="reset" class="sure" onclick="reset()" value="清 除" />
 			</li>
 			<li>
 				<a href="${basePath}client/index/content/login_reg/userRegInf.jsp"">用户注册</a><a href="${basePath}client/index/content/login_reg/findPassword.jsp">忘记密码</a>
