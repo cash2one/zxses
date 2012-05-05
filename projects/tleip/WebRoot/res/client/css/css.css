@@ -195,7 +195,7 @@ a:hover,a:active {
 }
 
 .for_form {
-	padding: 10px 5px 10px 10px;
+	padding: 15px 0px 10px 20px;
 	position: relative;
 }
 
@@ -223,7 +223,8 @@ a:hover,a:active {
 }
 
 .for_form li a {
-	padding-left: 13px
+	padding-left: 5px;
+	padding-right: 15px;
 }
 
 .for_form li input.sure {
@@ -232,7 +233,7 @@ a:hover,a:active {
 	width: 62px;
 	height: 22px;
 	cursor: pointer;
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 /*网站前台统一按钮样式*/
