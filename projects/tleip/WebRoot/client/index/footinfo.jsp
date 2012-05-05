@@ -22,7 +22,7 @@
 					<a href="<%=basePath%>client/itembig1000001.html">关于我们</a>
 				</p>
 				<p>
-					<a href="http://www.sztlxx.com">深圳市南山区塘朗小学</a> 版权所有Copyright &copy; 2002-2004 联系电话：0755-86007697
+					<a href="http://www.sztlxx.com">深圳市南山区塘朗小学</a> 版权所有Copyright &copy; 2002-2012 联系电话：0755-86007697
 					QQ:324651(黑马）
 				</p>
 				<p>

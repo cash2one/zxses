@@ -8,7 +8,7 @@
 
     <session-factory>
         <property name="connection.username">root</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/tleip_test?useUnicode=true&characterEncoding=utf-8</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/tleip?useUnicode=true&characterEncoding=utf-8</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="myeclipse.connection.profile">tleip_mysql</property>
         <property name="connection.password">root</property>
