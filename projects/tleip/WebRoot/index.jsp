@@ -74,10 +74,10 @@
 					</div>
 				</div>
 				<div class="contact">
-					<!--contact-->
-					<bean:include id="queryContact"
-						page="/client/newsClient.do?method=queryContact" />
-					<bean:write name="queryContact" filter="false" />
+					<!--queryIndexContact-->
+					<bean:include id="queryIndexContact"
+						page="/client/newsClient.do?method=queryIndexContact" />
+					<bean:write name="queryIndexContact" filter="false" />
 				</div>
 			</div>
 			<div class="scor_mid fl">

@@ -132,6 +132,26 @@ public class NewsClientAction extends DispatchAction {
 
 	/**
 	 * 
+	 * @Description: queryIndexContact联系我们
+	 * @Author: feng
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	public ActionForward queryIndexContact(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		String classId = SystemConst.TL_WORDLINK;
+		NewsItemBig itemBig = newsClientService.getNewsItemBigByClassId(classId);
+		List<NewsItemSmall> newsItemList = newsClientService.queryNewsItemSmallByClassId(classId,
+				GlobalConst.IS_DISPLAY);
+		if (itemBig != null && newsItemList.size() > 0) {
+				request.setAttribute("itemBig", itemBig);
+				request.setAttribute("newsItemList", newsItemList);
+				return new ActionForward("/client/index/content/contact.jsp");
+		}
+		return null;
+	}
+	/**
+	 * 
 	 * @Description: 联系我们
 	 * @Author: feng
 	 * 
@@ -140,12 +160,9 @@ public class NewsClientAction extends DispatchAction {
 	public ActionForward queryContact(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
 		String classId = SystemConst.TL_CONTACT;
-		if (classId != null) {
-			request.setAttribute("classId", classId);
-		}
-		return new ActionForward("/client/index/content/contact.jsp");
+		request.setAttribute("classId", classId);
+		return new ActionForward("/client/index/content/contact_second.jsp");
 	}
-
 	/**
 	 * 
 	 * @Description: 首页登陆

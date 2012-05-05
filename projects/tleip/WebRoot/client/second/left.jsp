@@ -53,7 +53,7 @@
 		</li>
 	</ul>
 </div>
-<div class="contact">
+<div>
 	<!--contact-->
 		<bean:include id="queryContact"
 			page="/client/newsClient.do?method=queryContact" />

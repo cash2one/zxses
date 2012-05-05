@@ -25,7 +25,6 @@ public class SystemConst {
 	
 	
 	public static final String TL_MORAL = "1000012";//	三味德育 moral
-	public static final String TL_CONTACT = "1000013";//	联系我们 contact
 //	public static final String TL_FILED = "1000014";//	生态乐园 filed
 	public static final String TL_LINK = "1000015";//	友情链接 link
 	public static final String TL_PHOTOLINK = "1000016";//	图片链接 photo_link 
@@ -34,6 +33,9 @@ public class SystemConst {
 	public static final String TL_PHOTOLINK_FXZ = "46";//	图片链接-副校长 
 	
 	public static final String TL_LIBRARY = "1000017";//	资源库 library
+	public static final String TL_CONTACT = "1000013";//	联系我们 contact
+	public static final String TL_WORDLINK = "1000018";//	文字链接 
+	public static final String TL_WORDLINK_CONTACT = "49";//	联系我们 contact
 	
 	
 	

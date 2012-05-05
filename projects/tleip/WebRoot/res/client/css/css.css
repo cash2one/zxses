@@ -195,14 +195,14 @@ a:hover,a:active {
 }
 
 .for_form {
-	padding: 15px 0px 10px 20px;
+	padding: 18px 0px 0px 20px;
 	position: relative;
 }
 
 .for_form li {
-	height: 26px;
-	line-height: 26px;
-	font-size: 14px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
 }
 
 .for_form li span {
@@ -223,7 +223,7 @@ a:hover,a:active {
 }
 
 .for_form li a {
-	padding-left: 5px;
+	padding-left: 10px;
 	padding-right: 15px;
 }
 
@@ -355,10 +355,6 @@ a:hover,a:active {
 
 .libry_class a:hover {
 	color: #FF0000;
-}
-
-.contact {
-	margin-top: 15px;
 }
 
 /*中间*/
@@ -941,4 +937,25 @@ h2 {
 
 .for_form_sec p a:hover {
 	color: #854d45;
+}
+/*联系我们*/
+.contact {
+	margin-top: 15px;
+	background: url(img/contact1.gif) no-repeat;
+	width: 252px;
+	height: 119px;
+}
+
+.contact a {
+	display: block;
+	font-weight: bold;
+	font-size: 12px;
+	color: #fff;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 70px;
+}
+
+.contact a:hover {
+	color: #FF0000;
 }
