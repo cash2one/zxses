@@ -157,8 +157,8 @@ public class FileUploadServlet extends HttpServlet {
 						Image image = ImageIO.read(file);
 						int imageWidth = image.getWidth(null);
 						int imageHeight = image.getHeight(null);
-						int maxWidth = 800;
-						int maxHeight = 600;
+						int maxWidth = 1024;
+						int maxHeight = 768;
 						if (imageWidth > maxWidth || imageHeight > maxHeight) {
 							BufferedImage resizeImage = ImageUtils.resizeImage(image, 0, maxWidth, maxHeight);
 							ImageUtils.saveImage(resizeImage, file.getAbsolutePath(), 0);
