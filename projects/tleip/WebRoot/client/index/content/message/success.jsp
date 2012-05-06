@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css"
 			href="${basePath }res/client/css/skin.css" />
 		<script type="text/javascript"
-			src="${basePath }res/client/js/jquery-1.4.2.min.js"></script>
+			src="${basePath }res/client/js/jquery-1.4.3.min.js"></script>
 		<%@ include file="/inc/resources.jsp"%>
 		<title>留言成功</title>
 		
