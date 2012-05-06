@@ -33,7 +33,7 @@
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/client/js/js_whol.js"></script>
 		<script type="text/javascript"
-			src="<%=basePath%>res/client/js/jquery-1.4.2.min.js"></script>
+			src="<%=basePath%>res/client/js/jquery-1.4.3.min.js"></script>
 		<script type="text/javascript"
 			src="<%=basePath%>res/client/js/jquery.jcarousel.min.js"></script>
 		<script type="text/javascript"
