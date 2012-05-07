@@ -32,6 +32,8 @@
 			src="<%=basePath%>res/client/js/util.js"></script>
 		<%@ include file="/inc/resources.jsp"%>
 		<script type="text/javascript" src="${basePath}client/index/content/message/jsfiles/messageAdd.js"></script>
+		<script type="text/javascript"
+			src="<%=basePath%>client/index/content/login_reg/jsfiles/login.js"></script>
 		<style>
 			/*简单修改符合塘朗网站的功能*/
 			.wrap{
@@ -88,18 +90,21 @@
 				</div>
 				<div id="left" class="fl">
 					<!-- 左列 -->
-					<ul>
-					<%--
-					<li><a href="">教师文萃</a>
+					<div class="left_list">
+						<h2>发表留言</h2>
 						<ul>
-							<li><a href="">班主任工作的探索</a></li>
-							<li><a href="">班主任工作的探索</a></li>
-							<li><a href="">班主任工作的探索</a></li>
+						<li>
+							<ul>
+							</ul>
+						</li>
 						</ul>
-					</li>
-					<li><a href="">最新图片</a></li>
-					--%>
-					</ul>
+					</div>
+					<div class="regit">
+						<!--index_login-->
+						<bean:include id="queryLogin"
+							page="/client/newsClient.do?method=queryLogin" />
+						<bean:write name="queryLogin" filter="false" />
+					</div>
 					<div class="contact">
 						<img src="<%=basePath%>res/client/css/img/contact.gif" />
 					</div>
