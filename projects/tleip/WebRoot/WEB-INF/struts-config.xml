@@ -399,6 +399,7 @@
 			type="com.lcweb.struts.action.VoteManageAction">
 			<forward name="voteList" path="/view/votemanage/voteTitleList.jsp"></forward>
 			<forward name="voteTitleAdd" path="/view/votemanage/voteTitleAdd.jsp"></forward>
+			<forward name="enterUpdateVoteTitle" path="/view/votemanage/voteTitleUpdate.jsp"></forward>
 			<forward name="voteTitleDetails" path="/view/votemanage/voteTitleDetails.jsp"></forward>
 		</action>
 		<!-- vote(background vote) end  -->

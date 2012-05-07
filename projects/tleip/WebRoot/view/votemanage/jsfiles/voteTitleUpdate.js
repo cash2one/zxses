@@ -1,4 +1,8 @@
 var count = 1;
+
+$(function(){
+	count = $("#itemsCount").val();
+});
 	
  function add(){
 	voteForm.submit();

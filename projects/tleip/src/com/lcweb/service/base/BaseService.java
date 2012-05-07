@@ -13,10 +13,12 @@ public interface BaseService {
 	public List queryByPage(final String hql,final int offset,final int pageSize);
 	public Object queryObjectById(Object object,Integer id);
 	public Object queryObjectByLongId(Object object,Long id);
+	public Object queryObjectByLongId(Class cls, Long id);
 	public void deleteObjects(Object object,String[] ids);
 	public void deleteObjectsForInteger(Object object, String[] ids);
 	public void deleteObjectsAndChilds(Object object,String queryChildHql,String[] ids);
 	public void deleteObject(Object object);
+	public void deleteAll(String hql);
 	public List queryObjectList(String hql);
 	
 	public Object queryObjectById(Object object,Object id);

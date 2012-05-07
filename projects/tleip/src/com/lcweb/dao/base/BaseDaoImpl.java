@@ -106,6 +106,10 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 		public Object queryObjectByLongId(Object object, Long id) {
 			return this.getHibernateTemplate().get(object.getClass(), id);
 		}
+		
+		public Object queryObjectByLongId(Class cls, Long id) {
+			return this.getHibernateTemplate().get(cls, id);
+		}
 		/*
 		public Object queryObjectById(Object object,Integer id) {
 			return this.getHibernateTemplate().get(object.getClass(),id);

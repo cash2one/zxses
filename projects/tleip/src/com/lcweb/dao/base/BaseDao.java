@@ -13,6 +13,7 @@ public interface BaseDao {
 	public Object queryObjectById(Object object,Object id);
 	public Object queryObjectById(Class cls,Object id);
 	public Object queryObjectByLongId(Object object,Long id);
+	public Object queryObjectByLongId(Class cls,Long id);
 	public List queryObjectList(String hql);
 	public List queryByPage(final String hql,final int offset,final int pageSize);
 	public void deleteObjects(Object object,String[] ids);

@@ -45,6 +45,11 @@ public class BaseServiceImpl  implements BaseService {
 			String[] ids) {
 		this.baseDao.deleteObjectsAndChilds(object, queryChildHql, ids);
 	}
+	
+	public void deleteAll(String hql){
+		this.baseDao.deleteAll(hql);
+	}
+	
 	public List queryObjectList(String hql) {
 		return  this.baseDao.queryObjectList(hql);
 	}
@@ -54,6 +59,10 @@ public class BaseServiceImpl  implements BaseService {
 	}
 	public Object queryObjectByLongId(Object object, Long id) {
 		return baseDao.queryObjectByLongId(object, id);
+	}
+	
+	public Object queryObjectByLongId(Class cls, Long id) {
+		return baseDao.queryObjectByLongId(cls, id);
 	}
 	 
 	public void saveOrUpdate(Object object) {

@@ -15,10 +15,12 @@ import org.apache.struts.actions.DispatchAction;
 import com.lcweb.base.util.PageList;
 import com.lcweb.base.util.SysObj;
 import com.lcweb.bean.pojo.BasicPerson;
+import com.lcweb.bean.pojo.SysRole;
 import com.lcweb.bean.pojo.VoteItems;
 import com.lcweb.bean.pojo.VoteTitle;
 import com.lcweb.commons.CheckRight;
 import com.lcweb.service.vote.VoteService;
+import com.lcweb.struts.form.RightManageForm;
 import com.lcweb.struts.form.VoteForm;
 
 public class VoteManageAction extends DispatchAction {
@@ -95,7 +97,7 @@ public class VoteManageAction extends DispatchAction {
 	public ActionForward deleteVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
 		BasicPerson basicPerson = (BasicPerson) request.getSession().getAttribute("logininfo");
-		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "message", "delete");
+		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "vote", "delete");
 		if (!right) {
 			return mapping.findForward("noright");
 		}
@@ -106,12 +108,12 @@ public class VoteManageAction extends DispatchAction {
 	}
 
 	/**
-	 * 删除投票选项
+	 * 删除投票选项 to dos
 	 */
 	public ActionForward deleteVoteItem(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
 		BasicPerson basicPerson = (BasicPerson) request.getSession().getAttribute("logininfo");
-		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "message", "delete");
+		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "vote", "delete");
 		if (!right) {
 			return mapping.findForward("noright");
 		}
@@ -120,7 +122,86 @@ public class VoteManageAction extends DispatchAction {
 		request.setAttribute("showMsg", SysObj.createDeleteMassageBox(ids.length, ""));
 		return queryVoteTitle(mapping, form, request, response);
 	}
-
+	
+	/**
+	 * 发布投票主题
+	 */
+	public ActionForward publishVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		BasicPerson basicPerson = (BasicPerson) request.getSession().getAttribute("logininfo");
+		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "vote", "publish");
+		if (!right) {
+			return mapping.findForward("noright");
+		}
+		String[] ids = request.getParameterValues("check");
+		int effectCount = voteService.publishVoteTitle(ids);
+		request.setAttribute("showMsg", SysObj.createPublishMassageBox(effectCount));
+		return queryVoteTitle(mapping,form,request,response);
+	}
+	
+	/**
+	 * 反发布投票主题
+	 */
+	public ActionForward unPublishVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		BasicPerson basicPerson = (BasicPerson) request.getSession().getAttribute("logininfo");
+		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "member", "enable");
+		if (!right) {
+			return mapping.findForward("noright");
+		}
+		String[] ids = request.getParameterValues("check");
+		int effectCount = voteService.unPublishVoteTitle(ids);
+		request.setAttribute("showMsg", SysObj.createUnPublishMassageBox(effectCount));
+		return queryVoteTitle(mapping,form,request,response);
+	}
+	
+	/**
+	 * 跳转到修改投票主题界面
+	 */
+	public ActionForward enterUpdateVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		BasicPerson basicPerson = (BasicPerson) request.getSession().getAttribute("logininfo");
+		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "vote", "update");
+		if (!right) {
+			return mapping.findForward("noright");
+		}
+		Long id = Long.parseLong(request.getParameter("voteTitleId"));
+		VoteTitle voteTitle = (VoteTitle) voteService.queryObjectByLongId(VoteTitle.class, id);
+		request.setAttribute("voteTitleInfo", voteTitle);
+		return mapping.findForward("enterUpdateVoteTitle");
+	}
+	
+	/**
+	 * 修改投票主题
+	 */
+	public ActionForward updateVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		BasicPerson basicPerson = (BasicPerson) request.getSession().getAttribute("logininfo");
+		boolean right = checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "vote", "update");
+		if (!right) {
+			return mapping.findForward("noright");
+		}
+		VoteForm voteForm = (VoteForm) form;
+		/*VoteTitle voteTitle = new VoteTitle();
+		voteTitle.setVoteDate(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
+		voteTitle.setVoteName(voteForm.getVoteName());
+		voteTitle.setVoteType(voteForm.getVoteType());
+		voteService.saveObject(voteTitle);*/
+		
+		VoteTitle voteTitle = (VoteTitle)voteService.queryObjectById(VoteTitle.class, voteForm.getVoteId());
+		//删除投票主题选线然后重新新增
+		voteService.deleteVoteTitleItems(voteTitle.getVoteId().toString());
+		for (int i = 0; i < voteForm.getItemName().length; i++) {
+			VoteItems items = new VoteItems();
+			items.setItemName(voteForm.getItemName()[i]);
+			items.setVoteTitle(voteTitle);
+			items.setItemBallot(0);
+			voteService.saveObject(items);
+		}
+		request.setAttribute("showMsg", SysObj.createAddMassageBox(""));
+		return queryVoteTitle(mapping, form, request, response);
+	}
+	
 	/**
 	 * 查询投票主题下的投票选项
 	 */

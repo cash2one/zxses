@@ -38,6 +38,16 @@ public class SysObj {
 		return createMassageBox(str);
 	}
 	
+	public static String createPublishMassageBox(int delRecords){
+		String str = "发布"+delRecords+"条记录成功!";
+		return createMassageBox(str);
+	}
+	
+	public static String createUnPublishMassageBox(int delRecords){
+		String str = "反发布"+delRecords+"条记录成功!";
+		return createMassageBox(str);
+	}
+	
 	public static String createDisableMassageBox(int delRecords){
 		String str = "禁用"+delRecords+"条记录成功!";
 		return createMassageBox(str);

@@ -22,6 +22,31 @@
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/admin/js/coolwindow.js"></script>
 		<script type="text/javascript">
+			var editvalue;
+			function checkNum(){
+	            var chkbs = document.getElementsByName("check");   
+	            var chkNum = 0;   
+	            for(i=0;i<chkbs.length;i++)
+	            {
+	              if(chkbs(i).checked){
+	                chkNum++;
+	                editvalue=chkbs[i].value;
+	                }
+	            }
+	            if(chkNum<1)
+	            {
+	              alert("请选择一条记录!");
+	              return false;
+	            }
+	            else if(chkNum>1)
+	            {
+	               alert("您一次只能选择一条记录！");
+	            }
+	            else{
+	               return true;
+	            }          
+	        }
+		
 	        function checkDelNum()
 	        {
 	            var chkbs = document.getElementsByName("check");   
@@ -71,17 +96,12 @@
 	          }
 	        } 
 	        
-	        function addVote()
-	        {
-	             window.location.href="<%=basePath%>view/votemanage.do?method=toAddVoteTitle";
-	        } 
-	        
-	        function updateVote()
+	        function unPublishVote()
 	        {
 	           if(checkDelNum())
 	          {   
-	             if (confirm("确定删除这些记录吗？")==false) return false;
-	             voteForm.action="<%=basePath%>/view/votemanage.do?method=deleteVoteTitle";
+	          	 if (confirm("确定反发布这些记录吗？")==false) return false;
+	             voteForm.action="<%=basePath%>/view/votemanage.do?method=unPublishVoteTitle";
              	 voteForm.submit(); 
 	             return false;
 	          }
@@ -89,8 +109,36 @@
 	          {
 	             return false;
 	          }
+	        } 
+	        
+	        function addVote()
+	        {
+	             window.location.href="<%=basePath%>view/votemanage.do?method=toAddVoteTitle";
+	        } 
+	        
+	        function updateVote()
+	        { 
+	          if(checkNum())
+	          {
+	          	//发布状态的投票主题不可修改
+	          	var publishStr = $("input[type=checkbox][value="+editvalue+"]").parent().siblings(".publishStatus").children("font").html();
+	          	if(publishStr == "发布"){
+	          		alert("发布状态的投票主题不能修改!");
+	          		return;
+	          	}
+	             window.location.href="<%=basePath%>view/votemanage.do?method=enterUpdateVoteTitle&voteTitleId=" + editvalue;
+	          }
+	          else
+	          {
+	             return false;
+	          }
 	        }
 		</script>
+		<style>
+			//标识发布状态--获取其值用于提示用户发布状态的投票主题不可修改
+			.publishStatus{
+			}
+		</style>
 	</head>
 
 	<body>
@@ -117,6 +165,8 @@
 							<input type="button" class="an" onclick="updateVote()" value="修改" title="修改"/>
 							&nbsp;
 							<input type="button" class="an" onclick="publishVote()" value="发布" title="发布"/>
+							&nbsp;
+							<input type="button" class="an" onclick="unPublishVote()" value="反发布" title="反发布"/>
 							&nbsp;
 							<img src="<%=basePath%>res/admin/img/delete.gif"
 								onclick="javascript:del()" style="cursor: pointer" alt="删除"
@@ -180,7 +230,7 @@
 										<td class="tdcenter tdbk">
 											${column.voteDate }
 										</td>
-										<td class="tdcenter tdbk">
+										<td class="tdcenter tdbk publishStatus">
 											${column.publishStatusStr }
 										</td>
 									</tr>
@@ -204,7 +254,7 @@
 										<td class="tdcenter tdbk">
 											${column.voteDate }
 										</td>
-										<td class="tdcenter tdbk">
+										<td class="tdcenter tdbk publishStatus">
 											${column.publishStatusStr }
 										</td>
 									</tr>

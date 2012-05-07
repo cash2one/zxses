@@ -10,9 +10,24 @@ public interface VoteService extends BaseService{
 	public void deleteVoteTitles(String[] ids);
 	
 	/**
+	 * 删除指定的投票主题下的投票选线
+	 */
+	public void deleteVoteTitleItems(String id);
+	
+	/**
 	 * 查询最新的投票
 	 */
 	public VoteTitle queryNewVoteTitle();
+	
+	/**
+	 * 发布投票
+	 */
+	public int publishVoteTitle(String[] ids);
+	
+	/**
+	 * 反发布投票
+	 */
+	public int unPublishVoteTitle(String[] ids);
 	
 	/**
 	 * 获得投票选项的投票值
