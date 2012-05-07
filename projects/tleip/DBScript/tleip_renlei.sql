@@ -145,6 +145,8 @@ INSERT INTO `sys_module` VALUES ('0207030000', '投票管理', 'view/votemanage.
 INSERT INTO `sys_module` VALUES ('0207030100', '查询', null, '0207030000', null, 'select', null, null);
 INSERT INTO `sys_module` VALUES ('0207030200', '新增', null, '0207030000', null, 'add', null, null);
 INSERT INTO `sys_module` VALUES ('0207030300', '修改', null, '0207030000', null, 'update', null, null);
-INSERT INTO `sys_module` VALUES ('0207030400', '删除', null, '0207030000', null, 'delete', null, null);
+INSERT INTO `sys_module` VALUES ('0207030400', '发布', null, '0207030000', null, 'publish', null, null);
+INSERT INTO `sys_module` VALUES ('0207030500', '反发布', null, '0207030000', null, 'unPublish', null, null);
+INSERT INTO `sys_module` VALUES ('0207030600', '删除', null, '0207030000', null, 'delete', null, null);
 
   
