@@ -73,7 +73,6 @@ INSERT INTO `front_message` VALUES ('26', '1', '个人第三个地方', '2012-04
 INSERT INTO `front_message` VALUES ('27', '1', '唉 烦呀 我烦呀 改起来痛苦呀~~~', '2012-04-24 07:09:34', 'face5.gif', 'pic4.gif', null, null, '1', '0');
 INSERT INTO `front_message` VALUES ('28', '1', 'asdfds 斯蒂芬', '2012-04-24 07:11:28', 'face9.gif', 'pic9.gif', null, null, '1', '0');
 INSERT INTO `front_message` VALUES ('29', '1', '阿斯蒂芬', '2012-04-24 07:11:49', 'face16.gif', 'pic2.gif', null, null, '1', '0');
-INSERT INTO `front_message` VALUES ('1', '1', 'just test 哈哈哈', '2012-04-23 03:39:55', 'face1.gif', 'pic1.gif', 'test回复了哦', '2012-04-23 03:39:55', '1', null);
 INSERT INTO `front_message` VALUES ('2', '1', 'just test 哈哈哈1', '2012-04-23 04:24:47', 'face1.gif', 'pic1.gif', null, null, '1', null);
 INSERT INTO `front_message` VALUES ('3', '1', 'just test 哈哈哈2', '2012-04-23 04:24:47', 'face1.gif', 'pic1.gif', null, null, '1', null);
 INSERT INTO `front_message` VALUES ('4', '1', 'just test 哈哈哈3', '2012-04-23 04:24:47', 'face1.gif', 'pic1.gif', null, null, '1', null);
@@ -94,21 +93,30 @@ INSERT INTO `sys_module` VALUES ('0207020300', '反审批', null, '0207020000', 
 INSERT INTO `sys_module` VALUES ('0207020400', '删除', null, '0207020000', null, 'delete', null, null);
 
 /**投票主题表**/
+-- ----------------------------
+-- Table structure for `vote_title`
+-- ----------------------------
 DROP TABLE IF EXISTS `vote_title`;
 CREATE TABLE `vote_title` (
   `vote_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `vote_name` varchar(30) DEFAULT NULL,
   `vote_type` tinyint(1) DEFAULT NULL,
   `vote_date` varchar(20) DEFAULT NULL,
+  `vote_hot` bigint(20) DEFAULT '0',
+  `publish_status` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`vote_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- 测试数据
+-- Records of vote_title
 -- ----------------------------
-INSERT INTO `vote_title` VALUES ('6', '你觉得学校网站怎么样？', '2', '2012-04-30 12:45:52');
+INSERT INTO `vote_title` VALUES ('7', '你觉得学校网站怎么样', '1', '2012-04-30 09:41:32', '5', '1');
+
 
 /**投票选项表**/
+-- ----------------------------
+-- Table structure for `vote_items`
+-- ----------------------------
 DROP TABLE IF EXISTS `vote_items`;
 CREATE TABLE `vote_items` (
   `item_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -118,15 +126,17 @@ CREATE TABLE `vote_items` (
   PRIMARY KEY (`item_id`),
   KEY `vote_id` (`vote_id`),
   CONSTRAINT `vote_items_fk` FOREIGN KEY (`vote_id`) REFERENCES `vote_title` (`vote_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- 测试数据
+-- Records of vote_items
 -- ----------------------------
-INSERT INTO `vote_items` VALUES ('23', '非常好', '6', '1343435');
-INSERT INTO `vote_items` VALUES ('24', '还不错', '6', '0');
-INSERT INTO `vote_items` VALUES ('25', '一般般', '6', '0');
-INSERT INTO `vote_items` VALUES ('26', '不好', '6', '0');
+INSERT INTO `vote_items` VALUES ('27', '很不错', '7', '2');
+INSERT INTO `vote_items` VALUES ('28', '好', '7', '3');
+INSERT INTO `vote_items` VALUES ('29', '一般般', '7', '0');
+INSERT INTO `vote_items` VALUES ('30', '马马虎虎', '7', '0');
+INSERT INTO `vote_items` VALUES ('31', '差', '7', '0');
+
 
 -- ----------------------------
 -- 投票管理(插入系统模块表)
