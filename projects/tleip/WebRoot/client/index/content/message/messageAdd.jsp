@@ -103,10 +103,6 @@
 					<div class="contact">
 						<img src="<%=basePath%>res/client/css/img/contact.gif" />
 					</div>
-					<div class="message">
-						<a href="" class="textbg">校长信箱</a>	
-						<a href="">留言请进</a>	
-					</div>
 					<%--
 					<bean:include id="queryLeft"
 						page="/client/newsClient.do?method=queryLeft&classId=${classId}" />

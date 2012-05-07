@@ -126,11 +126,6 @@ public class VoteManageAction extends DispatchAction {
 	 */
 	public ActionForward queryVoteItems(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		/*
-		 * BasicPerson basicPerson = (BasicPerson) request.getSession().getAttribute("logininfo"); boolean right =
-		 * checkRight.moduleOperationRight(basicPerson.getPersonAccount(), "message", "delete"); if (!right) { return
-		 * mapping.findForward("noright"); }
-		 */
 		String voteId = request.getParameter("voteId");
 		VoteTitle voteTitle = (VoteTitle) voteService.queryObjectById(VoteTitle.class, Long.valueOf(voteId));
 		request.setAttribute("voteTitleInfo", voteTitle);
@@ -152,7 +147,7 @@ public class VoteManageAction extends DispatchAction {
 		 * PageList pageList = PageList.page(sqlCount, sql, currentPage, pagesize, path, voteService, "voteForm");
 		 * request.setAttribute("pageList", pageList);
 		 */
-		// 按照日期查询最新的投票
+		// 按照日期查询最新发布状态的投票
 		VoteTitle title = voteService.queryNewVoteTitle();
 		Integer totalCount = 1;
 		if (title != null) {

@@ -56,6 +56,21 @@
 	          }
 	        } 
 	        
+	        function publishVote()
+	        {
+	           if(checkDelNum())
+	          {   
+	          	 if (confirm("确定发布这些记录吗？")==false) return false;
+	             voteForm.action="<%=basePath%>/view/votemanage.do?method=publishVoteTitle";
+             	 voteForm.submit(); 
+	             return false;
+	          }
+	          else
+	          {
+	             return false;
+	          }
+	        } 
+	        
 	        function addVote()
 	        {
 	             window.location.href="<%=basePath%>view/votemanage.do?method=toAddVoteTitle";
@@ -101,6 +116,8 @@
 							&nbsp;
 							<input type="button" class="an" onclick="updateVote()" value="修改" title="修改"/>
 							&nbsp;
+							<input type="button" class="an" onclick="publishVote()" value="发布" title="发布"/>
+							&nbsp;
 							<img src="<%=basePath%>res/admin/img/delete.gif"
 								onclick="javascript:del()" style="cursor: pointer" alt="删除"
 								title="删除" />
@@ -137,6 +154,9 @@
 								<td class="chutibai tdbk">
 									投票时间
 								</td>
+								<td class="chutibai tdbk">
+									发布状态
+								</td>
 							</tr>
 
 							<logic:iterate id="column" name="pageList" property="list"
@@ -160,6 +180,9 @@
 										<td class="tdcenter tdbk">
 											${column.voteDate }
 										</td>
+										<td class="tdcenter tdbk">
+											${column.publishStatusStr }
+										</td>
 									</tr>
 								</c:if>
 								<c:if test="${(newsIndex+1)%2 !=0}">
@@ -180,6 +203,9 @@
 										</td>
 										<td class="tdcenter tdbk">
 											${column.voteDate }
+										</td>
+										<td class="tdcenter tdbk">
+											${column.publishStatusStr }
 										</td>
 									</tr>
 								</c:if>

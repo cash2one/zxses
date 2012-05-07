@@ -17,7 +17,7 @@ public class VoteServiceImpl extends BaseServiceImpl implements VoteService {
 
 	@Override
 	public VoteTitle queryNewVoteTitle() {
-		List list = this.queryObjectList("from VoteTitle v order by v.voteDate desc");
+		List list = this.queryObjectList("from VoteTitle v where v.publishStatus = 1 order by v.voteDate desc");
 		if(list != null && list.size() > 0){
 			return (VoteTitle)list.get(0);
 		}

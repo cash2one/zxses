@@ -18,9 +18,11 @@ public class VoteTitle implements java.io.Serializable {
 	private Byte voteType;
 	private String voteDate;
 	private Long voteHot = 0L;
+	private Byte publishStatus = 0;
 	private Set voteItemses = new HashSet(0);
 	
 	private String voteTypeStr;
+	private String publishStatusStr;
 
 	// Constructors
 
@@ -31,17 +33,26 @@ public class VoteTitle implements java.io.Serializable {
 			return "<font color='green'>多选</font>";
 		}
 	}
+	
+	public String getPublishStatusStr() {
+		if(publishStatus == 1){
+			return "<font color='green'>发布</font>";
+		}else{
+			return "<font color='red'>未发布</font>";
+		}
+	}
 
 	/** default constructor */
 	public VoteTitle() {
 	}
 
 	/** full constructor */
-	public VoteTitle(String voteName, Byte voteType, String voteDate, Long voteHot, Set voteItemses) {
+	public VoteTitle(String voteName, Byte voteType, String voteDate, Long voteHot,Byte publishStatus, Set voteItemses) {
 		this.voteName = voteName;
 		this.voteType = voteType;
 		this.voteDate = voteDate;
 		this.voteHot = voteHot;
+		this.publishStatus = publishStatus;
 		this.voteItemses = voteItemses;
 	}
 
@@ -95,4 +106,11 @@ public class VoteTitle implements java.io.Serializable {
 		this.voteHot = voteHot;
 	}
 
+	public Byte getPublishStatus() {
+		return publishStatus;
+	}
+
+	public void setPublishStatus(Byte publishStatus) {
+		this.publishStatus = publishStatus;
+	}
 }

@@ -10,7 +10,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>信息发布管理系统</title>
+		<title>深圳市南山区塘朗小学</title>
 		<link rel="stylesheet" type="text/css"
 			href="<%=basePath%>res/theme/blue/css/css.css">
 		<script language="javascript" type="text/javascript"
