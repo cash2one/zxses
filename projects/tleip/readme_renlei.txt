@@ -65,5 +65,6 @@ myeclipse文件夹搜索javaee.jar
 	3、图片轮滑js修改，myfocus-1.2.4.full.js 修改path路径，否则加载有误，
 	   path: $.basePath + 'tools/myFocus/js/pattern/',//pattern文件的路径,相对html文件的路径,设置为false或0即取消程序引入
 	4、登录及投票功能
+	5、系统模块数据-投票管理权限部分增加发布、反发布控制权限部分--更新sql
 ---------------------------------------------------------------
 
