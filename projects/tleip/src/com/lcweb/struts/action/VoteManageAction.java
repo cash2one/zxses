@@ -243,6 +243,14 @@ public class VoteManageAction extends DispatchAction {
 
 		return mapping.findForward("voteFrontList");
 	}
+	
+	public ActionForward queryVoteListInMessage(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		// 按照日期查询最新发布状态的投票
+		VoteTitle title = voteService.queryNewVoteTitle();
+		request.setAttribute("voteTitle", title);
+		return new ActionForward("/client/index/content/vote/voteList.jsp");
+	}
 
 	/**
 	 * 投票

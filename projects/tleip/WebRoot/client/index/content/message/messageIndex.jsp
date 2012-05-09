@@ -92,7 +92,16 @@
 						</li>
 						</ul>
 					</div>
+					
 					<a href="<%=basePath%>front/vote.do?method=queryVoteList">网络投票</a>
+					
+					<div class="voteList">
+						<!--voteList-->
+						<bean:include id="queryVoteListInMessage"
+							page="/front/vote.do?method=queryVoteListInMessage" />
+						<bean:write name="queryVoteListInMessage" filter="false" />
+					</div>
+					<br/>
 					<div class="regit">
 						<!--index_login-->
 						<bean:include id="queryLogin"

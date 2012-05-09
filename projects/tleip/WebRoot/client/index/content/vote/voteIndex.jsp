@@ -157,64 +157,7 @@
 												<c:if test="${voteTitle == null}">
 													目前没有投票！
 												</c:if>
-												<%--<form method="post" action=""  id="form_survey" name="form_survey">
-													<table width="100%" cellspacing="0" cellpadding="0" border="0" style="visibility: visible; " id="hot">
-														<tbody>
-															<tr>
-																<td>&nbsp;</td>
-																<td width="50" id="border"><nobr><b>人气值：</b><span id="hot_value">4,466,168</span></nobr></td>
-															</tr>
-														</tbody>
-													</table>
-													<div id="main">
-														<div id="question_361707" class="question result">
-															<div class="title f14px">
-																<button class="icon_vote">&nbsp;</button>你认为国美起诉黄光裕会胜诉吗？ 
-															</div>
-															<div class="content line">
-															<div class="nodetail"></div>
-															<table width="100%" cellspacing="0" cellpadding="0" border="0">
-																<tbody>
-																	<tr>
-																		<td width="430" style="padding-right:20px;">
-																			<label><input type="radio" onclick="AppPlatform.Survey.Option.check(this,361707,'sbj_361707[]',0);" value="25592" id="opt_25592" name="sbj_361707[]"/>
-																			<span class="option">帮助学生寻找、搜集和利用学习资源</span></label>
-																		</td>
-																		<td width="170">
-																			<div id="result_bar_361707_25592" style="display: block; " class="process">
-																			<div style="width: 36.176px;" class="style2" id="process_bar_361707_25592"></div></div>
-																		</td>
-																		<td width="110" id="process_txt_361707_25592" style="display: block; " class="black">
-																			<nobr>336,648 (22.61%)</nobr>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td width="430" style="padding-right:20px;">
-																			<label><input type="radio" onclick="AppPlatform.Survey.Option.check(this,361707,'sbj_361707[]',0);" value="25593" id="" name=""/>
-																			<span class="option">不会</span></label>
-																		</td>
-																		<td width="170"><div id="result_bar_361707_25593" style="display: block; " class="process"><div style="width: 104.896px;" class="style3" id="process_bar_361707_25593"></div></div></td>
-																		<td width="110" id="process_txt_361707_25593" style="display: block; " class="black"><nobr>976,023 (65.56%)</nobr>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td width="430" style="padding-right:20px;">
-																			<label><input type="radio" onclick="AppPlatform.Survey.Option.check(this,361707,'sbj_361707[]',0);" value="25594" id="opt_25594" name="sbj_361707[]"/>
-																			<span class="option">不好说</span></label>
-																		</td>
-																		<td width="170"><div id="result_bar_361707_25594" style="display: block; " class="process"><div style="width: 18.928px;" class="style4" id="process_bar_361707_25594"></div></div></td>
-																		<td width="110" id="process_txt_361707_25594" style="display: block; " class="black"><nobr>176,052 (11.83%)</nobr>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
-													<div class="submit line" align="center">
-														<input type="button" onclick="" value="提  交" class="uniformButton" id="submit_survey"/>
-													</div>
-												</form>
-											--%></div>
+											</div>
 										</div>
 										<br />
 									</td>

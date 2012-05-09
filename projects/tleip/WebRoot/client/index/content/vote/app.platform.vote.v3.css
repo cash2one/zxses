@@ -28,7 +28,7 @@ input,textarea{font-family:"����",Tahoma,sans-serif;font-size:12px;line-
 #body #main .option{width:100px;color:#313131}
 #body #main .line{border-top:1px solid #DFDFDF}
 #body #main .tip{font-size:12px;font-weight:normal;color:#E34A01}
-#body #main .icon_vote{border-style:none;margin:0 10px 3px 2px;width:14px;height:14px;font-size:1px;background:url(http://mat1.gtimg.com/www/apps/images/vote_icon_bg_v2.gif) no-repeat right -137px}
+.icon_vote{border-style:none;margin:0 10px 3px 2px;width:14px;height:14px;font-size:1px;background:url(http://mat1.gtimg.com/www/apps/images/vote_icon_bg_v2.gif) no-repeat right -137px}
 #body #main .icon_list{border-style:none;margin:0 10px 3px 2px;width:14px;height:16px;font-size:1px;background:url(http://mat1.gtimg.com/www/apps/images/vote_icon_bg_v2.gif) no-repeat left -137px}
 #body #main .submit{margin-top:20px;padding:10px;}
 #body #main .f16px{font-size:16px}
