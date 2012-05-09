@@ -7,7 +7,7 @@
 			+ path + "/";
 %>
 <script type="text/javascript"
-	src="<%=basePath%>tools/myFocus/js/myfocus-1.2.4.full.js"></script>
+	src="<%=basePath%>tools/myFocus/js/myfocus-1.2.4.min.js"></script>
 <!--ÒýÈëmyFocus¿â-->
 <script type="text/javascript"
 	src="<%=basePath%>tools/myFocus/js/pattern/mF_expo2010.js"></script>
