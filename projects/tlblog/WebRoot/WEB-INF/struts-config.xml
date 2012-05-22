@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="sysUserForm" type="com.agilefly.web.form.SysUserForm"/>
+		<form-bean name="sysModuleForm" type="com.agilefly.web.form.SysModuleForm"/>
+		<form-bean name="sysRoleForm" type="com.agilefly.web.form.SysRoleForm"/>
+		
+	</form-beans>
+
+	<!-- ========================================= Global Exception Definitions -->
+	<global-exceptions>
+	</global-exceptions>
+
+	<!-- =========================================== Global Forward Definitions -->
+	<global-forwards>
+		<forward name="message" path="/view/common/message.jsp" />
+		<forward name="rightMessage" path="/view/common/rightMessage.jsp" />
+	</global-forwards>
+
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<!-- 验证码 -->
+		<action path="/codeImageAction"/>
+		<!--*****************后台系统配置Action***********************-->
+		<!-- 系统初始化 -->
+		<action path="/view/systeminit">
+			<forward name="success" path="/login.jsp" />
+		</action>
+		<!-- 系统登录 -->
+		<action path="/sys/login" name="sysUserForm" scope="request" parameter="method" input="/login.jsp">
+			<forward name="login" path="/login.jsp" redirect="true"/>
+			<forward name="main" path="/view/main.jsp" redirect="true"/>
+			<forward name="loginindex" path="/login.jsp"/>
+			<forward name="left" path="/view/left.jsp"/>
+			<forward name="top" path="/view/top.jsp"/>
+			<forward name="toupdate" path="/view/passwordUpdate.jsp"/>
+		</action>
+		<!-- 系统模块管理 -->
+		<action path="/view/sysmodule" name="sysModuleForm" scope="request" parameter="method">
+			<forward name="list" path="/view/rightmanage/modulemanage/sysmoduleList.jsp"/>
+			<forward name="add_input" path="/view/rightmanage/modulemanage/sysmoduleAdd.jsp"/>
+			<forward name="update_input" path="/view/rightmanage/modulemanage/sysmoduleUpdate.jsp"/>
+		</action>
+		<!-- 系统用户管理 -->
+		<action path="/view/sysuser" name="sysUserForm" scope="request" parameter="method">
+			<forward name="list" path="/view/rightmanage/usermanage/sysuserList.jsp"/>
+			<forward name="add_input" path="/view/rightmanage/usermanage/sysuserAdd.jsp"/>
+			<forward name="update_input" path="/view/rightmanage/usermanage/sysuserUpdate.jsp"/>
+			<forward name="assignRole_input" path="/view/rightmanage/usermanage/sysuserroleList.jsp"/>
+		</action>
+		<!-- 系统角色管理 -->
+		<action path="/view/sysrole" name="sysRoleForm" scope="request" parameter="method">
+			<forward name="list" path="/view/rightmanage/rolemanage/sysroleList.jsp"/>
+			<forward name="add_input" path="/view/rightmanage/rolemanage/sysroleAdd.jsp"/>
+			<forward name="update_input" path="/view/rightmanage/rolemanage/sysroleUpdate.jsp"/>
+			<forward name="assignPrivilege_input" path="/view/rightmanage/rolemanage/sysroleprivilegeList.jsp"/>
+		</action>
+		
+		
+		
+		<!--*****************前台系统配置Action***********************-->
+		
+	</action-mappings>
+	
+	<!-- =================================================== Spring processor -->
+	<!-- 继承DelegatingRequestProcessor的权限处理PermissionProcessor -->
+	<controller>
+		<set-property property="processorClass"
+			value="com.agilefly.web.action.PermissionProcessor" />
+	</controller>
+</struts-config>
+
