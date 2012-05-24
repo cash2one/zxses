@@ -127,7 +127,7 @@
 											<span class="chuti lv">模块列表</span>${showMsg }
 										</td>
 										<td align="right">
-											<!-- 工具栏按钮 加上权限控制验证-->
+											<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径 加上权限控制验证-->
 											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysModuleManage','add') }">
 											<img src="<%=basePath%>res/admin/img/add.gif"
 												onclick="javascript:add()" style="cursor: pointer" alt="新增"

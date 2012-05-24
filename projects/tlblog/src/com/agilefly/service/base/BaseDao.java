@@ -85,7 +85,7 @@ public interface BaseDao<T> {
 			LinkedHashMap<String, String> orderby);
 
 	/**
-	 * 获取分页数据 不设置分页(查询条件、参数和排序方式)
+	 * 获取列表数据 不设置分页(设置查询条件、参数和排序方式)
 	 * 
 	 * @param <T>
 	 * @param entityClass
@@ -96,7 +96,13 @@ public interface BaseDao<T> {
 			LinkedHashMap<String, String> orderby);
 	
 	/**
-	 * 获取分页数据 不设置分页(查询条件、参数)
+	 * 不分页查询
+	 * @return
+	 */
+	public QueryResult<T> getScrollData();
+	
+	/**
+	 * 获取列表数据 不设置分页(设置查询条件、参数)
 	 * 
 	 * @param <T>
 	 * @param entityClass
@@ -106,7 +112,7 @@ public interface BaseDao<T> {
 	public QueryResult<T> getScrollData(String wherejpql, Object[] queryParams);
 	
 	/**
-	 * 获取分页数据 不设置分页(排序方式)
+	 * 获取列表数据 不设置分页(设置排序方式)
 	 * 
 	 * @param <T>
 	 * @param entityClass
@@ -151,11 +157,9 @@ public interface BaseDao<T> {
 	 */
 	public QueryResult<T> getScrollData(int firstindex, int maxresult);
 	
-	/**
-	 * 不分页查询
-	 * @return
-	 */
-	public QueryResult<T> getScrollData();
+	
+	//*************************************用户列表显示方法(结合pager-taglib组件使用)*********************************************************
+	
 	
 	/**
 	 * 从当前线程中获得pager.offset 和 pagesize(从pager-taglib组件中获得) -->无需设置firstindex, maxresult,与以上方法功能一样

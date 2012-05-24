@@ -29,26 +29,21 @@
 		<script language="JavaScript" type="text/JavaScript"> 
 		  function add()
 		  {		    
-		    /*var personCode = document.getElementsByName("basicPerson.personCode")[0].value;
-		    var personName = document.getElementsByName("basicPerson.personName")[0].value;
-		    var password = document.getElementsByName("basicPerson.password")[0].value;
-		    var personAccount = document.getElementsByName("basicPerson.personAccount")[0].value;
-		    var deptId = document.getElementsByName("basicDepartment.deptId")[0].value;
-		    if(personCode !="" && personName !="" && password !="" && personAccount !="")
+		    var name = $("#name")[0].value;
+		    var sn = $("#sn")[0].value;
+		    var orderNo = $("#orderNo")[0].value;
+		    var url = $("#url")[0].value;
+		    
+		    if(name !="" && sn !="" && orderNo !="")
 		    {
-		    $.post("rightManage.do?method=checkUserAccount",{personAccount:personAccount,deptId:deptId},function(response){
-               if(response=="exist"){
-                  alert("此登录账号已存在，请重新输入！");
-               }else{ 
-                rightManageForm.submit();
-               }
-            });
+		    	sysModuleForm.submit();
             }
             else
             {
-                alert("带*号的不能为空！")
-            }*/
-            sysModuleForm.submit();
+                alert("带*号的不能为空！");
+                return;
+            }
+            
 		  }
 		  function back()
           {

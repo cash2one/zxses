@@ -8,5 +8,10 @@ import com.agilefly.service.base.BaseDao;
  * @date May 18, 2012 10:39:04 PM
  */
 public interface ISysRoleService extends BaseDao<SysRole> {
-
+	/**
+	 * 检查角色名是否已存在
+	 * @param roleName
+	 * @return
+	 */
+	public boolean isRoleNameExist(String roleName);
 }

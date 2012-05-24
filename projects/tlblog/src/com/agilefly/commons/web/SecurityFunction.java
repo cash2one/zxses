@@ -22,7 +22,6 @@ public class SecurityFunction {
 	
 	public static boolean hasPermission(int sysUserId, String model,
 			String privilegeValue){
-		System.out.println(model + " @@ " + privilegeValue);
 		SysUser sysUser = sysUserService.find(sysUserId);
 		SysPrivilege privilege = new SysPrivilege(new SysPrivilegeId(model, privilegeValue));
 		for(SysRole sr : sysUser.getSysRoles()){

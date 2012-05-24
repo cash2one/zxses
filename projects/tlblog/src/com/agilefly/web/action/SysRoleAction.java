@@ -1,8 +1,6 @@
 package com.agilefly.web.action;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -14,10 +12,10 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
 
-import com.agilefly.bean.SysModule;
 import com.agilefly.bean.SysPrivilege;
 import com.agilefly.bean.SysPrivilegeId;
 import com.agilefly.bean.SysRole;
+import com.agilefly.commons.web.WebUtils;
 import com.agilefly.service.sysmodule.ISysModuleService;
 import com.agilefly.service.sysprivilege.ISysPrivilegeService;
 import com.agilefly.service.sysrole.ISysRoleService;
@@ -80,6 +78,20 @@ public class SysRoleAction extends BaseAction{
 	@Permission(model="sysRoleManage", privilegeValue="add")
 	public ActionForward addInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return mapping.findForward("add_input");
+	}
+	
+	/**
+	 * 检查角色名是否使用
+	 */
+	public ActionForward checkRoleName(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		SysRoleForm srf = (SysRoleForm)form;
+		boolean isExits = sysRoleService.isRoleNameExist(srf.getRoleName());
+		if(isExits){
+			WebUtils.writeResponse(response, "used");
+		}else{
+			WebUtils.writeResponse(response, "unused");
+		}
+		return null;
 	}
 	
 	/**

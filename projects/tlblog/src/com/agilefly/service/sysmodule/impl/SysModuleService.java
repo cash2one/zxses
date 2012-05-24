@@ -19,7 +19,7 @@ public class SysModuleService extends BaseDaoImpl<SysModule> implements ISysModu
 		if (parentId != 0) {
 			module.setParent(find(parentId));
 		}
-		getHibernateTemplate().save(module);
+		save(module);
 	}
 
 	public void delSysModule(int moduleId) {

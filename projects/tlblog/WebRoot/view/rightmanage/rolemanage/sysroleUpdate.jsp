@@ -29,26 +29,37 @@
 		<script language="JavaScript" type="text/JavaScript"> 
 		  function update()
 		  {		    
-		    /*var personCode = document.getElementsByName("basicPerson.personCode")[0].value;
-		    var personName = document.getElementsByName("basicPerson.personName")[0].value;
-		    var password = document.getElementsByName("basicPerson.password")[0].value;
-		    var personAccount = document.getElementsByName("basicPerson.personAccount")[0].value;
-		    var deptId = document.getElementsByName("basicDepartment.deptId")[0].value;
-		    if(personCode !="" && personName !="" && password !="" && personAccount !="")
+		    var roleName = $("#roleName")[0].value;
+		    
+		    if(roleName !="")
 		    {
-		    $.post("rightManage.do?method=checkUserAccount",{personAccount:personAccount,deptId:deptId},function(response){
-               if(response=="exist"){
-                  alert("此登录账号已存在，请重新输入！");
-               }else{ 
-                rightManageForm.submit();
-               }
-            });
-            }
-            else
-            {
-                alert("带*号的不能为空！")
-            }*/
-            sysRoleForm.submit();
+		    	var roleNameObj = $("#roleName");
+		    	var roleNameUsedObj = $("#roleNameUsed");
+				//ajax检查角色名是否已经使用
+				if($.trim($(roleNameObj).val()) != ""){
+					$.ajax( {
+						url : "<%=basePath%>view/sysrole.do?method=checkRoleName",
+						data : {
+							roleName : roleNameObj.val()
+						},
+						async : false,
+						type : "POST",
+						success : function(data) {
+							if (data == "used") {
+								alert("该角色名已使用,请更换！");
+								roleNameUsedObj.val("true");
+							}else{
+								roleNameUsedObj.val("false");
+							}
+						}
+					});
+				}
+		    	
+		    	if(roleNameUsedObj.val()=="true"){
+		    		return;
+		    	}
+		    	sysRoleForm.submit();
+		  	}
 		  }
 		  function back()
           {
@@ -89,6 +100,8 @@
 								<td>
 								<!-- 修改form action路径 -->
 								<html:form action="view/sysrole.do?method=update" method="post">
+									<!-- 记录用户名是否已使用,js验证使用 -->
+									<input type="hidden" id="roleNameUsed" value="false"/>
 									<!-- 主键id -->
 									<input type="hidden" name="id" value="${sysRoleInfo.id }"/>
 									<table cellSpacing="0" cellPadding="0" border="0" width="100%"

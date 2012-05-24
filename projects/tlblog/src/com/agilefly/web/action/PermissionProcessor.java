@@ -50,12 +50,6 @@ public class PermissionProcessor extends DelegatingRequestProcessor {
 			SysPrivilege privilege = new SysPrivilege(new SysPrivilegeId(permission.model(), permission.privilegeValue()));
 			SysUser sysUser = WebUtils.getSysUser(request);
 			for(SysRole sr : sysUser.getSysRoles()){
-				System.out.println(sr.getRoleName());
-				for (SysPrivilege pri : sr.getSysPrivileges()) {
-					System.out.println(pri.getId().getModel() + "&&"  + pri.getId().getPrivilegeValue());
-				}
-				System.out.println("******************************");
-				System.out.println(privilege.getId().getModel() + "&&"  + privilege.getId().getPrivilegeValue());
 				if(sr.getSysPrivileges().contains(privilege)) return true;
 			}
 			return false;

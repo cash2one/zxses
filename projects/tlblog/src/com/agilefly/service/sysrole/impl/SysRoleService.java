@@ -14,4 +14,10 @@ import com.agilefly.service.sysrole.ISysRoleService;
 @Service
 @Transactional
 public class SysRoleService extends BaseDaoImpl<SysRole> implements ISysRoleService {
+	public boolean isRoleNameExist(String roleName){
+		if(getScrollData("o.roleName = ?", new Object[]{roleName}).getResultlist().size() > 0){
+			return true;
+		}
+		return false;
+	}
 }

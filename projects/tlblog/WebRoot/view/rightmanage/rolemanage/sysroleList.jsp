@@ -135,21 +135,29 @@
 											<span class="chuti lv">角色列表</span>${showMsg }
 										</td>
 										<td align="right">
-											<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径-->
+											<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径 加上权限控制验证-->
+											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysRoleManage','add') }">
 											<img src="<%=basePath%>res/admin/img/add.gif"
 												onclick="javascript:add()" style="cursor: pointer" alt="新增"
 												title="新增" />
 											&nbsp;
+											</c:if>
+											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysRoleManage','update') }">
 											<img src="<%=basePath%>res/admin/img/update.gif"
 												onclick="javascript:update()" style="cursor: pointer" alt="修改" title="修改" />
 											&nbsp;
+											</c:if>
+											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysRoleManage','delete') }">
 											<img src="<%=basePath%>res/admin/img/delete.gif"
 												onclick="javascript:del()" style="cursor: pointer" alt="删除"
 												title="删除" />
 											&nbsp;
+											</c:if>
+											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysRoleManage','assignPrivilege') }">
 											&nbsp;
 											<input type="button" class="an" style="width: 90px;" onclick="assignPrivilege()" value="分配权限" title="分配权限"/>
 											&nbsp;
+											</c:if>
 										<td width="15"></td>
 									</tr>
 								</table>
@@ -167,7 +175,7 @@
 						<tr>
 							<td>
 								<!-- 修改对应的aciton路径 -->
-								<html:form action="view/sysuser.do" method="post">
+								<html:form action="view/sysrole.do" method="post">
 									<table cellSpacing="0" cellPadding="0" border="0" width="97%"
 										align="center">
 										<tr>
