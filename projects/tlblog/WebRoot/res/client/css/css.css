@@ -1,0 +1,87 @@
+/*南山小学风站css样式*/
+
+html,body{ font:12px/1.8 Arial; color:#333;}
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, pre, code,
+form, fieldset, legend, input, button,
+textarea, p, blockquote, th, td { margin: 0 auto; padding: 0; }
+fieldset, img { border: 0; vertical-align:middle;}
+input{ vertical-align:middle;}
+
+/*列表*/
+ul, ol{ list-style:none;}
+li{ line-height:22px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clear{ clear:both;}
+a:link, a:visited{text-decoration:none ; color:#333333;}
+a:hover, a:active{text-decoration:none; color: #FF0000;}
+.bg_none{ background:none;}
+#warp, .header, .footer{width:1006px; margin:0 auto; padding:0px;}
+
+
+
+/*博客*/
+.blog{ background: url(img/sinabloga.jpg) no-repeat bottom center;}
+.blogout{ background:url(img/sinablogb.jpg) no-repeat top center;}
+.bloginner{ width:950px; margin:0 auto; padding:0px;}
+.bl_head{ background:url(img/yjn.png) no-repeat left top; width:950px; height:265px; position:relative;}
+.bl_nav{ position:absolute; top:200px; left:60px;}
+.bl_nav a{ font-size:14px; padding:0px 20px; color:#999;}
+.bl_nav a:hover, .bl_nav a.hover{ color:#305a4c;}
+.bl_search{ position: absolute; bottom:9px; right:50px; background:url(img/bl_search.png) no-repeat; width:227px; height:27px;}
+.bl_search input{ height:27px; line-height:27px; border:medium none; background:none; padding-left:5px; width:180px; color:#CCCCCC;}
+.bl_search input.bl_sure{ width:37px; cursor:pointer;}
+
+.bl_left{ width:210px;}
+.bl_resourse{ margin-bottom:10px;}
+.bl_title{ background: url(img/modelhead.png) no-repeat right;  height:26px; overflow:hidden;}
+.bl_title h1{ height:26px; line-height:26px; font-size:14px; padding-left:10px; color:#666666;}
+.bl_cont, .bl_r_cont{ background:#fff; border:1px solid #cecfcf; border-top:none; padding-bottom:10px;}
+.bl_cont .bl_img{ text-align:center; padding:10px 0px;}
+.bl_cont .bl_img img{ width:137px; height:169px;}
+.bl_cont .bl_link{ text-align:center; padding:0px 0px 10px;}
+.bl_cont p{ padding:5px 0px 0px 30px; color:#666;}
+.bl_cont p a{ padding:5px;}
+.bl_cont p span{ color:#3d5849; font-weight:bold;}
+
+.bl_cont ul{ padding:10px;}
+.bl_cont ul li{ border-bottom:1px dashed #ccc; background:url(img/bg_icon.gif) no-repeat left; padding-left:8px; line-height:30px;}
+.bl_cont ul li a{ color:#29634b;}
+.bl_cont ul li a:hover{ color:#999999;}
+
+.bl_right{ width:730px;}
+.bl_r_title{ background:url(img/modelhead.png) no-repeat;  height:26px; overflow:hidden; position:relative;}
+.bl_r_title h1{ height:26px; line-height:26px; font-size:14px; padding-left:10px; color:#666666;}
+.bl_r_title a{ position:absolute; right:30px; top:3px; background:url(img/add.gif) no-repeat left; padding-left:20px; height:20px; line-height:20px; color:#385f4d;}
+.bl_r_title a:hover{ color:#FF0000;  text-decoration:underline;}
+
+.bl_r_cont{ padding:15px;}
+.bl_r_cont li{ border-bottom:1px dotted #ccc; padding:10px 0px; white-space:inherit; margin-bottom:20px;}
+.bl_r_cont li h1{ font-size:18px; color:#385f4d;}
+.bl_r_cont li h1 p{ color:#666666; font-size:12px; font-weight:normal; padding:5px 0px; }
+.bl_r_cont li h1 p span{  color:#385f4d;}
+.bl_r_cont li p{ padding:15px 0px; word-break:break-all; white-space:normal; }
+.bl_r_cont li .page{ position:relative;}
+.bl_r_cont li .page span{ color:#999; padding:0px 3px;}
+.bl_r_cont li .page a{ color:#305a4c; padding:0px 3px;}
+.bl_r_cont li .page .bl_more{ position:absolute; right:10px;}
+.bl_r_cont li .page a.bl_more:hover{ color:#ccc;}
+
+/*翻页*/
+.digg4 { padding:3px; margin:10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; }
+.diggcurrent { padding:5px 10px; color:#ff0000; text-decoration:none;}
+.disabled { padding:5px 10px;  color:#ddd;} 
+.digg4 ul{ list-style:none;}
+.digg4 li{ background:url(img/Arrow.gif) no-repeat center center; width:26px; border:none; height:23px;display: inline; padding:3px 0px; }
+.digg4 li a{vertical-align:middle; padding:3px 5px; background-position:50%; border:1px solid #ccc; color:#999; text-decoration:none; }
+.digg4 li a:hover{ background: #999; border:1px solid #ccc; color:#FFFFFF;}
+.digg4 #page_no{ width:30px;}
+
+.bl_foot{ background:url(img/sinabloga.jpg) no-repeat bottom; width:950px; padding:80px 0px;}
+.bl_foot p{ text-align:center;}
+
+
+
+
+
