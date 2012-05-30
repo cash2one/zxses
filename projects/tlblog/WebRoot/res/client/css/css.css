@@ -1,4 +1,4 @@
-/*南山小学风站css样式*/
+/*鍗楀北灏忓椋庣珯css鏍峰紡*/
 
 html,body{ font:12px/1.8 Arial; color:#333;}
 body, div, dl, dt, dd, ul, ol, li,
@@ -8,7 +8,7 @@ textarea, p, blockquote, th, td { margin: 0 auto; padding: 0; }
 fieldset, img { border: 0; vertical-align:middle;}
 input{ vertical-align:middle;}
 
-/*列表*/
+/*鍒楄〃*/
 ul, ol{ list-style:none;}
 li{ line-height:22px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 .fl{ float:left;}
@@ -21,7 +21,7 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 
 
 
-/*博客*/
+/*鍗氬*/
 .blog{ background: url(img/sinabloga.jpg) no-repeat bottom center;}
 .blogout{ background:url(img/sinablogb.jpg) no-repeat top center;}
 .bloginner{ width:950px; margin:0 auto; padding:0px;}
@@ -68,7 +68,7 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .bl_r_cont li .page .bl_more{ position:absolute; right:10px;}
 .bl_r_cont li .page a.bl_more:hover{ color:#ccc;}
 
-/*翻页*/
+/*缈婚〉*/
 .digg4 { padding:3px; margin:10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; }
 .diggcurrent { padding:5px 10px; color:#ff0000; text-decoration:none;}
 .disabled { padding:5px 10px;  color:#ddd;} 
@@ -80,8 +80,3 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 
 .bl_foot{ background:url(img/sinabloga.jpg) no-repeat bottom; width:950px; padding:80px 0px;}
 .bl_foot p{ text-align:center;}
-
-
-
-
-
