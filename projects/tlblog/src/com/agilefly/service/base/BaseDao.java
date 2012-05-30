@@ -3,11 +3,7 @@ package com.agilefly.service.base;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.agilefly.commons.QueryResult;
-import com.agilefly.commons.web.SystemContext;
 
 /**
  * @author boleyn_renlei
