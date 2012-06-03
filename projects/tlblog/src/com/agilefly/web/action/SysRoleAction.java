@@ -59,8 +59,6 @@ public class SysRoleAction extends BaseAction{
 		//获取角色列表，并传递到界面
 		SysRoleForm srf = (SysRoleForm)form;
 		
-		//int parentId = maf.getParentId();
-		//request.setAttribute("qs", sysUserService.getScrollDataByThread(parentId == 0 ? "o.parent is null" : "o.parent.id = " + parentId, null));
 		request.setAttribute("qs", sysRoleService.getScrollDataByThread());
 		
 		return mapping.findForward("list");

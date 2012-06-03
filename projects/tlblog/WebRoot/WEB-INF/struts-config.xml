@@ -5,10 +5,13 @@
 <struts-config>
 	<!-- ================================================ Form Bean Definitions -->
 	<form-beans>
+		<!--*****************后台系统配置Form***********************-->
 		<form-bean name="sysUserForm" type="com.agilefly.web.form.SysUserForm"/>
 		<form-bean name="sysModuleForm" type="com.agilefly.web.form.SysModuleForm"/>
 		<form-bean name="sysRoleForm" type="com.agilefly.web.form.SysRoleForm"/>
 		
+		<!--*****************前台系统配置Form***********************-->
+		<form-bean name="blogArticle" type="com.agilefly.web.form.BlogArticleForm"/>
 	</form-beans>
 
 	<!-- ========================================= Global Exception Definitions -->
@@ -60,10 +63,15 @@
 			<forward name="assignPrivilege_input" path="/view/rightmanage/rolemanage/sysroleprivilegeList.jsp"/>
 		</action>
 		
-		
-		
 		<!--*****************前台系统配置Action***********************-->
-		
+		<!-- 博客文章管理 -->
+		<action path="/front/blog/blogarticle" name="blogArticle" scope="request" parameter="method">
+			<!--<forward name="list" path="/client/rightmanage/rolemanage/sysroleList.jsp"/>
+			-->
+			<forward name="add_input" path="/client/blogarticle/blogarticleAdd.jsp"/>
+			<!--<forward name="update_input" path="/view/rightmanage/rolemanage/sysroleUpdate.jsp"/>
+			<forward name="assignPrivilege_input" path="/view/rightmanage/rolemanage/sysroleprivilegeList.jsp"/>
+		--></action>
 	</action-mappings>
 	
 	<!-- =================================================== Spring processor -->

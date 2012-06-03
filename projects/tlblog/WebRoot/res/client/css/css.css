@@ -14,6 +14,7 @@ li{ line-height:22px; text-overflow:ellipsis; white-space:nowrap; overflow:hidde
 .fl{ float:left;}
 .fr{ float:right;}
 .clear{ clear:both;}
+.dtime{color: #999; float:right; line-height:22px; *margin-top:-20px;}
 a:link, a:visited{text-decoration:none ; color:#333333;}
 a:hover, a:active{text-decoration:none; color: #FF0000;}
 .bg_none{ background:none;}
@@ -29,7 +30,7 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .bl_nav{ position:absolute; top:200px; left:60px;}
 .bl_nav a{ font-size:14px; padding:0px 20px; color:#999;}
 .bl_nav a:hover, .bl_nav a.hover{ color:#305a4c;}
-.bl_search{ position: absolute; bottom:9px; right:50px; background:url(img/bl_search.png) no-repeat; width:227px; height:27px;}
+.bl_search{ position: absolute; bottom:9px; right:0px; background:url(img/bl_search.png) no-repeat; width:227px; height:27px;}
 .bl_search input{ height:27px; line-height:27px; border:medium none; background:none; padding-left:5px; width:180px; color:#CCCCCC;}
 .bl_search input.bl_sure{ width:37px; cursor:pointer;}
 
@@ -80,3 +81,63 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 
 .bl_foot{ background:url(img/sinabloga.jpg) no-repeat bottom; width:950px; padding:80px 0px;}
 .bl_foot p{ text-align:center;}
+
+
+
+/*博客登陆*/
+.wcon{ border:1px solid #ccc; background:url(img/line.gif) no-repeat top; border-top:none; margin-top:30px; padding:20px 30px;}
+.wcon h1{ background:url(img/breg.gif) no-repeat 0px center; padding:10px 0px 10px 45px; font-size:20px; border-bottom:1px solid #ccc;}
+.wform{ position:relative;}
+.recicle{ padding:10px 10px;}
+.recicle ul{ width:353px;}
+.recicle li{ margin:30px 0px; }
+.recicle li input{ height:25px; line-height:25px; width:180px;}
+.recicle li span{ letter-spacing:1em; padding-left:30px;}
+.recicle li a span{ letter-spacing:0; color:#999999; padding:0px;}
+.recicle li a.jxdl{ margin:0 auto; text-align:center; font-size:14px; display:block; background:url(img/delua.gif) no-repeat; width:146px; height:40px; line-height:40px;}
+.recicle li a.jxdl span{ color:#fff; font-size:16px; letter-spacing:1em; font-weight:bold; padding-left:10px; *padding-left:0px;}
+
+/*博客注册*/
+.regitb{ padding:10px;  margin-top:50px;}
+.regitb h1{ border-bottom:1px solid #ccc; background:url(img/5_reg.gif) no-repeat 5px; padding-left:50px; font-size:20px; line-height:45px;}
+.regcot{ padding:10px 0px; position:relative;}
+.recicleb{}
+.recicleb ul{ width:60%;}
+.recicleb ul li{  line-height:35px; margin:15px 0px;}
+.recicleb ul li p{ display:inline; padding-left:15px; color:#999;}
+.recicleb ul li a{ padding:0px 15px;}
+.recicleb ul li span{ font-size:16px; font-weight:bold; display:inline-block; width:100px; text-align:right; padding-right:10px;}
+.recicleb ul li input{ height:28px; line-height:28px; width:160px; color:#ccc;}
+.recicleb ul li input.yzm{ width:80px;}
+.recicleb ul li .zhuce{ display:block; padding:0px; background:url(img/zc.gif) no-repeat; width:197px; height:46px; margin-left:110px;}
+.recicleb ul li .zhuce span{ display:none;}
+
+
+/*博客列表页*/
+.weblist{ padding:10px; border:1px solid #ccc;}
+.weblist ul{ width:100%;}
+.weblist li{ background:url(img/art_li_list.gif) no-repeat left; padding:0px 45px 0px 15px;}
+
+
+/*博客文章内容页*/
+.weblist h1{ padding:10px; border-bottom:1px dotted #ccc; text-align:center; font-size:18px;}
+.weblist h1 span{ display:block; font-size:12px; font-weight:normal; padding:5px;}
+.weblist p{ text-indent:2em; padding:25px 20px; font-size:14px;}
+.weblist pre{ color:#666666; padding:0px 20px;}
+
+/*留言板*/
+.weblist form{ width:505px; margin:0 auto;}
+.weblist form p{ padding:5px;}
+.weblist form input{ width:152px;}
+ .weblist form textarea{ width:365px; height:182px; vertical-align:top; padding:5px;}
+.weblist form input#mesid{ width:154px; height:44px; border:medium none; background:url(img/img57.gif) no-repeat; margin-left:130px; cursor:pointer;}
+
+/*-------------相片列表------------*/
+.product{ margin-top:5px;}
+.product ul{ border-top:none;}
+.product li{ padding:10px; margin:5px 15px; border:none; text-align:center; float:left;}
+.product li img{ width:166px; height:180px; padding:2px; overflow:hidden; border:1px solid #ccc;}
+
+.pic_show{ width:98%; overflow:hidden; text-align:center; padding:50px 0px;}
+.pic_show h1{ margin-bottom:30px;}
+.pic_show img{max-width:100%;}

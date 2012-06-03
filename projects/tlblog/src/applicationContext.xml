@@ -57,4 +57,45 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="txManager" />
 
+	<bean id="compass" class="org.compass.spring.LocalCompassBean">
+		<!-- 指定映射类方式 -->
+		<property name="classMappings">
+			<list>
+				<value>com.agilefly.bean.BlogArticle</value>
+				<!--
+				<value>cn.itcast.bean.product.Brand</value>
+				<value>cn.itcast.bean.product.ProductStyle</value>
+				<value>cn.itcast.bean.product.ProductType</value>
+				-->
+			</list>
+		</property>
+		<property name="compassSettings">
+			<props>
+				<prop key="compass.engine.analyzer.MMAnalyzer.CustomAnalyzer">jeasy.analysis.MMAnalyzer</prop>
+				<prop key="compass.engine.connection">file://d:/index</prop>
+				<prop key="compass.engine.highlighter.default.formatter.simple.pre"><![CDATA[<font color='red'>]]></prop>
+				<prop key="compass.engine.highlighter.default.formatter.simple.post"><![CDATA[</font>]]></prop>
+				<prop key="compass.transaction.factory">org.compass.spring.transaction.SpringSyncTransactionFactory</prop>
+			</props>
+		</property>
+		<property name="transactionManager" ref="txManager" />
+	</bean>
+	<!-- CompassGps为CompassGpsDevice提供Compass对象，他们一起为程序提供索引的实时更新 -->
+	<bean id="compassGps" class="org.compass.gps.impl.SingleCompassGps" init-method="start" destroy-method="stop">
+		<property name="compass" ref="compass" />
+		<property name="gpsDevices">
+			<list>
+				<bean class="org.compass.spring.device.SpringSyncTransactionGpsDeviceWrapper">
+					<property name="gpsDevice">
+						<!-- 为gpsDevice属性注入针对Hibernate的GPS驱动 -->
+						<bean class="org.compass.gps.device.hibernate.HibernateGpsDevice">
+							<property name="name" value="hibernateDevice" />
+							<property name="sessionFactory" ref="sessionFactory" />
+						</bean>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
 	</beans>
