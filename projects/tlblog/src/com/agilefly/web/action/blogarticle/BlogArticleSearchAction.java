@@ -23,12 +23,6 @@ public class BlogArticleSearchAction extends Action {
 			throws Exception {
 		BlogArticleQueryForm formbean = (BlogArticleQueryForm)form;
 		
-		//分页传递中文参数处理
-		/*if(word != null && word.length() > 0){
-			System.out.println(word);
-			word = new String(word.getBytes("ISO-8859-1"),"UTF-8");
-			System.out.println("编码后" + word);
-		}*/
 		request.setAttribute("qs", blogArticleSearchService.searchByThread(formbean.getWord()));
 		
 		return mapping.findForward("list");

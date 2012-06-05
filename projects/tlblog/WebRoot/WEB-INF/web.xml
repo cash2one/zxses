@@ -63,20 +63,11 @@
 		</init-param>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
-  	<servlet>
-    	<servlet-name>ArticleSearchServlet</servlet-name>
-    	<servlet-class>com.agilefly.web.action.ArticleSearchServlet</servlet-class>
-  	</servlet>
-
 	
 	<servlet-mapping>
 		<servlet-name>struts</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-  	<servlet-mapping>
-   		<servlet-name>ArticleSearchServlet</servlet-name>
-    	<url-pattern>/ArticleSearchServlet</url-pattern>
- 	</servlet-mapping>
 	
 	<jsp-config>
 		<taglib>
