@@ -53,4 +53,7 @@
 	
 ***************************************************************
 详细说明：加入搜索功能(搜索引擎)
+	博客文章搜索，搜索文章标题、内容。
+	pager-taglib组件附带参数中文乱码问题修复(修改源文件，重新编译jar包)，需要重新添加jar包。然后utf-8还需要修改tomcat配置server.xml，结合在一起才能解决中文乱码问题
+	<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8" />
 	

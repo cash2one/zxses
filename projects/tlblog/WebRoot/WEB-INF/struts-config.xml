@@ -12,6 +12,7 @@
 		
 		<!--*****************前台系统配置Form***********************-->
 		<form-bean name="blogArticle" type="com.agilefly.web.form.BlogArticleForm"/>
+		<form-bean name="blogArticleQuery" type="com.agilefly.web.form.BlogArticleQueryForm"/>
 	</form-beans>
 
 	<!-- ========================================= Global Exception Definitions -->
@@ -65,13 +66,22 @@
 		
 		<!--*****************前台系统配置Action***********************-->
 		<!-- 博客文章管理 -->
-		<action path="/front/blog/blogarticle" name="blogArticle" scope="request" parameter="method">
+		<action path="/blog/article" name="blogArticle" scope="request" parameter="method">
 			<!--<forward name="list" path="/client/rightmanage/rolemanage/sysroleList.jsp"/>
 			-->
 			<forward name="add_input" path="/client/blogarticle/blogarticleAdd.jsp"/>
 			<!--<forward name="update_input" path="/view/rightmanage/rolemanage/sysroleUpdate.jsp"/>
 			<forward name="assignPrivilege_input" path="/view/rightmanage/rolemanage/sysroleprivilegeList.jsp"/>
-		--></action>
+		-->
+		</action>
+		<!-- 博客文章搜索 -->
+		<!--<action path="/blogarticle/search" name="blogArticleQuery" scope="request">
+			<forward name="list" path="/client/blogarticle/search.jsp"/>
+		</action>
+		-->
+		<action path="/blog/article/search" name="blogArticleQuery" scope="request">
+			<forward name="list" path="/client/blogarticle/search.jsp"/>
+		</action>
 	</action-mappings>
 	
 	<!-- =================================================== Spring processor -->

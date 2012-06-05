@@ -46,16 +46,17 @@ public class BlogArticle implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@SearchableProperty(index=Index.ANALYZED,store=Store.YES)
+	@SearchableProperty(index=Index.ANALYZED,store=Store.YES,boost=2f)
 	public String getArticleTitle() {
 		return this.articleTitle;
 	}
 
-	@SearchableProperty(index=Index.ANALYZED,store=Store.YES)
+	
 	public void setArticleTitle(String articleTitle) {
 		this.articleTitle = articleTitle;
 	}
 
+	@SearchableProperty(index=Index.ANALYZED,store=Store.YES)
 	public String getArticleContent() {
 		return this.articleContent;
 	}
