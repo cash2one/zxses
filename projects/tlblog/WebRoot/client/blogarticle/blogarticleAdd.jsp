@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" type="text/css"
 			href="${basePath }res/client/css/css.css" />
 		<title>发表文章</title>
@@ -32,6 +32,8 @@
 						</div>
 						<div class="bl_r_cont">
 							<br>
+							<!-- 修改对应的aciton路径 -->
+							<html:form action="front/blog/blogarticle.do?method=add" method="post">
 							<table width="100%" cellspacing="0" cellpadding="2" border="0">
 								<tbody>
 									<tr>
@@ -40,7 +42,7 @@
 										</td>
 										<td align="left">
 											<input type="text" value="" maxlength="50" size="60"
-												id="title" class="inputBox" name="title" />
+												id="articleTitle" name="articleTitle" />
 										</td>
 									</tr>
 									<tr>
@@ -118,6 +120,7 @@
 										</td>
 									</tr>
 									<tr>
+										<%--
 										<td valign="top" align="right" colspan="3">
 											<div>
 												<input type="hidden" value="" name="content" id="content">
@@ -129,10 +132,14 @@
 													style="margin: 0pt; padding: 0pt; border: 0pt none; background-color: transparent; background-image: none; width: 100%; height: 400px;"></iframe>
 											</div>
 										</td>
+										--%>
+										<td valign="top" align="right" colspan="2">
+											<textarea rows="20" cols="70" id="articleContent" name="articleContent">fdfd</textarea>
+										</td>
 									</tr>
 									<tr>
 										<td valign="top" nowrap="" align="right">
-											<span style="font-weight: bold;">添加附件:</span>
+											<span style="font-weight: bold;">添加附件：</span>
 										</td>
 										<td align="left" colspan="2">
 											<div id="houseMaps_wrap" class="MultiFile-wrap">
@@ -143,19 +150,6 @@
 												<div id="houseMaps_wrap_list" class="MultiFile-list"></div>
 											</div>
 											您还可以上传13个附件。
-										</td>
-									</tr>
-									<tr>
-										<td valign="top" align="right">
-											<span style="font-weight: bold;">引用通告:</span>
-										</td>
-										<td align="left" colspan="2">
-											<input type="text" class="inputBox" value="" size="80"
-												name="quotation">
-											<br>
-												请输入网络日志项的引用通告URL。可以用逗号分隔多个引用通告地址. 
-											<input type="hidden" value="" name="id">
-											<input type="hidden" value="" name="uuid">
 										</td>
 									</tr>
 									<tr>
@@ -181,6 +175,7 @@
 									</tr>
 								</tbody>
 							</table>
+							</html:form>
 						</div>
 					</div>
 					<!-- 右边文章列表 end -->

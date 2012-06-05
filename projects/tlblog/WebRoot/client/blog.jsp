@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/commons/tags.inc"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,7 +25,7 @@
 			<div class="bl_right fr">
 				<div class="bl_r_title">
 					<h1>博文</h1>
-					<a href="${basePath }front/blog/blogarticle.do?method=addInput">发表新文章</a>
+					<a href="${basePath }blog/article.do?method=addInput">发表新文章</a>
 				</div>
 				<div class="bl_r_cont">
 					<div>
