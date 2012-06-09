@@ -28,7 +28,6 @@ public class HtmlUtils {
 			str = str.substring(0, length);
 			str += "......";
 		}
-		System.out.println(str);
 		//恢复高亮显示文本
 		str = str.replaceAll("_@([^<>@]+)@_", "<span class='highlight'>$1</span>");
 		
