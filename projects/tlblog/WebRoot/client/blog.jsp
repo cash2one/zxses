@@ -30,19 +30,34 @@
 				<div class="bl_r_cont">
 					<div>
 						<ul>
-							<li>
-								<h1>多读一点书，就高一点点。。。
-									<p>标签：<span>杂谈</span></p>
-								</h1>
-								<p>高高在上的猴子小姐：“多读一本书，就高一点点……”（知识能改变对快乐的感知、对痛苦的耐受力、乃至于世界观、命运、人生、还有家庭地位神马的……没文化在家里说话也没底气啊…………）</p>
-								<div class="page">
-									阅读<span>（6）</span>|
-									<a href="">评论</a><span>（0）</span>|
-									<a href="">收藏</a>|
-									<span>2012-05-28 10:09:27</span>
-									<a href="" class="bl_more" title="查看更多">查看更多》</a>
-								</div>
-							</li>
+							<!-- 列表数据栏 -->
+					        <c:if test="${!empty qs.resultlist}">
+						        <c:forEach items="${qs.resultlist }" var="entity" varStatus="status">
+							        <li>
+										<h1>${entity.articleTitle }
+											<p>标签：<span>杂谈</span></p>
+										</h1>
+										<p>${entity.articleContent }</p>
+										<div class="page">
+											阅读<span>（6）</span>|
+											<a href="">评论</a><span>（0）</span>|
+											<a href="">收藏</a>|
+											<span>2012-05-28 10:09:27</span>
+											<a href="" class="bl_more" title="查看更多">查看更多》</a>
+										</div>
+									</li>
+						        </c:forEach>
+							</c:if>
+							<!-- 在列表数据为空的时候，要显示的提示信息 **!!根据标题列数修改colspan大小-->
+						    <c:if test="${empty qs.resultlist}">
+							    <tr class="trcolor" onMouseOver="this.className='cstd2'" onMouseOut="this.className='trcolor'">
+							    	<td colspan="5" align="center">
+							    	没有找到相应的记录!
+							    	</td>
+							    </tr>
+						    </c:if>
+						
+							
 							<li>
 								<h1>多读一点书，就高一点点。。。
 									<p>标签：<span>杂谈</span></p>
