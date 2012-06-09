@@ -141,3 +141,8 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .pic_show{ width:98%; overflow:hidden; text-align:center; padding:50px 0px;}
 .pic_show h1{ margin-bottom:30px;}
 .pic_show img{max-width:100%;}
+
+/*-------------搜索高亮-------------*/
+.highlight{
+	color:red;
+}

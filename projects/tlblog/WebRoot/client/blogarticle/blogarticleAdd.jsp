@@ -33,7 +33,7 @@
 						<div class="bl_r_cont">
 							<br>
 							<!-- 修改对应的aciton路径 -->
-							<html:form action="front/blog/blogarticle.do?method=add" method="post">
+							<html:form action="blog/article.do?method=add" method="post">
 							<table width="100%" cellspacing="0" cellpadding="2" border="0">
 								<tbody>
 									<tr>

@@ -134,6 +134,21 @@ public class StringUtil {
 			return "IS error?!";
 		}
 	}
+	
+	public static String UTF8(Object tmp) {
+		return UTF8(getNullString(tmp));
+	}
+
+	public static String UTF8(String tmp) {
+		try {
+			tmp = getNullString(tmp);
+			byte[] b = tmp.getBytes("8859_1");
+			String cvt = new String(b, "UTF-8");
+			return cvt;
+		} catch (Exception e) {
+			return "IS error?!";
+		}
+	}
 
 	/**
 	 * 将字符串转换成Vector

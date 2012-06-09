@@ -73,8 +73,8 @@
 			<props>
 				<prop key="compass.engine.analyzer.MMAnalyzer.CustomAnalyzer">jeasy.analysis.MMAnalyzer</prop>
 				<prop key="compass.engine.connection">file://d:/index</prop>
-				<prop key="compass.engine.highlighter.default.formatter.simple.pre"><![CDATA[<font color='red'>]]></prop>
-				<prop key="compass.engine.highlighter.default.formatter.simple.post"><![CDATA[</font>]]></prop>
+				<prop key="compass.engine.highlighter.default.formatter.simple.pre"><![CDATA[<span class='highlight'>]]></prop>
+				<prop key="compass.engine.highlighter.default.formatter.simple.post"><![CDATA[</span>]]></prop>
 				<prop key="compass.transaction.factory">org.compass.spring.transaction.SpringSyncTransactionFactory</prop>
 			</props>
 		</property>
