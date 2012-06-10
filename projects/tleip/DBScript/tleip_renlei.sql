@@ -149,4 +149,26 @@ INSERT INTO `sys_module` VALUES ('0207030400', '发布', null, '0207030000', nul
 INSERT INTO `sys_module` VALUES ('0207030500', '反发布', null, '0207030000', null, 'unPublish', null, null);
 INSERT INTO `sys_module` VALUES ('0207030600', '删除', null, '0207030000', null, 'delete', null, null);
 
+
+/**投票用户记录表**/
+-- ----------------------------
+-- Table structure for `vote_items`
+-- ----------------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[vote_user]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[vote_user](
+	[vote_id] [bigint] NOT NULL,
+	[user_id] [bigint] NOT NULL,
+ CONSTRAINT [PK_vote_user] PRIMARY KEY CLUSTERED 
+(
+	[vote_id] ASC,
+	[user_id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+
   
