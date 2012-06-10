@@ -168,7 +168,17 @@
 											${column.frontUser.userAccount }
 										</td>
 										<td class="tdcenter tdbk" style="text-align: left;">
+											<c:choose>
+									          <c:when test="${fn:length(column.messageContent) > 60}">
+									              <c:out value="${fn:substring(column.messageContent, 0, 60)}..." />
+									          </c:when>
+									       	<c:otherwise>
+									            <c:out value="${column.messageContent}" />
+									          </c:otherwise>
+									     	</c:choose>
+									     	<%--
 											${column.messageContent }
+											--%>
 										</td>
 										<td class="tdcenter tdbk">
 											${column.messageDate }
@@ -192,7 +202,14 @@
 											${column.frontUser.userAccount }
 										</td>
 										<td class="tdcenter tdbk" style="text-align: left;">
-											${column.messageContent }
+											<c:choose>
+									          <c:when test="${fn:length(column.messageContent) > 60}">
+									              <c:out value="${fn:substring(column.messageContent, 0, 60)}..." />
+									          </c:when>
+									       	<c:otherwise>
+									            <c:out value="${column.messageContent}" />
+									          </c:otherwise>
+									     	</c:choose>
 										</td>
 										<td class="tdcenter tdbk">
 											${column.messageDate }
