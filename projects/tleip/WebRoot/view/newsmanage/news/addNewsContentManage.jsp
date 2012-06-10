@@ -25,7 +25,7 @@
 		<script type="text/javascript" language="javascript"
 			src="<%=basePath%>tools/My97DatePicker/WdatePicker.js" defer="defer"></script>
 			
-		<script charset="utf-8" src="<%=basePath%>tools/kindeditor/kindeditor-min.js"></script>
+		<script charset="utf-8" src="<%=basePath%>tools/kindeditor/kindeditor.js"></script>
 		<script charset="utf-8" src="<%=basePath%>tools/kindeditor/lang/zh_CN.js"></script>
 		<script>
 			var editor;

@@ -25,7 +25,7 @@
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/admin/js/jquery.js"></script>
 		
-		<script charset="utf-8" src="<%=basePath%>tools/kindeditor/kindeditor-min.js"></script>
+		<script charset="utf-8" src="<%=basePath%>tools/kindeditor/kindeditor.js"></script>
 		<script charset="utf-8" src="<%=basePath%>tools/kindeditor/lang/zh_CN.js"></script>
 		<script>
 			var editor;

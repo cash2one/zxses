@@ -144,19 +144,6 @@
 															否
 														</td>
 													</tr>
-													<tr>
-														<td width="20%" class="td_left">
-															<font color="#ff0000">* </font>是否有广告：
-
-														</td>
-														<td width="30%" class="td_right">
-															<input type="radio" name="ifHaveAd" value="1"
-																checked="checked">
-															是
-															<input type="radio" name="ifHaveAd" value="0">
-															否
-														</td>
-													</tr>
 													 <input type="hidden" name="ifIndex" id="ifIndex" value="${ifIndex }" />
 													<tr>
 														<td width="20%" class="td_left">

@@ -274,19 +274,6 @@
 																		否
 																	</td>
 																</tr>
-																<tr>
-																	<td class="td_left" width="50%">
-																		是否允许搜索：
-																	</td>
-																	<td class="td_right" width="50%">
-																		<input type="radio" name="ifPermissionSearch" 
-																			value="1" checked="checked">
-																		是
-																		<input type="radio" name="ifPermissionSearch"
-																			value="0">
-																		否
-																	</td>
-																</tr>
 															</table>
 														</td>
 													</tr>

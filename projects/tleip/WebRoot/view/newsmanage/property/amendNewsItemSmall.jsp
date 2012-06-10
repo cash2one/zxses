@@ -335,25 +335,6 @@
 																	</td>
 																</tr>
 
-																<tr>
-																	<td class="td_left" width="50%">
-																		是否允许搜索：
-																	</td>
-																	<td class="td_right" width="50%">
-																		<input type="radio" name="ifPermissionSearch" id="ifPermissionSearch"
-																			value="1"
-																			<c:if test="${newsItemConfig.ifPermissionSearch == 1}">
-																				checked="checked"
-																			</c:if>/>
-																		是
-																		<input type="radio" name="ifPermissionSearch" id="ifPermissionSearch"
-																			value="0"
-																			<c:if test="${newsItemConfig.ifPermissionSearch == 0}">
-																				checked="checked"
-																			</c:if>/>
-																		否
-																	</td>
-																</tr>
 															</table>
 														</td>
 													</tr>
