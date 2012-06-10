@@ -7,6 +7,19 @@
 		<link rel="stylesheet" type="text/css"
 			href="${basePath }res/client/css/css.css" />
 		<title>发表文章</title>
+		<script charset="utf-8" src="${basePath }tools/kindeditor/kindeditor.js"></script>
+		<script charset="utf-8" src="${basePath }tools/kindeditor/lang/zh_CN.js"></script>
+		<script>
+			var editor;
+			KindEditor.ready(function(K) {
+			var options = {
+			        uploadJson : '${basePath}tools/kindeditor/jsp/upload_json.jsp',
+					fileManagerJson : '${basePath}tools/kindeditor/jsp/file_manager_json.jsp',
+					allowFileManager : true				
+			 };
+			editor = K.create('textarea[name="editor_k"]', options);
+			});
+		</script>
 	</head>
 
 	<body bgcolor="#e5e8e7">
@@ -134,7 +147,9 @@
 										</td>
 										--%>
 										<td valign="top" align="right" colspan="2">
-											<textarea rows="20" cols="70" id="articleContent" name="articleContent">fdfd</textarea>
+											<%--<textarea rows="20" cols="70" id="articleContent" name="articleContent">fdfd</textarea>
+											--%>
+												<textarea id="editor_k" name="editor_k" style="width:100%;height:400px;"></textarea>
 										</td>
 									</tr>
 									<tr>
@@ -143,7 +158,7 @@
 										</td>
 										<td align="left" colspan="2">
 											<div id="houseMaps_wrap" class="MultiFile-wrap">
-												<input type="File"
+												<input type="file"
 													style="font-size: 12px; border-width: 1px;" size="38"
 													id="houseMaps" name="upfiles"
 													class="attachmentBody MultiFile-applied">

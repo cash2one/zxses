@@ -71,6 +71,8 @@ public class BlogArticleAction extends BaseAction {
 		BlogArticle article = new BlogArticle();
 		
 		BeanUtils.copyProperties(article, baf);
+		//获取编辑器内容
+		article.setArticleContent(request.getParameter("editor_k"));
 		
 		blogArticleService.save(article);
 		
