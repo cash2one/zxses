@@ -19,7 +19,7 @@ public class FrontMessage implements java.io.Serializable {
 	private String replyContent;
 	private String replyDate;
 	private Short approveStatus;
-	private Short top;
+	private Short isTop;
 
 	private String approveStatusStr;
 	
@@ -44,7 +44,7 @@ public class FrontMessage implements java.io.Serializable {
 
 	/** full constructor */
 	public FrontMessage(FrontUser frontUser, String messageContent, String messageDate, String facePic, String headPic,
-			String replyContent, String replyDate, Short approveStatus, Short top) {
+			String replyContent, String replyDate, Short approveStatus, Short isTop) {
 		this.frontUser = frontUser;
 		this.messageContent = messageContent;
 		this.messageDate = messageDate;
@@ -53,7 +53,7 @@ public class FrontMessage implements java.io.Serializable {
 		this.replyContent = replyContent;
 		this.replyDate = replyDate;
 		this.approveStatus = approveStatus;
-		this.top = top;
+		this.isTop = isTop;
 	}
 
 	// Property accessors
@@ -130,12 +130,12 @@ public class FrontMessage implements java.io.Serializable {
 		this.approveStatus = approveStatus;
 	}
 
-	public Short getTop() {
-		return this.top;
+	public Short getIsTop() {
+		return isTop;
 	}
 
-	public void setTop(Short top) {
-		this.top = top;
+	public void setIsTop(Short isTop) {
+		this.isTop = isTop;
 	}
 
 }

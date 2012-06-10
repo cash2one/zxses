@@ -74,7 +74,7 @@ public class MessageAction extends DispatchAction {
 				message.setFacePic(messageForm.getFacePic());
 				message.setHeadPic(messageForm.getHeadPic());
 				message.setApproveStatus((short)0);
-				message.setTop((short)0);
+				message.setIsTop((short)0);
 			}else{
 				return mapping.findForward("fail");
 			}
@@ -87,7 +87,7 @@ public class MessageAction extends DispatchAction {
 			message.setFacePic(messageForm.getFacePic());
 			message.setHeadPic(messageForm.getHeadPic());
 			message.setApproveStatus((short)0);
-			message.setTop((short)0);
+			message.setIsTop((short)0);
 		}
 		messageService.saveObject(message);
 		return mapping.findForward("success");

@@ -34,8 +34,8 @@
         <property name="approveStatus" type="java.lang.Short">
             <column name="approve_status" />
         </property>
-        <property name="top" type="java.lang.Short">
-            <column name="top" />
+        <property name="isTop" type="java.lang.Short">
+            <column name="is_top" />
         </property>
     </class>
 </hibernate-mapping>
