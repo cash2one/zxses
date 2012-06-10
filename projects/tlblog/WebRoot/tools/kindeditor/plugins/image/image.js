@@ -10,11 +10,12 @@
 KindEditor.plugin('image', function(K) {
 	var self = this, name = 'image',
 		allowImageUpload = K.undef(self.allowImageUpload, true),
-		allowFileManager = K.undef(self.allowFileManager, false),
 		formatUploadUrl = K.undef(self.formatUploadUrl, true),
+		allowFileManager = K.undef(self.allowFileManager, false),
 		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
 		imageTabIndex = K.undef(self.imageTabIndex, 0),
 		imgPath = self.pluginsPath + 'image/images/',
+		extraParams = K.undef(self.extraFileUploadParams, {}),
 		lang = self.lang(name + '.');
 
 	self.plugin.imageDialog = function(options) {
@@ -26,6 +27,10 @@ KindEditor.plugin('image', function(K) {
 			tabIndex = K.undef(options.tabIndex, 0),
 			clickFn = options.clickFn;
 		var target = 'kindeditor_upload_iframe_' + new Date().getTime();
+		var hiddenElements = [];
+		for(var k in extraParams){
+			hiddenElements.push('<input type="hidden" name="' + k + '" value="' + extraParams[k] + '" />');
+		}
 		var html = [
 			'<div style="padding:20px;">',
 			//tabs
@@ -67,6 +72,7 @@ KindEditor.plugin('image', function(K) {
 			'<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="' + target + '" action="' + K.addParam(uploadJson, 'dir=image') + '">',
 			//file
 			'<div class="ke-dialog-row">',
+			hiddenElements.join(''),
 			'<label style="width:60px;">' + lang.localUrl + '</label>',
 			'<input type="text" name="localUrl" class="ke-input-text" tabindex="-1" style="width:200px;" readonly="true" /> &nbsp;',
 			'<input type="button" class="ke-upload-button" value="' + lang.upload + '" />',
@@ -282,7 +288,11 @@ KindEditor.plugin('image', function(K) {
 			});
 		},
 		'delete' : function() {
-			self.plugin.getSelectedImage().remove();
+			var target = self.plugin.getSelectedImage();
+			if (target.parent().name == 'a') {
+				target = target.parent();
+			}
+			target.remove();
 		}
 	};
 	self.clickToolbar(name, self.plugin.image.edit);
