@@ -24,8 +24,13 @@
 </style>
 <link rel="stylesheet" type="text/css"
 			href="${basePath }client/index/content/vote/app.platform.vote.v3.css" />
+<script type="text/javascript">
+	function test(){
+	
+	}
+</script>
 <div id="voteList" class="panelInclude1">
-	<form target="_blank" action="/vote.asp" method="post" name="VoteForm">
+	<form target="_blank" action="${basePath }front/vote.do?method=ballotVoteTitle" method="post" name="VoteForm">
 		&nbsp;&nbsp;&nbsp;&nbsp;<button class="icon_vote">&nbsp;</button>${voteTitle.voteName } 
 		<br/>
 		<c:forEach items="${voteTitle.voteItemses}" var="items" varStatus="status">
@@ -36,15 +41,14 @@
 		<br/>
 		</c:forEach>
 		<br/>
-		<input type="hidden" value="Multi" name="VoteType"/>
-		<input type="hidden" value="Vote" name="Action"/>
-		<input type="hidden" value="1" name="ID"/>
+		<input type="hidden" name="voteFlag" value="<%=voteFlag%>"/>
+		<input type="hidden" name="voteId" value="${voteTitle.voteId }"/>
 		<div align="center">
-			<a href="javascript:VoteForm.submit();">
-				<input type="button" name="ballot" value="投票" class="uniformButton"/>
+			<a target="_blank" href="javascript:VoteForm.submit();">
+				<input type="button" name="ballot" value="投票" class="uniformButton" onclick="VoteForm.submit();"/>
 			</a>&nbsp;&nbsp;
 			<a target="_blank" href="${basePath }front/vote.do?method=queryVoteList">
-				<input type="button" name="ballot" value="查看" class="uniformButton"/>
+				<input type="button" name="ballot" value="查看" class="uniformButton" onclick=""/>
 			</a>
 		</div>
 	</form>

@@ -2,9 +2,7 @@
 <%@ include file="/commons/tags.inc"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -30,6 +28,8 @@
 			    window.location.href="<%=basePath%>view/votemanage.do?method=queryVoteTitle";
 			}
 		</script>
+		<link rel="stylesheet" type="text/css"
+			href="<%=basePath%>client/index/content/vote/app.platform.vote.v3.css" />
 	</head>
 	<body>
 
@@ -54,7 +54,7 @@
 										<td width="15"></td>
 									</tr>
 								</table>
-						</td>
+							</td>
 						</tr>
 
 						<tr>
@@ -67,42 +67,66 @@
 									align="center">
 									<tr>
 										<td>
-												<table class="table" cellSpacing="1" cellPadding="0"
-													width="100%" border="0" align="center">
-
-													<tr>
-														<td class="td_left" width="40%">
-															<font color="#ff0000">* </font>投票主题名称 
-														</td>
-														<td class="td_right" width="60%">
-															<input type="text" name="voteName" readonly="readonly" value="${voteTitleInfo.voteName }" id="voteName" size="30" maxlength="30" />
-														</td>
-													</tr>
-													<tr>
-														<td class="td_left" width="40%">
-															<font color="#ff0000">* </font>投票类型 
-														</td>
-														<td class="td_right" width="60%">
-															<select name="voteType" id="voteType" disabled="disabled">
-																<option value="1"${voteTitleInfo.voteType=="1"?" selected=\"selected\"":"" }>单选</option>
-																<option value="2"${voteTitleInfo.voteType=="2"?" selected=\"selected\"":"" }>多选</option>
-															</select>
-														</td>
-													</tr>
-													<tr>
-														<td class="td_left" width="40%">
-															<font color="#ff0000">* </font>投票选项
-														</td>
-														<td class="td_right" width="60%">
-															<div id="itemArea">
-																<c:forEach items="${voteTitleInfo.voteItemses}" var="voteItem" varStatus="status">
-																	<div id="item1" style="display:inline;"><span>选项${ status.index + 1}：</span><input type="text" readonly="readonly" name="itemName" value="${voteItem.itemName }"/></div>
-																	<br/>
-																</c:forEach>
-															</div>
-														</td>
-													</tr>
-												</table>
+											<table class="table" cellSpacing="1" cellPadding="0"
+												width="100%" border="0" align="center">
+												<tr>
+													<td class="td_left" width="90%">
+														<table width="100%" border="0" align="center">
+															<tr>
+																<td style=" height:40px;" align="center"
+																	valign="bottom">
+																	<div id="content" class="" style="margin-right: 20px;">
+																		<div id="body">
+																			<table width="100%" align="center" cellspacing="0" cellpadding="0" border="0" style="visibility: visible; " id="hot">
+																				<tbody>
+																					<tr>
+																						<td>&nbsp;</td>
+																						<td width="50" id="border"><nobr><b>人气值：</b><span id="hot_value"><fmt:formatNumber value="${voteTitle.voteHot }" pattern="#,##0" type="number"/></span></nobr></td>
+																					</tr>
+																				</tbody>
+																			</table>
+																			<div id="main">
+																				<div id="question_361707" class="question result">
+																					<div class="title f14px">
+																						<button class="icon_vote">&nbsp;</button>${voteTitle.voteName } 
+																					</div>
+																					<div class="content line">
+																					<div class="nodetail"></div>
+																					<table width="100%" align="center" cellspacing="0" cellpadding="0" border="0">
+																						<tbody>
+																							<c:set var="colorCount" value="0" scope="page"/>
+																							<c:forEach items="${voteTitle.voteItemses}" var="items" varStatus="status">
+																								<c:if test="${colorCount >= 9}">
+																									<c:set var="colorCount" value="0" scope="page"/>
+																								</c:if>
+																								<tr>
+																									<td width="430" style="padding-right:20px;">
+																										<label><input${voteTitle.voteType=="1"?" type=\"radio\"":" type=\"checkbox\"" }" onclick="" value="${items.itemId}" disabled="disabled" name="itemsIds"/>
+																										<span class="option">${items.itemName }</span></label>
+																									</td>
+																									<td width="170">
+																										<div id="result_bar_361707_25592" style="display: block; " class="process">
+																										<div style="width: ${items.itemBallot * 170/ totalCount }px;" class="style${colorCount }" id="process_bar_361707_25592"></div></div>
+																									</td>
+																									<td width="110" id="process_txt_361707_25592" style="display: block; " class="black">
+																										<nobr><fmt:formatNumber value="${items.itemBallot }" pattern="#,##0" type="number"/> (<fmt:formatNumber value="${items.itemBallot * 100 / totalCount}" pattern="0.00" type="number"/>%)</nobr>
+																									</td>
+																								</tr>
+																								<c:set var="colorCount" value="${colorCount + 1}" scope="page"/>
+																							</c:forEach>
+																						</tbody>
+																					</table>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<br />
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
 										</td>
 									</tr>
 								</table>

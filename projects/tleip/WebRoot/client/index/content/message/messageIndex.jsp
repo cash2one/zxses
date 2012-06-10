@@ -93,7 +93,7 @@
 						</ul>
 					</div>
 					
-					<a href="<%=basePath%>front/vote.do?method=queryVoteList">网络投票</a>
+					<a href="<%=basePath%>front/vote.do?method=queryVoteList" target="_blank">网络投票</a>
 					
 					<div class="voteList">
 						<!--voteList-->

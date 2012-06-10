@@ -15,6 +15,7 @@ import org.apache.struts.actions.DispatchAction;
 import com.lcweb.base.util.PageList;
 import com.lcweb.base.util.SysObj;
 import com.lcweb.bean.pojo.BasicPerson;
+import com.lcweb.bean.pojo.FrontUser;
 import com.lcweb.bean.pojo.SysRole;
 import com.lcweb.bean.pojo.VoteItems;
 import com.lcweb.bean.pojo.VoteTitle;
@@ -49,7 +50,7 @@ public class VoteManageAction extends DispatchAction {
 
 		return mapping.findForward("voteList");
 	}
-
+	
 	/**
 	 * 跳转到新增投票主题界面
 	 */
@@ -203,15 +204,26 @@ public class VoteManageAction extends DispatchAction {
 	}
 	
 	/**
-	 * 查询投票主题下的投票选项
+	 * 查询投票主题下的投票选项详情
 	 */
 	public ActionForward queryVoteItems(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
 		String voteId = request.getParameter("voteId");
-		VoteTitle voteTitle = (VoteTitle) voteService.queryObjectById(VoteTitle.class, Long.valueOf(voteId));
-		request.setAttribute("voteTitleInfo", voteTitle);
+		VoteTitle title = (VoteTitle) voteService.queryObjectById(VoteTitle.class, Long.valueOf(voteId));
+		Integer totalCount = 1;
+		if (title != null) {
+			totalCount = voteService.getItemsBallotCount(title.getVoteId());
+			// 如果还没有投票记录 totalCount为0，前台计算百分比(items.itemBallot/0)会出现NaN问题,重新设置为1
+			if (totalCount == 0) {
+				totalCount = 1;
+			}
+		}
+		request.setAttribute("voteTitle", title);
+		request.setAttribute("totalCount", totalCount);
+
 		return mapping.findForward("voteTitleDetails");
 	}
+	
 
 	/**
 	 * 查询留言列表信息(前台)
@@ -257,6 +269,11 @@ public class VoteManageAction extends DispatchAction {
 	 */
 	public ActionForward ballotVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
+		//只有登录用户才能投票
+		FrontUser fuser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
+		if(fuser == null){
+			return mapping.findForward("fail");
+		}
 		String voteId = request.getParameter("voteId");
 		String[] itemsIds = request.getParameterValues("itemsIds");
 		// 处理表单代码 start

@@ -49,7 +49,14 @@ public class MessageAction extends DispatchAction {
 	 */
 	public ActionForward toAddMessage(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		return mapping.findForward("toAddMessage");
+		//只有登录用户才能留言
+		FrontUser fuser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
+		if(fuser != null){
+			return mapping.findForward("toAddMessage");
+		}else {
+			return mapping.findForward("fail");
+		}
+		
 	}
 	
 	
