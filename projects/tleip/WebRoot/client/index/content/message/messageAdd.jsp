@@ -105,8 +105,10 @@
 							page="/client/newsClient.do?method=queryLogin" />
 						<bean:write name="queryLogin" filter="false" />
 					</div>
-					<div class="contact">
-						<img src="<%=basePath%>res/client/css/img/contact.gif" />
+					<div>
+						<bean:include id="queryContact"
+							page="/client/newsClient.do?method=queryContact" />
+						<bean:write name="queryContact" filter="false" />
 					</div>
 					<%--
 					<bean:include id="queryLeft"

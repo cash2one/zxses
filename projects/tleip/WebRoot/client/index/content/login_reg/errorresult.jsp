@@ -66,8 +66,10 @@
 					<li><a href="">最新图片</a></li>
 					--%>
 					</ul>
-					<div class="contact">
-						<img src="<%=basePath%>res/client/css/img/contact.gif" />
+					<div>
+						<bean:include id="queryContact"
+							page="/client/newsClient.do?method=queryContact" />
+						<bean:write name="queryContact" filter="false" />
 					</div>
 					<div class="message">
 						<a href="" class="textbg">校长信箱</a>	
