@@ -20,7 +20,64 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .bg_none{ background:none;}
 #warp, .header, .footer{width:1006px; margin:0 auto; padding:0px;}
 
+/*满天星文学社*/
+#wx_wrap{ width:1004px; margin:0 auto;}
+#wx_head{ background:url(img/wx_01.jpg) no-repeat; width:1004px; height:296px; position:relative;}
+.flash{ position:absolute; top:30px; right:15px;}
+.wx_logo{ width:220px; margin-left:30px; padding-top:30px;}
+.wx_logo a{ padding-bottom:30px; display:block; }
+.wx_nav{ text-align:center; padding-top:10px; font-size:14px; color:#fff;}
+.wx_nav span{ padding:0px 10px;}
+.wx_nav input{ margin-right:10px;}
+.wx_nav a{ color:#fff; padding:0px 20px;}
+.wx_nav a:hover{ color:#FF3300; text-decoration:underline;}
+.wx_flash{ position:absolute; top:37px; right:25px;}
 
+#wx_main{}
+.wx_left{width:212px;}
+.supper{ background:url(img/wx_03.jpg) no-repeat; height:256px; width:212px; overflow:hidden; }
+.sup_list{ padding-top:65px; padding-left:25px; *padding-left:20px;}
+.sup_list li{ background:url(img/wx_icon.gif) no-repeat left; padding-left:18px; padding-right:15px;}
+.sup_list p{ text-align:right; padding-right:30px; color:#4c0c01;}
+.sup_list p a{  color:#4c0c01;}
+.learn{ margin:10px 0px; background:url(img/wx_02.jpg) no-repeat; width:212px; height:309px; overflow:hidden;}
+.learn h1{ padding:25px 20px 0px 20px; text-align:center;}
+.learn h1 span{ display:block; border-bottom:1px solid #ccc; padding-left:30px; padding-bottom:10px; font-size:22px; color:#4c0c01;}
+.learn ul{ padding-top:10px;}
+
+.wx_right{ width:763px; background:url(img/wx_m_bg.png) no-repeat; padding-top:21px;}
+.wx_sidbar{ width:763px; background:url(img/wx_mbo_bg.png) no-repeat; padding-bottom:22px;}
+.wx_inner{ width:763px; background:url(img/wx_mid_bg.png) repeat-y;}
+
+.page1{ background:url(img/wx_main.jpg) no-repeat; width:712px; height:230px; overflow:hidden;}
+.page_list1{ width:330px; margin-left:20px; *margin-left:10px; position:relative; overflow:hidden;}
+.page_list1 h1{ font-size:14px; padding-left:10px; letter-spacing:.5em;}
+.list1{ padding:10px ;}
+.list1 li{ border-bottom:1px dotted #ccc; background:url(img/wx_icon2.gif) no-repeat 5px; padding-left:15px; height:27px; line-height:27px;}
+.list1 p{ text-align:right; }
+.list1 p a{ color:#4c0c01;}
+.list1 li.listp, .sup_list li.listp{ border:none; background:none;}
+
+.page2{ margin-top:10px; width:712px; height:205px;overflow:hidden; background:url(img/wx_04.gif) no-repeat 0px 30px;}
+.page_list1 dl{ padding:10px ;}
+.page_list1 dl dt{ padding:5px 0px;}
+.page_list1 dl dt a{ background:url(img/wx_icon3.gif) no-repeat left; padding-left:15px;}
+.page_list1 dl dd{ width:100%;  height:126px; overflow:hidden;}
+.page_list1 dl dd img{ float:left; margin-right:5px; display:inline; width:104px; height:116px;}
+.page_list1 dl dd a.text{ display:block; width:200px; height:126px; float:left; overflow:hidden;}
+.list2{ padding:0px 5px; width:190px; float:left; overflow:hidden;}
+.list2 li{ background:url(img/wx_icon3.gif) no-repeat left; padding-left:15px;}
+
+.page3{  margin-top:10px; width:712px; height:202px; overflow:hidden; background:url(img/wx_05.gif) no-repeat;}
+.list3{ padding-top:25px;}
+.list3 li{ height:22px; line-height:22px; border:none; width:90%;}
+.wx_link{ position:absolute; right:10px; top:58px;}
+.wx_link a{ display:block;  width:29px; height:78px;}
+.wx_link a span{ display:none;}
+
+#wx_foot{ width:1004px; text-align:center; padding:30px 0px;}
+#wx_foot p{ padding:5px 0px 5px 180px;}
+.wx_bg{ background: url(img/wx_foo.png) no-repeat left bottom;}
 
 /*博客*/
 .blog{ background: url(img/sinabloga.jpg) no-repeat bottom center;}
@@ -42,6 +99,7 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .bl_cont .bl_img{ text-align:center; padding:10px 0px;}
 .bl_cont .bl_img img{ width:137px; height:169px;}
 .bl_cont .bl_link{ text-align:center; padding:0px 0px 10px;}
+.bl_cont .bl_link span{ color:#ff0000; padding:0px 5px;}
 .bl_cont p{ padding:5px 0px 0px 30px; color:#666;}
 .bl_cont p a{ padding:5px;}
 .bl_cont p span{ color:#3d5849; font-weight:bold;}
@@ -92,10 +150,16 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .recicle ul{ width:353px;}
 .recicle li{ margin:30px 0px; }
 .recicle li input{ height:25px; line-height:25px; width:180px;}
+.recicle li.remenber{ text-align:center;}
+.recicle li.remenber input{ height:auto; width:auto; margin:0px 10px;}
 .recicle li span{ letter-spacing:1em; padding-left:30px;}
 .recicle li a span{ letter-spacing:0; color:#999999; padding:0px;}
 .recicle li a.jxdl{ margin:0 auto; text-align:center; font-size:14px; display:block; background:url(img/delua.gif) no-repeat; width:146px; height:40px; line-height:40px;}
 .recicle li a.jxdl span{ color:#fff; font-size:16px; letter-spacing:1em; font-weight:bold; padding-left:10px; *padding-left:0px;}
+.recicle ul li span.letterno{ letter-spacing:.5em;}
+.recicle ul li p{ padding:10px 0px 0px 110px; color:#999;}
+.recicle ul li input.yzm{ width:120px;}
+.recicle ul li a img{ margin-left:20px;}
 
 /*博客注册*/
 .regitb{ padding:10px;  margin-top:50px;}
@@ -117,7 +181,6 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .weblist{ padding:10px; border:1px solid #ccc;}
 .weblist ul{ width:100%;}
 .weblist li{ background:url(img/art_li_list.gif) no-repeat left; padding:0px 45px 0px 15px;}
-
 
 /*博客文章内容页*/
 .weblist h1{ padding:10px; border-bottom:1px dotted #ccc; text-align:center; font-size:18px;}
@@ -141,6 +204,36 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .pic_show{ width:98%; overflow:hidden; text-align:center; padding:50px 0px;}
 .pic_show h1{ margin-bottom:30px;}
 .pic_show img{max-width:100%;}
+
+/*发博文*/
+.article_add{ width:950px; background:#fff;}
+.article_add h1{ font-size:18px; padding-left:10px; background:url(img/article_head.jpg) no-repeat; height:26px;}
+.article_form{ padding:20px; border:1px solid #cecfcf; border-top:none;}
+.article_form p{ padding:10px;}
+.article_form p input{ width:300px;}
+.article_form p textarea{ width:700px; height:300px;}
+.article_form p.align{ padding-left:300px;}
+.article_form p input.button{ width:120px; height:40px; cursor:pointer; margin:0px 10px;}
+
+/*弹出框—创建分类*/
+.alart{ width:500px;}
+.alarthead{ background: url(img/lay.gif) no-repeat left 0; height:26px; padding-left:4px;}
+.alartout{  background: url(img/ray.gif) no-repeat right 0; height:26px; padding-right:4px;}
+.alartinner{ background:url(img/may.gif) repeat-x; height:26px; width:492px; position:relative; }
+.alartinner h1{ font-size:12px; color:#0E4649; height:26px; line-height:26px;}
+.alartinner a{ display:block; position:absolute; width:10px; height:10px; top:7px; right:5px; background:url(img/close_a.gif) no-repeat;}
+.alartinner a span{ display:none;}
+.alartinner a:hover{ background:url(img/close_h.gif) no-repeat;}
+.box{ background:#fff;padding:20px 10px; border:1px solid #ccc; border-top:none; }
+.box p{ height:35px; line-height:35px; border-bottom:1px double #ccc;}
+.box p input{ height:25px; line-height:25px; width:180px;}
+.box p input.make{ height:30px; line-height:30px; width:80px;}
+.box p span{ padding-left:20px; color:#999;}
+.box .classlist{  position:relative;  border-bottom:1px double #ccc; height:35px; line-height:35px;}
+.box .classlist img{ margin-right:8px;}
+.box .classlist .edieat{ position:absolute; right:5px; top:0px;}
+.box .save{ text-align:center; padding-top:10px;}
+.box .save input{ width:80px; height:30px;}
 
 /*-------------搜索高亮-------------*/
 .highlight{
