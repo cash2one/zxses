@@ -12,13 +12,13 @@
 <div class="blogout">
 	<div class="bloginner">
 		<!-- 头部 begin -->
-		<jsp:include page="/client/head.jsp"/>
+		<jsp:include page="/client/blog/head.jsp" />
 		<!-- 头部 end -->
 		
 		
 		<div class="bl_main">
 			<!-- 左边 begin -->
-			<jsp:include page="/client/left.jsp"/>
+			<jsp:include page="/client/blog/left.jsp"/>
 			<!-- 左边 end -->
 			
 			<!-- 右边文章列表 begin -->
@@ -60,7 +60,7 @@
 		<!-- 右边文章列表 end -->
 		
 		<!-- 底部 begin -->
-		<jsp:include page="/client/bottom.jsp"/>
+		<jsp:include page="/client/blog/bottom.jsp"/>
 		<!-- 底部 end -->
 	</div>
 </div>
