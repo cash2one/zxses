@@ -408,6 +408,7 @@
 		<action attribute="voteForm" name="voteForm" 
 			path="/front/vote" parameter="method" scope="request"
 			type="com.lcweb.struts.action.VoteManageAction">
+			<forward name="havaBallot" path="/client/index/content/vote/havaBallot.jsp"></forward>
 			<forward name="fail" path="/client/index/content/vote/fail.jsp"></forward>
 			<forward name="voteFrontList" path="/client/index/content/vote/voteIndex.jsp"></forward>
 		</action>

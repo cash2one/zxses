@@ -1,5 +1,6 @@
 package com.lcweb.dao.base;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ public interface BaseDao {
 	public void saveOrUpdate(Object object);
 	public Object queryObjectById(Object object,Object id);
 	public Object queryObjectById(Class cls,Object id);
+	public Object queryObjectById(Class cls,Serializable id);
 	public Object queryObjectByLongId(Object object,Long id);
 	public Object queryObjectByLongId(Class cls,Long id);
 	public List queryObjectList(String hql);

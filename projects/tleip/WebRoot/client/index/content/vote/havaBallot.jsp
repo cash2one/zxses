@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			$.alert("只有登录用户可投票，请登录!",function(){
+			$.alert("已投票，不可重复投票!",function(){
 				window.location.href="${basePath }front/message.do?method=queryMessage";
 			});
 		</script>

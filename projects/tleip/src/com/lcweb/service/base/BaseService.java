@@ -1,5 +1,6 @@
 package com.lcweb.service.base;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ public interface BaseService {
 	public Object queryObjectById(Object object,Integer id);
 	public Object queryObjectByLongId(Object object,Long id);
 	public Object queryObjectByLongId(Class cls, Long id);
+	public Object queryObjectById(Class cls, Serializable id);
 	public void deleteObjects(Object object,String[] ids);
 	public void deleteObjectsForInteger(Object object, String[] ids);
 	public void deleteObjectsAndChilds(Object object,String queryChildHql,String[] ids);

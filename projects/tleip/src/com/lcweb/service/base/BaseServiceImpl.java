@@ -1,6 +1,7 @@
 package com.lcweb.service.base;
 
 import java.io.File;
+import java.io.Serializable;
 import java.net.URLEncoder;
 import java.util.List;
 
@@ -73,6 +74,10 @@ public class BaseServiceImpl  implements BaseService {
 	}
 	
 	public Object queryObjectById(Class cls,Object id){
+		return baseDao.queryObjectById(cls, id);
+	}
+	
+	public Object queryObjectById(Class cls, Serializable id){
 		return baseDao.queryObjectById(cls, id);
 	}
 	

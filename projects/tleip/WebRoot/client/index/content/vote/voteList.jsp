@@ -24,13 +24,14 @@
 </style>
 <link rel="stylesheet" type="text/css"
 			href="${basePath }client/index/content/vote/app.platform.vote.v3.css" />
+<script type="text/javascript" src="${basePath}client/index/content/vote/jsfiles/voteIndex.js"></script>
 <script type="text/javascript">
-	function test(){
-	
+	function query(){
+       window.open("${basePath }front/vote.do?method=queryVoteList");
 	}
 </script>
 <div id="voteList" class="panelInclude1">
-	<form target="_blank" action="${basePath }front/vote.do?method=ballotVoteTitle" method="post" name="VoteForm">
+	<form target="_blank" action="${basePath }front/vote.do?method=ballotVoteTitle" method="post" name="VoteForm" onsubmit="return validateSubmit();">
 		&nbsp;&nbsp;&nbsp;&nbsp;<button class="icon_vote">&nbsp;</button>${voteTitle.voteName } 
 		<br/>
 		<c:forEach items="${voteTitle.voteItemses}" var="items" varStatus="status">
@@ -44,12 +45,11 @@
 		<input type="hidden" name="voteFlag" value="<%=voteFlag%>"/>
 		<input type="hidden" name="voteId" value="${voteTitle.voteId }"/>
 		<div align="center">
-			<a target="_blank" href="javascript:VoteForm.submit();">
-				<input type="button" name="ballot" value="投票" class="uniformButton" onclick="VoteForm.submit();"/>
-			</a>&nbsp;&nbsp;
+			<input type="submit" name="ballot" value="投票" class="uniformButton"/>
+			&nbsp;
 			<a target="_blank" href="${basePath }front/vote.do?method=queryVoteList">
-				<input type="button" name="ballot" value="查看" class="uniformButton" onclick=""/>
 			</a>
+			<input type="button" name="ballot" value="查看" class="uniformButton" onclick="query();"/>
 		</div>
 	</form>
 </div>

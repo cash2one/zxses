@@ -8,7 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<title>投票主题新增</title>
+		<title>投票主题详情</title>
 		<link rel="stylesheet" type="text/css"
 			href="<%=basePath%>res/theme/blue/css/old.css">
 		<link rel="stylesheet" type="text/css"

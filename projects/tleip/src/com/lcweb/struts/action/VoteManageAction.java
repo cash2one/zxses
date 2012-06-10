@@ -19,13 +19,17 @@ import com.lcweb.bean.pojo.FrontUser;
 import com.lcweb.bean.pojo.SysRole;
 import com.lcweb.bean.pojo.VoteItems;
 import com.lcweb.bean.pojo.VoteTitle;
+import com.lcweb.bean.pojo.VoteUser;
+import com.lcweb.bean.pojo.VoteUserId;
 import com.lcweb.commons.CheckRight;
 import com.lcweb.service.vote.VoteService;
+import com.lcweb.service.vote.VoteUserService;
 import com.lcweb.struts.form.RightManageForm;
 import com.lcweb.struts.form.VoteForm;
 
 public class VoteManageAction extends DispatchAction {
 	private VoteService voteService;
+	private VoteUserService voteUserService;
 	private CheckRight checkRight;
 
 	/**
@@ -274,7 +278,16 @@ public class VoteManageAction extends DispatchAction {
 		if(fuser == null){
 			return mapping.findForward("fail");
 		}
+		
 		String voteId = request.getParameter("voteId");
+		
+		//检查用户是否已经投票
+		VoteUserId voteUserId = new VoteUserId(Long.parseLong(voteId), fuser.getUserId());
+		VoteUser voteUserExist = (VoteUser)voteUserService.queryObjectById(VoteUser.class, voteUserId);
+		if(voteUserExist != null){
+			return mapping.findForward("havaBallot");
+		}
+		
 		String[] itemsIds = request.getParameterValues("itemsIds");
 		// 处理表单代码 start
 		String voteFlag = request.getParameter("voteFlag");
@@ -285,6 +298,9 @@ public class VoteManageAction extends DispatchAction {
 				voteService.updateTitleVoteCount(voteId);
 				// 更新投票选项投票数
 				voteService.updateItemsBallotCount(itemsIds);
+				
+				//记录用户投票信息
+				voteUserService.saveObject(new VoteUser(voteUserId));
 			}
 
 			destroyFlag(session);
@@ -292,6 +308,7 @@ public class VoteManageAction extends DispatchAction {
 			// 可判断为重复提交,不予处理
 			System.out.println("重复提交");
 		}
+		
 		// 投票一次,在request中标识已投票，提交按钮设置不可用
 		request.setAttribute("isVote", "true");
 		return queryVoteList(mapping, form, request, response);
@@ -312,5 +329,9 @@ public class VoteManageAction extends DispatchAction {
 	 */
 	public void destroyFlag(HttpSession session) {
 		session.removeAttribute("voteFlag");
+	}
+
+	public void setVoteUserService(VoteUserService voteUserService) {
+		this.voteUserService = voteUserService;
 	}
 }

@@ -43,7 +43,7 @@ $(function(){
 					}else if(data == "pageExpired"){
 						$.alert("页面过期,请点击重新获得验证码!");
 					}else if(data == "codeFail"){
-						$.alert("验证码错误!");
+						$.alert("验证码错误,请重新填写或点击刷新!");
 					}else if(data == "userDisable"){
 						$.alert("用户已禁用,请与管理员联系!");
 					}else{

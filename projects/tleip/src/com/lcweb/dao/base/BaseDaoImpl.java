@@ -1,5 +1,6 @@
 package com.lcweb.dao.base;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -128,6 +129,10 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
 			}else {
 				return this.getHibernateTemplate().get(object.getClass(), (String)id);
 			}
+		}
+		
+		public Object queryObjectById(Class cls, Serializable id) {
+			return this.getHibernateTemplate().get(cls, id);
 		}
 		
 		public Object queryObjectById(Class cls, Object id) {
