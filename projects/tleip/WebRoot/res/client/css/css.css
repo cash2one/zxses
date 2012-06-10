@@ -1,6 +1,6 @@
 /*南山小学风站css样式*/
 html,body {
-	font: 12px/ 1.8 Arial;
+	font: 12px/1.8 Arial;
 	color: #333;
 }
 
@@ -939,9 +939,9 @@ h2 {
 	color: #854d45;
 }
 /*联系我们*/
-.contact {
+/* .contact {
 	margin-top: 15px;
-	background: url(img/contact1.gif) no-repeat;
+	background: url(img/contact3.gif) no-repeat;
 	width: 252px;
 	height: 119px;
 }
@@ -958,4 +958,26 @@ h2 {
 
 .contact a:hover {
 	color: #FF0000;
+} */
+
+.contact {
+	*margin-top: 10px;
+	background: url(img/contact3.gif) no-repeat top;
+	width: 252px;
+	height: 119px;
+}
+
+.contact a {
+	display: block;
+	font-weight: bold;
+	font-size: 14px;
+	color: #000;
+	margin-top: 20px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 70px;
+}
+
+.contact a span {
+	display: none;
 }

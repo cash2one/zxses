@@ -10,17 +10,17 @@
 (function(){
 	var mF={
 		defConfig:{//全局默认设置
-			pattern:'mF_fscreen_tb',//风格样式
-			trigger:'click',//触发切换模式['click'(鼠标点击)|'mouseover'(鼠标悬停)]
-			txtHeight:'default',//文字层高度设置['default'(默认高度)|0(隐藏)|num(数字,单位像素)]
+			pattern:'mF_expo2010',//风格样式
+			trigger:'mouseover',//触发切换模式['click'(鼠标点击)|'mouseover'(鼠标悬停)]
+			txtHeight:'0',//文字层高度设置['default'(默认高度)|0(隐藏)|num(数字,单位像素)]
 			wrap:true,//是否保留边框(有的话)[true|false]
 			auto:true,//是否自动播放[true|false]
 			time:4,//每次停留时间[num(数字,单位秒)]
 			index:0,//开始显示的图片序号(从0算起)[num(数字)]
-			waiting:20,//Loading画面的最长等待时间[true(一直等待)|false(不等待)|num(数字,单位秒)]
+			waiting:2,//Loading画面的最长等待时间[true(一直等待)|false(不等待)|num(数字,单位秒)]
 			delay:100,//触发切换模式中'mouseover'模式下的切换延迟[num(数字,单位毫秒)]
 			css:true,//是否需要程序定义CSS[true|false]
-			path:$.basePath + 'tools/myFocus/js/pattern/',//pattern文件的路径,相对html文件的路径,设置为false或0即取消程序引入
+			path:false,//pattern文件的路径,相对html文件的路径,设置为false或0即取消程序引入
 			autoZoom:false//是否允许图片自动缩放居中[true|false]
 		},
 		pattern:{},

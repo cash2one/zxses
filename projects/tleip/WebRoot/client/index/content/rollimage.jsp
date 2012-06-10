@@ -24,13 +24,13 @@ myFocus.set({
     width:980,//设置图片区域宽度(像素)
     height:405,//设置图片区域高度(像素)
     txtHeight:'0',//文字层高度设置(像素),'default'为默认高度，0为隐藏
+    path:'<%=basePath%>tools/myFocus/js/pattern/',
 	autoZoom:'true'
 });
 </script>
 <div id="boxID" style="visibility: hidden">
 	<!--焦点图盒子-->
 	<div class="loading">
-		<span>请稍候...</span>
 	</div>
 	<!--载入画面(可删除)-->
 	<ul class="pic">

@@ -18,11 +18,11 @@
 					<c:if test="${itemSmall.ifDisplay =='1'}">
 						<c:if test="${smallConfig.ifPopWindow =='1'}">
 							<a target="_blank"
-								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html">${itemSmall.typeName}</a>
+								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html"><span>${itemSmall.typeName}</span></a>
 						</c:if>
 						<c:if test="${smallConfig.ifPopWindow !='1'}">
 							<a
-								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html">${itemSmall.typeName}</a>
+								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html"><span>${itemSmall.typeName}</span></a>
 						</c:if>
 					</c:if>
 				</logic:iterate>
@@ -33,10 +33,10 @@
 					property="newsItemConfigs">
 					<c:if test="${itemSmall.ifDisplay =='1'}">
 						<c:if test="${smallConfig.ifPopWindow =='1'}">
-							<a target="_blank" href="${itemSmall.httpUrl}">${itemSmall.typeName}</a>
+							<a target="_blank" href="${itemSmall.httpUrl}"><span>${itemSmall.typeName}</span></a>
 						</c:if>
 						<c:if test="${smallConfig.ifPopWindow !='1'}">
-							<a href="${itemSmall.httpUrl}">${itemSmall.typeName}</a>
+							<a href="${itemSmall.httpUrl}"><span>${itemSmall.typeName}</span></a>
 						</c:if>
 					</c:if>
 				</logic:iterate>
@@ -48,11 +48,11 @@
 					<c:if test="${itemSmall.ifDisplay =='1'}">
 						<c:if test="${smallConfig.ifPopWindow =='1'}">
 							<a target="_blank"
-								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html">${itemSmall.typeName}</a>
+								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html"><span>${itemSmall.typeName}</span></a>
 						</c:if>
 						<c:if test="${smallConfig.ifPopWindow !='1'}">
 							<a
-								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html">${itemSmall.typeName}</a>
+								href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${itemSmall.typeId}.html"><span>${itemSmall.typeName}</span></a>
 						</c:if>
 					</c:if>
 				</logic:iterate>
@@ -60,3 +60,5 @@
 		</c:choose>
 	</logic:iterate>
 </div>
+
+ 
