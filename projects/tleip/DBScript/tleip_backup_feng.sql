@@ -92,7 +92,7 @@ CREATE TABLE `front_message` (
   `reply_content` text,
   `reply_date` varchar(20) DEFAULT NULL,
   `approve_status` tinyint(4) DEFAULT '0',
-  `top` tinyint(4) DEFAULT '0',
+  `is_top` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`message_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `front_message_user` FOREIGN KEY (`user_id`) REFERENCES `front_user` (`user_id`)
