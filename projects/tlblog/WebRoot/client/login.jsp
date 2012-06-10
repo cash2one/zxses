@@ -12,7 +12,7 @@
 <div class="blogout">
 	<div class="bloginner">
 		<!-- 头部 begin -->
-		<jsp:include page="/client/head.jsp"/>
+		<jsp:include page="/client/blog/head.jsp"/>
 		<!-- 头部 end -->
 		
 		<div class="wcon">
@@ -38,7 +38,7 @@
 		</div>
 		
 		<!-- 底部 begin -->
-		<jsp:include page="/client/bottom.jsp"/>
+		<jsp:include page="/client/blog/bottom.jsp"/>
 		<!-- 底部 end -->
 	</div>
 </div>
