@@ -133,7 +133,7 @@ public class HtmlFile {
 		String line = null;
 		Map<String, Object> params = indexFileParameter.getAction();
 		
-		String html_rollimage = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_ROLLIMAGE)));
+//		String html_rollimage = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_ROLLIMAGE)));
 		String html_login = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_LOGIN)));
 		String html_tabs = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_TABS)));
 		String html_tabspic = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_TABSPIC)));
@@ -149,9 +149,9 @@ public class HtmlFile {
 			if (line.contains("${basePath}")) {
 				line = StringUtil.replaceString(line, "${basePath}", basePath);
 			}
-			if (line.contains("${html_rollimage}")) {
-				line = StringUtil.replaceString(line, "${html_rollimage}", html_rollimage);
-			}
+//			if (line.contains("${html_rollimage}")) {
+//				line = StringUtil.replaceString(line, "${html_rollimage}", html_rollimage);
+//			}
 			if (line.contains("${html_news}")) {
 				line = StringUtil.replaceString(line, "${html_news}", html_login);
 			}

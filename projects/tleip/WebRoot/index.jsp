@@ -45,13 +45,7 @@
 						<bean:include id="queryMenu"
 							page="/client/newsClient.do?method=queryMenu" />
 						<bean:write name="queryMenu" filter="false" />
-						<%-- 
-						<!--
-						 -->
-						--%>
-						<bean:include id="queryRollImage"
-							page="/client/newsClient.do?method=queryRollImage" />
-						<bean:write name="queryRollImage" filter="false" />
+						<img src="<%=basePath%>res/client/images/example.jpg" />
 					</div>
 				</div>
 			</div>
