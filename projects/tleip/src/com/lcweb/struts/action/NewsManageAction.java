@@ -2507,7 +2507,11 @@ public class NewsManageAction extends DispatchAction {
 		ncm.setNewsTemplate(newsTemplate);
 		ncm.setIfImgNews(ifImgNews);
 		if(imgNewsAddress!=null&&!"".equals(imgNewsAddress)){
-			ncm.setImgNewsAddress(GlobalConst.UPLOAD_PATH+imgNewsAddress);
+			if(imgNewsAddress.lastIndexOf("/")>0){
+				ncm.setImgNewsAddress(imgNewsAddress);
+			}else{
+				ncm.setImgNewsAddress(GlobalConst.UPLOAD_PATH+imgNewsAddress);
+			}
 		}
 		ncm.setImgNewsTitle(imgNewsTitle);
 		ncm.setIfTitleImg(ifTitleImg);
