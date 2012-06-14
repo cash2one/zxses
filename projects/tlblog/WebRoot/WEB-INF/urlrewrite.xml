@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+
+<!--
+	
+	Configuration file for UrlRewriteFilter
+	http://tuckey.org/urlrewrite/
+	
+-->
+<urlrewrite>
+	<rule>
+		<note>跳转到首页</note>
+		<from>^/index.html$</from>
+		<to>/client/index/starts.jsp</to>
+	</rule>/blog/renlei/
+	<rule>
+		<note>跳转到用户博客</note>
+		<from>^/blog/([a-zA-Z0-9]+)$</from>
+		<to>/client/blog.do?method=searchUser$uid=$1</to>
+	</rule>
+</urlrewrite>
+

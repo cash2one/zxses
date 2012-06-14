@@ -14,6 +14,20 @@
 	</listener>
 	
 	<filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+        <init-param>
+            <param-name>logLevel</param-name>
+            <param-value>WARN</param-value>
+        </init-param>
+    </filter>
+     
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	
+	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
@@ -69,6 +83,7 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 配置后台权限标签 -->
 	<jsp-config>
 		<taglib>
 			<taglib-uri>http://www.agilefly.com/tlblog/functions</taglib-uri>
@@ -77,6 +92,6 @@
 	</jsp-config>
 	
 	<welcome-file-list>
-		<welcome-file>/client/blog.jsp</welcome-file>
+		<welcome-file>/client/index/starts.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
