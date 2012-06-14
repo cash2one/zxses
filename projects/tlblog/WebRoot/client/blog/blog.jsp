@@ -25,7 +25,12 @@
 			<div class="bl_right fr">
 				<div class="bl_r_title">
 					<h1>博文</h1>
-					<a href="${basePath }blog/article.do?method=addInput">发表新文章</a>
+					<span class="addIcon">
+						<a href="${basePath }blog/article.do?method=addInput">发表新文章</a>
+					</span>
+					<span class="manageIcon">
+						<a href="${basePath }blog/article.do?method=addInput">管理我的博客</a>
+					</span>
 				</div>
 				<div class="bl_r_cont">
 					<div>
