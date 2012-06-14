@@ -112,7 +112,8 @@ a:hover, a:active{text-decoration:none; color: #FF0000;}
 .bl_right{ width:730px;}
 .bl_r_title{ background:url(img/modelhead.png) no-repeat;  height:26px; overflow:hidden; position:relative;}
 .bl_r_title h1{ height:26px; line-height:26px; font-size:14px; padding-left:10px; color:#666666;}
-.bl_r_title a{ position:absolute; right:30px; top:3px; background:url(img/add.gif) no-repeat left; padding-left:20px; height:20px; line-height:20px; color:#385f4d;}
+.bl_r_title .addIcon a { position:absolute; right:140px; top:3px; background:url(img/add.gif) no-repeat left; padding-left:20px; height:20px; line-height:20px; color:#385f4d;}
+.bl_r_title .manageIcon a { position:absolute; right:30px; top:3px; background:url(img/manage.gif) no-repeat left; padding-left:20px; height:20px; line-height:20px; color:#385f4d;}
 .bl_r_title a:hover{ color:#FF0000;  text-decoration:underline;}
 
 .bl_r_cont{ padding:15px;}
