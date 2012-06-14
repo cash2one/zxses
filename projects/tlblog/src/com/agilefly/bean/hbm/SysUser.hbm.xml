@@ -11,22 +11,58 @@
             <generator class="native" />
         </id>
         <property name="username" type="java.lang.String">
-            <column name="username" length="20" />
+            <column name="username" length="20" not-null="true" />
         </property>
         <property name="password" type="java.lang.String">
-            <column name="password" length="20" />
+            <column name="password" length="32" not-null="true" />
         </property>
         <property name="realname" type="java.lang.String">
             <column name="realname" length="20" />
         </property>
         <property name="gender" type="java.lang.String">
-            <column name="gender" length="2" />
+            <column name="gender" length="10" />
+        </property>
+        <property name="userPenname" type="java.lang.String">
+            <column name="user_penname" length="20" />
+        </property>
+        <property name="userBirthday" type="java.lang.String">
+            <column name="user_birthday" length="40" />
+        </property>
+        <property name="userQq" type="java.lang.String">
+            <column name="user_qq" length="20" />
+        </property>
+        <property name="userBlogname" type="java.lang.String">
+            <column name="user_blogname" length="200" not-null="true" />
+        </property>
+        <property name="userBlogdes" type="java.lang.String">
+            <column name="user_blogdes" length="200" />
+        </property>
+        <property name="userLoginip" type="java.lang.String">
+            <column name="user_loginip" length="20" />
+        </property>
+        <property name="userRegtime" type="java.util.Date">
+            <column name="user_regtime" length="23" />
+        </property>
+        <property name="userLogintime" type="java.util.Date">
+            <column name="user_logintime" length="23" />
+        </property>
+        <property name="userHeadpic" type="java.lang.String">
+            <column name="user_headpic" length="200" />
+        </property>
+        <property name="userClick" type="java.lang.Integer">
+            <column name="user_click" />
+        </property>
+        <property name="userEmail" type="java.lang.String">
+            <column name="user_email" length="100" />
+        </property>
+        <property name="sinaWeibo" type="java.lang.String">
+            <column name="sina_weibo" length="200" />
+        </property>
+        <property name="tenWeibo" type="java.lang.String">
+            <column name="ten_weibo" length="200" />
         </property>
         <property name="phone" type="java.lang.String">
             <column name="phone" length="20" />
-        </property>
-        <property name="email" type="java.lang.String">
-            <column name="email" length="50" />
         </property>
         <property name="available" type="java.lang.Byte">
             <column name="available" />
