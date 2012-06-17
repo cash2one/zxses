@@ -18,7 +18,7 @@ function checkboxs_all(obj,cName){
 }*/
 
 //字符串去除前后空格可以使用就query方法-->$.trim() 然后传入验证方法
-var Validate = function(){}  
+var Validate = function(){};  
 Validate.prototype =  {
     // 验证字符串是否为空 
     testString: function(str) {  
@@ -38,7 +38,7 @@ Validate.prototype =  {
         if (!this.testString(num)) {
             return false;  
         }
-        if (!this.testIntegerNumber(num))
+        if (!this.testIntegerNumber(num)){
         	return false;  
         } 
         if (minvalue > num || num > maxvalue){
