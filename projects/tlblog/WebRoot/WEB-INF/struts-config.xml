@@ -65,6 +65,11 @@
 		</action>
 		
 		<!--*****************前台系统配置Action***********************-->
+		<action path="/index" parameter="method">
+			<forward name="signup" path="/client/index/reg.jsp"/>
+			
+		</action>
+		
 		<!-- 博客文章管理 -->
 		<action path="/blog/article" name="blogArticle" scope="request" parameter="method">
 			<!--<forward name="list" path="/client/rightmanage/rolemanage/sysroleList.jsp"/>

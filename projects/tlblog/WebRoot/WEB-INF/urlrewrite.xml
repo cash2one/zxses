@@ -10,10 +10,20 @@
 -->
 <urlrewrite>
 	<rule>
+		<note>跳转注册</note>
+		<from>^/(signup)$</from>
+		<to>/index.do?method=$1</to>
+	</rule>
+	<rule>
 		<note>跳转到首页</note>
 		<from>^/index.html$</from>
 		<to>/client/index/starts.jsp</to>
-	</rule>/blog/renlei/
+	</rule>
+	<rule>
+		<note>跳转到首页</note>
+		<from>^/index.html$</from>
+		<to>/client/index/starts.jsp</to>
+	</rule>
 	<rule>
 		<note>跳转到用户博客</note>
 		<from>^/blog/([a-zA-Z0-9]+)$</from>
