@@ -1,5 +1,7 @@
 package com.agilefly.web.form;
 
+import java.util.Date;
+
 import org.apache.struts.action.ActionForm;
 
 /**
@@ -12,10 +14,22 @@ public class SysUserForm extends ActionForm {
 	private String password;
 	private String realname;
 	private String gender;
+	private String userPenname;
+	private String userBirthday;
+	private String userQq;
+	private String userBlogname;
+	private String userBlogdes;
+	private String userLoginip;
+	private Date userRegtime;
+	private Date userLogintime;
+	private String userHeadpic;
+	private String userEmail;
+	private String sinaWeibo;
+	private String tenWeibo;
 	private String phone;
-	private String email;
 	private Byte available;
 	private Byte recordStatus;
+	
 	private Integer[] roleIds;
 	
 	public int getId() {
@@ -54,11 +68,77 @@ public class SysUserForm extends ActionForm {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getEmail() {
-		return email;
+	public String getUserPenname() {
+		return userPenname;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserPenname(String userPenname) {
+		this.userPenname = userPenname;
+	}
+	public String getUserBirthday() {
+		return userBirthday;
+	}
+	public void setUserBirthday(String userBirthday) {
+		this.userBirthday = userBirthday;
+	}
+	public String getUserQq() {
+		return userQq;
+	}
+	public void setUserQq(String userQq) {
+		this.userQq = userQq;
+	}
+	public String getUserBlogname() {
+		return userBlogname;
+	}
+	public void setUserBlogname(String userBlogname) {
+		this.userBlogname = userBlogname;
+	}
+	public String getUserBlogdes() {
+		return userBlogdes;
+	}
+	public void setUserBlogdes(String userBlogdes) {
+		this.userBlogdes = userBlogdes;
+	}
+	public String getUserLoginip() {
+		return userLoginip;
+	}
+	public void setUserLoginip(String userLoginip) {
+		this.userLoginip = userLoginip;
+	}
+	public Date getUserRegtime() {
+		return userRegtime;
+	}
+	public void setUserRegtime(Date userRegtime) {
+		this.userRegtime = userRegtime;
+	}
+	public Date getUserLogintime() {
+		return userLogintime;
+	}
+	public void setUserLogintime(Date userLogintime) {
+		this.userLogintime = userLogintime;
+	}
+	public String getUserHeadpic() {
+		return userHeadpic;
+	}
+	public void setUserHeadpic(String userHeadpic) {
+		this.userHeadpic = userHeadpic;
+	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+	public String getSinaWeibo() {
+		return sinaWeibo;
+	}
+	public void setSinaWeibo(String sinaWeibo) {
+		this.sinaWeibo = sinaWeibo;
+	}
+	public String getTenWeibo() {
+		return tenWeibo;
+	}
+	public void setTenWeibo(String tenWeibo) {
+		this.tenWeibo = tenWeibo;
 	}
 	public Byte getAvailable() {
 		return available;

@@ -6,7 +6,9 @@ import java.util.List;
 import org.compass.core.CompassCallback;
 import org.compass.core.CompassException;
 import org.compass.core.CompassHits;
+import org.compass.core.CompassQueryBuilder;
 import org.compass.core.CompassSession;
+import org.compass.core.CompassQueryBuilder.CompassBooleanQueryBuilder;
 
 import com.agilefly.bean.BlogArticle;
 import com.agilefly.commons.QueryResult;
@@ -20,13 +22,22 @@ public class BlogArticleCallback implements CompassCallback<QueryResult<BlogArti
 	@Override
 	public QueryResult<BlogArticle> doInCompass(CompassSession compass) throws CompassException {
 		List<BlogArticle> articles = new ArrayList<BlogArticle>();
-		CompassHits hits = compass.find(key);
+		CompassQueryBuilder queryBuilder = compass.queryBuilder();
+		CompassBooleanQueryBuilder boolQuery = queryBuilder.bool();
+		boolQuery.addMust(queryBuilder.queryString("id:9").toQuery());
+		//boolQuery.addShould(queryBuilder.queryString(key).toQuery());
+		
+		String queryStr = boolQuery.toQuery().toString();
+		System.out.println(queryBuilder.queryString("id:9").toQuery().toString());
+		//String test = "+id:9 '学习'";
+		CompassHits hits = compass.find(queryBuilder.queryString("id:9").toQuery().toString());//compass.find(key);
 		int lastIndex = startIndex + maxResult - 1;
 		if(lastIndex > (hits.length()-1)){
 			lastIndex = hits.length()-1;
 		}
 		for(int i = startIndex; i <= lastIndex; i++){
 			BlogArticle article = (BlogArticle) hits.data(i);
+			System.out.println(article.getId());
 			String hlArticleTitle = hits.highlighter(i).fragment("articleTitle");
 			String hlArticleContent = hits.highlighter(i).fragment("articleContent");
 			if(hlArticleTitle != null){
