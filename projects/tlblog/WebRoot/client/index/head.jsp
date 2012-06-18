@@ -12,9 +12,11 @@
 		</div>
 		<div class="wx_logo"><a href=""><img src="${basePath }res/client/css/img/wx_logo.png" /></a><img src="${basePath }res/client/css/img/wx_logo_b.png" /></div>
 		<div class="wx_nav">
-			<span>用户名：</span><input name="" type="text"/>
-			<span>密码：</span><input type="password"/>
-			<input name="" type="button" value="登陆" />
+			<div style="display: inline; visibility: hidden;">
+				<span>用户名：</span><input name="" type="text"/>
+				<span>密码：</span><input type="password"/>
+				<input name="" type="button" value="登陆" />
+			</div>
 			<span>快速搜索：</span><input name="" type="text" /><input value="搜索" type="button"/>
 			<span><a href="${bathPath }signup">注册</a></span>
 		</div>

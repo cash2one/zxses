@@ -9,6 +9,8 @@
 <style type="text/css">
 	body{ background:url(${basePath }res/client/css/img/wx_bg.jpg) repeat;}
 </style>
+<script type="text/javascript" src="${basePath}tools/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="${basePath}client/index/jsfiles/reg.js"></script>
 </head>
 
 <body>
@@ -21,8 +23,8 @@
 	<div id="wx_main">
 		<div class="art_title"><span>用户注册</span></div>
 		<div class="regform wx_form">
-			<form name="userReg" id="userReg" method="post" action="${basePath}front/login.do"
-						onsubmit="javascript:return checkSubmit();">
+			<form name="userReg" id="userReg" method="post" action="${basePath}index.do?method="
+						onsubmit="javascript:return checkSubmit();" enctype="multipart/form-data">
 				<p>	
 					<span class="pspan1 fl"><span class="dot">*</span>用户名：</span>
 					<input type="text" id="username" name="username" class="fl" maxlength="50"/>
@@ -38,7 +40,7 @@
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>确认密码：</span>
 					<input type="text" id="repass" name="repass" class="fl" maxlength="30"/>
-					<span class="pspan2">与上面的密码不一致，新重新输入</span>
+					<span class="pspan2">请确保确认密码与上面的密码一致</span>
 					<div class="clear"></div>
 				</p>
 				<p>
@@ -55,21 +57,26 @@
 				</p>
 				--%>
 				<p>
+					<span class="pspan1 fl"><span class="dot">*</span>性别：</span>
+					<select id="sex" name="sex" style="width: 100px">
+						<option value="男">男</option>
+						<option value="女">女</option>	
+					</select>
+					<div class="clear"></div>
+				</p>
+				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>头像：</span>
-					<input type="text" id="userHeadpic" name="userHeadpic" class="fl" />
-					<span class="pspan2">请上传头像图片</span>
+					<input type="file" id="userHeadpic" name="userHeadpic" class="fl" />
 					<div class="clear"></div>
 				</p>
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>笔名：</span>
 					<input type="text" id="userPenname" name="userPenname" class="fl" />
-					<span class="pspan2">与上面的密码不一致，新重新输入</span>
 					<div class="clear"></div>
 				</p>
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>博客描述：</span>
 					<input type="text" id="userBlogdes" name="userBlogdes" class="fl" />
-					<span class="pspan2">与上面的密码不一致，新重新输入</span>
 					<div class="clear"></div>
 				</p>
 				<p>
