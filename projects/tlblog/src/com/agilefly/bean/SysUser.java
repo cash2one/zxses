@@ -15,6 +15,8 @@ public class SysUser implements java.io.Serializable {
 	private String username;
 	//用户登录密码
 	private String password;
+	//用户类型
+	private SysType sysType;
 	//用户真实名称
 	private String realname;
 	//用户性别
@@ -47,6 +49,8 @@ public class SysUser implements java.io.Serializable {
 	private String tenWeibo;
 	//用户电话
 	private String phone;
+	//用户是否审批
+	private Byte approveStatus;
 	//用户是否可用
 	private Byte available;
 	//记录是否逻辑删除
@@ -279,5 +283,21 @@ public class SysUser implements java.io.Serializable {
 	 */
 	public void addSysRole(SysRole role){
 		this.sysRoles.add(role);
+	}
+
+	public Byte getApproveStatus() {
+		return approveStatus;
+	}
+
+	public void setApproveStatus(Byte approveStatus) {
+		this.approveStatus = approveStatus;
+	}
+
+	public SysType getSysType() {
+		return sysType;
+	}
+
+	public void setSysType(SysType sysType) {
+		this.sysType = sysType;
 	}
 }
