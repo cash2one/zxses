@@ -71,3 +71,4 @@
 	2、新增工具类BeanUtilEx.java解决复制对象属性包含Date为null时报错，以后直接使用该类替代
 	BeanUtils.java工具类
 	3、数据库设计文件使用PowerDesign 12,文件在DB文件夹下
+	4、添加AllRightOpTest.java测试类，方便模块、权限功能的添加，需要在系统初始化Action中添加对应的功能代码,具体参考InitAction.java
