@@ -23,7 +23,7 @@
 	<div id="wx_main">
 		<div class="art_title"><span>用户注册</span></div>
 		<div class="regform wx_form">
-			<form name="userReg" id="userReg" method="post" action="${basePath}index.do?method="
+			<form name="userReg" id="userReg" method="post" action="${basePath}index.do?method=signupUser"
 						onsubmit="javascript:return checkSubmit();" enctype="multipart/form-data">
 				<p>	
 					<span class="pspan1 fl"><span class="dot">*</span>用户名：</span>
@@ -56,6 +56,16 @@
 					<div class="clear"></div>
 				</p>
 				--%>
+				<p>
+					<span class="pspan1 fl"><span class="dot">*</span>选择身份：</span>
+					<select id="userType" name="userType" style="width: 100px">
+						<option value="teacher">教师</option>
+						<option value="student">学生</option>
+						<option value="parent">家长</option>
+						<option value="normal">其他</option>
+					</select>
+					<div class="clear"></div>
+				</p>
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>性别：</span>
 					<select id="sex" name="sex" style="width: 100px">
@@ -91,7 +101,7 @@
 				</p>
 				<p>
 					<span class="pspan1 fl">QQ号码：</span>
-					<input type="text" id="userQq" name="repass" class="fl" />
+					<input type="text" id="userQq" name="userQq" class="fl" />
 					<div class="clear"></div>
 				</p>
 				<p>
