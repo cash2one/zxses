@@ -59,10 +59,8 @@
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>选择身份：</span>
 					<select id="userType" name="userType" style="width: 100px">
-						<option value="teacher">教师</option>
 						<option value="student">学生</option>
-						<option value="parent">家长</option>
-						<option value="normal">其他</option>
+						<option value="teacher">教师</option>
 					</select>
 					<div class="clear"></div>
 				</p>
@@ -96,7 +94,7 @@
 				</p>
 				<p>
 					<span class="pspan1 fl">生日：</span>
-					<input type="text" id="userBirthday" name="userBirthday" class="fl" />
+					<input id="userBirthday" name="userBirthday" type="text" maxlength="15" class="fl Wdate" onclick="WdatePicker()" readonly="readonly"/>
 					<div class="clear"></div>
 				</p>
 				<p>
