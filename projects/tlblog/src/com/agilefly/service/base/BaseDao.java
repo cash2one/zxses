@@ -2,6 +2,7 @@ package com.agilefly.service.base;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import com.agilefly.commons.QueryResult;
 
@@ -57,6 +58,16 @@ public interface BaseDao<T> {
 	 * @return
 	 */
 	public T find(Serializable entityId);
+	
+	/**
+	 * 通过指定条件获取实体 如sysUser的username获得sysUser 
+	 * where key1=?1 and key2=?2 
+	 * where o.property=? and o.xx like ? 查询限制
+	 * @param whereHql 
+	 * @param queryParams
+	 * @return
+	 */
+	public List<T> findByCondition(String whereHql,Object[] queryParams);
 
 	/**
 	 * 获取记录总数

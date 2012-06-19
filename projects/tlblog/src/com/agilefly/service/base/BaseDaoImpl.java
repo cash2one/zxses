@@ -2,6 +2,8 @@ package com.agilefly.service.base;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
+import java.util.List;
+
 import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -52,6 +54,16 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements Base
 			entityId = Integer.parseInt((String)entityId);
 		}
 		return (T)getHibernateTemplate().load(this.entityClass, entityId);
+	}
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public List<T> findByCondition(String wherejpql, Object[] queryParams){
+		String entityname = getEntityName(this.entityClass);
+		Query query = getSession().createQuery("select o from "+ entityname+ " o "+(wherejpql==null || "".equals(wherejpql.trim())? "": "where "+ wherejpql));
+		//限制条件 参数值
+		setQueryParams(query, queryParams);
+		List<T> resultList = query.list();
+		return resultList;
 	}
 
 	public void save(T entity) {
