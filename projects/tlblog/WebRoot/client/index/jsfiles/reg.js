@@ -1,5 +1,5 @@
 $(function () {
-	var userAccount = $("#userAccount");
+	/*var userAccount = $("#userAccount");
 	//ajax检查用户名是否已经使用
 	userAccount.blur(function(){
 		$("#userAccount-hint").html("提示：由英文字母、数字和下划线或邮箱构成");
@@ -25,12 +25,12 @@ $(function () {
 			});
 		}
 	});
-	
+	*/
 	//
 });
 
 function checkSubmit() {
-	var userAccount = $("#userAccount");
+	/*var userAccount = $("#userAccount");
 	var userAccountUsed = $("#userAccountUsed");
 	var userName = $("#userName");
 	var password = $("#password");
@@ -73,7 +73,7 @@ function checkSubmit() {
 	if(!isEmail($.trim(email.val()))){
 		$.alert("请输入正确的邮箱地址！");
 		return false;
-	}
+	}*/
 	//前端简单验证注册信息
 	return true;
 }
