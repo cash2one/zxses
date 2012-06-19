@@ -31,7 +31,7 @@
 		<action path="/codeImageAction"/>
 		<!--*****************后台系统配置Action***********************-->
 		<!-- 系统初始化 -->
-		<action path="/view/systeminit">
+		<action path="/sys/systeminit">
 			<forward name="success" path="/login.jsp" />
 		</action>
 		<!-- 系统登录 -->
@@ -65,9 +65,8 @@
 		</action>
 		
 		<!--*****************前台系统配置Action***********************-->
-		<action path="/index" parameter="method">
+		<action path="/index" name="sysUserForm" scope="request" parameter="method">
 			<forward name="signup" path="/client/index/reg.jsp"/>
-			
 		</action>
 		
 		<!-- 博客文章管理 -->
