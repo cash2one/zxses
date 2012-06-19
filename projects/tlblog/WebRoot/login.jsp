@@ -24,8 +24,13 @@
 		    </script>
 		<![endif]-->
 		<script type="text/javascript">	
-		  function send(event) {   
-		    if(event.keyCode == 13) {   
+		  function send(event) {  
+		  	var keyValue;
+		  	if(window.event)
+				keyValue = window.event.keyCode; // IE
+			else
+				keyValue = e.which; // Firefox
+		    if(keyValue == 13) {   
 		       login();   
 		     }   
 		  } 
@@ -76,7 +81,7 @@
 			}
  	</script>
 	</head>
-	<body class="backgroundcolor">
+	<body class="backgroundcolor" onkeydown="send(event);">
 		<div class="SystemName">
 			<img src="<%=basePath%>res/theme/blue/images/systemname.png"
 				width="580" height="101" />
