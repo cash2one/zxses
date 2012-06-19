@@ -34,6 +34,7 @@ public class GlobalConst {
 
 	//首页部分
 	public static final String HTML_ROLLIMAGE = "HTML_ROLLIMAGE"; // HTML_ROLLIMAGE
+	public static final String HTML_INDEXBANNER = "HTML_INDEXBANNER"; // HTML_ROLLIMAGE
 	public static final String HTML_LOGIN = "HTML_LOGIN"; // LOGIN
 	public static final String HTML_LIB = "HTML_LIB"; // HTML_LIB
 	public static final String HTML_TABS = "HTML_TABS"; // HTML_TABS

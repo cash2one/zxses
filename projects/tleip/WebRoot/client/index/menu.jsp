@@ -8,24 +8,22 @@
 %>
 <div class="top">
 	<div class="fl">
-		<a href="<%=basePath%>"><img src="<%=basePath%>res/client/css/img/logo.gif"
-				alt="深圳市塘朗小学" /> </a>
+		<a href="<%=basePath%>"><img
+			src="<%=basePath%>res/client/css/img/logo.gif" alt="深圳市塘朗小学" /> </a>
 	</div>
 	<div class="menu fl">
 		<p>
-			<a href="mailto:tlx-db@nsjy.com">联系我们</a>|
-			<a href="#"
-						onClick="this.style.behavior='url(#default#homepage)';window.external.addFavorite('http://www.sztlxx.com','深圳市南山区塘朗小学');">收藏我们</a>
+			<a href="mailto:tlx-db@nsjy.com">联系我们</a>| <a href="#"
+				onClick="this.style.behavior='url(#default#homepage)';window.external.addFavorite('http://www.sztlxx.com','深圳市南山区塘朗小学');">收藏我们</a>
 		</p>
 		<div class="nav">
 			<ul class="menu_nav">
-				<li>
-					<a href="<%=basePath%>"><span>首页</span> </a>
+				<li><a href="<%=basePath%>"><span>首页</span> </a>
 				</li>
 				<logic:iterate id="itemBig" name="newsItemBigs">
 					<li onmouseover="showSubLevel(this)"
-						onmouseout="hideSubLevel(this)">
-						<a href="<%=basePath%>client/itembig${itemBig.classId}.html">${itemBig.className}</a>
+						onmouseout="hideSubLevel(this)"><a
+						href="<%=basePath%>client/itembig${itemBig.classId}.html">${itemBig.className}</a>
 						<div class="hover_out">
 							<div class="hover_inner">
 								<div class="hover_center">
@@ -90,3 +88,5 @@
 	</div>
 	<div class="clear"></div>
 </div>
+
+

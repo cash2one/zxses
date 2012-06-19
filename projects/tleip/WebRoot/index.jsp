@@ -43,9 +43,11 @@
 				<div id="warp">
 					<div id="head">
 						<bean:include id="queryMenu"
-							page="/client/newsClient.do?method=queryMenu" />
-						<bean:write name="queryMenu" filter="false" />
-						<img src="<%=basePath%>res/client/images/example.jpg" />
+									page="/client/newsClient.do?method=queryMenu" />
+								<bean:write name="queryMenu" filter="false" />
+						<bean:include id="queryIndexBanner"
+							page="/client/newsClient.do?method=queryIndexBanner" />
+						<bean:write name="queryIndexBanner" filter="false" />
 					</div>
 				</div>
 			</div>
@@ -119,7 +121,7 @@
 		</div>
 		<!--end-->
 		<!--xiaoxun-->
-		<div id=sidenav style="POSITION: absolute; top: 100px; right: 0;">
+		<div id=sidenav style="POSITION: absolute; top: 100px; right: 0; z-index: 101;">
 			<img src="<%=basePath%>res/client/images/xiaoxun.gif" />
 		</div>
 	</body>

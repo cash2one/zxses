@@ -330,13 +330,17 @@ body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,field
 ul,ol,li{list-style:none;}
 p{line-height:24px;}
 input,button{margin:0;font-size:12px;vertical-align:middle;}
-#head .frame {WIDTH: 1004px; POSITION: relative; HEIGHT: 415px; overflow:hidden;}
-#head .frames {WIDTH: 2920px; POSITION: relative; HEIGHT: 415px}
-#head .frame-2 {LEFT: 1004px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 415px}
-#head .frame-3 {LEFT: 1460px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 415px}
-#head .frame-4 {LEFT: 2190px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 415px}
-#head .frame-5 {LEFT: 2920px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 415px}
-#head .controls {DISPLAY: block;  WIDTH:500px; CURSOR: pointer; BOTTOM: 0px; PADDING-TOP: 2px; margin:0 auto;HEIGHT: 35px; position:absolute; left:280px; top:340px;}
+#head .frame {WIDTH: 1004px; POSITION: relative; HEIGHT: 397px; overflow:hidden;}
+#head .frames {WIDTH: 2920px; POSITION: relative; HEIGHT: 397px}
+#head .frame-2 {LEFT: 1004px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 397px}
+#head .frame-3 {LEFT: 1460px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 397px}
+#head .frame-4 {LEFT: 2190px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 397px}
+#head .frame-5 {LEFT: 2920px; OVERFLOW: hidden; WIDTH: 1004px; POSITION: absolute; HEIGHT: 397px}
+/*
+#head .controls {DISPLAY: block;  WIDTH:500px; CURSOR: pointer; BOTTOM: 0px; PADDING-TOP: 2px; margin:0 auto;HEIGHT: 35px; position:absolute; left:280px; top:340px; z-index:1111;}
+*/
+#head .controls {DISPLAY: block;  WIDTH:356px; CURSOR: pointer; BOTTOM: 0px; PADDING-TOP: 2px; margin:0 auto;HEIGHT: 105px; position:absolute; left:45px; top:150px; z-index:1111;}
+
 #head .overlay {BORDER-RIGHT: #ededed 5px solid; BORDER-TOP: #ededed 5px solid; DISPLAY: none; FILTER: alpha(opacity=90); BORDER-LEFT: #ededed 5px solid; WIDTH: 188px; CURSOR: hand; BORDER-BOTTOM: #ededed 5px solid; POSITION: absolute; HEIGHT: 118px; BACKGROUND-COLOR: #fff; opacity: .9}
 #head .two-overlay {HEIGHT: 141px}
 #head .olines {HEIGHT: 122px}
@@ -359,5 +363,5 @@ input,button{margin:0;font-size:12px;vertical-align:middle;}
 #head .selected {FLOAT: left; FONT: 17px "trebuchet ms"; MARGIN-LEFT: 4px; WIDTH: 16px; COLOR: #8f8f8f; POSITION: relative; HEIGHT: 15px}
 #head .off {FLOAT: left; FONT: 17px "trebuchet ms"; MARGIN-LEFT: 4px; WIDTH: 16px; COLOR: #dadada; POSITION: relative; HEIGHT: 15px}
 #head .on {FLOAT: left; FONT: 17px "trebuchet ms"; MARGIN-LEFT: 4px; WIDTH: 16px; COLOR: #1162b7; POSITION: relative; HEIGHT: 15px}
-#head .arrow {FLOAT: left; WIDTH: 35px; HEIGHT: 35px;}
+#head .arrow {FLOAT: left; WIDTH: 44px; HEIGHT: 105px;}
 

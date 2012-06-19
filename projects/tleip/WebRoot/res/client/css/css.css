@@ -67,6 +67,7 @@ a:hover,a:active {
 #head {
 	width: 990px;
 	overflow: hidden;
+	position: relative;
 }
 
 .top {
@@ -959,7 +960,6 @@ h2 {
 .contact a:hover {
 	color: #FF0000;
 } */
-
 .contact {
 	*margin-top: 10px;
 	background: url(img/contact3.gif) no-repeat top;
@@ -980,4 +980,14 @@ h2 {
 
 .contact a span {
 	display: none;
+}
+
+.mask {
+	position: absolute;
+	background: url(img/flash4.png) no-repeat;
+	width: 1006px;
+	height: 403px;
+	top: 105px;
+	left: 0px;
+	z-index: 100;
 }

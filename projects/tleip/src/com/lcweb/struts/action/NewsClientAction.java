@@ -128,6 +128,16 @@ public class NewsClientAction extends DispatchAction {
 		}
 		return null;
 	}
+	/**
+	 * 
+	 * @Description: 首页图片轮播
+	 * @Author: feng
+	 * 
+	 */
+	public ActionForward queryIndexBanner(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		return new ActionForward("/client/index/content/indexbanner.jsp");
+	}
 
 	/**
 	 * 

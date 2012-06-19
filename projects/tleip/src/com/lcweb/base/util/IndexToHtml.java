@@ -56,7 +56,9 @@ public class IndexToHtml {
 		Map<String, Object> paraMap = new HashMap();
 		
 		// HTML_ROLLIMAGE
-		paraMap.put(GlobalConst.HTML_ROLLIMAGE, basePath + "client/newsClient.do?method=queryRollImage");
+//		paraMap.put(GlobalConst.HTML_ROLLIMAGE, basePath + "client/newsClient.do?method=queryRollImage");
+		// HTML_INDEXBANNER
+		paraMap.put(GlobalConst.HTML_INDEXBANNER, basePath + "client/newsClient.do?method=queryIndexBanner");
 		// HTML_LOGIN
 		paraMap.put(GlobalConst.HTML_LOGIN, basePath + "client/newsClient.do?method=queryLogin");
 		// HTML_TABS
