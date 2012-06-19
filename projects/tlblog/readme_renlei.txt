@@ -1,5 +1,5 @@
-安装系统 系统初始化路径url: http://ip:port/tlblog/view/systeminit.do  
-	示例：http://localhost:8080/tlblog/view/systeminit.do
+安装系统 系统初始化路径url: http://ip:port/tlblog/sys/systeminit.do  
+	示例：http://localhost:8080/tlblog/sys/systeminit.do
 
 ***************************************************************
 简单说明：2012-xx-xx
@@ -58,3 +58,16 @@
 	<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8" />
 	先删除以前的jar包，然后重新添加所有的jar包。
 	
+	
+***************************************************************
+简单说明：2012-06-19
+	
+***************************************************************
+详细说明：修复后台权限问题
+	1、系统初始化功能加强及bug修复：
+	安装系统 系统初始化路径url: http://ip:port/tlblog/sys/systeminit.do  
+	示例：http://localhost:8080/tlblog/sys/systeminit.do
+	添加系统模块、权限值在 InitAction.java文件中添加。第一次执行系统初始化操作，增添系统管理员用户admin，密码admin，并授权。
+	2、新增工具类BeanUtilEx.java解决复制对象属性包含Date为null时报错，以后直接使用该类替代
+	BeanUtils.java工具类
+	3、数据库设计文件使用PowerDesign 12,文件在DB文件夹下
