@@ -202,20 +202,17 @@ h2{ font-size:24px; position:absolute; top:45px; left:67px;}
 .regform form .queren2{ padding-left:200px; padding-top:20px;}
 .regform form #sure{ background:url(img/img57.gif) no-repeat; width:154px; height:44px; border: medium none; cursor:pointer}
 
-
-
-
 /*满天星文学社*/
 #wx_wrap{ width:1004px; margin:0 auto;}
 #wx_head{ background:url(img/wx_01.jpg) no-repeat; width:1004px; height:296px; position:relative;}
 .flash{ position:absolute; top:30px; right:15px;}
 .wx_logo{ width:220px; margin-left:30px; padding-top:30px;}
 .wx_logo a{ padding-bottom:30px; display:block; }
-.wx_nav{ text-align:center; padding-top:10px; font-size:14px; color:#fff;}
-.wx_nav span{ padding:0px 10px;}
-.wx_nav input{ margin-right:10px;}
-.wx_nav a{ color:#fff; padding:0px 20px;}
-.wx_nav a:hover{ color:#FF3300; text-decoration:underline;}
+.wx_nav, .unwx_nav{ text-align:center; padding-top:10px; font-size:14px; color:#fff;}
+.wx_nav span, .unwx_nav span{ padding:0px 5px;}
+.wx_nav input, .unwx_nav input{ margin-right:10px;}
+.wx_nav a, .unwx_nav a{ color:#fff; padding:0px 0px;}
+.wx_nav a:hover, .unwx_nav a:hover{ color:#FF3300; text-decoration:underline;}
 .wx_flash{ position:absolute; top:37px; right:25px;}
 
 #wx_main{}
