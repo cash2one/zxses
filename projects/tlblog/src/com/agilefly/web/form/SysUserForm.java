@@ -1,8 +1,13 @@
 package com.agilefly.web.form;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.upload.FormFile;
 
 /**
  * @author boleyn_renlei
@@ -22,13 +27,11 @@ public class SysUserForm extends ActionForm {
 	private String userLoginip;
 	private Date userRegtime;
 	private Date userLogintime;
-	private String userHeadpic;
+	private FormFile userHeadpic;
 	private String userEmail;
 	private String sinaWeibo;
 	private String tenWeibo;
 	private String phone;
-	private Byte available;
-	private Byte recordStatus;
 	
 	private Integer[] roleIds;
 	
@@ -116,10 +119,10 @@ public class SysUserForm extends ActionForm {
 	public void setUserLogintime(Date userLogintime) {
 		this.userLogintime = userLogintime;
 	}
-	public String getUserHeadpic() {
+	public FormFile getUserHeadpic() {
 		return userHeadpic;
 	}
-	public void setUserHeadpic(String userHeadpic) {
+	public void setUserHeadpic(FormFile userHeadpic) {
 		this.userHeadpic = userHeadpic;
 	}
 	public String getUserEmail() {
@@ -140,18 +143,6 @@ public class SysUserForm extends ActionForm {
 	public void setTenWeibo(String tenWeibo) {
 		this.tenWeibo = tenWeibo;
 	}
-	public Byte getAvailable() {
-		return available;
-	}
-	public void setAvailable(Byte available) {
-		this.available = available;
-	}
-	public Byte getRecordStatus() {
-		return recordStatus;
-	}
-	public void setRecordStatus(Byte recordStatus) {
-		this.recordStatus = recordStatus;
-	}
 	public Integer[] getRoleIds() {
 		return roleIds;
 	}
@@ -159,4 +150,38 @@ public class SysUserForm extends ActionForm {
 		this.roleIds = roleIds;
 	}
 	
+	/**
+	 * 验证上传文件类型是否属于图片格式
+	 * @return
+	 */
+	public static boolean validateImageFileType(FormFile formfile){
+		if(formfile!=null && formfile.getFileSize()>0){
+			List<String> arrowType = Arrays.asList("image/bmp","image/png","image/gif","image/jpg","image/jpeg","image/pjpeg");
+			List<String> arrowExtension = Arrays.asList("gif","jpg","bmp","png");
+			String ext = getExt(formfile);
+			return arrowType.contains(formfile.getContentType().toLowerCase()) && arrowExtension.contains(ext);
+		}
+		return true;
+	}
+	
+	public static String getExt(FormFile formfile){
+		return formfile.getFileName().substring(formfile.getFileName().lastIndexOf('.')+1).toLowerCase();
+	}
+	
+	/**
+	 * 保存文件
+	 * @param savedir 存放目录
+	 * @param fileName 文件名称
+	 * @param data 保存的内容
+	 * @return 保存的文件
+	 * @throws Exception
+	 */
+	public static File saveFile(File savedir, String fileName, byte[] data) throws Exception{
+		if(!savedir.exists()) savedir.mkdirs();//如果目录不存在就创建
+		File file = new File(savedir, fileName);
+		FileOutputStream fileoutstream = new FileOutputStream(file);
+		fileoutstream.write(data);
+		fileoutstream.close();
+		return file;
+	}
 }
