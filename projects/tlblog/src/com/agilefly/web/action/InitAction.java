@@ -51,8 +51,6 @@ public class InitAction extends Action{
 	 */
 	private void initSysModule(){
 		if(sysModuleService.getCount() == 0){
-			List<SysModule> sysModules = new ArrayList<SysModule>();
-			
 			SysModule systemManage = new SysModule();
 			systemManage.setName("系统管理");
 			systemManage.setSn("systemManage");
@@ -65,6 +63,7 @@ public class InitAction extends Action{
 			sysWebSiteManage.setOrderNo(2);
 			sysModuleService.addSysModule(sysWebSiteManage, 0);
 			
+			//系统管理子模块
 			SysModule sysModuleManage = new SysModule();
 			sysModuleManage.setName("模块管理");
 			sysModuleManage.setSn("sysModuleManage");
@@ -85,6 +84,14 @@ public class InitAction extends Action{
 			sysRoleManage.setUrl("view/sysrole.do");
 			sysRoleManage.setOrderNo(3);
 			sysModuleService.addSysModule(sysRoleManage, systemManage.getId());
+			
+			//博客管理子模块
+			SysModule sysBlogTypeManage = new SysModule();
+			sysBlogTypeManage.setName("类型管理");
+			sysBlogTypeManage.setSn("sysBlogTypeManage");
+			sysBlogTypeManage.setUrl("view/sysblogtype.do");
+			sysBlogTypeManage.setOrderNo(1);
+			sysModuleService.addSysModule(sysBlogTypeManage, sysWebSiteManage.getId());
 		}
 	}
 	
@@ -113,6 +120,14 @@ public class InitAction extends Action{
 			sysPrivileges.add(new SysPrivilege("sysRoleManage","delete","删除"));
 			sysPrivileges.add(new SysPrivilege("sysRoleManage","update","修改"));
 			sysPrivileges.add(new SysPrivilege("sysRoleManage","view","查看"));
+			sysPrivilegeService.batchSave(sysPrivileges);
+			
+			//博客类型管理操作权限
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","add","新增"));
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","delete","删除"));
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","update","修改"));
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","view","查看"));
+			
 			sysPrivilegeService.batchSave(sysPrivileges);
 		}
 	}
