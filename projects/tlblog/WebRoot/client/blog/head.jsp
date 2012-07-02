@@ -3,7 +3,7 @@
 <div class="bl_head">
 	<!-- 菜单导航 begin -->
 	<div class="bl_nav">
-		<a href="${basePath }client/blog/blog.jsp" title="首页" class="hover">首页</a>|
+		<a href="${basePath }index.html" title="首页" class="hover">首页</a>|
 		<a href="${basePath }client/blog/login.jsp" title="登陆">登陆</a>|
 		<%--<a href="${basePath }client/regit.jsp" title="注册">注册</a>|--%>
 		<a href="${basePath }client/blogarticle/class.jsp" title="阅读">阅读</a>|

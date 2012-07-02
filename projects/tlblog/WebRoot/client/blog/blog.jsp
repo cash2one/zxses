@@ -25,12 +25,17 @@
 			<div class="bl_right fr">
 				<div class="bl_r_title">
 					<h1>博文</h1>
-					<span class="addIcon">
-						<a href="${basePath }blog/article.do?method=addInput">发表新文章</a>
-					</span>
-					<span class="manageIcon">
-						<a href="${basePath }blog/article.do?method=addInput">管理我的博客</a>
-					</span>
+					<!-- 用户未登录不显示，登录用户与当前博客不是同一个用户不显示 -->
+					<c:if test="${frontUserInfo != null}">
+						<c:if test="${frontUserInfo == blogUser}">
+							<span class="addIcon">
+								<a href="${basePath }blog/article.do?method=addInput">发表新文章</a>
+							</span>
+							<span class="manageIcon">
+								<a href="${basePath }blog/article.do?method=addInput">管理我的博客</a>
+							</span>
+						</c:if>
+					</c:if>
 				</div>
 				<div class="bl_r_cont">
 					<div>
