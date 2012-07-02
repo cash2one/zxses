@@ -16,7 +16,8 @@ public class SysUser implements java.io.Serializable {
 	//用户登录密码
 	private String password;
 	//用户类型
-	private SysType sysType;
+	//private SysType sysType;
+	private String userType;
 	//用户真实名称
 	private String realname;
 	//用户性别
@@ -293,11 +294,44 @@ public class SysUser implements java.io.Serializable {
 		this.approveStatus = approveStatus;
 	}
 
-	public SysType getSysType() {
+	/*public SysType getSysType() {
 		return sysType;
 	}
 
 	public void setSysType(SysType sysType) {
 		this.sysType = sysType;
+	}*/
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		final SysUser other = (SysUser) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 }

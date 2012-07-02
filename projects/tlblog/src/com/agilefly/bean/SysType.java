@@ -17,7 +17,8 @@ public class SysType implements java.io.Serializable {
 	private String typeName;
 	private String typeDes;
 	private String typeCode;
-	private Set sysUsers = new HashSet(0);
+	private String extFirst;
+	private String extSecond;
 
 	// Constructors
 
@@ -26,11 +27,10 @@ public class SysType implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SysType(String typeName, String typeDes, String typeCode, Set sysUsers) {
+	public SysType(String typeName, String typeDes, String typeCode) {
 		this.typeName = typeName;
 		this.typeDes = typeDes;
 		this.typeCode = typeCode;
-		this.sysUsers = sysUsers;
 	}
 
 	// Property accessors
@@ -67,12 +67,20 @@ public class SysType implements java.io.Serializable {
 		this.typeCode = typeCode;
 	}
 
-	public Set getSysUsers() {
-		return this.sysUsers;
+	public String getExtFirst() {
+		return extFirst;
 	}
 
-	public void setSysUsers(Set sysUsers) {
-		this.sysUsers = sysUsers;
+	public void setExtFirst(String extFirst) {
+		this.extFirst = extFirst;
+	}
+
+	public String getExtSecond() {
+		return extSecond;
+	}
+
+	public void setExtSecond(String extSecond) {
+		this.extSecond = extSecond;
 	}
 
 }
