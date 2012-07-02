@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="gbk"%>
 <%@ include file="/commons/tags.inc"%>
 <%@ include file="/inc/include.jsp"%>
+<script type="text/javascript" src="${basePath }client/index/content/login_reg/jsfiles/login.js"></script>
 <script>
 function reset(){
 	 document.getElementById("userAccount").value='';
