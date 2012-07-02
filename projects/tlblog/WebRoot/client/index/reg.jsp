@@ -23,23 +23,25 @@
 	<div id="wx_main">
 		<div class="art_title"><span>用户注册</span></div>
 		<div class="regform wx_form">
-			<form name="userReg" id="userReg" method="post" action="${basePath}index.do?method=signupUser"
-						onsubmit="javascript:return checkSubmit();" enctype="multipart/form-data">
+			<form name="userReg" id="userReg" method="post" action="${basePath}client/index.do?method=signupUser"
+						onsubmit="javascript:return checkRegSubmit();" enctype="multipart/form-data">
 				<p>	
 					<span class="pspan1 fl"><span class="dot">*</span>用户名：</span>
-					<input type="text" id="username" name="username" class="fl" maxlength="50"/>
-					<span class="pspan2">由英文字母、数字和下划线或邮箱构成</span>
+					<!-- 记录用户名是否已使用,js验证使用 -->
+					<input type="hidden" id="usernameUsed" value="false"/>
+					<input type="text" id="reg_username" name="username" class="fl" maxlength="50"/>
+					<span id="username_tip" class="pspan2">由英文字母、数字和下划线或邮箱构成</span>
 					<div class="clear"></div>
 				</p>
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>密码：</span>
-					<input type="text" id="password" name="password" class="fl" maxlength="30"/>
+					<input style="width: 150px;" type="password" id="reg_password" name="password" class="fl" maxlength="30"/>
 					<span class="pspan2">请保证密码不易被猜中（至少6位）</span>
 					<div class="clear"></div>
 				</p>
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>确认密码：</span>
-					<input type="text" id="repass" name="repass" class="fl" maxlength="30"/>
+					<input style="width: 150px;" type="password" id="repass" name="repass" class="fl" maxlength="30"/>
 					<span class="pspan2">请确保确认密码与上面的密码一致</span>
 					<div class="clear"></div>
 				</p>
@@ -58,15 +60,16 @@
 				--%>
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>选择身份：</span>
-					<select id="userType" name="userType" style="width: 100px">
+					<select id="userType" name="userType" style="width: 154px">
 						<option value="student">学生</option>
 						<option value="teacher">教师</option>
 					</select>
+					<span class="pspan2">请正确选择身份</span>
 					<div class="clear"></div>
 				</p>
 				<p>
 					<span class="pspan1 fl"><span class="dot">*</span>性别：</span>
-					<select id="sex" name="sex" style="width: 100px">
+					<select id="gender" name="gender" style="width: 154px">
 						<option value="男">男</option>
 						<option value="女">女</option>	
 					</select>
