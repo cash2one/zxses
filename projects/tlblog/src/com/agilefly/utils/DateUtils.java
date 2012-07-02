@@ -111,10 +111,10 @@ public class DateUtils {
                month = String.valueOf(calendar.get(Calendar.MONTH)+1),
                day = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH)),
                week = String.valueOf(calendar.get(Calendar.DAY_OF_WEEK)-1);
-        String[] weeks = new String[]{"一","二","三","四","五","六","日"};
-        for (int i=1;i<weeks.length;i++){
+        String[] weeks = new String[]{"日","一","二","三","四","五","六"};
+        for (int i=0;i<weeks.length;i++){
         	if(week.equals(String.valueOf(i))){
-        		week=weeks[i-1];
+        		week=weeks[i];
         	}
         }
         return new StringBuffer().append(year).append("年").append(month).append("月").append(day).append("日 ").append("星期").append(week).toString();

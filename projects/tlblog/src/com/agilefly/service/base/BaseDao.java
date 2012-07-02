@@ -60,7 +60,16 @@ public interface BaseDao<T> {
 	public T find(Serializable entityId);
 	
 	/**
-	 * 通过指定条件获取实体 如sysUser的username获得sysUser 
+	 * 通过指定条件、排序方式获取实体列表 如sysUser的username获得sysUser列表
+	 * @param whereHql 无-->设置为null
+	 * @param queryParams 无-->设置为null
+	 * @param orderby 无-->设置为null
+	 * @return
+	 */
+	public List<T> findByCondition(String whereHql,Object[] queryParams,LinkedHashMap<String, String> orderby);
+	
+	/**
+	 * 通过指定条件获取实体列表 如sysUser的username获得sysUser列表
 	 * where key1=?1 and key2=?2 
 	 * where o.property=? and o.xx like ? 查询限制
 	 * @param whereHql 
@@ -165,8 +174,7 @@ public interface BaseDao<T> {
 	public QueryResult<T> getScrollData(int firstindex, int maxresult);
 	
 	
-	//*************************************用户列表显示方法(结合pager-taglib组件使用)*********************************************************
-	
+	//*************************************用户列表显示方法(结合pager-taglib分页组件使用)*********************************************************
 	
 	/**
 	 * 从当前线程中获得pager.offset 和 pagesize(从pager-taglib组件中获得) -->无需设置firstindex, maxresult,与以上方法功能一样

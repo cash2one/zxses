@@ -19,6 +19,7 @@
             </key>
             <many-to-many class="com.agilefly.bean.SysUser" column="user_id"/>
         </set>
+        <!-- 角色立即获取所有权限信息 -->
         <set name="sysPrivileges" table="sys_role_privilege" lazy="false">
             <key>
                 <column name="roleId"/>

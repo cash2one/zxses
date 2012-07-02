@@ -10,4 +10,20 @@ import com.agilefly.service.base.BaseDao;
  */
 public interface ISysUserService extends BaseDao<SysUser> {
 	public SysUser findByUnamePass(String username,String password);
+	
+	public SysUser findByUnamePassType(String username, String password, String userType);
+	
+	/**
+	 * 获取指定用户名的用户信息(包含博客信息)
+	 * @param username
+	 * @return
+	 */
+	public SysUser findByUname(String username);
+	
+	/**
+	 * 检查用户是否已经存在
+	 * @param username
+	 * @return
+	 */
+	public boolean checkUnameExist(String username);
 }

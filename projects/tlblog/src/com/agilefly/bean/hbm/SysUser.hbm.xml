@@ -16,6 +16,9 @@
         <property name="password" type="java.lang.String">
             <column name="password" length="32" not-null="true" />
         </property>
+        <property name="userType" type="java.lang.String">
+            <column name="user_type" />
+        </property>
         <property name="realname" type="java.lang.String">
             <column name="realname" length="20" />
         </property>
@@ -64,16 +67,17 @@
         <property name="phone" type="java.lang.String">
             <column name="phone" length="20" />
         </property>
+        <property name="approveStatus" type="java.lang.Byte">
+            <column name="approveStatus"/>
+        </property>
         <property name="available" type="java.lang.Byte">
             <column name="available" />
         </property>
         <property name="recordStatus" type="java.lang.Byte">
             <column name="recordStatus" />
         </property>
-        <many-to-one name="sysType" class="com.agilefly.bean.SysType" fetch="select">
-            <column name="user_type" />
-        </many-to-one>
-        <set name="sysRoles" table="sys_user_role" lazy="false">
+        <!-- 访问前台多，设置获取用户信息先不加载角色权限信息 -->
+        <set name="sysRoles" table="sys_user_role" lazy="true">
             <key>
                 <column name="userId"/>
             </key>

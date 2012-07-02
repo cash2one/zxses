@@ -19,5 +19,11 @@
         <property name="typeCode" type="java.lang.String">
             <column name="type_code" length="50" />
         </property>
+        <property name="extFirst" type="java.lang.String">
+            <column name="ext_first" length="50" />
+        </property>
+        <property name="extSecond" type="java.lang.String">
+            <column name="ext_second" length="50" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -57,13 +57,19 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements Base
 	}
 	
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
-	public List<T> findByCondition(String wherejpql, Object[] queryParams){
+	public List<T> findByCondition(String whereHql,Object[] queryParams,LinkedHashMap<String, String> orderby){
 		String entityname = getEntityName(this.entityClass);
-		Query query = getSession().createQuery("select o from "+ entityname+ " o "+(wherejpql==null || "".equals(wherejpql.trim())? "": "where "+ wherejpql));
+		Query query = getSession().createQuery("select o from "+ entityname+ " o "+(whereHql==null || "".equals(whereHql.trim())? "": "where "+ whereHql)+ buildOrderby(orderby));
+		
 		//限制条件 参数值
 		setQueryParams(query, queryParams);
 		List<T> resultList = query.list();
 		return resultList;
+	}
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public List<T> findByCondition(String wherejpql, Object[] queryParams){
+		return findByCondition(wherejpql, queryParams, null);
 	}
 
 	public void save(T entity) {
@@ -133,8 +139,8 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements Base
 	}
 
 	//分页查询全部参数
-	//where key1=?1 and key2=?2 
-	//where o.property=? and o.xx like ? 查询限制
+	//where key1=?1 and key2=?2 这种方式无效
+	//使用where o.property=? and o.xx like ? 查询限制
 	//使用LinkedHashMap 按照添加的顺序排序
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public QueryResult<T> getScrollData(int firstindex, int maxresult

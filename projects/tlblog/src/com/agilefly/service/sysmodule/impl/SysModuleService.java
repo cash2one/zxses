@@ -1,6 +1,7 @@
 package com.agilefly.service.sysmodule.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.agilefly.bean.SysModule;
@@ -31,6 +32,7 @@ public class SysModuleService extends BaseDaoImpl<SysModule> implements ISysModu
 		getHibernateTemplate().delete(module);
 	}
 
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public QueryResult<SysModule> searchSysModules(int parentId) {
 		return getScrollData(-1, -1, parentId == 0 ? "o.parent is null" : "o.parent.id = " + parentId, null);
 	}

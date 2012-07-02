@@ -1,6 +1,7 @@
 package com.agilefly.service.sysrole.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.agilefly.bean.SysRole;
@@ -14,6 +15,7 @@ import com.agilefly.service.sysrole.ISysRoleService;
 @Service
 @Transactional
 public class SysRoleService extends BaseDaoImpl<SysRole> implements ISysRoleService {
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public boolean isRoleNameExist(String roleName){
 		if(getScrollData("o.roleName = ?", new Object[]{roleName}).getResultlist().size() > 0){
 			return true;
