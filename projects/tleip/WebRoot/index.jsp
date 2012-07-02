@@ -31,8 +31,6 @@
 		<script type="text/javascript"
 			src="<%=basePath%>res/client/js/util.js"></script>
 		<%@ include file="/inc/resources.jsp"%>
-		<script type="text/javascript"
-			src="<%=basePath%>client/index/content/login_reg/jsfiles/login.js"></script>
 	</head>
 	<body>
 		<div id="warp">
