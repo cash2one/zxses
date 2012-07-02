@@ -33,6 +33,28 @@
 		<%@ include file="/inc/resources.jsp"%>
 		<script type="text/javascript"
 			src="<%=basePath%>client/index/content/login_reg/jsfiles/login.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				$("#toAddMsg").click(function(){
+					//ajax登录验证
+					$.ajax( {
+						url : $.basePath + "front/message.do?method=checkToAddMsg",
+						async : true,
+						type : "POST",
+						success : function(data) {
+							if (data) {
+								if(data == "unLogin"){
+									$.alert("只有登录用户可发表留言，请登录!");
+									return;
+								}else if(data == "success"){
+									 window.location.href="${basePath }front/message.do?method=toAddMessage";
+								}
+							}
+						}
+					});
+				});
+			});
+		</script>
 		<style>
 			/*简单修改符合塘朗网站的功能*/
 			.wrap{
@@ -132,8 +154,8 @@
 							<table width="100%" border="0" align="center" >
 								<tr>
 									<td align="center" valign="top">
-										<a href="${basePath }front/message.do?method=toAddMessage"><img
-												src="${basePath }res/client/images/message/write.gif" border="0"></img> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<img id="toAddMsg" style="cursor: hand;" src="${basePath }res/client/images/message/write.gif" border="0"></img>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<a href="${basePath }front/message.do?method=queryMessage"><img
 												src="${basePath }res/client/images/message/read.gif" border="0"></img> </a>
 									</td>

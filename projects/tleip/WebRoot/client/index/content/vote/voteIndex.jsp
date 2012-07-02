@@ -7,14 +7,6 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%   
-    //页面第一次载入时执行  
-    Random random = new Random();   
-    //生成随机flag，   
-    Integer flag=new Integer(random.nextInt());   
-    String voteFlag = "voteTitle" + flag;
-    session.setAttribute("voteFlag",voteFlag);     
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -40,6 +32,13 @@
 			src="<%=basePath%>res/client/js/util.js"></script>
 		<%@ include file="/inc/resources.jsp"%>
 		<script type="text/javascript" src="${basePath}client/index/content/vote/jsfiles/voteIndex.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				$("#submit_vote2").click(function(){
+					validateSubmit($("#voteId"),form_vote);
+				});
+			});
+		</script>
 		<style>
 			/*简单修改符合塘朗网站的功能*/
 			.wrap{
@@ -106,8 +105,7 @@
 											<div id="body">
 												<c:if test="${voteTitle != null}">
 													<form method="post" action="${basePath }front/vote.do?method=ballotVoteTitle"  id="form_vote" name="form_vote">
-													<input type="hidden" name="voteFlag" value="<%=voteFlag%>"/>
-													<input type="hidden" name="voteId" value="${voteTitle.voteId }"/>
+													<input type="hidden" id="voteId" name="voteId" value="${voteTitle.voteId }"/>
 													<table width="100%" cellspacing="0" cellpadding="0" border="0" style="visibility: visible; " id="hot">
 														<tbody>
 															<tr>
@@ -150,7 +148,7 @@
 														</div>
 														</div>
 														<div class="submit line" align="center">
-															<input type="submit" onclick="return validateSubmit();" value="提  交" class="uniformButton" id="submit_vote"${isVote=="true"?" disabled=\"disabled\"":"" }/>
+															<input type="button" value="提  交" class="uniformButton" id="submit_vote2"/>
 														</div>
 													</form>
 												</c:if>

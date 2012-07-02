@@ -1,14 +1,6 @@
 <%@ page language="java" pageEncoding="gbk"%>
 <%@ include file="/commons/tags.inc"%>
 <%@ include file="/inc/include.jsp"%>
-<%   
-    //页面第一次载入时执行  
-    Random random = new Random();   
-    //生成随机flag，   
-    Integer flag=new Integer(random.nextInt());   
-    String voteFlag = "voteTitle" + flag;
-    session.setAttribute("voteFlag",voteFlag);     
-%>
 <style>
 .panelInclude1 {
 	border-bottom: 1px solid #52C5D6;
@@ -26,12 +18,18 @@
 			href="${basePath }client/index/content/vote/app.platform.vote.v3.css" />
 <script type="text/javascript" src="${basePath}client/index/content/vote/jsfiles/voteIndex.js"></script>
 <script type="text/javascript">
+	$(function () {
+		$("#ballot_id").click(function(){
+			validateSubmit($("#voteId"),voteForm);
+		});
+	});
+	
 	function query(){
        window.open("${basePath }front/vote.do?method=queryVoteList");
 	}
 </script>
 <div id="voteList" class="panelInclude1">
-	<form target="_blank" action="${basePath }front/vote.do?method=ballotVoteTitle" method="post" name="VoteForm" onsubmit="return validateSubmit();">
+	<form target="_blank" action="${basePath }front/vote.do?method=ballotVoteTitle" method="post" name="VoteForm">
 		&nbsp;&nbsp;&nbsp;&nbsp;<button class="icon_vote">&nbsp;</button>${voteTitle.voteName } 
 		<br/>
 		<c:forEach items="${voteTitle.voteItemses}" var="items" varStatus="status">
@@ -42,10 +40,9 @@
 		<br/>
 		</c:forEach>
 		<br/>
-		<input type="hidden" name="voteFlag" value="<%=voteFlag%>"/>
-		<input type="hidden" name="voteId" value="${voteTitle.voteId }"/>
+		<input type="hidden" id="voteId" name="voteId" value="${voteTitle.voteId }"/>
 		<div align="center">
-			<input type="submit" name="ballot" value="投票" class="uniformButton"/>
+			<input type="button" id="ballot_id" name="ballot" value="投票" class="uniformButton"/>
 			&nbsp;
 			<a target="_blank" href="${basePath }front/vote.do?method=queryVoteList">
 			</a>

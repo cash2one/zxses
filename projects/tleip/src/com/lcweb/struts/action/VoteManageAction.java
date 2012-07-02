@@ -14,6 +14,7 @@ import org.apache.struts.actions.DispatchAction;
 
 import com.lcweb.base.util.PageList;
 import com.lcweb.base.util.SysObj;
+import com.lcweb.base.util.WebUtil;
 import com.lcweb.bean.pojo.BasicPerson;
 import com.lcweb.bean.pojo.FrontUser;
 import com.lcweb.bean.pojo.SysRole;
@@ -269,14 +270,21 @@ public class VoteManageAction extends DispatchAction {
 	}
 
 	/**
-	 * 投票
+	 * 检查用户是否登录以及登录用户是否已经投票
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
 	 */
-	public ActionForward ballotVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+	public ActionForward checkVote(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
 		//只有登录用户才能投票
 		FrontUser fuser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
 		if(fuser == null){
-			return mapping.findForward("fail");
+			//return mapping.findForward("fail");
+			WebUtil.writeResponse(response, "unLogin");
+			return null;
 		}
 		
 		String voteId = request.getParameter("voteId");
@@ -285,32 +293,38 @@ public class VoteManageAction extends DispatchAction {
 		VoteUserId voteUserId = new VoteUserId(Long.parseLong(voteId), fuser.getUserId());
 		VoteUser voteUserExist = (VoteUser)voteUserService.queryObjectById(VoteUser.class, voteUserId);
 		if(voteUserExist != null){
-			return mapping.findForward("havaBallot");
+			//return mapping.findForward("havaBallot");
+			WebUtil.writeResponse(response, "havaBallot");
+			return null;
 		}
+		WebUtil.writeResponse(response, "noBallot");
+		return null;
+	}
+	
+	
+	/**
+	 * 投票
+	 */
+	public ActionForward ballotVoteTitle(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		FrontUser fuser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
+		String voteId = request.getParameter("voteId");
+		
+		VoteUserId voteUserId = new VoteUserId(Long.parseLong(voteId), fuser.getUserId());
 		
 		String[] itemsIds = request.getParameterValues("itemsIds");
 		// 处理表单代码 start
-		String voteFlag = request.getParameter("voteFlag");
-		HttpSession session = request.getSession();
-		if (voteFlag.equals(session.getAttribute("voteFlag"))) {
-			if (voteId != null && itemsIds != null) {
-				// 更新人气值
-				voteService.updateTitleVoteCount(voteId);
-				// 更新投票选项投票数
-				voteService.updateItemsBallotCount(itemsIds);
-				
-				//记录用户投票信息
-				voteUserService.saveObject(new VoteUser(voteUserId));
-			}
-
-			destroyFlag(session);
-		} else {
-			// 可判断为重复提交,不予处理
-			System.out.println("重复提交");
+		//String voteFlag = request.getParameter("voteFlag");
+		//HttpSession session = request.getSession();
+		if (voteId != null && itemsIds != null) {
+			// 更新人气值
+			voteService.updateTitleVoteCount(voteId);
+			// 更新投票选项投票数
+			voteService.updateItemsBallotCount(itemsIds);
+			
+			//记录用户投票信息
+			voteUserService.saveObject(new VoteUser(voteUserId));
 		}
-		
-		// 投票一次,在request中标识已投票，提交按钮设置不可用
-		request.setAttribute("isVote", "true");
 		return queryVoteList(mapping, form, request, response);
 	}
 

@@ -51,8 +51,14 @@ public class FrontUserAction extends DispatchAction {
 				if(frontUser.getRecordStatus() == 1){
 					//检查用户是否启用(启用)
 					if(frontUser.getAvailable() == 1){
-						request.getSession().setAttribute("frontUserInfo",frontUser);
-						return new ActionForward("/client/index/content/login_reg/userInfo.jsp");
+						//检查用户是否审核通过
+						if(frontUser.getApproveStatus() == 1){
+							request.getSession().setAttribute("frontUserInfo",frontUser);
+							return new ActionForward("/client/index/content/login_reg/userInfo.jsp");
+						}else{
+							WebUtil.writeResponse(response, "userDisable");
+							return null;
+						}
 					}else{
 						WebUtil.writeResponse(response, "userDisable");
 						return null;

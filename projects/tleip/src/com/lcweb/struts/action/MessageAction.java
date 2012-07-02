@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
 import com.lcweb.base.util.PageList;
+import com.lcweb.base.util.WebUtil;
 import com.lcweb.bean.pojo.FrontMessage;
 import com.lcweb.bean.pojo.FrontUser;
 import com.lcweb.service.message.MessageService;
@@ -42,6 +43,30 @@ public class MessageAction extends DispatchAction {
 		request.setAttribute("pageList", pageList);
 		
 		return mapping.findForward("messageIndex");
+	}
+	
+	/**
+	 * 检查用户是否登录
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ActionForward checkToAddMsg(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		//只有登录用户才能留言
+		FrontUser fuser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
+		if(fuser != null){
+			//return mapping.findForward("toAddMessage");
+			WebUtil.writeResponse(response, "success");
+			return null;
+		}else {
+			//return mapping.findForward("fail");
+			WebUtil.writeResponse(response, "unLogin");
+			return null;
+		}
+		
 	}
 	
 	/**
