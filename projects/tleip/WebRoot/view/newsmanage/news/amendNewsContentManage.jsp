@@ -76,13 +76,6 @@
 						return ;
 					}
 				}
-				if (announceTypeValue == 0){
-					if ($.trim(newsKeyword.value).length<=0){
-						alert("新闻关键值不能为空!");
-						newsKeyword.focus();
-						return ;
-					}
-				}
 				if (announceTypeValue == 2){
 					var uploadFileValue = "";
 					var len = document.updateNewsContentForm.file_annex_url.options.length;
@@ -253,6 +246,7 @@
 			<input type="hidden" name="parentModuleFlag" id="parentModuleFlag"
 				value="${parentModuleFlag }" />
 			<input type="hidden" name="newsId" value="${newsId}" />
+			<input type="hidden" name="newsTemplate" value="1" />
 			<table cellspacing="0" cellpadding="0" width="100%" border="0"
 				align="center">
 				<tr>
@@ -430,7 +424,7 @@
 														</tr>
 														<tr>
 															<td class="td_left" width="50%">
-																<font color="#ff0000">* </font>关键字：
+																关键字：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsKeyword" id="newsKeyword"
@@ -477,22 +471,7 @@
 																图片新闻
 															</td>
 														</tr>
-														<tr>
-															<td class="td_left" width="50%">
-																<font color="#ff0000">* </font>使用模板：
-															</td>
-															<td class="td_right" width="50%">
-																<select name="newsTemplate" id="newsTemplate"
-																	style="width: 150px; text-align: center">
-																	<c:if test="${newsContentManage.newsTemplate==1}">
-																		<option value="1" selected='true'>
-																			模板1
-																		</option>
-																	</c:if>
-																</select>
-
-															</td>
-														</tr>
+															
 														<tr id="ifImgNewsTr1" style="display: none">
 															<td class="td_left" width="100%" colspan=2>
 																<table class="table" cellspacing="0" cellpadding="0"

@@ -21,6 +21,8 @@
 		<link rel="stylesheet" type="text/css"
 			href="<%=basePath%>res/client/css/css.css" />
 		<link rel="stylesheet" type="text/css"
+			href="<%=basePath%>res/client/css/page.css" />
+		<link rel="stylesheet" type="text/css"
 			href="<%=basePath%>res/client/css/skin.css" />
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/client/js/js_whol.js"></script>

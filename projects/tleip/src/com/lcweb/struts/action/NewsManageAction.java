@@ -578,7 +578,7 @@ public class NewsManageAction extends DispatchAction {
 			sql += " and c.newsItemBig.classId='" + classId + "' ";
 			sqlCount += " and c.newsItemBig.classId='" + classId + "'";
 		}
-		sql = sql + " order by ifDisplay desc, orderId";
+		sql = sql + " order by ifDisplay desc, typeId, orderId";
 		request.setAttribute("allYxdmSelect", newsOrgService.getAllSchCollegeDepart(yxdm, basicPerson));
 
 		if ((yxdm != null) && !yxdm.equalsIgnoreCase("")) {

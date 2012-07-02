@@ -86,13 +86,6 @@
 						return ;
 					}
 				}
-				if (announceTypeValue == 0){
-					if ($.trim(newsKeyword.value).length<=0){
-						alert("新闻关键值不能为空!");
-						newsKeyword.focus();
-						return ;
-					}
-				}
 				if (announceTypeValue == 2){
 					var uploadFileValue = "";
 					var len = document.addNewsContentForm.file_annex_url.options.length;
@@ -287,7 +280,7 @@
 			id="addNewsContentForm">
 			<input type="hidden" name="parentModuleFlag" id="parentModuleFlag"
 				value="${parentModuleFlag}" />
-
+			<input type="hidden" name="newsTemplate" value="1" />
 			<table cellspacing="0" cellpadding="0" width="100%" border="0"
 				align="center">
 
@@ -456,7 +449,7 @@
 														</tr>
 														<tr>
 															<td class="td_left" width="50%">
-																<font color="#ff0000">* </font>关键字：
+																关键字：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsKeyword" id="newsKeyword"
@@ -496,19 +489,6 @@
 																<input type="checkbox" value="1" name="ifImgNews0"
 																	onclick="showImgNews(this);" />
 																图片新闻
-															</td>
-														</tr>
-														<tr>
-															<td class="td_left" width="50%">
-																<font color="#ff0000">* </font>使用模板:&nbsp;
-															</td>
-															<td class="td_right" width="50%">
-																<select name="newsTemplate"
-																	style="width: 150px; text-align: center;">
-																	<option value="1">
-																		默认模板
-																	</option>
-																</select>
 															</td>
 														</tr>
 														<tr id="ifImgNewsTr1" style="display: none">
