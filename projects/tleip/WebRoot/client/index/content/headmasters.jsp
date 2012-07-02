@@ -8,7 +8,7 @@
 %>
 <div class="xiaozhang">
 	<h3>
-		校长―叶小勇
+		<a href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${typeId_xz}.html" style="color: white;">校长―叶小勇</a>
 	</h3>
 	<div class="xz_img">
 		<logic:iterate id="content" name="content_xz">
@@ -31,7 +31,7 @@
 </div>
 <div class="fxiaozhang">
 	<h3>
-		副校长―江长冰
+		<a href="<%=basePath%>client/itembig${itemBig.classId}/itemsmall${typeId_fxz}.html" style="color: white;">副校长―江长冰</a>
 	</h3>
 	<div class="xz_img">
 		<logic:iterate id="content" name="content_fxz">

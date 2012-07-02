@@ -11,9 +11,9 @@
 	<head>
 		<title>信息发布管理系统</title>
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css">
+			href="<%=basePath%>res/theme/blue/css/css.css" />
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/old.css">	
+			href="<%=basePath%>res/theme/blue/css/old.css" />	
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/admin/js/move.js"></script>
 		<script language="javascript" type="text/javascript"
@@ -59,11 +59,12 @@
 	<body>
 		<html:form action="view/newsmanage.do?method=addNewsItemBig"
 			method="post">
-			<table cellSpacing="0" cellPadding="0" width="100%" border="0"
+			 <input type="hidden" name="ifIndex" id="ifIndex" value="${ifIndex }" />
+			<table cellspacing="0" cellpadding="0" width="100%" border="0"
 				align="center">
 				<tr>
 					<td valign="top">
-						<table cellSpacing="0" cellPadding="0" border="0" width="100%"
+						<table cellspacing="0" cellpadding="0" border="0" width="100%"
 							align="left" height="190">
 							<tr>
 								<td  align="left" valign="top">
@@ -87,11 +88,11 @@
 							</tr>
 							<tr>
 								<td>
-									<table cellSpacing="0" cellPadding="0" border="0" width="100%"
+									<table cellpacing="0" cellpadding="0" border="0" width="100%"
 										align="center">
 										<tr>
 											<td>
-												<table class="table" cellSpacing="1" cellPadding="0"
+												<table class="table" cellspacing="1" cellpadding="0"
 													width="100%" border="0" height="151">
 
 													<tr>
@@ -100,7 +101,7 @@
 
 														</td>
 														<td width="30%" class="td_right">
-															<input type="text" name="classId" size =6 maxlength=6 value="${classId}">
+															<input type="text" name="classId" size =6 maxlength=6 value="${classId}" />
 														</td>
 													</tr>
 													<tr>
@@ -108,8 +109,8 @@
 															<font color="#ff0000">* </font>大类名称：
 														</td>
 														<td width="30%" class="td_right">
-															<input type="text" name="className" id="className" value="${className}" size="50" maxlength=50 >
-															<input type="hidden" name="mondeId" value="${mondeId}" id="mondeId">
+															<input type="text" name="className" id="className" value="${className}" size="50" maxlength=50 />
+															<input type="hidden" name="mondeId" value="${mondeId}" id="mondeId" />
 														</td>
 													</tr>
 													<tr>
@@ -117,7 +118,7 @@
 															<font color="#ff0000">* </font>显示顺序：
 														</td>
 														<td width="30%" class="td_right">
-															<input type="text" name="orderId" id="orderId" value="${orderId }">
+															<input type="text" name="orderId" id="orderId" value="${orderId }" />
 														</td>
 													</tr>
 													<tr>
@@ -126,9 +127,9 @@
 														</td>
 														<td width="30%" class="td_right">
 															<input type="radio" name="ifDisplay" value="1"
-																checked="checked">
+																checked="checked" />
 															是
-															<input type="radio" name="ifDisplay" value="0">
+															<input type="radio" name="ifDisplay" value="0" />
 															否
 														</td>
 													</tr>
@@ -138,20 +139,19 @@
 														</td>
 														<td width="30%" class="td_right">
 															<input type="radio" name="ifIndex" value="1"
-																checked="checked">
+																checked="checked" />
 															是
-															<input type="radio" name="ifIndex" value="0">
+															<input type="radio" name="ifIndex" value="0" />
 															否
 														</td>
 													</tr>
-													 <input type="hidden" name="ifIndex" id="ifIndex" value="${ifIndex }" />
 													<tr>
 														<td width="20%" class="td_left">
-															<font color="#ff0000">* </font>所属部门：
+															<font color="#ff0000">* </font>学校名称：
 
 														</td>
 														<td width="30%" class="td_right">
-															<input type="hidden" name="yxdm" id="yxdm" value="${schCollDept.yxdm}">
+															<input type="hidden" name="yxdm" id="yxdm" value="${schCollDept.yxdm}" />
 															${schCollDept.yxmc}
 														</td>
 													</tr>

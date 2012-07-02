@@ -43,6 +43,7 @@ public class GlobalConst {
 	public static final String HTML_SKYSTARS = "HTML_SKYSTARS"; // HTML_SKYSTARS
 	public static final String HTML_HEADMASTERS = "HTML_HEADMASTERS"; // HTML_HEADMASTERS
 	public static final String HTML_CONTACT = "HTML_CONTACT"; // HTML_CONTACT
+	public static final String HTML_INDEXCONTACT = "HTML_INDEXCONTACT"; // HTML_INDEXCONTACT
 	
 	//公共部分
 	public static final String HTML_MENU = "HTML_MENU"; //顶部菜单

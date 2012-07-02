@@ -1,11 +1,11 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ include file="/commons/tags.inc"%>
-<%@ include file="/inc/include.jsp"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+	request.setAttribute("basePath", basePath);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -33,8 +33,6 @@
 		<%@ include file="/inc/resources.jsp"%>
 		<script type="text/javascript"
 			src="<%=basePath%>client/index/content/login_reg/jsfiles/login.js"></script>
-		
-		
 	</head>
 	<body>
 		<div id="warp">
@@ -51,6 +49,7 @@
 					</div>
 				</div>
 			</div>
+		
 			<!--end-->
 			<div id="main">
 				<div class="scor_left fl">
@@ -61,14 +60,11 @@
 						<bean:write name="queryLogin" filter="false" />
 					</div>
 					<div class="libry">
-						<div class="libry_out">
 							<!--library-->
 							<bean:include id="queryLib"
 								page="/client/newsClient.do?method=queryLib" />
 							<bean:write name="queryLib" filter="false" />
-						</div>
 					</div>
-				</div>
 				<div class="contact">
 					<!--queryIndexContact-->
 					<bean:include id="queryIndexContact"
@@ -124,6 +120,7 @@
 		<div id=sidenav style="POSITION: absolute; top: 100px; right: 0; z-index: 101;">
 			<img src="<%=basePath%>res/client/images/xiaoxun.gif" />
 		</div>
+		</div>	
 	</body>
 </html>
 

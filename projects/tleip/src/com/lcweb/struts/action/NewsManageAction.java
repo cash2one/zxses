@@ -2303,6 +2303,7 @@ public class NewsManageAction extends DispatchAction {
 				}
 				request.setAttribute("showMsg", SysObj.createAddMassageBox(""));
 				request.setAttribute("parentModuleFlag", parentModuleFlag);
+				IndexToHtml.createIndexHtml(request);
 				return findAddNewsContentManage(mapping, form, request, response);
 			} else if ("isExists".equalsIgnoreCase(str)) {
 				request.setAttribute("showMsg", SysObj.createExistsMassageBox(ncm.getNewsTitle()));
@@ -2579,6 +2580,7 @@ public class NewsManageAction extends DispatchAction {
 				}
 				request.setAttribute("showMsg", SysObj.createEditMassageBox(ncm.getNewsTitle()));
 				request.setAttribute("parentModuleFlag", parentModuleFlag);
+				IndexToHtml.createIndexHtml(request);
 				return findAmendNewsContentManage(mapping, form, request, response);
 			} else if ("isExists".equalsIgnoreCase(str)) {
 				request.setAttribute("showMsg", SysObj.createEditMassageBox(ncm.getNewsTitle()));
@@ -2703,7 +2705,7 @@ public class NewsManageAction extends DispatchAction {
 				}
 			}
 		}
-		IndexToHtml.createIndexHtmlByYxdm(request, yxdm);
+		IndexToHtml.createIndexHtml(request);
 		request.setAttribute("showMsg", SysObj.createDeleteMassageBox(delRecords, msg));
 		request.setAttribute("parentModuleFlag", parentModuleFlag);
 		return findNewsContentManage(mapping, form, request, response);

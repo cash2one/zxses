@@ -74,7 +74,9 @@ public class IndexToHtml {
 		// HTML_LIB
 		paraMap.put(GlobalConst.HTML_LIB, basePath + "client/newsClient.do?method=queryLib");
 		// HTML_LIB
-		paraMap.put(GlobalConst.HTML_CONTACT, basePath + "client/newsClient.do?method=queryContact");
+//		paraMap.put(GlobalConst.HTML_CONTACT, basePath + "client/newsClient.do?method=queryContact");
+		// HTML_LIB
+		paraMap.put(GlobalConst.HTML_INDEXCONTACT, basePath + "client/newsClient.do?method=queryIndexContact");
 		
 		// 顶部菜单
 		paraMap.put(GlobalConst.HTML_MENU, basePath + "client/newsClient.do?method=queryMenu");
@@ -103,8 +105,8 @@ public class IndexToHtml {
 	 * 
 	 */
 	public static void createIndexHtmlByYxdm(HttpServletRequest request, String yxdm) {
-		if (yxdm.equalsIgnoreCase(GlobalConst.SchoolCode)) {
+//		if (yxdm.equalsIgnoreCase(GlobalConst.SchoolCode)) {
 			IndexToHtml.createIndexHtml(request);
-		}
+//		}
 	}
 }

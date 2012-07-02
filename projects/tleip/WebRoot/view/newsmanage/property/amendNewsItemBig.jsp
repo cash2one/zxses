@@ -11,9 +11,9 @@
 	<head>
 		<title>信息发布管理系统</title>
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css">
+			href="<%=basePath%>res/theme/blue/css/css.css" />
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/old.css">	
+			href="<%=basePath%>res/theme/blue/css/old.css" />	
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/admin/js/move.js"></script>
 		<script language="javascript" type="text/javascript"
@@ -115,8 +115,8 @@
 															<font color="#ff0000">* </font>大类名称 :&nbsp;
 														</td>
 														<td width="30%" class="td_right">
-															<input type="text" name="className" id="className"  value="${newsItemBig.className}" size="50" maxlength=50 >
-														   <input type="hidden" name="mondel_int" id="mondel_int"  value="${mondel_int}" id="mondel_int">
+															<input type="text" name="className" id="className"  value="${newsItemBig.className}" size="50" maxlength=50 />
+														   <input type="hidden" name="mondel_int" id="mondel_int"  value="${mondel_int}" id="mondel_int" />
 														</td>
 													</tr>
 													<tr>
@@ -124,7 +124,7 @@
 															<font color="#ff0000">* </font>显示顺序:&nbsp;
 														</td>
 														<td width="30%" class="td_right">
-															<input type="text" name="orderId" id="orderId" value="${newsItemBig.orderId}">
+															<input type="text" name="orderId" id="orderId" value="${newsItemBig.orderId}" />
 														</td>
 													</tr>
 													<tr>
@@ -136,13 +136,13 @@
 																<c:if test="${newsItemBig.ifDisplay == 1}">
 																	checked="checked"
 																</c:if>
-																>
+																/>
 															是
 															<input type="radio" name="ifDisplay" value="0"
 																<c:if test="${newsItemBig.ifDisplay == 0}">
 																	checked="checked"
 																</c:if>
-															>
+															/>
 															否
 														</td>
 													</tr>
@@ -154,23 +154,23 @@
 															<input type="radio" name="ifIndex" value="1"
 																<c:if test="${newsItemBig.ifIndex == 1}">
 																	checked="checked"
-																</c:if>>
+																</c:if> />
 															是
 															<input type="radio" name="ifIndex" value="0"
 															<c:if test="${newsItemBig.ifIndex == 0}">
 																	checked="checked"
 																</c:if>
-															>
+															/>
 															否
 														</td>
 													</tr>
 													<tr>
 														<td width="20%" class="td_left">
-															<font color="#ff0000">* </font>院系所部中心号 :
+															<font color="#ff0000">* </font>学校名称：
 														</td>
 														<td width="30%" class="td_right">
- 														 	<input type="hidden" name="ifIndex" value="0" id="ifIndex">
-															<input type="hidden" name="yxdm" value="${newsItemBig.yxdm}" id="yxdm">
+ 														 	<input type="hidden" name="ifIndex" value="0" id="ifIndex" />
+															<input type="hidden" name="yxdm" value="${newsItemBig.yxdm}" id="yxdm" />
 															${schCollDept.yxmc}
 														</td>
 													</tr>

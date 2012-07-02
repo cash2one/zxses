@@ -144,7 +144,8 @@ public class HtmlFile {
 		String html_lib = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_LIB)));
 		String html_menu = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_MENU)));
 		String html_foot_info = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_FOOT_INFO)));
-		String html_contact = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_CONTACT)));
+//		String html_contact = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_CONTACT)));
+		String html_indexcontact = getDynamicPageContent(StringUtil.getNullString(params.get(GlobalConst.HTML_INDEXCONTACT)));
 		
 		while ((line = reader.readLine()) != null) {
 			if (line.contains("${basePath}")) {
@@ -177,8 +178,11 @@ public class HtmlFile {
 			if (line.contains("${html_lib}")) {
 				line = StringUtil.replaceString(line, "${html_lib}", html_lib);
 			}
-			if (line.contains("${html_contact}")) {
-				line = StringUtil.replaceString(line, "${html_contact}", html_contact);
+//			if (line.contains("${html_contact}")) {
+//				line = StringUtil.replaceString(line, "${html_contact}", html_contact);
+//			}
+			if (line.contains("${html_indexcontact}")) {
+				line = StringUtil.replaceString(line, "${html_indexcontact}", html_indexcontact);
 			}
 			if (line.contains("${html_menu}")) {
 				line = StringUtil.replaceString(line, "${html_menu}", html_menu);

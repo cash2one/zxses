@@ -421,7 +421,7 @@
 														width="100%" border="0">
 														<tr>
 															<td class="td_left" width="50%">
-																<font color="#ff0000">* </font>文章标题：
+																<font color="#ff0000">* </font>新闻标题：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsTitle0" id="newsTitle0"
@@ -516,13 +516,13 @@
 																		<td class="td_right" width="50%">
 																			<div align="left">
 																				<c:if
-																					test="${newsContentManage.imgNewsAddress == '' }">
+																					test="${newsContentManage.imgNewsAddress == null }">
 																					<img name=faceImg0 id="faceImg0"
 																						src="<%=basePath%>res/admin/img/wu.jpg"
 																						width="120" height="100" />
 																				</c:if>
 																				<c:if
-																					test="${newsContentManage.imgNewsAddress != '' }">
+																					test="${newsContentManage.imgNewsAddress != null }">
 																					<img name=faceImg0
 																						src="<%=basePath%>${newsContentManage.imgNewsAddress}"
 																						width="120" height="100" />
@@ -558,7 +558,7 @@
 														width="100%" border="0">
 														<tr>
 															<td class="td_left" width="50%">
-																链接标题：
+																<font color="#ff0000">* </font>新闻标题：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsTitle1" id="newsTitle1"
@@ -659,7 +659,7 @@
 														width="100%" border="0">
 														<tr>
 															<td class="td_left" width="50%">
-																文章标题：
+																<font color="#ff0000">* </font>新闻标题：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsTitle2" id="newsTitle2"

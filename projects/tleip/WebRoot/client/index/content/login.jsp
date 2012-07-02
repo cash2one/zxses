@@ -25,7 +25,7 @@ function reset(){
 				<input type="reset" class="sure" onclick="reset()" value="清 除" />
 			</li>
 			<li>
-				<a href="${basePath}client/index/content/login_reg/userRegInf.jsp"">用户注册</a><a href="${basePath}client/index/content/login_reg/findPassword.jsp">忘记密码</a>
+				<a href="${basePath}client/index/content/login_reg/userRegInf.jsp">用户注册</a><a href="${basePath}client/index/content/login_reg/findPassword.jsp">忘记密码</a>
 			</li>
 		</ul>
 		<div class="user_reg">

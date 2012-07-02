@@ -363,6 +363,8 @@ public class NewsClientAction extends DispatchAction {
 				if (content_xz.size() > 0 && content_fxz.size() > 0 ) {
 					request.setAttribute("content_xz", content_xz);
 					request.setAttribute("content_fxz", content_fxz);
+					request.setAttribute("typeId_xz", typeId_xz);
+					request.setAttribute("typeId_fxz", typeId_fxz);
 					return new ActionForward("/client/index/content/headmasters.jsp");
 				}
 			}

@@ -447,7 +447,7 @@
 
 														<tr>
 															<td class="td_left" width="50%">
-																<font color="#ff0000">* </font>文章标题：
+																<font color="#ff0000">* </font>新闻标题：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsTitle0" id="newsTitle0"
@@ -566,7 +566,7 @@
 														width="100%" border="0">
 														<tr>
 															<td class="td_left" width="50%">
-																链接标题：
+																<font color="#ff0000">* </font>新闻标题：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsTitle1" id="newsTitle1"
@@ -656,7 +656,7 @@
 														width="100%" border="0">
 														<tr>
 															<td class="td_left" width="50%">
-																文章标题：
+																<font color="#ff0000">* </font>新闻标题：
 															</td>
 															<td class="td_right" width="50%">
 																<input type="text" name="newsTitle2" id="newsTitle2"

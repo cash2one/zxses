@@ -21,6 +21,13 @@
 			src="${basePath}res/client/js/jquery.jcarousel.min.js"></script>
 		<script type="text/javascript"
 			src="${basePath}res/client/js/util.js"></script>
+		<link rel="stylesheet" type="text/css" href="${basePath}res/client/js/jqueryui/css/redmond/jquery-ui-1.7.3.custom.css" />
+		<script type="text/javascript" src="${basePath}res/client/js/jqueryui/js/jquery-ui-1.7.3.custom.min.js"></script>
+		<script type="text/javascript" src="${basePath}res/client/js/jqueryui/js/jquery.bgiframe.min.js"></script>
+		<script type="text/javascript" src="${basePath}res/client/js/jqueryForWin.js"></script>
+		<script type="text/javascript" src="${basePath}res/client/js/webPath4Js.jsp"></script>
+		<script type="text/javascript"
+			src="${basePath}client/index/content/login_reg/jsfiles/login.js"></script>
 	</head>
 	<body>
 		<div id="warp">
@@ -41,15 +48,12 @@
 						${html_login}
 					</div>
 					<div class="libry">
-						<div class="libry_out">
 							<!--library-->
 							${html_lib}
-						</div>
 					</div>
-				</div>
 				<div class="contact">
-					<!--contact-->
-					${html_contact}
+					<!--queryIndexContact-->
+					${html_indexcontact}
 				</div>
 			</div>
 			<div class="scor_mid fl">
@@ -58,13 +62,13 @@
 					${html_tabs}
 				</div>
 				<div class="education">
-					<!--tabs_pic-->
+					<!--tabspic-->
 					${html_tabspic}
 				</div>
 				<div class="stars">
 					<div class="friendlink fl">
 						<!--FriendLink-->
-						${html_friendlink}
+							${html_friendlink}
 					</div>
 					<div class="sky_stars fl">
 						<!--SkyStars-->
@@ -88,6 +92,7 @@
 		<div id=sidenav style="POSITION: absolute; top: 100px; right: 0;">
 			<img src="${basePath}res/client/images/xiaoxun.gif" />
 		</div>
+		</div>	
 	</body>
 </html>
 

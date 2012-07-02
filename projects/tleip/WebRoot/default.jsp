@@ -14,18 +14,40 @@
 </head>
 
 <body>
-	<div id="warp">
-		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-			codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
-			width="1006" height="638" title="flash">
-			<param name="movie" value="<%=basePath%>res/client/flash/welcome.swf" />
-			<param name="quality" value="high" />
-			<param name="vmode" value="transparent" />
-			<embed src="<%=basePath%>res/client/flash/welcome.swf" width="1006"
-				height="638" quality="high"
-				pluginspage="http://www.macromedia.com/go/getflashplayer"
-				type="application/x-shockwave-flash" vmode="transparent"></embed>
-		</object>
-	</div>
+	<div align="center">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1006" height="639" id="welcome" align="middle">
+				<param name="movie" value="<%=basePath%>res/client/flash/welcome.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="window" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="sameDomain" />
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="<%=basePath%>res/client/flash/welcome.swf" width="1006" height="639">
+					<param name="movie" value="<%=basePath%>res/client/flash/welcome.swf" />
+					<param name="quality" value="high" />
+					<param name="bgcolor" value="#ffffff" />
+					<param name="play" value="true" />
+					<param name="loop" value="true" />
+					<param name="wmode" value="window" />
+					<param name="scale" value="showall" />
+					<param name="menu" value="true" />
+					<param name="devicefont" value="false" />
+					<param name="salign" value="" />
+					<param name="allowScriptAccess" value="sameDomain" />
+				<!--<![endif]-->
+					<a href="http://www.adobe.com/go/getflash">
+						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获得 Adobe Flash Player" />
+					</a>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+			</div>
 </body>
 </html>

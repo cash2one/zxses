@@ -8,17 +8,18 @@
 %>
 <div class="top">
 	<div class="fl">
-		<a href="<%=basePath%>"><img
+		<a href="<%=basePath%>index.html"><img
 			src="<%=basePath%>res/client/css/img/logo.gif" alt="深圳市塘朗小学" /> </a>
 	</div>
 	<div class="menu fl">
 		<p>
-			<a href="mailto:tlx-db@nsjy.com">联系我们</a>| <a href="#"
+			<a href="<%=basePath%>client/itembig1000013.html">联系我们</a> | <a href="#"
 				onClick="this.style.behavior='url(#default#homepage)';window.external.addFavorite('http://www.sztlxx.com','深圳市南山区塘朗小学');">收藏我们</a>
+				|<a href="http://www.sztlxx.com" target="_blank">进入旧网站</a>
 		</p>
 		<div class="nav">
 			<ul class="menu_nav">
-				<li><a href="<%=basePath%>"><span>首页</span> </a>
+				<li><a href="<%=basePath%>index.html"><span>首页</span> </a>
 				</li>
 				<logic:iterate id="itemBig" name="newsItemBigs">
 					<li onmouseover="showSubLevel(this)"
@@ -82,6 +83,8 @@
 						</div>
 					</li>
 				</logic:iterate>
+				<li><a href="http://www.baidu.com"><span>满天星文学社</span> </a>
+				</li>
 				<div class="clear"></div>
 			</ul>
 		</div>

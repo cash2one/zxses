@@ -86,7 +86,7 @@
 					当前用户: ${logininfo.personAccount } &nbsp;&nbsp;&nbsp;&nbsp;${date}
 				</td>
 				<td class="topindex">
-					<a href="<%=basePath%>" target="_blank">返回首页</a>
+					<a href="<%=basePath%>index.html" target="_blank">返回首页</a>
 				</td>
 			</tr>
 		</table>
