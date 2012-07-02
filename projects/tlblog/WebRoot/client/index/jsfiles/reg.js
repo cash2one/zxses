@@ -1,52 +1,58 @@
 $(function () {
-	/*var userAccount = $("#userAccount");
+	var username = $("#reg_username");
 	//ajax检查用户名是否已经使用
-	userAccount.blur(function(){
-		$("#userAccount-hint").html("提示：由英文字母、数字和下划线或邮箱构成");
-		if($.trim($(userAccount).val()) != ""){
+	username.blur(function(){
+		$("#username_tip").html("由英文字母、数字和下划线或邮箱构成");
+		if($.trim(username.val()) != ""){
+			//用户名只能由英文字母、数字和下划线或邮箱构成
+			if(!validate.testNumAndLetterUnder($.trim(username.val())) && !validate.testEmail($.trim(username.val()))){
+				$.alert("用户名由英文字母、数字和下划线或邮箱构成！");
+				return false;
+			}
 			//$("#userAccount-hint").html("<font color='red'>检查用户名！</font>");
 			$.ajax( {
-				url : $.basePath + "front/login.do?method=checkUserAccount",
+				url : $.basePath + "client/index.do?method=checkUserName",
 				data : {
-					userAccount : userAccount.val()
+					username : username.val()
 				},
 				async : true,
 				type : "POST",
 				success : function(data) {
-					var userAccountUsed = $("#userAccountUsed");
+					var usernameUsed = $("#usernameUsed");
 					if (data == "used") {
-						$("#userAccount-hint").html("<font color='red'>该用户帐号已使用,请更换！</font>");
-						userAccountUsed.val("true");
+						$("#username_tip").html("<font color='red'>该用户帐号已使用,请更换！</font>");
+						usernameUsed.val("true");
 					}else{
-						$("#userAccount-hint").html("<font color='green'>用户帐号可用！</font>");
-						userAccountUsed.val("false");
+						$("#username_tip").html("<font color='green'>用户帐号可用！</font>");
+						usernameUsed.val("false");
 					}
 				}
 			});
 		}
 	});
-	*/
-	//
 });
 
-function checkSubmit() {
-	/*var userAccount = $("#userAccount");
-	var userAccountUsed = $("#userAccountUsed");
-	var userName = $("#userName");
-	var password = $("#password");
-	var rePassword = $("#rePassword");
-	var email = $("#email");
+function checkRegSubmit() {
+	var username = $("#reg_username");
+	var usernameUsed = $("#usernameUsed");
+	var password = $("#reg_password");
+	var rePassword = $("#repass");
+	var realname = $("#realname");
+	var userHeadpic = $("#userHeadpic");
+	var userPenname = $("#userPenname");
+	var userBlogdes = $("#userBlogdes");
+	var userBirthday = $("#userBirthday");
+	var userEmail = $("#userEmail");
+	var userQq = $("#userQq");
+	var phone = $("#phone");
 	
-	if($.trim(userAccount.val()) == ""){
+	//不为空
+	if($.trim(username.val()) == ""){
 		$.alert("请输入用户名！");
 		return false;
 	}
-	if($.trim(userAccountUsed.val()) == "true"){
+	if($.trim(usernameUsed.val()) == "true"){
 		$.alert("用户名已使用,请更换用户名！");
-		return false;
-	}
-	if($.trim(userName.val()) == ""){
-		$.alert("请输入真实姓名！");
 		return false;
 	}
 	if($.trim(password.val()) == ""){
@@ -65,15 +71,53 @@ function checkSubmit() {
 		$.alert("密码和确认密码不一致！");
 		return false;
 	}
-	if($.trim(email.val()) == ""){
-		$.alert("请输入邮箱地址！");
+	if($.trim(realname.val()) == ""){
+		$.alert("请输入真实姓名！");
 		return false;
 	}
-	//邮箱格式验证
-	if(!isEmail($.trim(email.val()))){
-		$.alert("请输入正确的邮箱地址！");
+	var userHeadpicValue = $.trim(userHeadpic.val());
+	if(userHeadpicValue == ""){
+		$.alert("请选择头像照片！");
 		return false;
-	}*/
+	}else{
+		//检查上传文件是否为图片格式
+		/*if(!validate.testImage(userHeadpicValue)){
+			$.alert("只允许上传gif、jpg、bmp、png图片格式！");
+			return false;
+		}*/
+	}
+	if($.trim(userPenname.val()) == ""){
+		$.alert("请输入笔名！");
+		return false;
+	}
+	if($.trim(userBlogdes.val()) == ""){
+		$.alert("请输入博客描述！");
+		return false;
+	}
+	if($.trim(userEmail.val()) == ""){
+		$.alert("请输入邮箱地址！");
+		return false;
+	}else{
+		//邮箱格式验证
+		if(!validate.testEmail($.trim(userEmail.val()))){
+			$.alert("请输入正确的邮箱地址！");
+			return false;
+		}
+	}
+	//qq号码只能是数字
+	if($.trim(userQq.val()) != ""){
+		if(!validate.testIntegerNumber($.trim(userQq.val()))){
+			$.alert("请输入正确的QQ号码(数字)！");
+			return false;
+		}
+	}
+	//联系电话只能是数字
+	if($.trim(phone.val()) != ""){
+		if(!validate.testTelPhone($.trim(phone.val())) && !validate.testPhone($.trim(phone.val()))){
+			$.alert("请输入正确的联系电话！");
+			return false;
+		}
+	}
 	//前端简单验证注册信息
 	return true;
 }
