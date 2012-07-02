@@ -1,10 +1,11 @@
 package com.agilefly.web.action;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -14,6 +15,8 @@ import com.agilefly.bean.SysRole;
 import com.agilefly.bean.SysUser;
 import com.agilefly.service.sysrole.ISysRoleService;
 import com.agilefly.service.systemuser.ISysUserService;
+import com.agilefly.utils.BeanUtilEx;
+import com.agilefly.utils.CipherUtil;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.form.SysUserForm;
 
@@ -73,7 +76,20 @@ public class SysUserAction extends BaseAction{
 		SysUserForm suf = (SysUserForm)form;
 		SysUser user = new SysUser();
 		
-		BeanUtils.copyProperties(user, suf);
+		BeanUtilEx.copyProperties(user, suf);
+		
+		//MD5加密保存
+		user.setPassword(CipherUtil.generatePassword(suf.getPassword()));
+		user.setUserLoginip(request.getRemoteAddr());
+		user.setUserRegtime(new Date());
+		user.setUserLogintime(new Date());
+		
+		//后台新增用户不需要审批
+		user.setApproveStatus((byte)1);
+		//默认启用
+		user.setAvailable((byte)1);
+		//有效记录
+		user.setRecordStatus((byte)1);
 		
 		sysUserService.save(user);
 		
@@ -148,7 +164,7 @@ public class SysUserAction extends BaseAction{
 		
 		String messageEntity = user.getUsername();
 		
-		BeanUtils.copyProperties(user, suf);
+		BeanUtilEx.copyProperties(user, suf);
 		
 		sysUserService.update(user);
 		

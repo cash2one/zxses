@@ -17,6 +17,7 @@ public class SysUserForm extends ActionForm {
 	private int id;
 	private String username;
 	private String password;
+	private String userType;
 	private String realname;
 	private String gender;
 	private String userPenname;
@@ -49,6 +50,12 @@ public class SysUserForm extends ActionForm {
 	}
 	public String getPassword() {
 		return password;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	public void setPassword(String password) {
 		this.password = password;

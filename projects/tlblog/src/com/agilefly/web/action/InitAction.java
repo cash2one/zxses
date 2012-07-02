@@ -17,6 +17,7 @@ import com.agilefly.bean.SysModule;
 import com.agilefly.bean.SysPrivilege;
 import com.agilefly.bean.SysRole;
 import com.agilefly.bean.SysUser;
+import com.agilefly.commons.SysConstant;
 import com.agilefly.service.sysmodule.ISysModuleService;
 import com.agilefly.service.sysprivilege.ISysPrivilegeService;
 import com.agilefly.service.sysrole.ISysRoleService;
@@ -152,6 +153,14 @@ public class InitAction extends Action{
 			sysUser.setUsername("admin");
 			sysUser.setRealname("系统管理员");
 			sysUser.setPassword(CipherUtil.generatePassword("admin"));
+			//不需要审批
+			sysUser.setApproveStatus((byte)1);
+			//默认启用
+			sysUser.setAvailable((byte)1);
+			//有效记录
+			sysUser.setRecordStatus((byte)1);
+			//设置为教师类型(后台只有教师类型才能登录)
+			sysUser.setUserType(SysConstant.TEACHER);
 			
 			//分配角色
 			sysUser.addSysRole(sysRole);

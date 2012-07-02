@@ -3,13 +3,16 @@ package com.agilefly.web.action.blog;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.beanutils.BeanUtils;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
+
 import com.agilefly.bean.BlogArticle;
-import com.agilefly.service.blogarticle.IBlogArticleService;
+import com.agilefly.bean.SysUser;
+import com.agilefly.service.systemuser.ISysUserService;
+import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.action.BaseAction;
 import com.agilefly.web.form.BlogArticleForm;
@@ -19,15 +22,36 @@ import com.agilefly.web.form.BlogArticleForm;
  * @date Jun 14, 2012 5:08:05 PM
  */
 
-@Controller("/blog")
-public class BlogArticleAction extends BaseAction {
+@Controller("/client/blog")
+public class BlogAction extends BaseAction {
 	@Resource
-	private IBlogArticleService blogArticleService;
+	private ISysUserService sysUserService;
 	
-	public void setBlogArticleService(IBlogArticleService blogArticleService) {
-		this.blogArticleService = blogArticleService;
+	public void setSysUserService(ISysUserService sysUserService) {
+		this.sysUserService = sysUserService;
 	}
 
+	/**
+	 * 搜索用户博客主页
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward searchUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//获取用户博客信息
+		//SysUserForm suf = (SysUserForm)form;
+		String username = request.getParameter("username");
+		
+		SysUser blogUser = sysUserService.findByUname(username);
+		
+		request.getSession().setAttribute("blogUser", blogUser);
+		
+		return mapping.findForward("blogindex");
+	}
+	
 	/**
 	 * 打开博客文章列表界面 默认不指定mothod方法名 示例：blog/blogarticle.do
 	 * 默认列表显示方法调用 不可修改 或者新建一个单独的列表显示action继承Action
@@ -37,7 +61,7 @@ public class BlogArticleAction extends BaseAction {
 		//获取博客文章列表，并传递到界面
 		BlogArticleForm baf = (BlogArticleForm)form;
 		
-		request.setAttribute("qs", blogArticleService.getScrollDataByThread());
+		request.setAttribute("qs", sysUserService.getScrollDataByThread());
 		
 		return mapping.findForward("list");
 	}
@@ -70,11 +94,11 @@ public class BlogArticleAction extends BaseAction {
 		BlogArticleForm baf = (BlogArticleForm)form;
 		BlogArticle article = new BlogArticle();
 		
-		BeanUtils.copyProperties(article, baf);
+		BeanUtilEx.copyProperties(article, baf);
 		//获取编辑器内容
 		article.setArticleContent(request.getParameter("editor_k"));
 		
-		blogArticleService.save(article);
+		//sysUserService.save(article);
 		
 		request.setAttribute("showMsg", SysObj.createAddMassageBox(""));
 		return unspecified(mapping, form, request,response);
@@ -93,7 +117,7 @@ public class BlogArticleAction extends BaseAction {
 	//@Permission(model="sysModuleManage", privilegeValue="update")
 	public ActionForward updateInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String blogArticleId = request.getParameter("blogArticleId");
-		BlogArticle article = blogArticleService.find(blogArticleId);
+		BlogArticle article = null;//sysUserService.find(blogArticleId);
 		request.setAttribute("blogArticleInfo", article);
 		return mapping.findForward("update_input");
 	}
@@ -113,13 +137,13 @@ public class BlogArticleAction extends BaseAction {
 		
 		BlogArticle article = null;
 		
-		article = blogArticleService.find(baf.getId());
+		article = null;//sysUserService.find(baf.getId());
 		
 		String messageEntity = "";//article.getName();
 		
-		BeanUtils.copyProperties(article, baf);
+		BeanUtilEx.copyProperties(article, baf);
 		
-		blogArticleService.update(article);
+		//sysUserService.update(article);
 		
 		request.setAttribute("showMsg", SysObj.createEditMassageBox(messageEntity));
 		return unspecified(mapping, form, request,response);
@@ -138,7 +162,7 @@ public class BlogArticleAction extends BaseAction {
 	//@Permission(model="sysModuleManage", privilegeValue="delete")
 	public ActionForward del(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String[] ids = request.getParameterValues("check");
-		blogArticleService.delete(ids);
+		sysUserService.delete(ids);
 		//return mapping.findForward("pub_del_success");
 		request.setAttribute("showMsg", SysObj.createDeleteMassageBox(ids.length, ""));
 		return unspecified(mapping, form, request,response);

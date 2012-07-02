@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import com.agilefly.bean.SysModule;
 import com.agilefly.service.sysmodule.ISysModuleService;
+import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.form.SysModuleForm;
 
@@ -98,7 +98,7 @@ public class SysModuleAction extends BaseAction {
 		SysModuleForm smf = (SysModuleForm)form;
 		SysModule module = new SysModule();
 		
-		BeanUtils.copyProperties(module, smf);
+		BeanUtilEx.copyProperties(module, smf);
 		
 		sysModuleService.addSysModule(module, smf.getParentId());
 		
@@ -143,7 +143,7 @@ public class SysModuleAction extends BaseAction {
 		
 		String messageEntity = module.getName();
 		
-		BeanUtils.copyProperties(module, smf);
+		BeanUtilEx.copyProperties(module, smf);
 		
 		sysModuleService.updateSysModule(module, smf.getParentId());
 		

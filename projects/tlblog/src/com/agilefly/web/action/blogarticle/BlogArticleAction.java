@@ -3,13 +3,15 @@ package com.agilefly.web.action.blogarticle;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.beanutils.BeanUtils;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
+
 import com.agilefly.bean.BlogArticle;
 import com.agilefly.service.blogarticle.IBlogArticleService;
+import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.action.BaseAction;
 import com.agilefly.web.form.BlogArticleForm;
@@ -70,7 +72,7 @@ public class BlogArticleAction extends BaseAction {
 		BlogArticleForm baf = (BlogArticleForm)form;
 		BlogArticle article = new BlogArticle();
 		
-		BeanUtils.copyProperties(article, baf);
+		BeanUtilEx.copyProperties(article, baf);
 		//获取编辑器内容
 		article.setArticleContent(request.getParameter("editor_k"));
 		
@@ -117,7 +119,7 @@ public class BlogArticleAction extends BaseAction {
 		
 		String messageEntity = "";//article.getName();
 		
-		BeanUtils.copyProperties(article, baf);
+		BeanUtilEx.copyProperties(article, baf);
 		
 		blogArticleService.update(article);
 		

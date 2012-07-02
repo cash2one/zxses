@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -19,6 +18,7 @@ import com.agilefly.commons.web.WebUtils;
 import com.agilefly.service.sysmodule.ISysModuleService;
 import com.agilefly.service.sysprivilege.ISysPrivilegeService;
 import com.agilefly.service.sysrole.ISysRoleService;
+import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.form.SysRoleForm;
 
@@ -106,7 +106,7 @@ public class SysRoleAction extends BaseAction{
 		SysRoleForm srf = (SysRoleForm)form;
 		SysRole role = new SysRole();
 		
-		BeanUtils.copyProperties(role, srf);
+		BeanUtilEx.copyProperties(role, srf);
 		
 		sysRoleService.save(role);
 		
@@ -151,7 +151,7 @@ public class SysRoleAction extends BaseAction{
 		
 		String messageEntity = role.getRoleName();
 		
-		BeanUtils.copyProperties(role, srf);
+		BeanUtilEx.copyProperties(role, srf);
 		
 		sysRoleService.update(role);
 		
