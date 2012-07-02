@@ -133,7 +133,7 @@
 												<font color="#ff0000">* </font>邮箱:
 											</td>
 											<td width="30%" class="td_right">
-												  <input type="text" name="email" id="email" value="${sysUserInfo.email }" size="30" maxlength="20" />
+												  <input type="text" name="userEmail" id="userEmail" value="${sysUserInfo.userEmail }" size="30" maxlength="20" />
 											</td>
 										</tr>
 									</table>

@@ -9,6 +9,7 @@
 		<form-bean name="sysUserForm" type="com.agilefly.web.form.SysUserForm"/>
 		<form-bean name="sysModuleForm" type="com.agilefly.web.form.SysModuleForm"/>
 		<form-bean name="sysRoleForm" type="com.agilefly.web.form.SysRoleForm"/>
+		<form-bean name="sysBlogTypeForm" type="com.agilefly.web.form.SysBlogTypeForm"/>
 		
 		<!--*****************前台系统配置Form***********************-->
 		<form-bean name="blogArticle" type="com.agilefly.web.form.BlogArticleForm"/>
@@ -21,8 +22,12 @@
 
 	<!-- =========================================== Global Forward Definitions -->
 	<global-forwards>
+		<!-- 后台全局跳转 -->
 		<forward name="message" path="/view/common/message.jsp" />
 		<forward name="rightMessage" path="/view/common/rightMessage.jsp" />
+		
+		<!-- 前台全局跳转 -->
+		<forward name="client_message" path="/client/client_message.jsp" />
 	</global-forwards>
 
 	<!-- =========================================== Action Mapping Definitions -->
@@ -63,10 +68,22 @@
 			<forward name="update_input" path="/view/rightmanage/rolemanage/sysroleUpdate.jsp"/>
 			<forward name="assignPrivilege_input" path="/view/rightmanage/rolemanage/sysroleprivilegeList.jsp"/>
 		</action>
+		<!-- 系统博客文章类型管理 -->
+		<action path="/view/sysblogtype" name="sysBlogTypeForm" scope="request" parameter="method">
+			<forward name="list" path="/view/rightmanage/articletypemanage/sysarticletypeList.jsp"/>
+			<forward name="add_input" path="/view/rightmanage/articletypemanage/sysarticletypeAdd.jsp"/>
+			<forward name="update_input" path="/view/rightmanage/articletypemanage/sysarticletypeUpdate.jsp"/>
+		</action>
+		
 		
 		<!--*****************前台系统配置Action***********************-->
-		<action path="/index" name="sysUserForm" scope="request" parameter="method">
+		<action path="/client/index" name="sysUserForm" scope="request" parameter="method">
 			<forward name="signup" path="/client/index/reg.jsp"/>
+		</action>
+		
+		<!-- 博客管理 -->
+		<action path="/client/blog" name="sysUserForm" scope="request" parameter="method">
+			<forward name="blogindex" path="/client/blog/blog.jsp"/>
 		</action>
 		
 		<!-- 博客文章管理 -->
