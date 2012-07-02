@@ -18,7 +18,7 @@ function checkboxs_all(obj,cName){
 }*/
 
 //字符串去除前后空格可以使用就query方法-->$.trim() 然后传入验证方法
-var Validate = function(){};  
+var Validate = function(){}
 Validate.prototype =  {
     // 验证字符串是否为空 
     testString: function(str) {  
@@ -102,7 +102,7 @@ Validate.prototype =  {
         if (!this.testString(phone)) {  
             return false;  
         }  
-        return /^(([0\+]\d{2,3}-)?(0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/.test(str);  
+        return /^(([0\+]\d{2,3}-)?(0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/.test(phone);  
     }, 
     
 	// 验证手机号码(检验13,15,18开头的手机号！) 
@@ -119,5 +119,20 @@ Validate.prototype =  {
             return false;  
         }  
         return !/^[u4E00-u9FA5]+$/.test(str);  ///^[\u0391-\uFFE5]+$/
-    }  
+    },
+    
+    //验证是否为图片格式
+    testImage: function(imageStr) {  
+    	var allowType = new Array("gif","jpg","bmp","png");
+    	var ext = imageStr.substring(imageStr.lastIndexOf(".")+1).toLowerCase();
+		for (var i = 0; i < allowType.length; i++) {
+            if (allowType[i] == ext){
+                return true; 
+            }
+        }
+        return false;
+    }
 }
+
+//实例化
+var validate = new Validate();
