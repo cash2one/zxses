@@ -310,20 +310,29 @@ public class VoteManageAction extends DispatchAction {
 		FrontUser fuser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
 		String voteId = request.getParameter("voteId");
 		
-		VoteUserId voteUserId = new VoteUserId(Long.parseLong(voteId), fuser.getUserId());
+		
 		
 		String[] itemsIds = request.getParameterValues("itemsIds");
 		// 处理表单代码 start
 		//String voteFlag = request.getParameter("voteFlag");
 		//HttpSession session = request.getSession();
-		if (voteId != null && itemsIds != null) {
-			// 更新人气值
-			voteService.updateTitleVoteCount(voteId);
-			// 更新投票选项投票数
-			voteService.updateItemsBallotCount(itemsIds);
-			
-			//记录用户投票信息
-			voteUserService.saveObject(new VoteUser(voteUserId));
+		//用户刷新
+		if(fuser != null){
+			VoteUserId voteUserId = new VoteUserId(Long.parseLong(voteId), fuser.getUserId());
+			//检查用户是否已经投票
+			VoteUser voteUserExist = (VoteUser)voteUserService.queryObjectById(VoteUser.class, voteUserId);
+			if(voteUserExist != null){
+				if (voteId != null && itemsIds != null) {
+					// 更新人气值
+					voteService.updateTitleVoteCount(voteId);
+					// 更新投票选项投票数
+					voteService.updateItemsBallotCount(itemsIds);
+					
+					//记录用户投票信息
+					voteUserService.saveObject(new VoteUser(voteUserId));
+					return queryVoteList(mapping, form, request, response);
+				}
+			}
 		}
 		return queryVoteList(mapping, form, request, response);
 	}

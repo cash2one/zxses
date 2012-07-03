@@ -390,6 +390,7 @@
 			path="/view/messagemanage" parameter="method" scope="request"
 			type="com.lcweb.struts.action.MessageManageAction">
 			<forward name="messageList" path="/view/messagemanage/messageList.jsp"></forward>
+			<forward name="messageDetails" path="/view/messagemanage/messageDetails.jsp"></forward>
 		</action>
 		<!-- message(background frontmessage) end  -->
 		

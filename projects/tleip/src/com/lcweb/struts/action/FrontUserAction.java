@@ -23,6 +23,28 @@ public class FrontUserAction extends DispatchAction {
 	public void setFrontLoginService(FrontLoginService frontLoginService) {
 		this.frontLoginService = frontLoginService;
 	}
+	
+	/**
+	 * 解决首页静态化页面登录信息丢失 ajax请求
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward checkLoginStatus(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		FrontUser fuser = (FrontUser)request.getSession().getAttribute("frontUserInfo");
+		if(fuser != null){
+			//WebUtil.writeResponse(response, "login");
+			return new ActionForward("/client/index/content/login_reg/userInfo.jsp");
+			//return null;
+		}else{
+			//WebUtil.writeResponse(response, "unLogin");
+			//return null;
+			return new ActionForward("/client/index/content/login_reg/userLogin.jsp");
+		}
+	}
 
 	/**
 	 * 用户登录验证

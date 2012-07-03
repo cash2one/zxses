@@ -31,6 +31,8 @@
 		<script type="text/javascript"
 			src="<%=basePath%>res/client/js/util.js"></script>
 		<%@ include file="/inc/resources.jsp"%>
+		<script type="text/javascript"
+			src="${basePath}client/index/content/login_reg/jsfiles/login.js"></script>
 	</head>
 	<body>
 		<div id="warp">
@@ -54,7 +56,7 @@
 					<div class="regit">
 						<!--index_login-->
 						<bean:include id="queryLogin"
-							page="/client/newsClient.do?method=queryLogin" />
+							page="/client/newsClient.do?method=queryLoginForStatic" />
 						<bean:write name="queryLogin" filter="false" />
 					</div>
 					<div class="libry">

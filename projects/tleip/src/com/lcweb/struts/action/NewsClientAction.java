@@ -172,6 +172,18 @@ public class NewsClientAction extends DispatchAction {
 		request.setAttribute("classId", classId);
 		return new ActionForward("/client/index/content/contact_second.jsp");
 	}
+	
+	/**
+	 * 
+	 * @Description: 首页登陆静态化处理
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	public ActionForward queryLoginForStatic(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		return new ActionForward("/client/index/content/loginForStatic.jsp");
+	}
+	
 	/**
 	 * 
 	 * @Description: 首页登陆

@@ -20,7 +20,7 @@
 <script type="text/javascript">
 	$(function () {
 		$("#ballot_id").click(function(){
-			validateSubmit($("#voteId"),voteForm);
+			validateSubmit($("#voteId"),VoteForm);
 		});
 	});
 	

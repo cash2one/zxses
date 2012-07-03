@@ -109,7 +109,7 @@
 																										<div style="width: ${items.itemBallot * 170/ totalCount }px;" class="style${colorCount }" id="process_bar_361707_25592"></div></div>
 																									</td>
 																									<td width="110" id="process_txt_361707_25592" style="display: block; " class="black">
-																										<nobr><fmt:formatNumber value="${items.itemBallot }" pattern="#,##0" type="number"/> (<fmt:formatNumber value="${items.itemBallot * 100 / totalCount}" pattern="0.00" type="number"/>%)</nobr>
+																										<nobr><fmt:formatNumber value="${items.itemBallot }" pattern="#,##0" type="number"/>票 (占<fmt:formatNumber value="${items.itemBallot * 100 / totalCount}" pattern="0.00" type="number"/>%)</nobr>
 																									</td>
 																								</tr>
 																								<c:set var="colorCount" value="${colorCount + 1}" scope="page"/>

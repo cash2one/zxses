@@ -11,6 +11,8 @@ import org.apache.struts.actions.DispatchAction;
 import com.lcweb.base.util.PageList;
 import com.lcweb.base.util.SysObj;
 import com.lcweb.bean.pojo.BasicPerson;
+import com.lcweb.bean.pojo.FrontMessage;
+import com.lcweb.bean.pojo.VoteTitle;
 import com.lcweb.commons.CheckRight;
 import com.lcweb.service.message.MessageService;
 
@@ -40,6 +42,18 @@ public class MessageManageAction extends DispatchAction {
 		request.setAttribute("pageList", pageList);
 		
 		return mapping.findForward("messageList");
+	}
+	
+	/**
+	 * 查看留言详情
+	 */
+	public ActionForward viewDetails(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		String messageId = request.getParameter("messageId");
+		FrontMessage message = (FrontMessage) messageService.queryObjectById(FrontMessage.class, Long.valueOf(messageId));
+		request.setAttribute("messageInfo", message);
+
+		return mapping.findForward("messageDetails");
 	}
 	
 	/**

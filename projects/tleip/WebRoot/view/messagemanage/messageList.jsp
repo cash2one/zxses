@@ -22,6 +22,31 @@
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/admin/js/coolwindow.js"></script>
 		<script type="text/javascript">
+			var editvalue;
+			function checkNum(){
+	            var chkbs = document.getElementsByName("check");   
+	            var chkNum = 0;   
+	            for(i=0;i<chkbs.length;i++)
+	            {
+	              if(chkbs(i).checked){
+	                chkNum++;
+	                editvalue=chkbs[i].value;
+	                }
+	            }
+	            if(chkNum<1)
+	            {
+	              alert("请选择一条记录!");
+	              return false;
+	            }
+	            else if(chkNum>1)
+	            {
+	               alert("您一次只能选择一条记录！");
+	            }
+	            else{
+	               return true;
+	            }          
+	        }
+		
 	        function checkDelNum()
 	        {
 	            var chkbs = document.getElementsByName("check");   
@@ -85,6 +110,18 @@
 	             return false;
 	          }
 	        } 
+	        
+	        function viewDetails()
+	        { 
+	          if(checkNum())
+	          {
+	             window.location.href="<%=basePath%>view/messagemanage.do?method=viewDetails&messageId=" + editvalue;
+	          }
+	          else
+	          {
+	             return false;
+	          }
+	        }
 		</script>
 	</head>
 
@@ -107,6 +144,8 @@
 								onclick="javascript:approveMember()" value="审批" />
 							&nbsp;
 							--%>
+							<input type="button" class="an" onclick="viewDetails()" value="查看详情" title="查看详情"/>
+							&nbsp;
 							<input type="button" class="an" onclick="approveMember()" value="审批" title="审批"/>
 							&nbsp;
 							<input type="button" class="an" onclick="unApproveMember()" value="反审批" title="反审批"/>

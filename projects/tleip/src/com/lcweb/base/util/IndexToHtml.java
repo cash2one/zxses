@@ -60,7 +60,7 @@ public class IndexToHtml {
 		// HTML_INDEXBANNER
 		paraMap.put(GlobalConst.HTML_INDEXBANNER, basePath + "client/newsClient.do?method=queryIndexBanner");
 		// HTML_LOGIN
-		paraMap.put(GlobalConst.HTML_LOGIN, basePath + "client/newsClient.do?method=queryLogin");
+		paraMap.put(GlobalConst.HTML_LOGIN, basePath + "client/newsClient.do?method=queryLoginForStatic");
 		// HTML_TABS
 		paraMap.put(GlobalConst.HTML_TABS, basePath + "client/newsClient.do?method=queryTabs");
 		// HTML_TABSPIC

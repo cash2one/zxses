@@ -9,7 +9,6 @@
 	<li><a href="${basePath}front/login.do?method=loginOut">注销</a></li>
 </ul>
 --%>
-
 <div class="for_form_sec">
 	<p>
 		<span>欢迎您：${frontUserInfo.userAccount }</span>
