@@ -7,6 +7,8 @@ public class SysBlogTypeForm extends ActionForm {
 	private String typeName;
 	private String typeDes;
 	private String typeCode;
+	private Integer typeOrder;
+	private Byte available;
 	private String extFirst;
 	private String extSecond;
 	
@@ -45,5 +47,17 @@ public class SysBlogTypeForm extends ActionForm {
 	}
 	public void setExtSecond(String extSecond) {
 		this.extSecond = extSecond;
+	}
+	public Integer getTypeOrder() {
+		return typeOrder;
+	}
+	public void setTypeOrder(Integer typeOrder) {
+		this.typeOrder = typeOrder;
+	}
+	public Byte getAvailable() {
+		return available;
+	}
+	public void setAvailable(Byte available) {
+		this.available = available;
 	}
 }
