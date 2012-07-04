@@ -252,7 +252,9 @@ h2{ font-size:24px; position:absolute; top:45px; left:67px;}
 
 .page3{  margin-top:10px; width:712px; height:202px; overflow:hidden; background:url(img/wx_05.gif) no-repeat;}
 .list3{ padding-top:25px;}
-.list3 li{ height:22px; line-height:22px; border:none; width:90%;}
+.list3 li{ height:22px; line-height:22px; border:none; width:90%; background: url(img/wx_icon4.gif) no-repeat left;}
+.list3 li a{ color:#fff;}
+.list3 li a:hover{ color:#ff0000;}
 .wx_link{ position:absolute; right:10px; top:58px;}
 .wx_link a{ display:block;  width:29px; height:78px;}
 .wx_link a span{ display:none;}
@@ -267,6 +269,13 @@ h2{ font-size:24px; position:absolute; top:45px; left:67px;}
 #wx_main .art_title{ padding-bottom:10px;}
 #wx_main .art_title span{  background:url(img/breg.gif) no-repeat 0px top; padding:10px 0px 10px 45px; }
 
+/*floater*/
+#floatDivr{ background:url(img/kf.jpg) no-repeat; width:147px; height:295px; overflow:hidden; text-align:center;}
+#floatDivr .float{ margin-top:110px;}
+#floatDivr .float a{ display:block; margin-top:20px; color:#fff;}
+#floatDivr .float a img{ margin-right:5px;}
+#floatDivr .float .mqq{ width:80px; margin-top:30px;}
+#floatDivr .float .mqq p{ padding:0px; height:18px; color:#4e0606;}
 /*文学搜索列表*/
 
 

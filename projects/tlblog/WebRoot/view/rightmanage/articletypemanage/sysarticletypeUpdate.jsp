@@ -28,12 +28,35 @@
 		
 		<script language="JavaScript" type="text/JavaScript"> 
 		  function update()
-		  {		    
-		    sysBlogTypeForm.submit();
+		  {	
+		  	if(check()){	    
+		    	sysBlogTypeForm.submit();
+		    }
 		  }
 		  function back()
           {
 		     window.location.href="<%=basePath%>view/sysblogtype.do";
+		  }
+		  function check(){
+		  	//简单验证
+			var typeName = $("#typeName").val();
+			var typeOrder = $("#typeOrder").val();
+			//var checkCode = $("#extFirst").val();
+			
+			if($.trim(typeName) == ""){
+				alert("请输入类型名称！");
+				return false;
+			}
+			if($.trim(typeOrder) == ""){
+				alert("请输入排序号！");
+				return false;
+			}else{
+				if(!validate.testIntegerNumber($.trim(typeOrder))){
+					alert("请输入整数！");
+					return false;
+				}
+			}
+			return true;
 		  }	
 		</script>
 	</head>

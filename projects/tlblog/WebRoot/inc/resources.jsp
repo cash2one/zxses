@@ -18,5 +18,5 @@
 <script type="text/javascript" src="${basePath}res/client/js/webPath4Js.jsp"></script>
 
 <!-- util method -->
-<script type="text/javascript" src="${basePath}res/client/js/util.js"></script>
+<script type="text/javascript" src="${basePath}res/common/js/util.js"></script>
 		

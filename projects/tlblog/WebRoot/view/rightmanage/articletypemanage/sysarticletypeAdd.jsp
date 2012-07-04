@@ -12,25 +12,13 @@
 <html>
 	<head>
 		<title>新增博客类型</title>
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/old.css">
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css">
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/checkright.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/common.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/jquery.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/coolwindow.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/jquery.form.js"></script>
-		
+		<%@ include file="/inc/backresources.jsp"%>
 		<script language="JavaScript" type="text/JavaScript"> 
 		  function add()
 		  {		    
-	    	 sysBlogTypeForm.submit();
+		  	 if(check()){
+	    	 	sysBlogTypeForm.submit();
+	    	 }
 		  }
 		  function back()
           {
@@ -47,9 +35,15 @@
 				return false;
 			}
 			if($.trim(typeOrder) == ""){
-				$.alert("请输入排序号！");
+				alert("请输入排序号！");
 				return false;
+			}else{
+				if(!validate.testIntegerNumber($.trim(typeOrder))){
+					alert("请输入整数！");
+					return false;
+				}
 			}
+			return true;
 		  }
 		</script>
 	</head>
@@ -103,7 +97,7 @@
 													</tr>
 													<tr>
 														<td width="20%" class="td_left">
-															<font color="#ff0000">* </font>类型描述:&nbsp;
+															类型描述:&nbsp;
 														</td>
 														<td width="30%" class="td_right">
 															<input type="text" name="typeDes" id="typeDes" size="30" maxlength="20" />

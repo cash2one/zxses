@@ -18,7 +18,7 @@
 				<span>用户名：</span><input name="username" id="username" type="text"/>
 				<span>密码：</span><input name="password" id="password" type="password"/>
 				<input name="frontLogin" id="frontLogin" type="button" value="登陆" />
-				<span style="padding: 0px;"><a href="${basePath}loginOut">忘记密码?</a></span>
+				<%--<span style="padding: 0px;"><a href="${basePath}loginOut">忘记密码?</a></span>--%>
 			</div>
 			<div style="display: inline;float: right; padding-right: 45px;">
 				<span>快速搜索：</span><input name="" type="text" /><input value="搜索" type="button"/>

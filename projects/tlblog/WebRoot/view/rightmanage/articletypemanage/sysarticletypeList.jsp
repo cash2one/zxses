@@ -12,20 +12,7 @@
 	<head>
 
 		<title>文章类型管理</title>
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/old.css">
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css">
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/checkright.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/common.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/jquery.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/coolwindow.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/jquery.form.js"></script>
+		<%@ include file="/inc/backresources.jsp"%>
 		<script type="text/javascript">
            
         function add(){
@@ -189,6 +176,9 @@
 														<td class="chutibai tdbk">
 															用户类型
 														</td>
+														<td class="chutibai tdbk">
+															排序号
+														</td>
 													</tr>
 													<!-- 列表数据栏 -->
 											        <c:if test="${!empty qs.resultlist}">
@@ -210,6 +200,9 @@
 																	<td class="tdcenter tdbk">
 																		${entity.extFirst=="student"?"学生":"教师" }
 																	</td>
+																	<td class="tdcenter tdbk">
+																		${entity.typeOrder}
+																	</td>
 														        </tr>
 													        </c:if>
 													        <c:if test="${(status.index+1)%2 !=0}">
@@ -229,6 +222,9 @@
 																	<td class="tdcenter tdbk">
 																		${entity.extFirst=="student"?"学生":"教师" }
 																	</td>
+																	<td class="tdcenter tdbk">
+																		${entity.typeOrder}
+																	</td>
 														        </tr>
 													        </c:if>
 												        </c:forEach>
@@ -236,7 +232,7 @@
 													<!-- 在列表数据为空的时候，要显示的提示信息 **!!根据标题列数修改colspan大小-->
 												    <c:if test="${empty qs.resultlist}">
 													    <tr class="trcolor" onMouseOver="this.className='cstd2'" onMouseOut="this.className='trcolor'">
-													    	<td colspan="5" align="center">
+													    	<td colspan="6" align="center">
 													    	没有找到相应的记录!
 													    	</td>
 													    </tr>
