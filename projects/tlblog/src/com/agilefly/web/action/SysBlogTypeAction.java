@@ -49,6 +49,7 @@ public class SysBlogTypeAction extends BaseAction{
 		//排序
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put("extFirst", "asc");
+		orderby.put("id", "asc");
 		
 		request.setAttribute("qs", sysBlogTypeService.getScrollDataByThread(whereHql,params,orderby));
 		
@@ -98,7 +99,10 @@ public class SysBlogTypeAction extends BaseAction{
 		SysType type = new SysType();
 		
 		BeanUtilEx.copyProperties(type, sbtf);
+		//博客类型选项标识
 		type.setTypeCode(SysConstant.ARTICLE_TYPE);
+		//记录有效
+		type.setAvailable((byte)1);
 		
 		sysBlogTypeService.save(type);
 		

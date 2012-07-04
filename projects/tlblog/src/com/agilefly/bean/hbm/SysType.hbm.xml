@@ -19,6 +19,12 @@
         <property name="typeCode" type="java.lang.String">
             <column name="type_code" length="50" />
         </property>
+        <property name="typeOrder" type="java.lang.Integer">
+            <column name="type_order"/>
+        </property>
+        <property name="available" type="java.lang.Byte">
+            <column name="available" />
+        </property>
         <property name="extFirst" type="java.lang.String">
             <column name="ext_first" length="50" />
         </property>
