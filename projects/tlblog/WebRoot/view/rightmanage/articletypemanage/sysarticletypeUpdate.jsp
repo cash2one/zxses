@@ -86,10 +86,18 @@
 											</tr>
 											<tr>
 												<td width="20%" class="td_left">
-													<font color="#ff0000">* </font>类型描述:&nbsp;
+													类型描述:&nbsp;
 												</td>
 												<td width="30%" class="td_right">
 													<input type="text" name="typeDes" id="typeDes" value="${sysBlogTypeInfo.typeName }" size="30" maxlength="20" />
+												</td>
+											</tr>
+											<tr>
+												<td width="20%" class="td_left">
+													<font color="#ff0000">* </font>排序号:&nbsp;
+												</td>
+												<td width="30%" class="td_right">
+													<input type="text" name="typeOrder" id="typeOrder" value="${sysBlogTypeInfo.typeOrder }" size="30" maxlength="20" />
 												</td>
 											</tr>
 											<tr>

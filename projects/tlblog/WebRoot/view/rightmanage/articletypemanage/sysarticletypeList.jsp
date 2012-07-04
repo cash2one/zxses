@@ -93,22 +93,10 @@
           if(checkDelNum())
           {
              if(window.confirm("确定删除这些数据吗？"))
-             {sysblogtype
+             {
 	             sysBlogTypeForm.action="<%=basePath%>view/sysblogtype.do?method=del";
 	             sysBlogTypeForm.submit();
              }
-          }
-          else
-          {
-             return false;
-          }
-        }
-        
-        function assignPrivilege()
-        {
-          if(checkNum())
-          {
-             window.location.href="<%=basePath%>view/sysblogtype.do?method=assignPrivilegeInput&sysTypeId="+ editvalue;
           }
           else
           {
@@ -220,7 +208,7 @@
 																		${entity.typeDes}
 																	</td>
 																	<td class="tdcenter tdbk">
-																		${sysBlogTypeInfo.extFirst=="student"?"学生":"教师" }
+																		${entity.extFirst=="student"?"学生":"教师" }
 																	</td>
 														        </tr>
 													        </c:if>
@@ -239,7 +227,7 @@
 																		${entity.typeDes}
 																	</td>
 																	<td class="tdcenter tdbk">
-																		${sysBlogTypeInfo.extFirst=="student"?"学生":"教师" }
+																		${entity.extFirst=="student"?"学生":"教师" }
 																	</td>
 														        </tr>
 													        </c:if>

@@ -36,6 +36,21 @@
           {
 		     window.location.href="<%=basePath%>view/sysblogtype.do";
 		  }	
+		  function check(){
+		  	//简单验证
+			var typeName = $("#typeName").val();
+			var typeOrder = $("#typeOrder").val();
+			//var checkCode = $("#extFirst").val();
+			
+			if($.trim(typeName) == ""){
+				alert("请输入类型名称！");
+				return false;
+			}
+			if($.trim(typeOrder) == ""){
+				$.alert("请输入排序号！");
+				return false;
+			}
+		  }
 		</script>
 	</head>
 	<body>		
@@ -92,6 +107,14 @@
 														</td>
 														<td width="30%" class="td_right">
 															<input type="text" name="typeDes" id="typeDes" size="30" maxlength="20" />
+														</td>
+													</tr>
+													<tr>
+														<td width="20%" class="td_left">
+															<font color="#ff0000">* </font>排序号:&nbsp;
+														</td>
+														<td width="30%" class="td_right">
+															<input type="text" name="typeOrder" id="typeOrder" size="30" maxlength="20" />
 														</td>
 													</tr>
 													<tr>
