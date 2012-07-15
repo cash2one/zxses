@@ -4,7 +4,7 @@
 
 <div id="headFirst" style="display: inline;float: left;padding-left:45px;">
 	<span>欢迎您：</span>
-	<span style="padding: 0px;"><a href="${basePath }blog/${frontUserInfo.username }">${frontUserInfo.username }</a></span>
+	<span style="padding: 0px;"><a href="${basePath }client/blog.do?method=searchUser&currentUserName=${frontUserInfo.username }">${frontUserInfo.username }</a></span>
 	<span>今天是：<%=DateUtils.getChinaDate()%></span>
 	<span style="padding: 0px;"><a href="${basePath}loginOut">【注销】</a></span>
 </div>

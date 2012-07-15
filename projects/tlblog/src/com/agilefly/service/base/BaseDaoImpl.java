@@ -49,10 +49,11 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements Base
 	public T find(Serializable entityId) {
 		if(entityId==null) throw new RuntimeException(this.entityClass.getName()+ ":传入的实体id不能为空");
 		//测试用
-		//return (T)getHibernateTemplate().get(this.entityClass, entityId);
-		if(entityId instanceof String) {
+		
+		/*if(entityId instanceof String) {
 			entityId = Integer.parseInt((String)entityId);
-		}
+		}*/
+		//return (T)getHibernateTemplate().get(this.entityClass, entityId);
 		return (T)getHibernateTemplate().load(this.entityClass, entityId);
 	}
 	

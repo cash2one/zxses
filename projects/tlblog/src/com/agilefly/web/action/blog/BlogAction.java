@@ -1,5 +1,7 @@
 package com.agilefly.web.action.blog;
 
+import java.util.LinkedHashMap;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +13,10 @@ import org.springframework.stereotype.Controller;
 
 import com.agilefly.bean.BlogArticle;
 import com.agilefly.bean.SysUser;
+import com.agilefly.commons.QueryResult;
+import com.agilefly.commons.SysConstant;
+import com.agilefly.service.blogarticle.IBlogArticleSearchService;
+import com.agilefly.service.blogarticle.IBlogArticleService;
 import com.agilefly.service.systemuser.ISysUserService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
@@ -26,9 +32,15 @@ import com.agilefly.web.form.BlogArticleForm;
 public class BlogAction extends BaseAction {
 	@Resource
 	private ISysUserService sysUserService;
+	@Resource
+	private IBlogArticleService blogArticleService;
 	
 	public void setSysUserService(ISysUserService sysUserService) {
 		this.sysUserService = sysUserService;
+	}
+	
+	public void setBlogArticleService(IBlogArticleService blogArticleService) {
+		this.blogArticleService = blogArticleService;
 	}
 
 	/**
@@ -43,12 +55,33 @@ public class BlogAction extends BaseAction {
 	public ActionForward searchUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//获取用户博客信息
 		//SysUserForm suf = (SysUserForm)form;
-		String username = request.getParameter("username");
+		String username = request.getParameter("currentUserName");
 		
 		SysUser blogUser = sysUserService.findByUname(username);
 		
-		request.getSession().setAttribute("blogUser", blogUser);
+		request.setAttribute("blogUser", blogUser);
+		//获取用户的文章--如果博客用户为当前登录用户查询博客用户隐藏的文章
+		SysUser frontUser = (SysUser)request.getSession().getAttribute("frontUserInfo");
 		
+		if(frontUser != null){
+			if(username.equals(frontUser.getUsername())){
+				//查询所有文章--按照发表时间
+				String whereHql = "o.userId=? ";
+				Object[] params = new Object[]{blogUser.getId()};
+				LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+				orderby.put("postTime", "desc");
+				QueryResult<BlogArticle> blogArticleQs = blogArticleService.getScrollDataByThread(whereHql,params,orderby);
+				request.setAttribute("qs", blogArticleQs);
+			}
+		}else{
+			//查询所有公开文章--按照发表时间
+			String whereHql = "o.userId=? and o.publicStatus=? ";
+			Object[] params = new Object[]{blogUser.getId(),(byte)1};
+			LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+			orderby.put("postTime", "desc");
+			QueryResult<BlogArticle> blogArticleQs = blogArticleService.getScrollDataByThread(whereHql,params,orderby);
+			request.setAttribute("qs", blogArticleQs);
+		}
 		return mapping.findForward("blogindex");
 	}
 	

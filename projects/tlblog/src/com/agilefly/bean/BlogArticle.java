@@ -15,21 +15,53 @@ import org.compass.annotations.Store;
 
 @Searchable
 public class BlogArticle  implements java.io.Serializable {
-
-
     // Fields    
-
      private Integer id;
      private Integer userId;
      private String articleTitle;
      private String articleContent;
      private Integer articleTypeId;
      private Date postTime;
+     private Integer readCount;
+     //是否公开
+     private Byte publicStatus;
+     //是否可评论
+     private Byte commentStatus;
+     //是否审核
+     private Byte approveStatus;
+     //是否推荐
+     private Byte recommendStatus;
+     
+     private SysType sysType;
 
 
     // Constructors
 
-    /** default constructor */
+    public SysType getSysType() {
+		return sysType;
+	}
+
+	public void setSysType(SysType sysType) {
+		this.sysType = sysType;
+	}
+
+	public Byte getApproveStatus() {
+		return approveStatus;
+	}
+
+	public void setApproveStatus(Byte approveStatus) {
+		this.approveStatus = approveStatus;
+	}
+
+	public Byte getRecommendStatus() {
+		return recommendStatus;
+	}
+
+	public void setRecommendStatus(Byte recommendStatus) {
+		this.recommendStatus = recommendStatus;
+	}
+
+	/** default constructor */
     public BlogArticle() {
     }
 
@@ -130,5 +162,29 @@ public class BlogArticle  implements java.io.Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public Byte getPublicStatus() {
+		return publicStatus;
+	}
+
+	public void setPublicStatus(Byte publicStatus) {
+		this.publicStatus = publicStatus;
+	}
+
+	public Byte getCommentStatus() {
+		return commentStatus;
+	}
+
+	public void setCommentStatus(Byte commentStatus) {
+		this.commentStatus = commentStatus;
+	}
+
+	public Integer getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(Integer readCount) {
+		this.readCount = readCount;
 	}
 }

@@ -9,6 +9,7 @@
 <style type="text/css">
 	body{ background:url(${basePath }res/client/css/img/wx_bg.jpg) repeat;}
 </style>
+<script type="text/javascript" src="${basePath}res/client/js/indexjava.js"></script>
 <script type="text/javascript" src="${basePath}tools/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="${basePath}client/index/jsfiles/reg.js"></script>
 </head>
@@ -135,5 +136,7 @@
 	<!-- 底部 end -->
 </div>
 </div>
+	<!--floater onlin-->
+	<jsp:include page="/client/index/floater.jsp"/>
 </body>
 </html>

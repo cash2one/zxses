@@ -1,5 +1,8 @@
 package com.agilefly.web.action.blogarticle;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +13,11 @@ import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
 
 import com.agilefly.bean.BlogArticle;
+import com.agilefly.bean.SysType;
+import com.agilefly.bean.SysUser;
 import com.agilefly.service.blogarticle.IBlogArticleService;
+import com.agilefly.service.sysblogtype.ISysBlogTypeService;
+import com.agilefly.service.systemuser.ISysUserService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.action.BaseAction;
@@ -25,9 +32,21 @@ import com.agilefly.web.form.BlogArticleForm;
 public class BlogArticleAction extends BaseAction {
 	@Resource
 	private IBlogArticleService blogArticleService;
+	@Resource
+	private ISysBlogTypeService sysBlogTypeService;
+	@Resource
+	private ISysUserService sysUserService;
 	
+	public void setSysUserService(ISysUserService sysUserService) {
+		this.sysUserService = sysUserService;
+	}
+
 	public void setBlogArticleService(IBlogArticleService blogArticleService) {
 		this.blogArticleService = blogArticleService;
+	}
+	
+	public void setSysBlogTypeService(ISysBlogTypeService sysBlogTypeService) {
+		this.sysBlogTypeService = sysBlogTypeService;
 	}
 
 	/**
@@ -55,6 +74,13 @@ public class BlogArticleAction extends BaseAction {
 	 */
 	//@Permission(model="sysModuleManage", privilegeValue="add")
 	public ActionForward addInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		SysUser frontUser = (SysUser)request.getSession().getAttribute("frontUserInfo");
+		if(frontUser == null){
+			return mapping.findForward("clientLogin");
+		}
+		//根据登录用户类型加载文章类型下拉框值
+		List<SysType> sysBlogTypeList = sysBlogTypeService.searchSysBlogTypes(frontUser.getUserType());
+		request.setAttribute("sysBlogTypeList", sysBlogTypeList);
 		return mapping.findForward("add_input");
 	}
 	
@@ -69,17 +95,35 @@ public class BlogArticleAction extends BaseAction {
 	 */
 	//@Permission(model="sysModuleManage", privilegeValue="add")
 	public ActionForward add(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		SysUser frontUser = (SysUser)request.getSession().getAttribute("frontUserInfo");
+		
+		if(frontUser == null){
+			return mapping.findForward("clientLogin");
+		}
+		
 		BlogArticleForm baf = (BlogArticleForm)form;
 		BlogArticle article = new BlogArticle();
 		
 		BeanUtilEx.copyProperties(article, baf);
+		if(article.getCommentStatus() == null){
+			article.setCommentStatus((byte)0);
+		}
+		SysType articleType = sysBlogTypeService.find(baf.getArticleTypeId());
+		article.setSysType(articleType);
+		article.setUserId(frontUser.getId());
+		article.setPostTime(new Date());
 		//获取编辑器内容
-		article.setArticleContent(request.getParameter("editor_k"));
+		//article.setArticleContent(request.getParameter("editor_k"));
 		
 		blogArticleService.save(article);
 		
-		request.setAttribute("showMsg", SysObj.createAddMassageBox(""));
-		return unspecified(mapping, form, request,response);
+		//request.setAttribute("showMsg", SysObj.createAddMassageBox(""));
+		//获取用户博客信息
+		//SysUserForm suf = (SysUserForm)form;
+		request.setAttribute("blogUser", frontUser);
+		
+		return new ActionForward("",true);//mapping.findForward("blogindex");
+		//return unspecified(mapping, form, request,response);
 		//return mapping.findForward("pub_add_success");
 	}
 	

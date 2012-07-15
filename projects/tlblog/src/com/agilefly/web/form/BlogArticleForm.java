@@ -6,8 +6,15 @@ public class BlogArticleForm extends ActionForm {
 	private Integer id;
 	private String articleTitle;
 	private String articleContent;
-	private Short articleTypeId;
-	
+	private Integer articleTypeId;
+	//是否公开
+    private Byte publicStatus;
+    //是否可评论
+    private Byte commentStatus;
+    
+    //当前博客用户
+    private String currentUserName;
+    
 	public Integer getId() {
 		return id;
 	}
@@ -26,10 +33,22 @@ public class BlogArticleForm extends ActionForm {
 	public void setArticleContent(String articleContent) {
 		this.articleContent = articleContent;
 	}
-	public Short getArticleTypeId() {
+	public Integer getArticleTypeId() {
 		return articleTypeId;
 	}
-	public void setArticleTypeId(Short articleTypeId) {
+	public void setArticleTypeId(Integer articleTypeId) {
 		this.articleTypeId = articleTypeId;
+	}
+	public Byte getPublicStatus() {
+		return publicStatus;
+	}
+	public void setPublicStatus(Byte publicStatus) {
+		this.publicStatus = publicStatus;
+	}
+	public Byte getCommentStatus() {
+		return commentStatus;
+	}
+	public void setCommentStatus(Byte commentStatus) {
+		this.commentStatus = commentStatus;
 	}
 }

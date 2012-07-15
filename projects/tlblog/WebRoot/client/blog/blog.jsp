@@ -24,7 +24,7 @@
 			<!-- 右边文章列表 begin -->
 			<div class="bl_right fr">
 				<div class="bl_r_title">
-					<h1>博文</h1>
+					<h1>文章列表</h1>
 					<!-- 用户未登录不显示，登录用户与当前博客不是同一个用户不显示 -->
 					<c:if test="${frontUserInfo != null}">
 						<c:if test="${frontUserInfo == blogUser}">
@@ -44,15 +44,14 @@
 					        <c:if test="${!empty qs.resultlist}">
 						        <c:forEach items="${qs.resultlist }" var="entity" varStatus="status">
 							        <li>
-										<h1>${entity.articleTitle }
-											<p>标签：<span>杂谈</span></p>
+										<h1><a href="" class="bl_more">${entity.articleTitle }</a>
+											<p>博客分类：<span>杂谈</span></p>
 										</h1>
 										<p>${entity.articleContent }</p>
 										<div class="page">
 											阅读<span>（6）</span>|
 											<a href="">评论</a><span>（0）</span>|
-											<a href="">收藏</a>|
-											<span>2012-05-28 10:09:27</span>
+											<span>${entity.postTime }</span>
 											<a href="" class="bl_more" title="查看更多">查看更多》</a>
 										</div>
 									</li>
@@ -66,46 +65,49 @@
 							    	</td>
 							    </tr>
 						    </c:if>
-						
-							
-							<li>
-								<h1>多读一点书，就高一点点。。。
-									<p>标签：<span>杂谈</span></p>
-								</h1>
-								<p>高高在上的猴子小姐：“多读一本书，就高一点点……”（知识能改变对快乐的感知、对痛苦的耐受力、乃至于世界观、命运、人生、还有家庭地位神马的……没文化在家里说话也没底气啊…………）</p>
-								<div class="page">
-									阅读<span>（6）</span>|
-									<a href="">评论</a><span>（0）</span>|
-									<a href="">收藏</a>|
-									<span>2012-05-28 10:09:27</span>
-									<a href="" class="bl_more" title="查看更多">查看更多》</a>
-								</div>
-							</li>
-							<li>
-								<h1>多读一点书，就高一点点。。。
-									<p>标签：<span>杂谈</span></p>
-								</h1>
-								<p>高高在上的猴子小姐：“多读一本书，就高一点点……”（知识能改变对快乐的感知、对痛苦的耐受力、乃至于世界观、命运、人生、还有家庭地位神马的……没文化在家里说话也没底气啊…………）</p>
-								<div class="page">
-									阅读<span>（6）</span>|
-									<a href="">评论</a><span>（0）</span>|
-									<a href="">收藏</a>|
-									<span>2012-05-28 10:09:27</span>
-									<a href="" class="bl_more" title="查看更多">查看更多》</a>
-								</div>
-							</li>
 						</ul>
 					</div>
 					
 					<!-- 插入分页 begin -->
 					<div class="digg4" style=" text-align:center;">
-						<ul >
+						<%--<ul >
 							<li ><a href="" class="diga">首页</a></li>
 							<li><a href="">上一页</a></li>
 							<li class="diggcurrent">1</li>
 							<li><a href="">下一页</a></li>
 							<li><a href="">未页</a></li>
 						</ul>
+					--%>
+						<!-- 在这里插入分页导航条 -->
+						<!-- 最少有一条记录才显示分页导航条(否则出现首页和尾页点击尾页报错！) !!修改对应的url-->
+						<c:if test="${qs.totalrecord > 0 }">
+				       		<pg:pager items="${qs.totalrecord }" url="${basePath }client/blog.do" export="currentPageNumber=pageNumber">
+								<pg:param name="method"/>
+								<pg:param name="currentUserName"/>
+								<pg:first>
+									<a href="${pageUrl }">首页</a>
+								</pg:first>
+								<pg:prev>
+									<a href="${pageUrl }">前页</a>
+								</pg:prev>
+								<pg:pages>
+									<c:choose>
+										<c:when test="${currentPageNumber eq pageNumber}">
+											<font color="red">${pageNumber }</font>
+										</c:when>
+										<c:otherwise>
+											<a href="${pageUrl }">${pageNumber }</a>
+										</c:otherwise>
+									</c:choose>
+								</pg:pages>
+								<pg:next>
+									<a href="${pageUrl }">后页</a>
+								</pg:next>
+								<pg:last>
+									<a href="${pageUrl }">尾页</a>
+								</pg:last>
+							</pg:pager>
+						</c:if>
 					</div>
 					<!-- 插入分页 begin -->
 					

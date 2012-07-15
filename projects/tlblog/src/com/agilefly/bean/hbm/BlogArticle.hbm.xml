@@ -19,11 +19,24 @@
         <property name="articleContent" type="java.lang.String">
             <column name="article_content" />
         </property>
-        <property name="articleTypeId" type="java.lang.Integer">
-            <column name="article_type_id" not-null="true" />
-        </property>
         <property name="postTime" type="java.util.Date">
             <column name="post_time" length="23" />
         </property>
+        <property name="readCount" type="java.lang.Integer">
+            <column name="readCount"/>
+        </property>
+        <property name="publicStatus" type="java.lang.Byte">
+            <column name="publicStatus"/>
+        </property>
+        <property name="commentStatus" type="java.lang.Byte">
+            <column name="commentStatus"/>
+        </property>
+        <property name="approveStatus" type="java.lang.Byte">
+            <column name="approveStatus"/>
+        </property>
+        <property name="recommendStatus" type="java.lang.Byte">
+            <column name="recommendStatus"/>
+        </property>
+        <many-to-one name="sysType" column="article_type_id" class="com.agilefly.bean.SysType" not-null="true"/>
     </class>
 </hibernate-mapping>

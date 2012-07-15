@@ -1,5 +1,6 @@
 package com.agilefly.service.sysblogtype.impl;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -20,6 +21,14 @@ import com.agilefly.service.sysblogtype.ISysBlogTypeService;
 public class SysBlogTypeService extends BaseDaoImpl<SysType> implements ISysBlogTypeService {
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public List<SysType> searchSysBlogTypes(String typecode){
-		return findByCondition("where o.typeCode=? and o.extFirst=?", new Object[]{SysConstant.ARTICLE_TYPE,typecode});
+		
+		String whereHql = "o.typeCode=? and o.extFirst=? ";
+		Object[] params = new Object[]{SysConstant.ARTICLE_TYPE,typecode};
+		
+		//按照排序号排序
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put("typeOrder", "asc");
+		
+		return findByCondition(whereHql, params, orderby);
 	}
 }
