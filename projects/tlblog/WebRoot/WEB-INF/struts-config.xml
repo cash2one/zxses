@@ -28,6 +28,8 @@
 		
 		<!-- 前台全局跳转 -->
 		<forward name="client_message" path="/client/client_message.jsp" />
+		<forward name="clientLogin" path="/client/blog/login.jsp" />
+		<forward name="blogindex" path="/client/blog/blog.jsp"/>
 	</global-forwards>
 
 	<!-- =========================================== Action Mapping Definitions -->
@@ -83,7 +85,8 @@
 		
 		<!-- 博客管理 -->
 		<action path="/client/blog" name="sysUserForm" scope="request" parameter="method">
-			<forward name="blogindex" path="/client/blog/blog.jsp"/>
+			<!--<forward name="blogindex" path="/client/blog/blog.jsp"/>
+			-->
 		</action>
 		
 		<!-- 博客文章管理 -->

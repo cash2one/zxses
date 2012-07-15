@@ -19,10 +19,12 @@
 		<from>^/index.html$</from>
 		<to>/client/index/starts.jsp</to>
 	</rule>
+	<!--
 	<rule>
 		<note>跳转到用户博客</note>
 		<from>^/blog/([a-zA-Z0-9]+)$</from>
-		<to>/client/blog.do?method=searchUser&amp;username=$1</to>
+		<to>/client/blog.do?method=searchUser&amp;currentUserName=$1</to>
 	</rule>
+	-->
 </urlrewrite>
 
