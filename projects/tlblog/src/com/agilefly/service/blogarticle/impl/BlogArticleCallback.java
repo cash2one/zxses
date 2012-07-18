@@ -6,9 +6,7 @@ import java.util.List;
 import org.compass.core.CompassCallback;
 import org.compass.core.CompassException;
 import org.compass.core.CompassHits;
-import org.compass.core.CompassQueryBuilder;
 import org.compass.core.CompassSession;
-import org.compass.core.CompassQueryBuilder.CompassBooleanQueryBuilder;
 
 import com.agilefly.bean.BlogArticle;
 import com.agilefly.commons.QueryResult;
@@ -22,15 +20,37 @@ public class BlogArticleCallback implements CompassCallback<QueryResult<BlogArti
 	@Override
 	public QueryResult<BlogArticle> doInCompass(CompassSession compass) throws CompassException {
 		List<BlogArticle> articles = new ArrayList<BlogArticle>();
-		CompassQueryBuilder queryBuilder = compass.queryBuilder();
-		CompassBooleanQueryBuilder boolQuery = queryBuilder.bool();
-		boolQuery.addMust(queryBuilder.queryString("id:9").toQuery());
+		
+		
+		//CompassQueryBuilder queryBuilder = compass.queryBuilder();
+		//CompassBooleanQueryBuilder boolQuery = queryBuilder.bool();
+		//boolQuery.addMust(queryBuilder.queryString("id:9").toQuery());
 		//boolQuery.addShould(queryBuilder.queryString(key).toQuery());
 		
-		String queryStr = boolQuery.toQuery().toString();
-		System.out.println(queryBuilder.queryString("id:9").toQuery().toString());
+		
+		/*
+		CompassHits hits = session.find(key);
+		int lastIndex = startIndex + maxResult - 1;
+		if(lastIndex>(hits.length()-1)) lastIndex = hits.length()-1;
+		for(int i=startIndex; i<=lastIndex; i++){
+			ProductInfo product = (ProductInfo) hits.data(i);
+			if(hits.highlighter(i).fragment("productName")!=null){//处理高亮显示
+				product.setName(hits.highlighter(i).fragment("productName"));
+			}
+			products.add(product);
+		}
+		QueryResult<ProductInfo> qr = new QueryResult<ProductInfo>();
+		qr.setResultlist(products);
+		qr.setTotalrecord(hits.length());//设置查询到的总记录数
+		return qr;
+		*/
+		
+		
+		
+		//String queryStr = boolQuery.toQuery().toString();
+		//System.out.println(queryBuilder.queryString("id:9").toQuery().toString());
 		//String test = "+id:9 '学习'";
-		CompassHits hits = compass.find(queryBuilder.queryString("id:9").toQuery().toString());//compass.find(key);
+		CompassHits hits = compass.find(key);//compass.find(queryBuilder.queryString("id:9").toQuery().toString());//compass.find(key);
 		int lastIndex = startIndex + maxResult - 1;
 		if(lastIndex > (hits.length()-1)){
 			lastIndex = hits.length()-1;
@@ -62,5 +82,4 @@ public class BlogArticleCallback implements CompassCallback<QueryResult<BlogArti
 		this.startIndex = startIndex;
 		this.maxResult = maxResult;
 	}
-
 }

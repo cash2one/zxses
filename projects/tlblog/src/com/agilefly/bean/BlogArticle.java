@@ -91,7 +91,7 @@ public class BlogArticle  implements java.io.Serializable {
         this.id = id;
     }
 
-    //不分词，存储
+    //不分词索引，存储
     @SearchableProperty(index=Index.NOT_ANALYZED,store=Store.YES)
     public Integer getUserId() {
         return this.userId;
@@ -129,8 +129,8 @@ public class BlogArticle  implements java.io.Serializable {
         this.articleTypeId = articleTypeId;
     }
 
-    //不分词存储
-    @SearchableProperty(index=Index.NOT_ANALYZED,store=Store.YES)
+    //不建立索引和分词只存储
+    @SearchableProperty(index=Index.NO,store=Store.YES)
     public Date getPostTime() {
         return this.postTime;
     }

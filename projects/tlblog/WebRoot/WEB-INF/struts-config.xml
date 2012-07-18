@@ -85,18 +85,21 @@
 		
 		<!-- 博客管理 -->
 		<action path="/client/blog" name="sysUserForm" scope="request" parameter="method">
-			<!--<forward name="blogindex" path="/client/blog/blog.jsp"/>
+			<!--
+			<forward name="blogindex" path="/client/blog/blog.jsp"/>
 			-->
 		</action>
 		
 		<!-- 博客文章管理 -->
 		<action path="/blog/article" name="blogArticle" scope="request" parameter="method">
-			<!--<forward name="list" path="/client/rightmanage/rolemanage/sysroleList.jsp"/>
+			<!--
+			<forward name="list" path="/client/rightmanage/rolemanage/sysroleList.jsp"/>
 			-->
 			<forward name="add_input" path="/client/blogarticle/blogarticleAdd.jsp"/>
-			<!--<forward name="update_input" path="/view/rightmanage/rolemanage/sysroleUpdate.jsp"/>
+			<!--
+			<forward name="update_input" path="/view/rightmanage/rolemanage/sysroleUpdate.jsp"/>
 			<forward name="assignPrivilege_input" path="/view/rightmanage/rolemanage/sysroleprivilegeList.jsp"/>
-		-->
+			-->
 		</action>
 		<!-- 博客文章搜索 -->
 		<!--<action path="/blogarticle/search" name="blogArticleQuery" scope="request">
@@ -104,7 +107,7 @@
 		</action>
 		-->
 		<action path="/blog/article/search" name="blogArticleQuery" scope="request">
-			<forward name="list" path="/client/blogarticle/search.jsp"/>
+			<forward name="list" path="/client/index/searchAllList.jsp"/>
 		</action>
 	</action-mappings>
 	

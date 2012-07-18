@@ -1,3 +1,4 @@
+
 /*南山小学风站css样式*/
 
 html,body{ font:12px/1.8 Arial; color:#333;}
@@ -386,8 +387,9 @@ h2{ font-size:24px; position:absolute; top:45px; left:67px;}
 /*博客列表页*/
 .weblist{ padding:10px; border:1px solid #ccc;}
 .weblist ul{ width:100%;}
-.weblist li{ background:url(img/art_li_list.gif) no-repeat left; padding:0px 45px 0px 15px;}
-
+/*edit：增加.title和.content样式*/
+.weblist li .title{ background:url(img/art_li_list.gif) no-repeat left; padding:0px 45px 0px 15px; font-size:18px; color:#385f4d; font-weight: bold;}
+.weblist li .content{ padding:10px 0px 0px 15px; word-break:break-all; white-space:normal; }
 /*博客文章内容页*/
 .weblist h1{ padding:10px; border-bottom:1px dotted #ccc; text-align:center; font-size:18px;}
 .weblist h1 span{ display:block; font-size:12px; font-weight:normal; padding:5px;}
@@ -446,4 +448,8 @@ h2{ font-size:24px; position:absolute; top:45px; left:67px;}
 	color: red;
 	font-weight: bold;
 	padding: 3px;
+}
+
+.highlight {
+	color: red;
 }

@@ -1,5 +1,8 @@
 package com.agilefly.service.blogarticle.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.compass.core.Compass;
@@ -11,6 +14,7 @@ import com.agilefly.bean.BlogArticle;
 import com.agilefly.commons.QueryResult;
 import com.agilefly.commons.web.SystemContext;
 import com.agilefly.service.blogarticle.IBlogArticleSearchService;
+import com.agilefly.utils.StringUtil;
 
 /**
  * @author boleyn_renlei
@@ -31,6 +35,13 @@ public class BlogArticleSearchService extends CompassDaoSupport implements IBlog
 
 	@Override
 	public QueryResult<BlogArticle> searchByThread(String key) {
+		if(StringUtil.getNullString(key).length() == 0){
+			List<BlogArticle> articles = new ArrayList<BlogArticle>();
+			QueryResult<BlogArticle> qr = new QueryResult<BlogArticle>();
+			qr.setResultlist(articles);
+			qr.setTotalrecord(0);//设置查询到的总记录数
+			return qr;
+		}
 		return this.getCompassTemplate().execute(new BlogArticleCallback(key, SystemContext.getOffset(), SystemContext.getPagesize()));
 	}
 }
