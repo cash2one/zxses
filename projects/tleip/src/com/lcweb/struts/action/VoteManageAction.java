@@ -321,7 +321,7 @@ public class VoteManageAction extends DispatchAction {
 			VoteUserId voteUserId = new VoteUserId(Long.parseLong(voteId), fuser.getUserId());
 			//检查用户是否已经投票
 			VoteUser voteUserExist = (VoteUser)voteUserService.queryObjectById(VoteUser.class, voteUserId);
-			if(voteUserExist != null){
+			if(voteUserExist == null){
 				if (voteId != null && itemsIds != null) {
 					// 更新人气值
 					voteService.updateTitleVoteCount(voteId);
