@@ -31,7 +31,7 @@
 					<div class="product">
 						<ul>
 							<li>
-								<a href="showpic.html"><img src="images/xxz.jpg" /></a>
+								<a href="showpic.html"><img src="${basePath }res/client/images/xxz.jpg" /></a>
 								<p><a href="showpic.html">111</a></p>
 							</li>
 							<li>

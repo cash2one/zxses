@@ -9,6 +9,9 @@
 	<span style="padding: 0px;"><a href="${basePath}loginOut">【注销】</a></span>
 </div>
 <div style="display: inline;float: right; padding-right: 45px;">
-	<span>快速搜索：</span><input name="" type="text" /><input value="搜索" type="button"/>
-	<span><a href="${bathPath }signup">注册博客</a></span>
+	<!-- 修改对应的aciton路径 -->
+	<html:form action="/blog/article/search.do" method="post" onsubmit="return checkSearchSubmit();">
+		<span>快速搜索：</span><input type="text" id="word" name="word" value="${param.word }" /><input id="searchBtn" type="submit" value="搜索" />
+		<span><a href="${bathPath }signup">注册博客</a></span>
+	</html:form>
 </div>
