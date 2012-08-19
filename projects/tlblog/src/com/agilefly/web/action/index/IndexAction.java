@@ -68,6 +68,7 @@ public class IndexAction extends BaseAction{
 		sysUser.setUserLoginip(request.getRemoteAddr());
 		sysUser.setUserRegtime(new Date());
 		sysUser.setUserLogintime(new Date());
+		sysUser.setUserClick(0);
 		
 		//需要审批
 		sysUser.setApproveStatus((byte)0);
@@ -90,7 +91,8 @@ public class IndexAction extends BaseAction{
 			fileoutstream.close();
 			String logopath = logopathdir+"/"+imagename;
 			sysUser.setUserHeadpic(logopath);
-		}		
+		}	
+		sysUserService.save(sysUser);
 		request.setAttribute("message", "用户注册成功");
 		request.setAttribute("urladdress", "");
 		return mapping.findForward("client_message");
