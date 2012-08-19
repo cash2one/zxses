@@ -50,6 +50,8 @@ public class SysUser implements java.io.Serializable {
 	private String tenWeibo;
 	//用户电话
 	private String phone;
+	//来自
+	private String userFrom;
 	//用户是否审批
 	private Byte approveStatus;
 	//用户是否可用
@@ -333,5 +335,13 @@ public class SysUser implements java.io.Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getUserFrom() {
+		return userFrom;
+	}
+
+	public void setUserFrom(String userFrom) {
+		this.userFrom = userFrom;
 	}
 }

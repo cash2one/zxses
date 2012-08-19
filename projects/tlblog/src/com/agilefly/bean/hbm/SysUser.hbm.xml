@@ -67,6 +67,9 @@
         <property name="phone" type="java.lang.String">
             <column name="phone" length="20" />
         </property>
+        <property name="userFrom" type="java.lang.String">
+            <column name="user_from" length="100" />
+        </property>
         <property name="approveStatus" type="java.lang.Byte">
             <column name="approveStatus"/>
         </property>
