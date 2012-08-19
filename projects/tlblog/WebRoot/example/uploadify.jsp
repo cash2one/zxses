@@ -14,7 +14,7 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<%@ include file="/inc/resources.jsp"%>
+	<%@ include file="/res/common/inc/resources.jsp"%>
 	<link rel="stylesheet" type="text/css" href="${basePath }uploadify/uploadify.css" />
 	<script type="text/javascript" src="${basePath }uploadify/jquery.uploadify-3.1.js"></script>
   	<script type="text/javascript">

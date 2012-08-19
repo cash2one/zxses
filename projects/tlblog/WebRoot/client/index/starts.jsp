@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>满天星文学社</title>
-<%@ include file="/inc/resources.jsp"%>
+<%@ include file="/res/common/inc/resources.jsp"%>
 <style type="text/css">
 	body{ background:url(${basePath }res/client/css/img/wx_bg.jpg) repeat;}
 </style>

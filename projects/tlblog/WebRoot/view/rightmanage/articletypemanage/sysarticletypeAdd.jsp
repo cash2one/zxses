@@ -12,7 +12,7 @@
 <html>
 	<head>
 		<title>新增博客类型</title>
-		<%@ include file="/inc/backresources.jsp"%>
+		<%@ include file="/res/common/inc/backresources.jsp"%>
 		<script language="JavaScript" type="text/JavaScript"> 
 		  function add()
 		  {		    

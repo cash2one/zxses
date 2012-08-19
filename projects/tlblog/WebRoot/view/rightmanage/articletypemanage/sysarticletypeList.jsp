@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<title>文章类型管理</title>
-		<%@ include file="/inc/backresources.jsp"%>
+		<%@ include file="/res/common/inc/backresources.jsp"%>
 		<script type="text/javascript">
            
         function add(){

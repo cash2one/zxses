@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css"
 			href="${basePath }res/client/css/css.css" />
 		<title>发表文章</title>
-		<%@ include file="/inc/resources.jsp"%>
+		<%@ include file="/res/common/inc/resources.jsp"%>
 		<script charset="utf-8" src="${basePath }tools/kindeditor/kindeditor-min.js"></script>
 		<script charset="utf-8" src="${basePath }tools/kindeditor/lang/zh_CN.js"></script>
 		<script type="text/javascript" src="${basePath}client/blogarticle/jsfiles/blogarticleAdd.js"></script>

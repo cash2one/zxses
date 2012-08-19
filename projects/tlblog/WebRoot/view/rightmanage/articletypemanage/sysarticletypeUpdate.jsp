@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<title>修改文章类型</title>
-		<%@ include file="/inc/backresources.jsp"%>
+		<%@ include file="/res/common/inc/backresources.jsp"%>
 
 		<script language="JavaScript" type="text/JavaScript"> 
 		  function update()
