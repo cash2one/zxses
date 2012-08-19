@@ -7,14 +7,14 @@
 			<h1>个人资料</h1>
 		</div>
 		<div class="bl_cont">
-			<p class="bl_img"><img src="${basePath }${blogUser.userHeadpic }" /></p>
+			<p class="bl_img"><a href="" title="${blogUser.username }的博客"><img src="${basePath }${blogUser.userHeadpic }" /></a></p>
 			<p class="bl_link">
 				<a href="" title="腾讯微博"><img src="${basePath }res/client/css/img/qq.jpg" alt="腾讯微博" /></a>
 				<a href="" title="新浪微博"><img src="${basePath }res/client/css/img/sina.jpg" alt="新浪微博" /></a>
 			</p>
-			<p>访问：<span>2008次</span></p>
+			<p>访问：<span>${blogUser.userClick }次</span></p>
 			<p>性别：<span>${blogUser.gender }</span></p>
-			<p>来自：<span>深圳</span></p>
+			<p>来自：<span>${blogUser.userFrom }</span></p>
 		</div>
 	</div>
 	<div class="bl_resourse">
