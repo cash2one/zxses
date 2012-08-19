@@ -10,7 +10,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-
 		<title>文章类型管理</title>
 		<%@ include file="/inc/backresources.jsp"%>
 		<script type="text/javascript">
@@ -65,9 +64,10 @@
         
         function update()
         { 
+        	alert("test");
           if(checkNum())
           {
-             window.location.href="<%=basePath%>view/sysblogtype.do?method=updateInput&sysTypeId="+ editvalue;
+             window.location="<%=basePath%>view/sysblogtype.do?method=updateInput&sysTypeId="+ editvalue;
           }
           else
           {
