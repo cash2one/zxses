@@ -122,6 +122,11 @@
 					<div class="clear"></div>
 				</p>
 				<p>
+					<span class="pspan1 fl">来自：</span>
+					<input type="text" id="userFrom" name="userFrom" class="fl" />
+					<div class="clear"></div>
+				</p>
+				<p>
 					<span>带有星号（<span class="dot">*</span>）的项目为必填项！</span>
 				</p>
 				<p class="queren2">
