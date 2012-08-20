@@ -10,20 +10,9 @@
 <html>
 	<head>
 		<title>角色权限列表</title>
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/old.css">
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css">
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/checkright.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/common.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/jquery.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/coolwindow.js"></script>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/jquery.form.js"></script>
+		
+		<%@ include file="/res/common/inc/backresources.jsp"%>
+		
 		<script type="text/javascript">
 	        /*function sure(){
 		 	var id = document.getElementById('roleId').value;

@@ -9,8 +9,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>塘朗小学文学社管理系统</title>
+		<%@ include file="/res/common/inc/backresources.jsp"%>
+		<%--
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css" />
+			href="<%=basePath%>res/admin/theme/blue/css/css.css" />
 		<script language="javascript" type="text/javascript"
 			src="<%=basePath%>res/admin/js/common.js"></script>
 		<script language="javascript" type="text/javascript"
@@ -23,6 +25,7 @@
 		        DD_belatedPNG.fix('div, ul, img, li, input , a');
 		    </script>
 		<![endif]-->
+		--%>
 		<script type="text/javascript">	
 		  function send(event) {  
 		  	var keyValue;
@@ -83,7 +86,7 @@
 	</head>
 	<body class="backgroundcolor" onkeydown="send(event);">
 		<div class="SystemName">
-			<img src="<%=basePath%>res/theme/blue/images/systemname.png"
+			<img src="<%=basePath%>res/admin/theme/blue/images/systemname.png"
 				width="580" height="101" />
 		</div>
 		<div class="logink">

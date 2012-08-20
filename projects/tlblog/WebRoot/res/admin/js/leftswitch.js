@@ -10,7 +10,7 @@ function MM_preloadimage() { //v3.0
 	if(ttt==2)
 	{
 		ttt=1;
-		frameshow1.src="../res/theme/blue/images/mainleftspico2.gif";
+		frameshow1.src="../res/admin/theme/blue/images/mainleftspico2.gif";
 		frameshow1.alt="显示"
 		window.parent.middle.cols="0,9,*";
 	}
@@ -18,7 +18,7 @@ function MM_preloadimage() { //v3.0
 	{
 		ttt=2;
 		window.parent.middle.cols="200,12,*";
-		frameshow1.src="../res/theme/blue/images/mainleftspico.gif";
+		frameshow1.src="../res/admin/theme/blue/images/mainleftspico.gif";
 		frameshow1.alt="隐藏"
 	}
 	}

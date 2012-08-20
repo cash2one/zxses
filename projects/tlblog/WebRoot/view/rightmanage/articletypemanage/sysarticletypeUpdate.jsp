@@ -11,6 +11,7 @@
 <html>
 	<head>
 		<title>修改文章类型</title>
+		
 		<%@ include file="/res/common/inc/backresources.jsp"%>
 
 		<script language="JavaScript" type="text/JavaScript"> 

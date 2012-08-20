@@ -11,7 +11,9 @@
 <html>
 	<head>
 		<title>文章类型管理</title>
+		
 		<%@ include file="/res/common/inc/backresources.jsp"%>
+		
 		<script type="text/javascript">
            
         function add(){
@@ -20,11 +22,11 @@
         
         var editvalue;
         function checkNum(){
-            var chkbs = document.getElementsByName("check");   
+            var chkbs = document.getElementsByName("check");
             var chkNum = 0;   
             for(i=0;i<chkbs.length;i++)
             {
-              if(chkbs(i).checked){
+              if(chkbs[i].checked){
                 chkNum++;
                 editvalue=chkbs[i].value;
                 }
@@ -49,12 +51,12 @@
             var chkNum = 0;   
             for(i=0;i<chkbs.length;i++)
             {
-              if(chkbs(i).checked)
+              if(chkbs[i].checked)
                 chkNum++;
             }
             if(chkNum<1)
             {
-              alert("请选择一条记录!");
+              $.alert("请选择一条记录!");
               return false;
             }
             else{
@@ -64,7 +66,6 @@
         
         function update()
         { 
-        	alert("test");
           if(checkNum())
           {
              window.location="<%=basePath%>view/sysblogtype.do?method=updateInput&sysTypeId="+ editvalue;

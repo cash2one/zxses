@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<title>塘朗小学文学社管理系统</title>
-		<link href="<%=basePath%>res/theme/blue/css/css.css" type=text/css
+		<link href="<%=basePath%>res/admin/theme/blue/css/css.css" type=text/css
 			rel=stylesheet>
 		<script language="javascript" type="text/javascript">
 		function changehead(headA){
@@ -46,7 +46,7 @@
 						<tr>
 							<td valign="top">
 								<div id="logo">
-									<img src="<%=basePath%>res/theme/blue/images/system_name.jpg"
+									<img src="<%=basePath%>res/admin/theme/blue/images/system_name.jpg"
 										width="520" height="50" />
 								</div>
 								<div class="topright">

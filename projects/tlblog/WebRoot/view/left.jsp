@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<title>塘朗小学文学社管理系统</title>
-		<link href="<%=basePath%>res/theme/blue/css/css.css" type="text/css" rel="stylesheet" />
+		<link href="<%=basePath%>res/admin/theme/blue/css/css.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
 

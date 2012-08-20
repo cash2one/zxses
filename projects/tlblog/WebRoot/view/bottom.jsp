@@ -9,7 +9,7 @@
 	<head>
 		<title>信息发布管理系统</title>
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css">
+			href="<%=basePath%>res/admin/theme/blue/css/css.css">
 	</head>
 	<body>
 		<table class="percentage100">

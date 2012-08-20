@@ -11,11 +11,11 @@
 	<head>
 		<title>信息发布管理系统</title>
 		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/admin/js/jquery.js"></script>
+			src="<%=basePath%>res/common/js/jquery-1.4.3.min.js"></script>
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/css.css">
+			href="<%=basePath%>res/admin/theme/blue/css/css.css">
 		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/theme/blue/css/old.css">
+			href="<%=basePath%>res/admin/theme/blue/css/old.css">
 		<script type="text/javascript">
      function check(){
        var password = document.getElementsByName("password")[0].value;
