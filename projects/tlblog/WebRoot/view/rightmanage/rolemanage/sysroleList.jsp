@@ -27,7 +27,7 @@
             var chkNum = 0;   
             for(i=0;i<chkbs.length;i++)
             {
-              if(chkbs(i).checked){
+              if(chkbs[i].checked){
                 chkNum++;
                 editvalue=chkbs[i].value;
                 }
@@ -52,7 +52,7 @@
             var chkNum = 0;   
             for(i=0;i<chkbs.length;i++)
             {
-              if(chkbs(i).checked)
+              if(chkbs[i].checked)
                 chkNum++;
             }
             if(chkNum<1)
