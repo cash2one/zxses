@@ -69,18 +69,18 @@
 				-->
 			</list>
 		</property>
+		<!--
 		<property name="connection">
 			<value>/lucene/indexes</value>
 		</property>
+		-->
 		<property name="compassSettings">
 			<props>
 				<prop key="compass.engine.analyzer.MMAnalyzer.CustomAnalyzer">jeasy.analysis.MMAnalyzer</prop>
 				<!-- 
 				去掉compass.engine.connection，增加配置<property name=connection的配置就可以实现相对路径
 				 -->
-				<!--
 				<prop key="compass.engine.connection">file://d:/index</prop>
-				-->
 				<prop key="compass.engine.highlighter.default.formatter.simple.pre"><![CDATA[<span class='highlight'>]]></prop>
 				<prop key="compass.engine.highlighter.default.formatter.simple.post"><![CDATA[</span>]]></prop>
 				<prop key="compass.transaction.factory">org.compass.spring.transaction.SpringSyncTransactionFactory</prop>
