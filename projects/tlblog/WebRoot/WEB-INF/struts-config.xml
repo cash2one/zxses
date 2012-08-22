@@ -10,6 +10,7 @@
 		<form-bean name="sysModuleForm" type="com.agilefly.web.form.SysModuleForm"/>
 		<form-bean name="sysRoleForm" type="com.agilefly.web.form.SysRoleForm"/>
 		<form-bean name="sysBlogTypeForm" type="com.agilefly.web.form.SysBlogTypeForm"/>
+		<form-bean name="sysConfigForm" type="com.agilefly.web.form.SysConfigForm"/>
 		
 		<!--*****************前台系统配置Form***********************-->
 		<form-bean name="blogArticle" type="com.agilefly.web.form.BlogArticleForm"/>
@@ -76,11 +77,16 @@
 			<forward name="add_input" path="/view/rightmanage/articletypemanage/sysarticletypeAdd.jsp"/>
 			<forward name="update_input" path="/view/rightmanage/articletypemanage/sysarticletypeUpdate.jsp"/>
 		</action>
+		<!-- 系统设置管理 -->
+		<action path="/view/sysconfig" name="sysConfigForm" scope="request" parameter="method">
+			<forward name="list" path="/view/rightmanage/sysconfigmanage/sysconfigList.jsp"/>
+		</action>
 		
 		
 		<!--*****************前台系统配置Action***********************-->
 		<action path="/client/index" name="sysUserForm" scope="request" parameter="method">
 			<forward name="signup" path="/client/index/reg.jsp"/>
+			<forward name="starts" path="/client/index/starts.jsp"/>
 		</action>
 		
 		<!-- 博客管理 -->

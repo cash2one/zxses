@@ -68,7 +68,7 @@
 												<input name="button2" type="button" class="an" id="button2"
 													value="返回" onclick="javascript:back();" />
 											</td>	
-											<td width="15">、</td>									
+											<td width="15"></td>									
 										</tr>
 									</table>
 								</td>

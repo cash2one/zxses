@@ -12,7 +12,7 @@
 <div class="blogout">
 	<div class="bloginner">
 		<!-- 头部 begin -->
-		<jsp:include page="/client/head.jsp"/>
+		<jsp:include page="/blog/client/head.jsp"/>
 		<!-- 头部 end -->
 		
 		

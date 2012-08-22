@@ -13,11 +13,13 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
 
+import com.agilefly.bean.SysConfig;
 import com.agilefly.bean.SysModule;
 import com.agilefly.bean.SysPrivilege;
 import com.agilefly.bean.SysRole;
 import com.agilefly.bean.SysUser;
 import com.agilefly.commons.SysConstant;
+import com.agilefly.service.sysconfig.ISysConfigService;
 import com.agilefly.service.sysmodule.ISysModuleService;
 import com.agilefly.service.sysprivilege.ISysPrivilegeService;
 import com.agilefly.service.sysrole.ISysRoleService;
@@ -34,6 +36,7 @@ public class InitAction extends Action{
 	@Resource ISysModuleService sysModuleService;
 	@Resource ISysRoleService sysRoleService;
 	@Resource ISysUserService sysUserService;
+	@Resource ISysConfigService sysConfigService;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +44,7 @@ public class InitAction extends Action{
 		initSysModule();
 		initSysPrivilege();
 		initSysUserRole();
+		initSysConfig();
 		//request.setAttribute("showMsg", SysObj.SystemInit());
 		request.setAttribute("message", "系统初始化成功");
 		request.setAttribute("urladdress", "sys/login.do?method=toLogin");
@@ -165,6 +169,19 @@ public class InitAction extends Action{
 			//分配角色
 			sysUser.addSysRole(sysRole);
 			sysUserService.save(sysUser);
+		}
+	}
+	
+	/**
+	 * 添加系统配置信息
+	 */
+	private void initSysConfig(){
+		if(sysConfigService.getCount() == 0 && sysUserService.getCount() == 0){
+			SysConfig sysConfig = new SysConfig();
+			
+			sysConfig.setSysConfigCode("sysConfigManage");
+			
+			sysConfigService.save(sysConfig);
 		}
 	}
 }

@@ -27,6 +27,14 @@
 		<![endif]-->
 		--%>
 		<script type="text/javascript">	
+		  $(function(){
+		    $("body").keydown(function(e){
+			  if(e.keyCode == 13) {
+				  login();
+			  }
+		    });
+		  });
+		  
 		  function send(event) {  
 		  	var keyValue;
 		  	if(window.event)
@@ -59,20 +67,33 @@
 			      document.getElementsByName("imagecode")[0].focus();
 			      return false;
 			    }
-			   	$.post("sys/login.do?method=login",{username:username,password:password,imagecode:imagecode},function(response){
-			            if(response=="fail"){
-			               mes.innerHTML = "用户名或密码错误";
-			               document.getElementsByName("password")[0].value="";
-			               return;
-			            }if(response=="codeFail"){
-			               mes.innerHTML = "验证码输入错误或者验证码过期";
-			               document.getElementsByName("password")[0].value="";
-			               return;
-			            }else{ 
-			                window.location.href="view/main.jsp";
-			            }
-			     });
+			     
+			     $.ajax( {
+						url : "<%=basePath%>sys/login.do?method=login",
+						data : {
+							username:username,
+							password:password,
+							imagecode:imagecode
+						},
+						async : false,
+						type : "POST",
+						success : function(data) {
+							if(data=="fail"){
+				               mes.innerHTML = "用户名或密码错误";
+				               document.getElementsByName("password")[0].value="";
+				               return;
+				            }if(data=="codeFail"){
+				            	alert(mes);
+				               mes.innerHTML = "验证码输入错误或者验证码过期";
+				               document.getElementsByName("password")[0].value="";
+				               return;
+				            }else{ 
+				                window.location.href="view/main.jsp";
+				            }
+						}
+					});
 			}
+			
 			function reset(){
 				 document.getElementsByName("username")[0].value='admin';
 		    	 document.getElementsByName("password")[0].value='admin';
@@ -84,7 +105,7 @@
 			}
  	</script>
 	</head>
-	<body class="backgroundcolor" onkeydown="send(event);">
+	<body class="backgroundcolor">
 		<div class="SystemName">
 			<img src="<%=basePath%>res/admin/theme/blue/images/systemname.png"
 				width="580" height="101" />
@@ -149,7 +170,7 @@
 				</tr>
 
 				<tr>
-					<td id="message" colspan="3" class="tdcenter hong">
+					<td id="message" name="message" colspan="3" class="tdcenter hong">
 					</td>
 				</tr>
 			</table>

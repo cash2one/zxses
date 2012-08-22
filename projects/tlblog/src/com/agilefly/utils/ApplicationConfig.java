@@ -45,6 +45,16 @@ public class ApplicationConfig {
 		return StringUtils.defaultIfEmpty(get(key), defaultValue);
 	}
 	
+	/**
+	 * 获取配置文件的某个属性值
+	 * @param key 配置属性
+	 * @param value 配置值
+	 */
+	public static void setValue(String key, String value){
+		checkConfigFile();
+		configFile.setProperty(key, value);
+	}
+	
 	private static void load(){
 		Properties prop = new Properties();
         try {

@@ -73,9 +73,8 @@ public class PagerFilter implements Filter {
 		return pagesize;
 	}
 
-	public void init(FilterConfig arg0) throws ServletException {
+	public void init(FilterConfig config) throws ServletException {
 		//注册类型转换器
 		ConvertUtils.register(new SysPrivilegeIdConverter(), SysPrivilegeId.class);
 	}
-
 }

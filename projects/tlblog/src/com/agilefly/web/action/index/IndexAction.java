@@ -6,15 +6,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.chain.contexts.ServletActionContext;
 import org.springframework.stereotype.Controller;
 
+import com.agilefly.bean.SysConfig;
 import com.agilefly.bean.SysUser;
+import com.agilefly.service.sysconfig.ISysConfigService;
 import com.agilefly.service.systemuser.ISysUserService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.CipherUtil;
@@ -26,6 +30,8 @@ import com.agilefly.web.form.SysUserForm;
 public class IndexAction extends BaseAction{
 	@Resource
 	private ISysUserService sysUserService;
+	@Resource
+	private ISysConfigService sysConfigService;
 	
 	/**
 	 * 跳转到注册界面
@@ -167,5 +173,20 @@ public class IndexAction extends BaseAction{
 		ActionForward forward = new ActionForward("/");
 		forward.setRedirect(true);
 		return forward;
+	}
+	
+	/**
+	 * 首页
+	 */
+	public ActionForward starts(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) {
+		//设置在线联系信息
+		ServletContext application = request.getSession().getServletContext();
+		if(application.getAttribute("sysConfig_App") == null){
+			sysConfigService.find("sysConfigManage");
+			application.setAttribute("sysConfig_App", sysConfigService.find("sysConfigManage"));
+		}
+		
+		return mapping.findForward("starts");
 	}
 }

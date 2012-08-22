@@ -60,6 +60,18 @@ public interface BaseDao<T> {
 	public T find(Serializable entityId);
 	
 	/**
+	 * 获取实体--用户Junit测试
+	 * 
+	 * @param <T>
+	 * @param entityClass
+	 *            实体类
+	 * @param entityId
+	 *            实体id
+	 * @return
+	 */
+	public T getForTest(Serializable entityId);
+	
+	/**
 	 * 通过指定条件、排序方式获取实体列表 如sysUser的username获得sysUser列表
 	 * @param whereHql 无-->设置为null
 	 * @param queryParams 无-->设置为null

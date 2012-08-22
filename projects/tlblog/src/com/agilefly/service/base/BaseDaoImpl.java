@@ -48,11 +48,24 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements Base
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public T find(Serializable entityId) {
 		if(entityId==null) throw new RuntimeException(this.entityClass.getName()+ ":传入的实体id不能为空");
-		if(entityId instanceof String) {
+		//有些主键不是Inter类型，需要在前台全转换类型
+		/*if(entityId instanceof String) {
 			entityId = Integer.parseInt((String)entityId);
-		}
+		}*/
 		//return (T)getHibernateTemplate().get(this.entityClass, entityId);
 		return (T)getHibernateTemplate().load(this.entityClass, entityId);
+	}
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	@Deprecated
+	public T getForTest(Serializable entityId) {
+		if(entityId==null) throw new RuntimeException(this.entityClass.getName()+ ":传入的实体id不能为空");
+		//有些主键不是Inter类型，需要在前台全转换类型
+		/*if(entityId instanceof String) {
+			entityId = Integer.parseInt((String)entityId);
+		}*/
+		//return (T)getHibernateTemplate().get(this.entityClass, entityId);
+		return (T)getHibernateTemplate().get(this.entityClass, entityId);
 	}
 	
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
