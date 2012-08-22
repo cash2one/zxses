@@ -139,7 +139,7 @@ public class BlogArticleAction extends BaseAction {
 	//@Permission(model="sysModuleManage", privilegeValue="update")
 	public ActionForward updateInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String blogArticleId = request.getParameter("blogArticleId");
-		BlogArticle article = blogArticleService.find(blogArticleId);
+		BlogArticle article = blogArticleService.find(Integer.parseInt(blogArticleId));
 		request.setAttribute("blogArticleInfo", article);
 		return mapping.findForward("update_input");
 	}

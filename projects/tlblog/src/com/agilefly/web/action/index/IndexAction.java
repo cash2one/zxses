@@ -186,6 +186,7 @@ public class IndexAction extends BaseAction{
 			sysConfigService.find("sysConfigManage");
 			application.setAttribute("sysConfig_App", sysConfigService.find("sysConfigManage"));
 		}
+		//获得优秀作文(学生发表的文章类型为作文,编码)
 		
 		return mapping.findForward("starts");
 	}

@@ -35,7 +35,7 @@
 											<td align="right">
 												<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径-->
 												<input name="button" type="button" class="an" id="button"
-													onclick="javascript:update();" value="确定" />
+													onclick="javascript:update();" value="修改" />
 												&nbsp;
 											</td>	
 											<td width="15"></td>									

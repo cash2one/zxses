@@ -123,7 +123,7 @@ public class SysBlogTypeAction extends BaseAction{
 	@Permission(model="sysBlogTypeManage", privilegeValue="update")
 	public ActionForward updateInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String sysTypeId = request.getParameter("sysTypeId");
-		SysType type = sysBlogTypeService.find(sysTypeId);
+		SysType type = sysBlogTypeService.find(Integer.parseInt(sysTypeId));
 		request.setAttribute("sysBlogTypeInfo", type);
 		return mapping.findForward("update_input");
 	}

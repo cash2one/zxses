@@ -119,7 +119,7 @@ public class SysModuleAction extends BaseAction {
 	@Permission(model="sysModuleManage", privilegeValue="update")
 	public ActionForward updateInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String sysModuleId = request.getParameter("sysModuleId");
-		SysModule module = sysModuleService.find(sysModuleId);
+		SysModule module = sysModuleService.find(Integer.parseInt(sysModuleId));
 		request.setAttribute("sysModuleInfo", module);
 		return mapping.findForward("update_input");
 	}

@@ -140,7 +140,7 @@ public class SysUserAction extends BaseAction{
 	@Permission(model="sysUserManage", privilegeValue="update")
 	public ActionForward updateInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String sysUserId = request.getParameter("sysUserId");
-		SysUser user = sysUserService.find(sysUserId);
+		SysUser user = sysUserService.find(Integer.parseInt(sysUserId));
 		request.setAttribute("sysUserInfo", user);
 		return mapping.findForward("update_input");
 	}
@@ -203,7 +203,7 @@ public class SysUserAction extends BaseAction{
 	@Permission(model="sysUserManage", privilegeValue="assignRole")
 	public ActionForward assignRoleInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String sysUserId = request.getParameter("sysUserId");
-		SysUser user = sysUserService.find(sysUserId);
+		SysUser user = sysUserService.find(Integer.parseInt(sysUserId));
 		request.setAttribute("sysUserInfo", user);
 		//获得所有角色
 		request.setAttribute("qs", sysRoleService.getScrollData());
