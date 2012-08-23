@@ -1,7 +1,6 @@
 package com.agilefly.web.action;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,7 +28,7 @@ public class SysConfigAction extends BaseAction {
 	/**
 	 * 打开系统设置主界面
 	 */
-	//@Permission(model="sysConfigManage", privilegeValue="view")
+	@Permission(model="sysConfigManage", privilegeValue="view")
 	public ActionForward list(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//获取系统配置信息
 		SysConfig sysConfig = sysConfigService.find("sysConfigManage");
@@ -47,7 +46,7 @@ public class SysConfigAction extends BaseAction {
 	 * @return
 	 * @throws Exception
 	 */
-	//@Permission(model="sysConfigManage", privilegeValue="update")
+	@Permission(model="sysConfigManage", privilegeValue="update")
 	public ActionForward update(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		SysConfigForm scf = (SysConfigForm)form;
 		

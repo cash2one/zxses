@@ -1,4 +1,4 @@
-package com.agilefly.web.action.blogarticle;
+package com.agilefly.web.action.index;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import com.agilefly.service.blogarticle.IBlogArticleSearchService;
 import com.agilefly.web.form.BlogArticleQueryForm;
 
-@Controller("/blog/article/search")
+@Controller("/client/index/search")
 public class BlogArticleSearchAction extends Action {
 	@Resource
 	IBlogArticleSearchService blogArticleSearchService;

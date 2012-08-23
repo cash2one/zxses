@@ -36,10 +36,12 @@
 		具体的权限管理数据结构可以看下数据库表sys_module、sys_privilege、sys_privilege、sys_role、sys_role_privilege、sys_user、
 		sys_user_role。
 		需要把具体的权限 如：sysModuleManage-view、sysModuleManage-add、sysModuleManage-delete...
-		需要手工保存到数据库表sys_privilege中。
+		需要手工保存到数据库表sys_privilege中。同时在初始化InitAction中添加初始化信息。
 		可以在测试用例ISysPrivilegeServiceTest.java中添加相应的权限，可参考
 		@Test
 		public void testSaveSysPrivilege(){}方法加入开发功能权限。
+		
+		页面中加入自定义标签
 
 	页面开发说明：
 		主要是分页处理使用pager-taglib组件，后台分页已封装，可参考模块管理，页面中都有说明。

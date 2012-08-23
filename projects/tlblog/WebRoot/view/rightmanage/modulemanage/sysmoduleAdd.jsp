@@ -55,9 +55,12 @@
 												<span class="chuti lv">新增模块</span>${showMsg }
 											</td>	
 											<td align="right">
+											<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径 加上权限控制验证-->
+											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysModuleManage','add') }">
 											<input name="button" type="button" class="an" id="button"
 												onclick="javascript:add();" value="确定" />
 											&nbsp;
+											</c:if>
 											<input name="button2" type="button" class="an" id="button2"
 												value="返回" onclick="javascript:back();" />
 											</td>	

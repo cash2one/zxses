@@ -279,6 +279,14 @@ public class SysUser implements java.io.Serializable {
 	public void setSysRoles(Set<SysRole> sysRoles) {
 		this.sysRoles = sysRoles;
 	}
+	
+	public String getUserFrom() {
+		return userFrom;
+	}
+
+	public void setUserFrom(String userFrom) {
+		this.userFrom = userFrom;
+	}
 
 	/**
 	 * 添加角色
@@ -335,13 +343,5 @@ public class SysUser implements java.io.Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	public String getUserFrom() {
-		return userFrom;
-	}
-
-	public void setUserFrom(String userFrom) {
-		this.userFrom = userFrom;
 	}
 }

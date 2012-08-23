@@ -67,5 +67,16 @@ public class AllRightOpTest {
 		
 		sysPrivilegeService.batchSave(sysPrivileges);
 	}
+	
+	@Test
+	public void testSaveSysPrivilege2(){
+		List<SysPrivilege> sysPrivileges = new ArrayList<SysPrivilege>();
+		
+		//系统设置管理操作权限
+		sysPrivileges.add(new SysPrivilege("sysConfigManage","update","修改"));
+		sysPrivileges.add(new SysPrivilege("sysConfigManage","view","查看"));
+		
+		sysPrivilegeService.batchSave(sysPrivileges);
+	}
 
 }

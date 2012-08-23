@@ -127,6 +127,12 @@ public class InitAction extends Action{
 			sysPrivileges.add(new SysPrivilege("sysRoleManage","view","查看"));
 			sysPrivilegeService.batchSave(sysPrivileges);
 			
+			
+			//系统设置管理操作权限
+			sysPrivileges.add(new SysPrivilege("sysConfigManage","update","修改"));
+			sysPrivileges.add(new SysPrivilege("sysConfigManage","view","查看"));
+			sysPrivilegeService.batchSave(sysPrivileges);
+			
 			//博客类型管理操作权限
 			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","add","新增"));
 			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","delete","删除"));

@@ -164,7 +164,13 @@ public class SysUserAction extends BaseAction{
 		
 		String messageEntity = user.getUsername();
 		
-		BeanUtilEx.copyProperties(user, suf);
+		//只修改部分属性，以下方式会覆盖已有的属性值
+		//BeanUtilEx.copyProperties(user, suf);
+		//根据修改的属性值，一一对应修改
+		user.setRealname(suf.getRealname());
+		user.setGender(suf.getGender());
+		user.setPhone(suf.getPhone());
+		user.setUserEmail(suf.getUserEmail());
 		
 		sysUserService.update(user);
 		

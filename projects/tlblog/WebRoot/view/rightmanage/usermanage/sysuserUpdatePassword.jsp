@@ -88,8 +88,8 @@
 														<html:hidden property="basicPerson.personId" />
 														<html:hidden property="basicDepartment.deptId" />
 														<td class="td_right" colspan="2">
-															用户名称：
-															<font color="#ff6600">${rightManageForm.basicPerson.personName}</font>
+															登录名：
+															<font color="#ff6600">${sysUserInfo.username }</font>
 														</td>
 													</tr>
 													<tr>

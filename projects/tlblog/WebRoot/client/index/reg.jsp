@@ -27,7 +27,7 @@
 			<form name="userReg" id="userReg" method="post" action="${basePath}client/index.do?method=signupUser"
 						onsubmit="javascript:return checkRegSubmit();" enctype="multipart/form-data">
 				<p>	
-					<span class="pspan1 fl"><span class="dot">*</span>用户名：</span>
+					<span class="pspan1 fl"><span class="dot">*</span>登录名：</span>
 					<!-- 记录用户名是否已使用,js验证使用 -->
 					<input type="hidden" id="usernameUsed" value="false"/>
 					<input type="text" id="reg_username" name="username" class="fl" maxlength="50"/>

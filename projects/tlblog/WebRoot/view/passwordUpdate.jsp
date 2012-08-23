@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="/commons/tags.inc"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -10,12 +10,9 @@
 <html>
 	<head>
 		<title>信息发布管理系统</title>
-		<script language="javascript" type="text/javascript"
-			src="<%=basePath%>res/common/js/jquery-1.4.3.min.js"></script>
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/admin/theme/blue/css/css.css">
-		<link rel="stylesheet" type="text/css"
-			href="<%=basePath%>res/admin/theme/blue/css/old.css">
+		
+		<%@ include file="/res/common/inc/backresources.jsp"%>
+		
 		<script type="text/javascript">
      function check(){
        var password = document.getElementsByName("password")[0].value;
@@ -101,7 +98,7 @@
 						<table class="pathbg">
 							<tr>
 								<td width="514" height="24" class="dh1">
-									新闻发布管理-&gt;
+									系统管理-&gt;
 									<span class="lv chuti">修改密码</span>
 								</td>
 								<td align="right">
@@ -124,18 +121,17 @@
 							border="0" align="center">
 							<tr>
 								<td class="td_left">
-									登录人员名称
+									登录名
 								</td>
 								<td class="td_right">
-									${basicPerson.personType }
+									${basicPerson.personAccount }
 								</td>
 							</tr>
 							<tr>
 								<td class="td_left">
-									登录名
+									真实姓名
 								</td>
 								<td class="td_right">
-
 									${basicPerson.personAccount }
 								</td>
 							</tr>

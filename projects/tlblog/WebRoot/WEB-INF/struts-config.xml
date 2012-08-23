@@ -112,7 +112,7 @@
 			<forward name="list" path="/client/blogarticle/search.jsp"/>
 		</action>
 		-->
-		<action path="/blog/article/search" name="blogArticleQuery" scope="request">
+		<action path="/client/index/search" name="blogArticleQuery" scope="request">
 			<forward name="list" path="/client/index/searchAllList.jsp"/>
 		</action>
 	</action-mappings>

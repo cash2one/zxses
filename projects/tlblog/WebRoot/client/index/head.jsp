@@ -23,7 +23,7 @@
 			</div>
 			<div style="display: inline;float: right; padding-right: 45px;">
 				<!-- 修改对应的aciton路径 -->
-				<html:form action="/blog/article/search.do" method="post" onsubmit="return checkSearchSubmit();">
+				<html:form action="/client/index/search.do" method="post" onsubmit="return checkSearchSubmit();">
 					<span>快速搜索：</span><input type="text" id="word" name="word" value="${param.word }" /><input id="searchBtn" type="submit" value="搜索" />
 					<span><a href="${bathPath }signup">注册博客</a></span>
 				</html:form>
@@ -38,7 +38,7 @@
 			</div>
 			<div style="display: inline;float: right; padding-right: 45px;">
 				<!-- 修改对应的aciton路径 -->
-				<html:form action="/blog/article/search.do" method="post" onsubmit="return checkSearchSubmit();">
+				<html:form action="/client/index/search.do" method="post" onsubmit="return checkSearchSubmit();">
 					<span>快速搜索：</span><input type="text" id="word" name="word" value="${param.word }" /><input id="searchBtn" type="submit" value="搜索" />
 					<span><a href="${bathPath }signup">注册博客</a></span>
 				</html:form>

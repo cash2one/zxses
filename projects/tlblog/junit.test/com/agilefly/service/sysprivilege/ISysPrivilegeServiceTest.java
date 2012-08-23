@@ -34,4 +34,14 @@ public class ISysPrivilegeServiceTest {
 		sysPrivileges.add(new SysPrivilege("department","delete","部门删除"));
 		sysPrivilegeService.batchSave(sysPrivileges);
 	}
+	
+	@Test
+	public void testSaveSysPrivilege1(){
+		List<SysPrivilege> sysPrivileges = new ArrayList<SysPrivilege>();
+		sysPrivileges.add(new SysPrivilege("department","view","部门查看"));
+		sysPrivileges.add(new SysPrivilege("department","add","部门新增"));
+		sysPrivileges.add(new SysPrivilege("department","update","部门修改"));
+		sysPrivileges.add(new SysPrivilege("department","delete","部门删除"));
+		sysPrivilegeService.batchSave(sysPrivileges);
+	}
 }
