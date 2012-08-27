@@ -34,7 +34,7 @@
 											</td>	
 											<td align="right">
 												<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径 加上权限控制验证-->
-												<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysConfigManage','update') }">
+												<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysConfigManage','update') }">
 												<input name="button" type="button" class="an" id="button"
 													onclick="javascript:update();" value="修改" />
 												&nbsp;

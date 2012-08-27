@@ -107,37 +107,37 @@ public class InitAction extends Action{
 		if(sysPrivilegeService.getCount() == 0){
 			List<SysPrivilege> sysPrivileges = new ArrayList<SysPrivilege>();
 			//模块操作权限
-			sysPrivileges.add(new SysPrivilege("sysModuleManage","add","新增"));
-			sysPrivileges.add(new SysPrivilege("sysModuleManage","delete","删除"));
-			sysPrivileges.add(new SysPrivilege("sysModuleManage","update","修改"));
-			sysPrivileges.add(new SysPrivilege("sysModuleManage","view","查看"));
+			sysPrivileges.add(new SysPrivilege("sysModuleManage","view","查看",1));
+			sysPrivileges.add(new SysPrivilege("sysModuleManage","add","新增",2));
+			sysPrivileges.add(new SysPrivilege("sysModuleManage","update","修改",3));
+			sysPrivileges.add(new SysPrivilege("sysModuleManage","delete","删除",4));
 			
 			//用户管理操作权限
-			sysPrivileges.add(new SysPrivilege("sysUserManage","add","新增"));
-			sysPrivileges.add(new SysPrivilege("sysUserManage","assignRole","分配角色"));
-			sysPrivileges.add(new SysPrivilege("sysUserManage","delete","删除"));
-			sysPrivileges.add(new SysPrivilege("sysUserManage","update","修改"));
-			sysPrivileges.add(new SysPrivilege("sysUserManage","view","查看"));
+			sysPrivileges.add(new SysPrivilege("sysUserManage","view","查看",1));
+			sysPrivileges.add(new SysPrivilege("sysUserManage","add","新增",2));
+			sysPrivileges.add(new SysPrivilege("sysUserManage","update","修改",3));
+			sysPrivileges.add(new SysPrivilege("sysUserManage","delete","删除",4));
+			sysPrivileges.add(new SysPrivilege("sysUserManage","approve","审核",5));
+			sysPrivileges.add(new SysPrivilege("sysUserManage","unApprove","反审核",6));
+			sysPrivileges.add(new SysPrivilege("sysUserManage","assignRole","分配角色",7));
+			
 			
 			//角色管理操作权限
-			sysPrivileges.add(new SysPrivilege("sysRoleManage","add","新增"));
-			sysPrivileges.add(new SysPrivilege("sysRoleManage","assignPrivilege","分配权限"));
-			sysPrivileges.add(new SysPrivilege("sysRoleManage","delete","删除"));
-			sysPrivileges.add(new SysPrivilege("sysRoleManage","update","修改"));
-			sysPrivileges.add(new SysPrivilege("sysRoleManage","view","查看"));
-			sysPrivilegeService.batchSave(sysPrivileges);
-			
+			sysPrivileges.add(new SysPrivilege("sysRoleManage","view","查看",1));
+			sysPrivileges.add(new SysPrivilege("sysRoleManage","add","新增",2));
+			sysPrivileges.add(new SysPrivilege("sysRoleManage","update","修改",3));
+			sysPrivileges.add(new SysPrivilege("sysRoleManage","delete","删除",4));
+			sysPrivileges.add(new SysPrivilege("sysRoleManage","assignPrivilege","分配权限",5));
 			
 			//系统设置管理操作权限
-			sysPrivileges.add(new SysPrivilege("sysConfigManage","update","修改"));
-			sysPrivileges.add(new SysPrivilege("sysConfigManage","view","查看"));
-			sysPrivilegeService.batchSave(sysPrivileges);
+			sysPrivileges.add(new SysPrivilege("sysConfigManage","view","查看",1));
+			sysPrivileges.add(new SysPrivilege("sysConfigManage","update","修改",2));
 			
 			//博客类型管理操作权限
-			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","add","新增"));
-			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","delete","删除"));
-			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","update","修改"));
-			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","view","查看"));
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","view","查看",1));
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","add","新增",2));
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","update","修改",3));
+			sysPrivileges.add(new SysPrivilege("sysBlogTypeManage","delete","删除",4));
 			
 			sysPrivilegeService.batchSave(sysPrivileges);
 		}

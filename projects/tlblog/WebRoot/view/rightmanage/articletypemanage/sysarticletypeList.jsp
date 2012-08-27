@@ -112,25 +112,25 @@
 										</td>
 										<td align="right">
 											<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径 加上权限控制验证-->
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysBlogTypeManage','add') }">
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysBlogTypeManage','add') }">
 											<img src="<%=basePath%>res/admin/img/add.gif"
 												onclick="javascript:add()" style="cursor: pointer" alt="新增"
 												title="新增" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysBlogTypeManage','update') }">
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysBlogTypeManage','update') }">
 											<img src="<%=basePath%>res/admin/img/update.gif"
 												onclick="javascript:update()" style="cursor: pointer" alt="修改" title="修改" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysBlogTypeManage','delete') }">
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysBlogTypeManage','delete') }">
 											<img src="<%=basePath%>res/admin/img/delete.gif"
 												onclick="javascript:del()" style="cursor: pointer" alt="删除"
 												title="删除" />
 											&nbsp;
 											</c:if>
 											<%--
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysBlogTypeManage','assignPrivilege') }">
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysBlogTypeManage','assignPrivilege') }">
 											&nbsp;
 											<input type="button" class="an" style="width: 90px;" onclick="assignPrivilege()" value="分配权限" title="分配权限"/>
 											&nbsp;

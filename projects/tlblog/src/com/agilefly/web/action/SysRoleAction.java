@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import com.agilefly.bean.SysPrivilege;
 import com.agilefly.bean.SysPrivilegeId;
 import com.agilefly.bean.SysRole;
+import com.agilefly.commons.SysConstant;
 import com.agilefly.commons.web.WebUtils;
 import com.agilefly.service.sysmodule.ISysModuleService;
 import com.agilefly.service.sysprivilege.ISysPrivilegeService;
@@ -192,8 +193,13 @@ public class SysRoleAction extends BaseAction{
 		String sysRoleId = request.getParameter("sysRoleId");
 		SysRole role = sysRoleService.find(Integer.parseInt(sysRoleId));
 		request.setAttribute("sysRoleInfo", role);
-		//获得所有权限
-		request.setAttribute("sysPrivileges", sysPrivilegeService.getScrollData().getResultlist());
+		
+		//按照排序号排序
+		LinkedHashMap<String, String> privOrderby = new LinkedHashMap<String, String>();
+		privOrderby.put("orderNo", "asc");
+		
+		//获得所有权限操作
+		request.setAttribute("sysPrivileges", sysPrivilegeService.findByCondition(privOrderby));
 		
 		//获得角色拥护的所有权限
 		request.setAttribute("sysRolePrivileges", role.getSysPrivileges());

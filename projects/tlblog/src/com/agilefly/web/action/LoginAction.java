@@ -62,7 +62,7 @@ public class LoginAction extends DispatchAction {
 				WebUtils.writeResponse(response, "codeFail");
 				return null;
 			}
-			request.getSession().setAttribute("sysUserInfo",user);
+			request.getSession().setAttribute("sysUserLoginInfo",user);
 			
 			Set<SysRole> sysRoles = user.getSysRoles();
 			//所有查询权限集合

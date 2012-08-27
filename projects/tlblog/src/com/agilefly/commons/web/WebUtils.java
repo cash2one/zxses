@@ -14,7 +14,7 @@ public class WebUtils {
 	 * @return
 	 */
 	public static SysUser getSysUser(HttpServletRequest request){
-		return (SysUser)request.getSession().getAttribute("sysUserInfo");
+		return (SysUser)request.getSession().getAttribute("sysUserLoginInfo");
 	}
 	
 	/**

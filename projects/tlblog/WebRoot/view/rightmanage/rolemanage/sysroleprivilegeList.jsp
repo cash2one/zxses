@@ -250,7 +250,7 @@
 											</td>
 											<td align="right">
 												<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径-->
-												<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysRoleManage','assignPrivilege') }">
+												<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysRoleManage','assignPrivilege') }">
 												<input name="button" type="button" class="an" id="button"
 													onclick="javascript:sure();" value="确定" />
 												&nbsp;

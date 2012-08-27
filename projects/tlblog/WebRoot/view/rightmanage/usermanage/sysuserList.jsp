@@ -125,26 +125,31 @@
 										</td>
 										<td align="right">
 											<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径 加上权限控制验证-->
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysUserManage','add') }">
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','add') }">
 											<img src="<%=basePath%>res/admin/img/add.gif"
 												onclick="javascript:add()" style="cursor: pointer" alt="新增"
 												title="新增" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysUserManage','update') }">
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','update') }">
 											<img src="<%=basePath%>res/admin/img/update.gif"
 												onclick="javascript:update()" style="cursor: pointer" alt="修改" title="修改" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysUserManage','delete') }">
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','delete') }">
 											<img src="<%=basePath%>res/admin/img/delete.gif"
 												onclick="javascript:del()" style="cursor: pointer" alt="删除"
 												title="删除" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserInfo.id,'sysUserManage','assignRole') }">
-											&nbsp;
-											<input type="button" class="an" style="width: 90px;" onclick="assignRole()" value="分配角色" title="分配角色"/>
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','approve') }">
+											<input type="button" class="an" onclick="approve()" value="审核" title="审核"/>
+											</c:if>
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','unApprove') }">
+											<input type="button" class="an" style="width: 60px;" onclick="unApprove()" value="反审核" title="反审核"/>
+											</c:if>
+											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','assignRole') }">
+											<input type="button" class="an" style="width: 80px;" onclick="assignRole()" value="分配角色" title="分配角色"/>
 											&nbsp;
 											</c:if>
 										<td width="15"></td>

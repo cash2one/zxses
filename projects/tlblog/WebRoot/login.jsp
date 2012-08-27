@@ -83,7 +83,6 @@
 				               document.getElementsByName("password")[0].value="";
 				               return;
 				            }if(data=="codeFail"){
-				            	alert(mes);
 				               mes.innerHTML = "验证码输入错误或者验证码过期";
 				               document.getElementsByName("password")[0].value="";
 				               return;

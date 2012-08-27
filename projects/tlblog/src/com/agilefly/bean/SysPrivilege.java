@@ -10,6 +10,8 @@ public class SysPrivilege implements java.io.Serializable {
 	private SysPrivilegeId id;
 	/*权限中文名*/
 	private String name;
+	/*权限显示排序顺序*/
+	private Integer orderNo;
 	// Constructors
 
 	/** default constructor */
@@ -29,6 +31,14 @@ public class SysPrivilege implements java.io.Serializable {
 		this.id = new SysPrivilegeId(model, privilegeValue);
 		this.name = name;
 	}
+	
+	public SysPrivilege(String model, String privilegeValue, String name, Integer orderNo) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.orderNo = orderNo;
+	}
+	
 	// Property accessors
 
 	public SysPrivilegeId getId() {
@@ -45,6 +55,14 @@ public class SysPrivilege implements java.io.Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Integer getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
 	}
 
 	@Override

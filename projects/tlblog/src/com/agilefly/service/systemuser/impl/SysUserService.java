@@ -22,8 +22,9 @@ public class SysUserService extends BaseDaoImpl<SysUser> implements ISysUserServ
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	@Override
 	public SysUser findByUnamePass(String username, String password) {
-		List<SysUser> list = getSession().createQuery("from SysUser o where o.username=? and o.password=?")
-				.setParameter(0, username).setParameter(1, password).list();
+		//只允许教师类型的用户登录
+		List<SysUser> list = getSession().createQuery("from SysUser o where o.userType = ? and o.username=? and o.password=?")
+				.setParameter(0, "teacher").setParameter(1, username).setParameter(2, password).list();
 		if(list.size() == 0)
 			return null;
 		else{

@@ -83,7 +83,7 @@
 			</tr>
 			<tr>
 				<td class="topfontbg">
-					当前用户: ${sysUserInfo.username } &nbsp;&nbsp;&nbsp;&nbsp;${date}
+					当前用户: ${sysUserLoginInfo.username } &nbsp;&nbsp;&nbsp;&nbsp;${date}
 				</td>
 				<td class="topindex">
 					<a href="<%=basePath%>" target="_blank">返回首页</a>

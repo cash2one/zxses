@@ -83,6 +83,11 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements Base
 	public List<T> findByCondition(String wherejpql, Object[] queryParams){
 		return findByCondition(wherejpql, queryParams, null);
 	}
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public List<T> findByCondition(LinkedHashMap<String, String> orderby){
+		return findByCondition(null, null, orderby);
+	}
 
 	public void save(T entity) {
 		getHibernateTemplate().save(entity);

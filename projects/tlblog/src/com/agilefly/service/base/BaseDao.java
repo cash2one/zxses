@@ -89,6 +89,13 @@ public interface BaseDao<T> {
 	 * @return
 	 */
 	public List<T> findByCondition(String whereHql,Object[] queryParams);
+	
+	/**
+	 * 按照指定的排序方式
+	 * @param orderby
+	 * @return
+	 */
+	public List<T> findByCondition(LinkedHashMap<String, String> orderby);
 
 	/**
 	 * 获取记录总数
