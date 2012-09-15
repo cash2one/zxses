@@ -50,4 +50,14 @@ public class ISysModuleServiceTest {
 		sysModuleService.addSysModule(module1, 1);
 		//module.setSn(module.getId());
 	}
+	
+	@Test
+	public void testSaveSysModule2(){
+		SysModule sysConfigManage = new SysModule();
+		sysConfigManage.setName("系统配置");
+		sysConfigManage.setSn("sysConfigManage");
+		sysConfigManage.setUrl("view/sysconfig.do");
+		sysConfigManage.setOrderNo(4);
+		sysModuleService.addSysModule(sysConfigManage, 2);
+	}
 }

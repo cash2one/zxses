@@ -36,4 +36,14 @@ public class ISysConfigServiceTest {
 		System.out.println(config);
 		System.out.println(config.getSysConfigCode());
 	}
+	
+	@Test
+	public void testeditSysConfig(){
+		SysConfig sysConfig = sysConfigService.getForTest("sysConfigManage");
+		sysConfig.setSysConfigCode("sysConfigManage");
+		sysConfig.setSinaWeibo("http://blog.sina.com.cn/u/1660501074");
+		sysConfig.setOnlineQq("http://wpa.qq.com/msgrd?v=3&amp;uin=541594150&amp;site=qq&amp;menu=yes");
+		sysConfig.setPicQq("http://wpa.qq.com/pa?p=2:541594150:46");
+		sysConfigService.update(sysConfig);
+	}
 }
