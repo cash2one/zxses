@@ -101,6 +101,14 @@
 													</tr>
 													<tr>
 														<td width="20%" class="td_left">
+															<font color="#ff0000">* </font>类型编码:&nbsp;
+														</td>
+														<td width="30%" class="td_right">
+															<input type="text" name="typeCode" id="typeCode" size="30" maxlength="20" />
+														</td>
+													</tr>
+													<tr>
+														<td width="20%" class="td_left">
 															类型描述:&nbsp;
 														</td>
 														<td width="30%" class="td_right">

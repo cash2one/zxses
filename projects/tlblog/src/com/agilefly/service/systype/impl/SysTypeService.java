@@ -1,4 +1,4 @@
-package com.agilefly.service.sysblogtype.impl;
+package com.agilefly.service.systype.impl;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -10,20 +10,20 @@ import org.springframework.transaction.annotation.Transactional;
 import com.agilefly.bean.SysType;
 import com.agilefly.commons.SysConstant;
 import com.agilefly.service.base.BaseDaoImpl;
-import com.agilefly.service.sysblogtype.ISysBlogTypeService;
+import com.agilefly.service.systype.ISysTypeService;
 
 /**
  * @author boleyn_renlei
- * @date May 18, 2012 10:38:43 PM
+ * @date May 18, 2012 10:39:21 PM
  */
 @Service
 @Transactional
-public class SysBlogTypeService extends BaseDaoImpl<SysType> implements ISysBlogTypeService {
+public class SysTypeService extends BaseDaoImpl<SysType> implements ISysTypeService {
 	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public List<SysType> searchSysBlogTypes(String typecode){
 		
-		String whereHql = "o.typeCode=? and o.extFirst=? ";
-		Object[] params = new Object[]{SysConstant.ARTICLE_TYPE,typecode};
+		String whereHql = "o.typeSymbol=? and o.extFirst=? and o.available=?";
+		Object[] params = new Object[]{SysConstant.ARTICLE_TYPE,typecode,(byte)1};
 		
 		//按照排序号排序
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();

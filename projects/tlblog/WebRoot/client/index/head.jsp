@@ -3,6 +3,11 @@
 <%@ include file="/commons/tags.inc"%>
 <script type="text/javascript" src="${basePath}client/index/jsfiles/head.js"></script>
 <script type="text/javascript" src="${basePath}client/index/jsfiles/searchAllList.js"></script>
+<script type="text/javascript">
+	function reIndex(){
+		window.location.href="${basePath}client/index/reindex.do";
+	}
+</script>
 <div id="wx_head">
 	<div class="flash">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="767" height="198">

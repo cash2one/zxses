@@ -67,7 +67,7 @@ public class SysConfig  implements java.io.Serializable {
 	public void setPicQq(String picQq) {
 		this.picQq = picQq;
 	}
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		System.out.println(ApplicationConfig.get("index.onlineqq"));
-	}
+	}*/
 }

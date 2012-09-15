@@ -631,10 +631,10 @@ public class DateUtils {
 		return dtReturn;
 	}
 	
-	public static void main(String args[])
+	/*public static void main(String args[])
 	{
 		
 		System.out.println(DateUtils.getYearTtlDay(new java.util.Date()));
 		
-	}
+	}*/
 }

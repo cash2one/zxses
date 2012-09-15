@@ -235,7 +235,10 @@ public class LoginAction extends DispatchAction {
 	public ActionForward leftList(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
 		String module_id = request.getParameter("module_id");
-		List<SysModule> sysFirstModules = (List<SysModule>)request.getSession().getAttribute("sysFirstModules");
+		List<SysModule> sysFirstModules = (List<SysModule>) request
+				.getSession().getAttribute("sysFirstModules") == null ? new ArrayList<SysModule>()
+				: (List<SysModule>) request.getSession().getAttribute(
+						"sysFirstModules");
 		if ((module_id == null) || "".equals(module_id)) {
 			//设置默认第一个第一级菜单id
 			if(sysFirstModules.size() > 0){

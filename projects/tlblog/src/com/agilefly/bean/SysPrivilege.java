@@ -34,7 +34,7 @@ public class SysPrivilege implements java.io.Serializable {
 	
 	public SysPrivilege(String model, String privilegeValue, String name, Integer orderNo) {
 		super();
-		this.id = id;
+		this.id = new SysPrivilegeId(model,privilegeValue);
 		this.name = name;
 		this.orderNo = orderNo;
 	}

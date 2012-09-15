@@ -37,6 +37,6 @@
         <property name="recommendStatus" type="java.lang.Byte">
             <column name="recommendStatus"/>
         </property>
-        <many-to-one name="sysType" column="article_type_id" class="com.agilefly.bean.SysType" not-null="true"/>
+        <many-to-one name="sysType" column="article_type_id" class="com.agilefly.bean.SysType" not-null="true" lazy="false"/>
     </class>
 </hibernate-mapping>

@@ -26,4 +26,14 @@ public interface ISysUserService extends BaseDao<SysUser> {
 	 * @return
 	 */
 	public boolean checkUnameExist(String username);
+	
+	/**
+	 * 审批
+	 */
+	public int approve(String[] ids);
+	
+	/**
+	 * 反审批
+	 */
+	public int unApprove(String[] ids);
 }

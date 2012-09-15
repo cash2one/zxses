@@ -14,7 +14,7 @@
 	<!-- 博客搜索框 begin -->
 	<div class="bl_search">
 		<!-- 修改对应的aciton路径 -->
-		<html:form action="/blog/article/search.do" method="post">
+		<html:form action="/client/index/search.do" method="post">
 			<input type="text" id="word" name="word" value="${param.word }" />
 			<input type="submit" class="bl_sure" value="" />
 		</html:form>

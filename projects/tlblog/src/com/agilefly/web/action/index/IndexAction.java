@@ -3,7 +3,11 @@ package com.agilefly.web.action.index;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import javassist.bytecode.stackmap.TypedBlock;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
@@ -18,10 +22,16 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.chain.contexts.ServletActionContext;
 import org.springframework.stereotype.Controller;
 
+import com.agilefly.bean.BlogArticle;
 import com.agilefly.bean.SysConfig;
+import com.agilefly.bean.SysType;
 import com.agilefly.bean.SysUser;
+import com.agilefly.bean.TypeArticle;
+import com.agilefly.service.blogarticle.IBlogArticleService;
 import com.agilefly.service.sysconfig.ISysConfigService;
 import com.agilefly.service.systemuser.ISysUserService;
+import com.agilefly.service.systype.ISysTypeService;
+import com.agilefly.service.systype.impl.SysTypeService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.CipherUtil;
 import com.agilefly.utils.WebUtil;
@@ -34,6 +44,11 @@ public class IndexAction extends BaseAction{
 	private ISysUserService sysUserService;
 	@Resource
 	private ISysConfigService sysConfigService;
+	@Resource
+	private ISysTypeService sysTypeService;
+	@Resource
+	private IBlogArticleService blogArticleService;
+	
 	
 	/**
 	 * 跳转到注册界面
@@ -182,14 +197,37 @@ public class IndexAction extends BaseAction{
 	 */
 	public ActionForward starts(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) {
-		//设置在线联系信息
-		ServletContext application = request.getSession().getServletContext();
-		if(application.getAttribute("sysConfig_App") == null){
+		//设置在线联系信息 考虑到随时修改，可以设置缓存 随时查询数据
+		//ServletContext application = request.getSession().getServletContext();
+		/*if(application.getAttribute("sysConfig_App") == null){
 			sysConfigService.find("sysConfigManage");
 			application.setAttribute("sysConfig_App", sysConfigService.find("sysConfigManage"));
-		}
+		}*/
+		request.setAttribute("sysConfig_App", sysConfigService.find("sysConfigManage"));
+		
 		//获得优秀作文(学生发表的文章类型为作文,编码)
 		
+		//获得推荐博客
+		
+		//获得所有教师文章类型模块信息
+		List<SysType> teacherBlogTypeList = new ArrayList<SysType>();
+		teacherBlogTypeList = sysTypeService.searchSysBlogTypes("teacher");
+		
+		//List<TypeArticle> typeArticleList = new ArrayList<TypeArticle>();
+		
+		//获得每个教师文章类型下的最新的6篇已通过审核的文章
+		for (SysType type : teacherBlogTypeList) {
+			TypeArticle typeArticle = new TypeArticle();
+			typeArticle.setSysType(type);
+			List<BlogArticle> blogArticleList = blogArticleService.getArticleByType(type.getId());
+			typeArticle.setBlogArticleList(blogArticleList);
+			
+			//typeArticleList.add(typeArticle);
+			
+			request.setAttribute(type.getTypeCode(), typeArticle);
+		}
+		
+		request.setAttribute("teacherBlogTypeList", teacherBlogTypeList);
 		return mapping.findForward("starts");
 	}
 }

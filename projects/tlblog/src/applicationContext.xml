@@ -21,8 +21,8 @@
 			value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<property name="url"
 			value="jdbc:sqlserver://localhost:1433;databaseName=tlblog" />
-		<property name="username" value="zx" />
-		<property name="password" value="zx" />
+		<property name="username" value="sa" />
+		<property name="password" value="sasasa" />
 		<!-- 连接池启动时的初始值 -->
 		<property name="initialSize" value="1" />
 		<!-- 连接池的最大值 -->

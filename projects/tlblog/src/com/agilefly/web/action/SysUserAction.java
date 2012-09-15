@@ -17,6 +17,7 @@ import com.agilefly.service.sysrole.ISysRoleService;
 import com.agilefly.service.systemuser.ISysUserService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.CipherUtil;
+import com.agilefly.utils.StringUtil;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.form.SysUserForm;
 
@@ -41,9 +42,34 @@ public class SysUserAction extends BaseAction{
 		//获取用户列表，并传递到界面
 		SysUserForm maf = (SysUserForm)form;
 		
+		
+		//加入过滤条件
+		String userTypeVal = request.getParameter("userType");
+		String approveStatusVal = request.getParameter("approveStatus");
+		
+		StringBuilder query = new StringBuilder(" 1=1");
+		
+		if(userTypeVal != null){
+			if("all".equals(userTypeVal)){
+				
+			}else{
+				query.append(" and o.userType='" + userTypeVal + "'");
+			}
+		}
+		
+		if(approveStatusVal != null){
+			if(-1 == Byte.parseByte(approveStatusVal)){
+				
+			}else{
+				query.append(" and o.approveStatus=" + Byte.parseByte(approveStatusVal) + "");
+			}
+		}
+		
 		//int parentId = maf.getParentId();
 		//request.setAttribute("qs", sysUserService.getScrollDataByThread(parentId == 0 ? "o.parent is null" : "o.parent.id = " + parentId, null));
-		request.setAttribute("qs", sysUserService.getScrollDataByThread());
+		request.setAttribute("qs", sysUserService.getScrollDataByThread(query.toString()));
+		request.setAttribute("userTypeValue", userTypeVal);
+		request.setAttribute("approveStatusValue", approveStatusVal);
 		
 		return mapping.findForward("list");
 	}
@@ -195,6 +221,30 @@ public class SysUserAction extends BaseAction{
 		//return mapping.findForward("pub_del_success");
 		request.setAttribute("showMsg", SysObj.createDeleteMassageBox(ids.length, ""));
 		return unspecified(mapping, form, request,response);
+	}
+	
+	/**
+	 * 审批会员
+	 * @throws Exception 
+	 */
+	public ActionForward approve(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String[] ids = request.getParameterValues("check");
+		int effectCount = sysUserService.approve(ids);
+		request.setAttribute("showMsg", SysObj.createApproveMassageBox(effectCount));
+		return unspecified(mapping,form,request,response);
+	}
+	
+	/**
+	 * 反审批会员
+	 * @throws Exception 
+	 */
+	public ActionForward unApprove(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String[] ids = request.getParameterValues("check");
+		int effectCount = sysUserService.unApprove(ids);
+		request.setAttribute("showMsg", SysObj.createUnApproveMassageBox(effectCount));
+		return unspecified(mapping,form,request,response);
 	}
 	
 	/**

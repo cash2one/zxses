@@ -77,9 +77,9 @@
 												<option selected="selected" value="0">
 													==请选择所属分类==
 												</option>
-												<c:forEach items="${sysBlogTypeList}" var="sysBlogType">
-													<option value="${sysBlogType.id }">
-														${sysBlogType.typeName }
+												<c:forEach items="${stuArticleTypes}" var="stuArticleType">
+													<option value="${stuArticleType.id }">
+														${stuArticleType.typeName }
 													</option>
 												</c:forEach>
 											</select>

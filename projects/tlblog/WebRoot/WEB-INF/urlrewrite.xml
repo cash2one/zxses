@@ -17,7 +17,7 @@
 	<rule>
 		<note>跳转到首页</note>
 		<from>^/index.html$</from>
-		<to>/client/index/starts.jsp</to>
+		<to>index.jsp</to>
 	</rule>
 	<!--
 	<rule>

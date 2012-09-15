@@ -16,8 +16,8 @@ import com.agilefly.bean.BlogArticle;
 import com.agilefly.bean.SysType;
 import com.agilefly.bean.SysUser;
 import com.agilefly.service.blogarticle.IBlogArticleService;
-import com.agilefly.service.sysblogtype.ISysBlogTypeService;
 import com.agilefly.service.systemuser.ISysUserService;
+import com.agilefly.service.systype.ISysTypeService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.action.BaseAction;
@@ -33,7 +33,7 @@ public class BlogArticleAction extends BaseAction {
 	@Resource
 	private IBlogArticleService blogArticleService;
 	@Resource
-	private ISysBlogTypeService sysBlogTypeService;
+	private ISysTypeService sysTypeService;
 	@Resource
 	private ISysUserService sysUserService;
 	
@@ -45,8 +45,8 @@ public class BlogArticleAction extends BaseAction {
 		this.blogArticleService = blogArticleService;
 	}
 	
-	public void setSysBlogTypeService(ISysBlogTypeService sysBlogTypeService) {
-		this.sysBlogTypeService = sysBlogTypeService;
+	public void setSysTypeService(ISysTypeService sysTypeService) {
+		this.sysTypeService = sysTypeService;
 	}
 
 	/**
@@ -79,8 +79,8 @@ public class BlogArticleAction extends BaseAction {
 			return mapping.findForward("clientLogin");
 		}
 		//根据登录用户类型加载文章类型下拉框值
-		List<SysType> sysBlogTypeList = sysBlogTypeService.searchSysBlogTypes(frontUser.getUserType());
-		request.setAttribute("sysBlogTypeList", sysBlogTypeList);
+		List<SysType> sysBlogTypeList = sysTypeService.searchSysBlogTypes(frontUser.getUserType());
+		request.setAttribute("stuArticleTypes", sysBlogTypeList);
 		return mapping.findForward("add_input");
 	}
 	
@@ -108,7 +108,7 @@ public class BlogArticleAction extends BaseAction {
 		if(article.getCommentStatus() == null){
 			article.setCommentStatus((byte)0);
 		}
-		SysType articleType = sysBlogTypeService.find(baf.getArticleTypeId());
+		SysType articleType = sysTypeService.find(baf.getArticleTypeId());
 		article.setSysType(articleType);
 		article.setUserId(frontUser.getId());
 		article.setPostTime(new Date());

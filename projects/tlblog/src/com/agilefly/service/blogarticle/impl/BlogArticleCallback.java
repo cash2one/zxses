@@ -57,7 +57,7 @@ public class BlogArticleCallback implements CompassCallback<QueryResult<BlogArti
 		}
 		for(int i = startIndex; i <= lastIndex; i++){
 			BlogArticle article = (BlogArticle) hits.data(i);
-			System.out.println(article.getId());
+			//System.out.println(article.getId());
 			String hlArticleTitle = hits.highlighter(i).fragment("articleTitle");
 			String hlArticleContent = hits.highlighter(i).fragment("articleContent");
 			if(hlArticleTitle != null){

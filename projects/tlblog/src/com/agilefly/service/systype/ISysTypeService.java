@@ -1,4 +1,4 @@
-package com.agilefly.service.sysblogtype;
+package com.agilefly.service.systype;
 
 import java.util.List;
 
@@ -7,9 +7,10 @@ import com.agilefly.service.base.BaseDao;
 
 /**
  * @author boleyn_renlei
- * @date Jun 20, 2012 2:19:33 AM
+ * @date May 18, 2012 10:39:16 PM
+ * 包含用户博客信息的操作
  */
-public interface ISysBlogTypeService extends BaseDao<SysType> {
+public interface ISysTypeService extends BaseDao<SysType> {
 	/**
 	 * 根据用户身份编码(typecode-->教师[teacher]、学生[student])查询文章类型
 	 * (教师和学生发表文章选择的类别不同)

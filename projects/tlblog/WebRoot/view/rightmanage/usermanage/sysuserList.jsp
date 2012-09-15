@@ -12,9 +12,9 @@
 	<head>
 
 		<title>用户管理</title>
-		
+
 		<%@ include file="/res/common/inc/backresources.jsp"%>
-		
+
 		<script type="text/javascript">
            
         function add(){
@@ -93,6 +93,36 @@
           }
         } 
         
+        function approve()
+        {
+           if(checkDelNum())
+           {   
+              if (confirm("确定审批这些记录吗？")==false) return false;
+              sysUserForm.action="<%=basePath%>view/sysuser.do?method=approve";
+           	  sysUserForm.submit(); 
+             return false;
+           }
+           else
+           {
+              return false;
+           }
+        } 
+       
+       function unApprove()
+       {
+          if(checkDelNum())
+         {   
+            if (confirm("确定反审批这些记录吗？")==false) return false;
+            sysUserForm.action="<%=basePath%>view/sysuser.do?method=unApprove";
+           	sysUserForm.submit(); 
+            return false;
+         }
+         else
+         {
+            return false;
+         }
+       }
+        
         function assignRole()
         {
           if(checkNum())
@@ -104,6 +134,14 @@
              return false;
           }
         }
+        
+        function changeType(){
+			var userTypeVal = $("#userType").val();
+			var approveStatusVal = $("#approveStatus").val();
+			sysUserForm.action = "<%=basePath%>view/sysuser.do?userType="+userTypeVal+"&approveStatus="+approveStatusVal;
+            sysUserForm.submit();
+            return false;
+		}
      </script>
 	</head>
 
@@ -125,31 +163,41 @@
 										</td>
 										<td align="right">
 											<!-- 工具栏按钮 注意在js函数中修改form名字，及提交路径 加上权限控制验证-->
-											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','add') }">
-											<img src="<%=basePath%>res/admin/img/add.gif"
-												onclick="javascript:add()" style="cursor: pointer" alt="新增"
-												title="新增" />
+											<c:if
+												test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','add') }">
+												<img src="<%=basePath%>res/admin/img/add.gif"
+													onclick="javascript:add()" style="cursor: pointer" alt="新增"
+													title="新增" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','update') }">
-											<img src="<%=basePath%>res/admin/img/update.gif"
-												onclick="javascript:update()" style="cursor: pointer" alt="修改" title="修改" />
+											<c:if
+												test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','update') }">
+												<img src="<%=basePath%>res/admin/img/update.gif"
+													onclick="javascript:update()" style="cursor: pointer"
+													alt="修改" title="修改" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','delete') }">
-											<img src="<%=basePath%>res/admin/img/delete.gif"
-												onclick="javascript:del()" style="cursor: pointer" alt="删除"
-												title="删除" />
+											<c:if
+												test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','delete') }">
+												<img src="<%=basePath%>res/admin/img/delete.gif"
+													onclick="javascript:del()" style="cursor: pointer" alt="删除"
+													title="删除" />
 											&nbsp;
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','approve') }">
-											<input type="button" class="an" onclick="approve()" value="审核" title="审核"/>
+											<c:if
+												test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','approve') }">
+												<input type="button" class="an" onclick="approve()"
+													value="审核" title="审核" />
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','unApprove') }">
-											<input type="button" class="an" style="width: 60px;" onclick="unApprove()" value="反审核" title="反审核"/>
+											<c:if
+												test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','unApprove') }">
+												<input type="button" class="an" style="width: 60px;"
+													onclick="unApprove()" value="反审核" title="反审核" />
 											</c:if>
-											<c:if test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','assignRole') }">
-											<input type="button" class="an" style="width: 80px;" onclick="assignRole()" value="分配角色" title="分配角色"/>
+											<c:if
+												test="${agilefly:hasPermission(sysUserLoginInfo.id,'sysUserManage','assignRole') }">
+												<input type="button" class="an" style="width: 80px;"
+													onclick="assignRole()" value="分配角色" title="分配角色" />
 											&nbsp;
 											</c:if>
 										<td width="15"></td>
@@ -160,6 +208,38 @@
 
 						<tr>
 							<td class="height8"></td>
+						</tr>
+						
+						<tr>
+							<td class="tdcenter">
+								用户类型：
+								<select id="userType" name="userType" style="width: 150px;"
+									onchange="changeType()">
+									<option value="all"${userTypeValue=="all"?" selected=\"selected\"":"" }>
+										==请选择用户类型==
+									</option>
+									<option value="teacher"${userTypeValue=="teacher"?" selected=\"selected\"":"" }>
+										教师
+									</option>
+									<option value="student"${userTypeValue=="student"?" selected=\"selected\"":"" }>
+										学生
+									</option>
+								</select>
+								&nbsp;&nbsp;&nbsp;&nbsp; 
+								审核状态：
+								<select id="approveStatus" name="approveStatus" style="width: 150px;"
+									onchange="changeType()">
+									<option value="-1"${approveStatusValue==-1?" selected=\"selected\"":"" }>
+										==请选择审核状态==
+									</option>
+									<option value="0"${approveStatusValue==0?" selected=\"selected\"":"" }>
+										未审核
+									</option>
+									<option value="1"${approveStatusValue==1?" selected=\"selected\"":"" }>
+										已审核
+									</option>
+								</select>
+							</td>
 						</tr>
 
 						<tr>
@@ -185,67 +265,95 @@
 															用户编号
 														</td>
 														<td class="chutibai tdbk">
+															登录帐号
+														</td>
+														<td class="chutibai tdbk">
 															用户姓名
 														</td>
 														<td class="chutibai tdbk">
-															登录帐号
+															用户类型
 														</td>
+														<td class="chutibai tdbk">
+															是否审核
+														</td>
+														
 													</tr>
 													<!-- 列表数据栏 -->
-											        <c:if test="${!empty qs.resultlist}">
-												        <c:forEach items="${qs.resultlist }" var="entity" varStatus="status">
-													        <c:if test="${(status.index + 1)%2 == 0}">
-															    <tr class="cstd1" onMouseOver="this.className='cstd2'" onMouseOut="this.className='cstd1'">
-															    	<td class="tdcenter tdbk">
-																		<input type="checkbox" name="check" value="${entity.id}">
+													<c:if test="${!empty qs.resultlist}">
+														<c:forEach items="${qs.resultlist }" var="entity"
+															varStatus="status">
+															<c:if test="${(status.index + 1)%2 == 0}">
+																<tr class="cstd1" onMouseOver="this.className='cstd2'"
+																	onMouseOut="this.className='cstd1'">
+																	<td class="tdcenter tdbk">
+																		<input type="checkbox" name="check"
+																			value="${entity.id}">
 																	</td>
 																	<td class="tdcenter tdbk">
 																		${entity.id}
 																	</td>
 																	<td class="tdcenter tdbk">
+																		${entity.username}
+																	</td>
+																	<td class="tdcenter tdbk">
 																		${entity.realname}
 																	</td>
 																	<td class="tdcenter tdbk">
-																		${entity.username}
+																		${entity.userTypeStr}
 																	</td>
-														        </tr>
-													        </c:if>
-													        <c:if test="${(status.index+1)%2 !=0}">
-															    <tr class="trcolor" onMouseOver="this.className='cstd2'" onMouseOut="this.className='trcolor'">
-															    	<td class="tdcenter tdbk">
-																		<input type="checkbox" name="check" value="${entity.id}">
+																	<td class="tdcenter tdbk">
+																		${entity.approveStatusStr}
+																	</td>
+																</tr>
+															</c:if>
+															<c:if test="${(status.index+1)%2 !=0}">
+																<tr class="trcolor" onMouseOver="this.className='cstd2'"
+																	onMouseOut="this.className='trcolor'">
+																	<td class="tdcenter tdbk">
+																		<input type="checkbox" name="check"
+																			value="${entity.id}">
 																	</td>
 																	<td class="tdcenter tdbk">
 																		${entity.id}
 																	</td>
 																	<td class="tdcenter tdbk">
+																		${entity.username}
+																	</td>
+																	<td class="tdcenter tdbk">
 																		${entity.realname}
 																	</td>
 																	<td class="tdcenter tdbk">
-																		${entity.username}
+																		${entity.userTypeStr}
 																	</td>
-														        </tr>
-													        </c:if>
-												        </c:forEach>
+																	<td class="tdcenter tdbk">
+																		${entity.approveStatusStr}
+																	</td>
+																</tr>
+															</c:if>
+														</c:forEach>
 													</c:if>
 													<!-- 在列表数据为空的时候，要显示的提示信息 **!!根据标题列数修改colspan大小-->
-												    <c:if test="${empty qs.resultlist}">
-													    <tr class="trcolor" onMouseOver="this.className='cstd2'" onMouseOut="this.className='trcolor'">
-													    	<td colspan="5" align="center">
-													    	没有找到相应的记录!
-													    	</td>
-													    </tr>
-												    </c:if>
+													<c:if test="${empty qs.resultlist}">
+														<tr class="trcolor" onMouseOver="this.className='cstd2'"
+															onMouseOut="this.className='trcolor'">
+															<td colspan="7" align="center">
+																没有找到相应的记录!
+															</td>
+														</tr>
+													</c:if>
 												</table>
 											</td>
 										</tr>
 										<tr>
 											<td align="right">
-												<br/>
+												<br />
 												<!-- 在这里插入分页导航条 -->
 												<!-- 最少有一条记录才显示分页导航条(否则出现首页和尾页点击尾页报错！) !!修改对应的url-->
 												<c:if test="${qs.totalrecord > 0 }">
-										       		<pg:pager items="${qs.totalrecord }" url="sysuser.do" export="currentPageNumber=pageNumber">
+													<pg:pager items="${qs.totalrecord }" url="sysuser.do"
+														export="currentPageNumber=pageNumber">
+														<pg:param name="userType"/>
+														<pg:param name="approveStatus"/>
 														<pg:first>
 															<a href="${pageUrl }">首页</a>
 														</pg:first>

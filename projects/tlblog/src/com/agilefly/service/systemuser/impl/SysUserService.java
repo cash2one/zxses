@@ -64,4 +64,38 @@ public class SysUserService extends BaseDaoImpl<SysUser> implements ISysUserServ
 		Long size = (Long)getSession().createQuery("select count(*) from " + getEntityName(this.entityClass)+ " o where o.username=?").setParameter(0, username).uniqueResult();
 		return size > 0;
 	}
+	
+	/**
+	 * 审批
+	 */
+	public int approve(String[] ids) {
+		int effectCount = 0;
+		for(int i=0;i<ids.length;i++){
+			 Integer  id = Integer.parseInt(ids[i]);
+			 SysUser o = (SysUser)find(id);
+			 if(o.getApproveStatus() == (byte)0){
+				 o.setApproveStatus((byte)1);
+				 effectCount ++;
+			 }
+			 update(o);
+		 }	
+		return effectCount;
+	}
+	
+	/**
+	 * 反审批
+	 */
+	public int unApprove(String[] ids) {
+		int effectCount = 0;
+		for(int i=0;i<ids.length;i++){
+			 Integer  id = Integer.parseInt(ids[i]);
+			 SysUser o = (SysUser)find(id);
+			 if(o.getApproveStatus() == (byte)1){
+				 o.setApproveStatus((byte)0);
+				 effectCount ++;
+			 }
+			 update(o);
+		 }			
+		return effectCount;
+	}
 }

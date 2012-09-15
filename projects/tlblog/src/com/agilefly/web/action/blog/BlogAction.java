@@ -1,6 +1,8 @@
 package com.agilefly.web.action.blog;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,12 +14,13 @@ import org.apache.struts.action.ActionMapping;
 import org.springframework.stereotype.Controller;
 
 import com.agilefly.bean.BlogArticle;
+import com.agilefly.bean.SysType;
 import com.agilefly.bean.SysUser;
+import com.agilefly.bean.TypeArticle;
 import com.agilefly.commons.QueryResult;
-import com.agilefly.commons.SysConstant;
-import com.agilefly.service.blogarticle.IBlogArticleSearchService;
 import com.agilefly.service.blogarticle.IBlogArticleService;
 import com.agilefly.service.systemuser.ISysUserService;
+import com.agilefly.service.systype.ISysTypeService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.action.BaseAction;
@@ -34,6 +37,8 @@ public class BlogAction extends BaseAction {
 	private ISysUserService sysUserService;
 	@Resource
 	private IBlogArticleService blogArticleService;
+	@Resource
+	private ISysTypeService sysTypeService;
 	
 	public void setSysUserService(ISysUserService sysUserService) {
 		this.sysUserService = sysUserService;
@@ -82,6 +87,13 @@ public class BlogAction extends BaseAction {
 			QueryResult<BlogArticle> blogArticleQs = blogArticleService.getScrollDataByThread(whereHql,params,orderby);
 			request.setAttribute("qs", blogArticleQs);
 		}
+		//获得文章类型
+		//根据博客用户类型获得文章类型
+		List<SysType> userBlogTypeList = new ArrayList<SysType>();
+		
+		userBlogTypeList = sysTypeService.searchSysBlogTypes(blogUser.getUserType());
+		
+		request.setAttribute("userBlogTypeList", userBlogTypeList);
 		return mapping.findForward("blogindex");
 	}
 	

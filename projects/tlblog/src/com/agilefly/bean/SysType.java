@@ -14,12 +14,21 @@ public class SysType implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
+	/*类型标识*/
+	private String typeSymbol;
+	/*类型名称*/
 	private String typeName;
+	/*类型描述*/
 	private String typeDes;
+	/*类型编码*/
 	private String typeCode;
+	/*类型排序号*/
 	private Integer typeOrder;
+	/*是否可用*/
 	private Byte available;
+	/*扩展标识1*/
 	private String extFirst;
+	/*扩张表示2*/
 	private String extSecond;
 
 	// Constructors
@@ -99,6 +108,14 @@ public class SysType implements java.io.Serializable {
 
 	public void setAvailable(Byte available) {
 		this.available = available;
+	}
+
+	public String getTypeSymbol() {
+		return typeSymbol;
+	}
+
+	public void setTypeSymbol(String typeSymbol) {
+		this.typeSymbol = typeSymbol;
 	}
 
 }

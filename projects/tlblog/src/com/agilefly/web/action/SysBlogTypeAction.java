@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 
 import com.agilefly.bean.SysType;
 import com.agilefly.commons.SysConstant;
-import com.agilefly.service.sysblogtype.ISysBlogTypeService;
+import com.agilefly.service.systype.ISysTypeService;
 import com.agilefly.utils.BeanUtilEx;
 import com.agilefly.utils.SysObj;
 import com.agilefly.web.form.SysBlogTypeForm;
@@ -26,10 +26,10 @@ import com.agilefly.web.form.SysBlogTypeForm;
 @Controller("/view/sysblogtype")
 public class SysBlogTypeAction extends BaseAction{
 	@Resource
-	private ISysBlogTypeService sysBlogTypeService;
+	private ISysTypeService sysTypeService;
 	
-	public void setSysBlogTypeService(ISysBlogTypeService sysBlogTypeService) {
-		this.sysBlogTypeService = sysBlogTypeService;
+	public void setSysBlogTypeService(ISysTypeService sysTypeService) {
+		this.sysTypeService = sysTypeService;
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class SysBlogTypeAction extends BaseAction{
 		
 		//当用户选择不同用户身份过滤
 		
-		String whereHql = "o.typeCode=? ";
+		String whereHql = "o.typeSymbol=? ";
 		Object[] params = new Object[]{SysConstant.ARTICLE_TYPE};
 		
 		//排序
@@ -51,7 +51,7 @@ public class SysBlogTypeAction extends BaseAction{
 		orderby.put("extFirst", "asc");
 		orderby.put("id", "asc");
 		
-		request.setAttribute("qs", sysBlogTypeService.getScrollDataByThread(whereHql,params,orderby));
+		request.setAttribute("qs", sysTypeService.getScrollDataByThread(whereHql,params,orderby));
 		
 		return mapping.findForward("list");
 	}
@@ -100,11 +100,11 @@ public class SysBlogTypeAction extends BaseAction{
 		
 		BeanUtilEx.copyProperties(type, sbtf);
 		//博客类型选项标识
-		type.setTypeCode(SysConstant.ARTICLE_TYPE);
+		type.setTypeSymbol(SysConstant.ARTICLE_TYPE);
 		//记录有效
 		type.setAvailable((byte)1);
 		
-		sysBlogTypeService.save(type);
+		sysTypeService.save(type);
 		
 		request.setAttribute("showMsg", SysObj.createAddMassageBox(""));
 		return unspecified(mapping, form, request,response);
@@ -123,7 +123,7 @@ public class SysBlogTypeAction extends BaseAction{
 	@Permission(model="sysBlogTypeManage", privilegeValue="update")
 	public ActionForward updateInput(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String sysTypeId = request.getParameter("sysTypeId");
-		SysType type = sysBlogTypeService.find(Integer.parseInt(sysTypeId));
+		SysType type = sysTypeService.find(Integer.parseInt(sysTypeId));
 		request.setAttribute("sysBlogTypeInfo", type);
 		return mapping.findForward("update_input");
 	}
@@ -143,13 +143,13 @@ public class SysBlogTypeAction extends BaseAction{
 		
 		SysType type = null;
 		
-		type = sysBlogTypeService.find(sbtf.getId());
+		type = sysTypeService.find(sbtf.getId());
 		
 		String messageEntity = type.getTypeName();
 		
 		BeanUtilEx.copyProperties(type, sbtf);
 		
-		sysBlogTypeService.update(type);
+		sysTypeService.update(type);
 		
 		request.setAttribute("showMsg", SysObj.createEditMassageBox(messageEntity));
 		return unspecified(mapping, form, request,response);
@@ -167,7 +167,7 @@ public class SysBlogTypeAction extends BaseAction{
 	@Permission(model="sysBlogTypeManage", privilegeValue="delete")
 	public ActionForward del(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String[] ids = request.getParameterValues("check");
-		sysBlogTypeService.delete(ids);
+		sysTypeService.delete(ids);
 		//return mapping.findForward("pub_del_success");
 		request.setAttribute("showMsg", SysObj.createDeleteMassageBox(ids.length, ""));
 		return unspecified(mapping, form, request,response);

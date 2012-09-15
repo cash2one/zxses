@@ -17,6 +17,7 @@ import com.agilefly.bean.SysConfig;
 import com.agilefly.bean.SysModule;
 import com.agilefly.bean.SysPrivilege;
 import com.agilefly.bean.SysRole;
+import com.agilefly.bean.SysType;
 import com.agilefly.bean.SysUser;
 import com.agilefly.commons.SysConstant;
 import com.agilefly.service.sysconfig.ISysConfigService;
@@ -24,6 +25,7 @@ import com.agilefly.service.sysmodule.ISysModuleService;
 import com.agilefly.service.sysprivilege.ISysPrivilegeService;
 import com.agilefly.service.sysrole.ISysRoleService;
 import com.agilefly.service.systemuser.ISysUserService;
+import com.agilefly.service.systype.ISysTypeService;
 import com.agilefly.utils.CipherUtil;
 
 /**
@@ -37,6 +39,7 @@ public class InitAction extends Action{
 	@Resource ISysRoleService sysRoleService;
 	@Resource ISysUserService sysUserService;
 	@Resource ISysConfigService sysConfigService;
+	@Resource ISysTypeService sysTypeService;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
@@ -45,6 +48,7 @@ public class InitAction extends Action{
 		initSysPrivilege();
 		initSysUserRole();
 		initSysConfig();
+		initSysType();
 		//request.setAttribute("showMsg", SysObj.SystemInit());
 		request.setAttribute("message", "系统初始化成功");
 		request.setAttribute("urladdress", "sys/login.do?method=toLogin");
@@ -89,6 +93,13 @@ public class InitAction extends Action{
 			sysRoleManage.setUrl("view/sysrole.do");
 			sysRoleManage.setOrderNo(3);
 			sysModuleService.addSysModule(sysRoleManage, systemManage.getId());
+			
+			SysModule sysConfigManage = new SysModule();
+			sysConfigManage.setName("系统配置");
+			sysConfigManage.setSn("sysConfigManage");
+			sysConfigManage.setUrl("view/sysconfig.do");
+			sysConfigManage.setOrderNo(4);
+			sysModuleService.addSysModule(sysConfigManage, systemManage.getId());
 			
 			//博客管理子模块
 			SysModule sysBlogTypeManage = new SysModule();
@@ -144,7 +155,7 @@ public class InitAction extends Action{
 	}
 	
 	/**
-	 * 添加用户系统权限信息
+	 * 添加系统管理员角色和用户系统权限信息
 	 */
 	private void initSysUserRole(){
 		if(sysRoleService.getCount() == 0 && sysUserService.getCount() == 0){
@@ -186,8 +197,108 @@ public class InitAction extends Action{
 			SysConfig sysConfig = new SysConfig();
 			
 			sysConfig.setSysConfigCode("sysConfigManage");
+			sysConfig.setSinaWeibo("http://blog.sina.com.cn/u/1660501074");
+			sysConfig.setOnlineQq("http://wpa.qq.com/msgrd?v=3&amp;uin=541594150&amp;site=qq&amp;menu=yes");
+			sysConfig.setPicQq("http://wpa.qq.com/pa?p=2:541594150:46");
 			
 			sysConfigService.save(sysConfig);
+		}
+	}
+	
+	/**
+	 * 添加系统类型管理
+	 */
+	private void initSysType(){
+		if(sysTypeService.getCount() == 0 && sysTypeService.getCount() == 0){
+			//教师博客文章类型
+			//文学新闻
+			SysType wenxueNews = new SysType();
+			wenxueNews.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			wenxueNews.setTypeName("文学新闻");
+			wenxueNews.setTypeDes("教师文学新闻博客文章类型");
+			wenxueNews.setTypeCode("wenxueNews");
+			wenxueNews.setExtFirst("teacher");
+			wenxueNews.setTypeOrder(1);
+			wenxueNews.setAvailable((byte)1);
+			sysTypeService.save(wenxueNews);
+			
+			//写作指导
+			SysType writeInstruct = new SysType();
+			writeInstruct.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			writeInstruct.setTypeName("写作指导");
+			writeInstruct.setTypeDes("教师写作指导博客文章类型");
+			writeInstruct.setTypeCode("writeInstruct");
+			writeInstruct.setExtFirst("teacher");
+			writeInstruct.setTypeOrder(2);
+			writeInstruct.setAvailable((byte)1);
+			sysTypeService.save(writeInstruct);
+			
+			//名著回廊
+			SysType mingzhuCloister = new SysType();
+			mingzhuCloister.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			mingzhuCloister.setTypeName("名著回廊");
+			mingzhuCloister.setTypeDes("教师名著回廊博客文章类型");
+			mingzhuCloister.setTypeCode("mingzhuCloister");
+			mingzhuCloister.setExtFirst("teacher");
+			mingzhuCloister.setTypeOrder(3);
+			mingzhuCloister.setAvailable((byte)1);
+			sysTypeService.save(mingzhuCloister);
+			
+			//文学快车
+			SysType wenxueKuaiche = new SysType();
+			wenxueKuaiche.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			wenxueKuaiche.setTypeName("文学快车");
+			wenxueKuaiche.setTypeDes("教师文学快车博客文章类型");
+			wenxueKuaiche.setTypeCode("wenxueKuaiche");
+			wenxueKuaiche.setExtFirst("teacher");
+			wenxueKuaiche.setTypeOrder(4);
+			wenxueKuaiche.setAvailable((byte)1);
+			sysTypeService.save(wenxueKuaiche);
+			
+			//网络教室
+			SysType netClassroom = new SysType();
+			netClassroom.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			netClassroom.setTypeName("网络教室");
+			netClassroom.setTypeDes("教师网络教室博客文章类型");
+			netClassroom.setTypeCode("netClassroom");
+			netClassroom.setExtFirst("teacher");
+			netClassroom.setTypeOrder(5);
+			netClassroom.setAvailable((byte)1);
+			sysTypeService.save(netClassroom);
+			
+			//益智谜语
+			SysType yizhiMiyu = new SysType();
+			yizhiMiyu.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			yizhiMiyu.setTypeName("益智谜语");
+			yizhiMiyu.setTypeDes("教师益智谜语博客文章类型");
+			yizhiMiyu.setTypeCode("yizhiMiyu");
+			yizhiMiyu.setExtFirst("teacher");
+			yizhiMiyu.setTypeOrder(6);
+			yizhiMiyu.setAvailable((byte)1);
+			sysTypeService.save(yizhiMiyu);
+			
+			//学生博客文章类型
+			//作文
+			SysType zuowen = new SysType();
+			zuowen.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			zuowen.setTypeName("作文");
+			zuowen.setTypeDes("学生作文博客文章类型");
+			zuowen.setTypeCode("zuowen");
+			zuowen.setExtFirst("student");
+			zuowen.setTypeOrder(1);
+			zuowen.setAvailable((byte)1);
+			sysTypeService.save(zuowen);
+			
+			//日记
+			SysType diary = new SysType();
+			diary.setTypeSymbol(SysConstant.ARTICLE_TYPE);
+			diary.setTypeName("日记");
+			diary.setTypeDes("学生日记博客文章类型");
+			diary.setTypeCode("diary");
+			diary.setExtFirst("student");
+			diary.setTypeOrder(2);
+			diary.setAvailable((byte)1);
+			sysTypeService.save(diary);
 		}
 	}
 }

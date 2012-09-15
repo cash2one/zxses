@@ -115,6 +115,8 @@
 		<action path="/client/index/search" name="blogArticleQuery" scope="request">
 			<forward name="list" path="/client/index/searchAllList.jsp"/>
 		</action>
+		<action path="/client/index/reindex">
+		</action>
 	</action-mappings>
 	
 	<!-- =================================================== Spring processor -->

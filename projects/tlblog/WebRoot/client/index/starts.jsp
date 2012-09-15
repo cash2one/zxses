@@ -19,7 +19,9 @@
 			<jsp:include page="/client/index/head.jsp"/>
 			<!-- 头部 end -->
 			<div id="wx_main">
+				<!-- 左侧优秀作文推荐博客 -->
 				<div class="wx_left fl">
+					<!-- 优秀作文 -->
 					<div class="supper">
 						<ul class="sup_list">
 							<li><a href="">多与老师沟通，多与孩子... </a></li>
@@ -31,6 +33,7 @@
 							<li class="listp"><p><a href="">更多...</a></p></li>
 						</ul>
 					</div>
+					<!-- 推荐博客 -->
 					<div class="learn">
 						<h1><span>推荐博客</span></h1>
 						<ul class="sup_list">
@@ -46,8 +49,121 @@
 						</ul>	
 					</div>
 				</div>
+				<!-- 右侧教师文章类型主要模块 -->
 				<div class="wx_right fr">
 					<div class="wx_inner">
+						<c:choose> 
+							<c:when test="${fn:length(teacherBlogTypeList)==0}"> 
+								<div style="margin-left:20px;">
+									没有教师文章类型！
+								</div>
+								<div class="clear"></div>
+							</c:when> 
+							<c:when test="${fn:length(teacherBlogTypeList)>0}">
+								<div class="page1">
+									<div class="page_list1 fl">
+										<h1><a href="">【${wenxueNews.sysType.typeName }】</a></h1>
+										<ul class="list1">
+											<c:choose>
+												<c:when test="${fn:length(wenxueNews.blogArticleList)>0 }">
+													<c:forEach items="${wenxueNews.blogArticleList}" var="blogArticle">
+														<li><a href="">${blogArticle.articleTitle }</a></li>
+													</c:forEach>
+													<c:if test="${fn:length(wenxueNews.blogArticleList)>6 }">
+														<li class="listp"><p><a href="">更多...</a></p></li>
+													</c:if>
+												</c:when>
+												<c:otherwise>
+													没有相关文章！
+												</c:otherwise>
+											</c:choose>
+										</ul>
+									</div>
+									<div class="page_list1 fl">
+										<h1><a href="">【${writeInstruct.sysType.typeName }】</a></h1>
+										<ul class="list1">
+											<c:choose>
+												<c:when test="${fn:length(writeInstruct.blogArticleList)>0 }">
+													<c:forEach items="${writeInstruct.blogArticleList}" var="blogArticle">
+														<li><a href="">${blogArticle.articleTitle }</a></li>
+													</c:forEach>
+													<c:if test="${fn:length(writeInstruct.blogArticleList)>6 }">
+														<li class="listp"><p><a href="">更多...</a></p></li>
+													</c:if>
+												</c:when>
+												<c:otherwise>
+													没有相关文章！
+												</c:otherwise>
+											</c:choose>
+										</ul>
+									</div>
+									<div class="clear"></div>		
+								</div>
+								<div class="page2">
+									<div class="page_list1 fl">
+										<h1><a href="">【${writeInstruct.sysType.typeName }】</a></h1>
+										<dl>
+											<dt><a href="">西南民族大学与四川甘孜州开展战略合作 </a></dt>
+											<dd>
+												<a href=""><img src="${basePath}res/client/images/wx1.jpg" /></a>
+												<a href="" class="text">绵阳网校为孩子们搭建了安全</a>
+												<li><a href="">七年级学生的心理问题及对策 </a></li>
+												<li><a href="">论中学生的嫉妒因及其应对方法 </a></li>
+												<li class="listp"><p><a href="">更多...</a></p></li>
+											</dd>
+											
+										</dl>
+									</div>
+									<div class="page_list1 fl">
+										<h1><a href="">【文学快车】</a></h1>
+										<dl>
+											<dd>
+												<a href=""><img src="${basePath}res/client/images/wx1.jpg" /></a>
+												<ul class="list2">
+													<li><a href="">有钱没钱回家过年 </a><li>
+													<li><a href="">如何对中考生进行心理调整 </a><li>
+													<li><a href="">论中学生的嫉妒因及其应对方法 </a></li>
+													<li><a href="">论中学生的嫉妒心理的成因及其应对方法 </a></li>
+													<li><a href="">七年级学生的心理问题及对策 </a></li>
+													<li><a href="">论中学生的嫉妒因及其应对方法 </a></li>
+													<li class="listp"><p><a href="">更多...</a></p></li>
+												</ul>
+												
+											</dd>
+										</dl>
+									</div>
+									<div class="clear"></div>	
+								</div>
+								<div class="page3">
+									<div class="page_list1 fl">
+										<h1><a href="">【网络教室】</a></h1>
+										<ul class="list1 list3">
+											<li><a href="">校门口的凉粉 </a></li>
+											<li><a href="">我学会了骑自行车 </a></li>
+											<li><a href="">人在初三 </a></li>
+											<li><a href="">风雨中，坚定脚步 </a></li>
+											<li><a href="">往事随风 </a></li>
+											<li><a href="">成都高考艺体加分测试 成都考... </a></li>
+										</ul>
+									</div>
+									<div class="page_list1 fl">
+										<h1><a href="">【益智谜语】</a></h1>
+										<ul  class="list1 list3">
+											<li><a href="">小学阶段除了语文和数学以外，其余科目均没有学习任务和压力</a></li>
+											<li><a href="">考试都在90分以上，甚至可以得满分</a></li>
+											<li><a href="">还有历史、地理、生物和政治等。每一门课程老师</a></li>
+											<li><a href="">激烈的竞争以及家长过高</a></li>
+											<li><a href="">小学阶段老师要求不严，学习任务不重，对英语的重视不够。</a></li>
+											<li><a href="">好学生担心失掉“尖子”地位，受到老师</a></li>
+										</ul>
+									</div>
+									<div class="clear"></div>		
+								</div>
+							</c:when>
+						</c:choose>
+						<%--
+						==========================================================
+				==========================================
 						<div class="page1">
 							<div class="page_list1 fl">
 								<h1><a href="">【文学新闻】</a></h1>
@@ -130,6 +246,7 @@
 							</div>
 							<div class="clear"></div>		
 						</div>
+					--%>
 					</div>
 					<div class="wx_sidbar"></div>
 				</div>

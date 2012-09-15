@@ -10,6 +10,9 @@
             <column name="id" />
             <generator class="native" />
         </id>
+        <property name="typeSymbol" type="java.lang.String">
+            <column name="type_symbol" length="50" />
+        </property>
         <property name="typeName" type="java.lang.String">
             <column name="type_name" length="50" />
         </property>

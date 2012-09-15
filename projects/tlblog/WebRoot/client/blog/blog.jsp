@@ -38,21 +38,21 @@
 					</c:if>
 				</div>
 				<div class="bl_r_cont">
-					<div>
+					<div><h2><span>sfaslkdjflds</span></h2>
 						<ul>
 							<!-- 列表数据栏 -->
 					        <c:if test="${!empty qs.resultlist}">
 						        <c:forEach items="${qs.resultlist }" var="entity" varStatus="status">
 							        <li>
 										<h1><a href="" class="bl_more">${entity.articleTitle }</a>
-											<p>博客分类：<span>杂谈</span></p>
+											<p>博客分类：<span>${entity.sysType.typeName }</span></p>
 										</h1>
 										<p>${entity.articleContent }</p>
 										<div class="page">
 											阅读<span>（6）</span>|
 											<a href="">评论</a><span>（0）</span>|
 											<span>${entity.postTime }</span>
-											<a href="" class="bl_more" title="查看更多">查看更多》</a>
+											<a href="" class="bl_more" title="查看更多">查看详情》</a>
 										</div>
 									</li>
 						        </c:forEach>

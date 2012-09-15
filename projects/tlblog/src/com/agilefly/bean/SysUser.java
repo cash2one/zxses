@@ -60,9 +60,29 @@ public class SysUser implements java.io.Serializable {
 	private Byte recordStatus;
 	//权限
 	private Set<SysRole> sysRoles = new HashSet<SysRole>();
-
+	
+	//是否审核
+	private String approveStatusStr;
+	//用户类型
+	private String userTypeStr;
+	
+	public String getApproveStatusStr() {
+		if(approveStatus == 1){
+			return "<font color='green'>已审批</font>";
+		}else{
+			return "<font color='red'>未审批</font>";
+		}
+	}
+	
+	public String getUserTypeStr() {
+		if("teacher".equals(userType)){
+			return "教师";
+		}else{
+			return "学生";
+		}
+	}
+	
 	// Constructors
-
 	/** default constructor */
 	public SysUser() {
 	}
@@ -319,7 +339,7 @@ public class SysUser implements java.io.Serializable {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

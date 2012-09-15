@@ -59,10 +59,10 @@ public class CipherUtil {
         int d2 = n % 16;     
         return hexDigits[d1] + hexDigits[d2];     
     }     
-    public static void main(String[] args) {     
+    /*public static void main(String[] args) {     
         String pwd1="888888";                
         System.out.println("加密后的密码:"+CipherUtil.generatePassword(pwd1));     
         
     }     
-
+*/
 }
