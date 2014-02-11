@@ -21,10 +21,25 @@
 
  	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/login.do" access="permitAll"/>
+		<intercept-url pattern="/registration.do" access="permitAll"/>
+		<intercept-url pattern="/registrationOpenId.do" access="permitAll"/>
+		<!--<intercept-url pattern="/home.do" access="permitAll"/>
+		--><!-- test access deniedException -->
+		<intercept-url pattern="/account/home.do" access="hasRole('ROLE_DENIE')"/>
 		<intercept-url pattern="/account/*.do" access="hasRole('ROLE_USER') and fullyAuthenticated"/>
 		<intercept-url pattern="/*" access="hasRole('ROLE_USER')"/>
 		<form-login login-page="/login.do"/>
 		<remember-me key="jbcpPetStore" token-validity-seconds="3600" data-source-ref="dataSource"/>
+		
+		<session-management session-fixation-protection="migrateSession">
+			<concurrency-control max-sessions="1" expired-url="/login.do?error=expired"/>
+		</session-management>
+		
+		<!--<session-management session-fixation-protection="migrateSession"/>-->
+		<access-denied-handler error-page="/accessDenied.do"/>
+		
+		<openid-login authentication-failure-handler-ref="openIdAuthFailureHandler">
+		</openid-login>
 	</http>	 
 	
 	<!--<authentication-manager alias="authenticationManager">
@@ -33,6 +48,13 @@
 		</authentication-provider>
 	</authentication-manager>
 	-->
+	<ldap-server ldif="classpath:JBCPPets.ldif" id="ldapLocal" root="dc=jbcppets,dc=com"/>
+	
+	
+	
+	
+	
+	
 	
 	<authentication-manager alias="authenticationManager">
 		<authentication-provider user-service-ref="jdbcUserService">
@@ -40,6 +62,22 @@
 				<salt-source ref="saltSource"/>
 			</password-encoder>
 		</authentication-provider>
+		<ldap-authentication-provider server-ref="ldapLocal" 
+			user-search-filter="(uid={0})"
+			group-search-base="ou=Groups"		
+		/>
 	</authentication-manager>		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </beans:beans>

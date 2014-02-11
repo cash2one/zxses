@@ -7,9 +7,17 @@
 		/WEB-INF/dogstore-security.xml
 		/WEB-INF/dogstore-base.xml
 	</param-value>
+	<!--
+	<param-value>
+		/WEB-INF/dogstore-explicit-base.xml
+	</param-value>
+	-->
    </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+  	<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
   </listener>
   <servlet>
     <servlet-name>dogstore</servlet-name>

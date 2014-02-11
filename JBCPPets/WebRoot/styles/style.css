@@ -1,13 +1,14 @@
-body {
+﻿body {
 	font-family: Verdana, Arial, Helvetica;
 	font-size: 1em;
 }
 #header {
 	background-color: #A8987D;
+	padding: 4px 4px 4px 0px;
 }
 #header ul {
 	margin: 0px;
-	padding: 4px 2px;
+	padding: 0px 2px;
 }
 #header ul li {
 	float: left;

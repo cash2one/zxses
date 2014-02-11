@@ -13,6 +13,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.packtpub.springsecurity.security.SaltedUser;
 
@@ -69,5 +70,11 @@ public class CustomJdbcDaoImpl extends JdbcDaoImpl implements IChangePassword {
                 return new SaltedUser(username, password, enabled, true, true, true, AuthorityUtils.NO_AUTHORITIES, salt);
             }
         });
+	}
+	
+	@Transactional
+	public void createUser(String username, String password, String email) {
+		getJdbcTemplate().update("insert into users(username, password, enabled, salt) values (?,?,true,CAST(RAND()*1000000000 AS varchar))", username, password);
+		getJdbcTemplate().update("insert into group_members(group_id, username) select id,? from groups where group_name='Users'", username);		
 	}
 }
