@@ -10,6 +10,7 @@
 	We have many great breeds of pet available for your perusal.
 </p>
 <ul>
+	sessionId:<%=session.getId()%>
 	<li><a href="listPets.do?species=dog">Dogs</a></li>
 	<li><a href="listPets.do?species=cat">Cats</a></li>
 </ul>
